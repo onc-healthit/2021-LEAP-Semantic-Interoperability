@@ -6,10 +6,10 @@ github.com/bserdar/jsonom v0.0.0-20211005020717-9af6d87a0e9f h1:y+xtjRMDgmI9SH+i
 github.com/bserdar/jsonom v0.0.0-20211005020717-9af6d87a0e9f/go.mod h1:TQmmc1021Sypc6dta8Ssw+m9ZP2L7dIz5tH+YHknUD0=
 github.com/bserdar/jsonstream v0.0.0-20190428032403-9f1769267072 h1:mecQC3iZjP+DX9V2CRCgODUD8xflZ5ao9qTvwBGt2Vw=
 github.com/bserdar/jsonstream v0.0.0-20190428032403-9f1769267072/go.mod h1:MDfUY2WcQQXxYiWX88EUV+j+rQDUTsj/alO6SP9Vkio=
-github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220727042417-4c694cc2b418 h1:LT8k4LA5mLkbiNESi0vmau7PoQ76b/oXzzXA5ApvK0g=
-github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220727042417-4c694cc2b418/go.mod h1:25dUyWIgxCnllqTetYvPblM2xsWED+BGSpsznEkLSig=
-github.com/cloudprivacylabs/opencypher v1.0.0-beta-3.0.20220708033305-81bc98f9c293 h1:nxDxdvs768B5+6FiePcGnfj1b199bF1d21f79YtGlJ4=
-github.com/cloudprivacylabs/opencypher v1.0.0-beta-3.0.20220708033305-81bc98f9c293/go.mod h1:qEWSpb/GEgFzHqSMI2RD3OxruB4upIbWJcXrI60PFKI=
+github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220802163814-aae626e15bad h1:5f7BUrpZ9N8QOMMo2wHNtT+ePxEVvioTC0KnTQ8kIgw=
+github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220802163814-aae626e15bad/go.mod h1:Z4vPXWAyOMkYgT4PNFP+XXlv7pOz6nTOSJPTvWITBKk=
+github.com/cloudprivacylabs/opencypher v1.0.0-beta-3.0.20220730024557-5b8af6404c02 h1:hkJmGxnNrYHRNDylmqDQjqn/XqVwy16ZVZij2gDfF24=
+github.com/cloudprivacylabs/opencypher v1.0.0-beta-3.0.20220730024557-5b8af6404c02/go.mod h1:qEWSpb/GEgFzHqSMI2RD3OxruB4upIbWJcXrI60PFKI=
 github.com/cpuguy83/go-md2man/v2 v2.0.2/go.mod h1:tgQtvFlXSQOSOSIRvRPT7W67SCa46tRHOmNcaadrF8o=
 github.com/davecgh/go-spew v1.1.0/go.mod h1:J7Y8YcW2NihsgmVo/mv3lAwl/skON4iLHjSsI+c5H38=
 github.com/davecgh/go-spew v1.1.1 h1:vj9j/u1bqnvCEfJOwUhtlOARqs3+rkHYY13jYWTU97c=

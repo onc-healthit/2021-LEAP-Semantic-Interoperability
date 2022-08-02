@@ -3,7 +3,7 @@ module github.com/cloudprivacylabs/leap
 go 1.18
 
 require (
-	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220727042417-4c694cc2b418
+	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220802163814-aae626e15bad
 	github.com/spf13/cobra v1.5.0
 )
 
@@ -12,7 +12,7 @@ require (
 	github.com/araddon/dateparse v0.0.0-20210429162001-6b43995a97de // indirect
 	github.com/bserdar/jsonom v0.0.0-20211005020717-9af6d87a0e9f // indirect
 	github.com/bserdar/jsonstream v0.0.0-20190428032403-9f1769267072 // indirect
-	github.com/cloudprivacylabs/opencypher v1.0.0-beta-3.0.20220708033305-81bc98f9c293 // indirect
+	github.com/cloudprivacylabs/opencypher v1.0.0-beta-3.0.20220730024557-5b8af6404c02 // indirect
 	github.com/emirpasic/gods v1.18.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect

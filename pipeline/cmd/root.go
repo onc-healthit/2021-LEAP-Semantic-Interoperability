@@ -15,13 +15,15 @@
 package cmd
 
 import (
+	"io"
 	"log"
 	"os"
 	"runtime/pprof"
 
 	"github.com/spf13/cobra"
 
-	"github.com/cloudprivacylabs/lsa/layers/cmd"
+	"github.com/cloudprivacylabs/leap/pkg/input"
+	pipeline "github.com/cloudprivacylabs/lsa/layers/cmd/pipeline"
 	"github.com/cloudprivacylabs/lsa/pkg/ls"
 )
 
@@ -50,15 +52,24 @@ var (
 			}
 		},
 		RunE: func(ccmd *cobra.Command, args []string) error {
-			pipeline, err := cmd.ReadPipeline(args[0])
+			pl, err := pipeline.ReadPipeline(args[0])
 			if err != nil {
 				return err
 			}
-			inputs, err := input.ReadPaths(ctx, args[1:]...)
+			inputs, err := input.ReadPaths(ls.DefaultContext(), args[1:]...)
 			if err != nil {
 				return err
 			}
-
+			for _, p := range pl {
+				entry := <-inputs
+				if err := p.Run(&pipeline.PipelineContext{
+					NextInput: func() (io.ReadCloser, error) {
+						return io.NopCloser(entry.Stream), nil
+					},
+				}); err != nil {
+					return err
+				}
+			}
 			return nil
 		},
 	}

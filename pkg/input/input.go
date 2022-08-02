@@ -15,7 +15,10 @@
 package input
 
 import (
+	"context"
 	"io"
+	"os"
+	"path/filepath"
 )
 
 // Entry represents an input element that contains either a stream, or
@@ -57,9 +60,10 @@ func ReadPaths(ctx context.Context, paths ...string) (<-chan Entry, error) {
 			return nil, err
 		}
 		if fi.IsDir() {
-			dirs = append(dirs, filepath.Join(p, fi.Name))
+			dirs = append(dirs, filepath.Join(p, fi.Name()))
 		} else {
-			files = append(files, filepath.Join(p, fi.Name))
+			files = append(files, filepath.Join(p, fi.Name()))
 		}
 	}
+	return nil, nil
 }
