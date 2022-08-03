@@ -60,8 +60,10 @@ var (
 			if err != nil {
 				return err
 			}
+			// add panic recovery in ingest csv/json/xml
 			for _, p := range pl {
 				entry := <-inputs
+				// call pipeline.Run not iface Run
 				if err := p.Run(&pipeline.PipelineContext{
 					NextInput: func() (io.ReadCloser, error) {
 						return io.NopCloser(entry.Stream), nil
