@@ -60,18 +60,11 @@ var (
 			if err != nil {
 				return err
 			}
-			// add panic recovery in ingest csv/json/xml
-			for _, p := range pl {
+			// returns *pipeline.PipelineContext
+			_, err = pipeline.Run(ls.DefaultContext(), pl, nil, func() (io.ReadCloser, error) {
 				entry := <-inputs
-				// call pipeline.Run not iface Run
-				if err := p.Run(&pipeline.PipelineContext{
-					NextInput: func() (io.ReadCloser, error) {
-						return io.NopCloser(entry.Stream), nil
-					},
-				}); err != nil {
-					return err
-				}
-			}
+				return io.NopCloser(entry.Stream), nil
+			})
 			return nil
 		},
 	}
