@@ -3,6 +3,8 @@ typeNames:
     jsonSchema:
       ref: fhir.schema.json#/definitions/Extension
       layerId: https://hl7.org/fhir/Extension
+    overlays:
+      - schema: extension.ovl.json
   https://hl7.org/fhir/ChargeItem:
     jsonSchema:
       ref: fhir.schema.json#/definitions/ChargeItem
@@ -139,6 +141,12 @@ typeNames:
     jsonSchema:
       ref: fhir.schema.json#/definitions/CodeSystem
       layerId: https://hl7.org/fhir/CodeSystem
+  https://hl7.org/fhir/Coding:
+    jsonSchema:
+      ref: fhir.schema.json#/definitions/Coding
+      layerId: https://hl7.org/fhir/Coding
+    overlays:
+      - schema: coding.ovl.json
   https://hl7.org/fhir/Specimen:
     jsonSchema:
       ref: fhir.schema.json#/definitions/Specimen

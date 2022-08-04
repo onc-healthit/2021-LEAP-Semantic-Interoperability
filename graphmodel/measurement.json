@@ -1,0 +1,78 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@id": "https://dartnet.info/graphModel/Measurement/schema",
+    "@type": "Schema",
+    "valueType": "https://dartnet.info/graphModel/Measurement",
+    "layer": {
+        "@id": "https://dartnet.info/graphModel/Measurement",
+        "@type": [
+            "Attribute",
+            "Object",
+            "https://dartnet.info/graphModel/Measurement"
+        ],
+        "attributes": {
+            "https://dartnet.info/graphModel/Measurement/normalizedSystemName": {
+                "@type": ["Value","MeasurementCodeSystem"]
+            },
+            "https://dartnet.info/graphModel/Measurement/normalizedCode": {
+                "@type": ["Value","MeasurementCode"],
+                "vsValuesets": "code",
+                "vsRequestKeys": [
+                    "vocabulary",
+                    "code"
+                ],
+                "vsRequestValues": [
+                    "https://dartnet.info/graphModel/Measurement/normalizedSystemName",
+                    "https://dartnet.info/graphModel/Measurement/code"
+                ],
+                "vsResultKeys": [
+                    "concept_id"
+                ],
+                "vsResultValues": "https://dartnet.info/graphModel/Measurement/normalizedCode"
+            },
+            "https://dartnet.info/graphModel/Measurement/systemName": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Measurement/code": {
+                "@type": ["Value","Code"]
+            },
+            "https://dartnet.info/graphModel/Measurement/displayName": {
+                "@type": ["Value"]
+            },
+            "https://dartnet.info/graphModel/Measurement/date": {
+                "@type": "Value",
+                "valueType": "ls:date"
+            },
+            "https://dartnet.info/graphModel/Measurement/type": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Measurement/operator": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Measurement/value": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Measurement/unit": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Measurement/rangeLow": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Measurement/rangeHigh": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Measurement/measure": {
+                "@type": "Value",
+                "valueType": "Measure",
+                "measureValueNode": "https://dartnet.info/graphModel/Measurement/value",
+                "measureUnitNode": "https://dartnet.info/graphModel/Measurement/unit"
+            },
+            "https://dartnet.info/graphModel/Measurement/person": {
+                "@type": "Value",
+                "referenceFKFor": "https://dartnet.info/graphmodel/Person",
+                "referenceDir": "from",
+                "referenceLabel": "https://lschema.org/has"
+            }
+        }
+    }
+}

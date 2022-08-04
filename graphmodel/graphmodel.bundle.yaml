@@ -1,0 +1,16 @@
+typeNames:
+  https://dartnet.info/graphModel/Condition:
+    schema: condition.json
+  https://dartnet.info/graphModel/DrugExposure:
+    schema: drugexposure.json
+  https://dartnet.info/graphModel/Measurement:
+    schema: measurement.json
+  https://dartnet.info/graphModel/Observation:
+    schema: observation.json
+  https://dartnet.info/graphModel/Person:
+    schema: person.json
+  https://dartnet.info/graphModel/Procedure:
+    schema: procedure.json
+  https://dartnet.info/graphModel/Visit:
+    schema: visit.json
+    

@@ -1,0 +1,16 @@
+- operation: ingest/json
+  params:
+    bundle:
+      - schemas/fhir.bundle.yaml
+    type: https://hl7.org/fhir/Bundle
+    onlySchemaAttributes: true
+- operation: reshape
+  params:
+    bundle:
+      - ../graphmodel/graphmodel.bundle.yaml
+    type: https://dartnet.info/graphModel/Person
+    scriptFile: reshape/fhir-to-graph.script.yaml
+- operation: measures
+  params:
+- operation: writeGraph
+  

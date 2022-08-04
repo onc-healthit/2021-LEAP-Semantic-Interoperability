@@ -1,0 +1,160 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@id": "https://dartnet.info/graphModel/DrugExposure/schema",
+    "@type": "Schema",
+    "valueType": "https://dartnet.info/graphModel/DrugExposure",
+    "layer": {
+        "@id": "https://dartnet.info/graphModel/DrugExposure",
+        "@type": [
+            "Attribute",
+            "Object",
+            "https://dartnet.info/graphModel/DrugExposure"
+        ],
+        "attributes": {
+            "https://dartnet.info/graphModel/DrugExposure/start": {
+                "@type": "Value",
+                "valueType": "xsd:dateTime"
+            },
+            "https://dartnet.info/graphModel/DrugExposure/end": {
+                "@type": "Value",
+                "valueType": "xsd:dateTime"
+            },
+            "https://dartnet.info/graphModel/DrugExposure/drug/normalizedSystemName": {
+                "@type": ["Value","DrugExposureCodeSystem"]
+            },
+            "https://dartnet.info/graphModel/DrugExposure/drug/normalizedDisplayName": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/DrugExposure/drug/displayName": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/DrugExposure/drug/normalizedCode": {
+                "@type": ["Value","DrugExposureCode"],
+                "vsValuesets": "code",
+                "vsRequestKeys": [
+                    "vocabulary",
+                    "code"
+                ],
+                "vsRequestValues": [
+                    "https://dartnet.info/graphModel/DrugExposure/drug/normalizedSystemName",
+                    "https://dartnet.info/graphModel/DrugExposure/drug/code"
+                ],
+                "vsResultKeys": [
+                    "concept_id",
+                    "concept_name"
+                ],
+                "vsResultValues": [
+                    "https://dartnet.info/graphModel/DrugExposure/drug/normalizedCode",
+                    "https://dartnet.info/graphModel/DrugExposure/drug/normalizedDisplayName"
+                ]
+            },
+            "https://dartnet.info/graphModel/DrugExposure/drug/systemName": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/DrugExposure/drug/code": {
+                "@type": ["Value","Code"]
+            },    
+            "https://dartnet.info/graphModel/DrugExposure/drugType/normalizedSystemName": {
+                "@type": ["Value","DrugTypeCodeSystem"]
+            },
+            "https://dartnet.info/graphModel/DrugExposure/drugType/normalizedDisplayName": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/DrugExposure/drugType/displayName": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/DrugExposure/drugType/normalizedCode": {
+                "@type": ["Value","DrugTypeCode"],
+                "vsValuesets": "code",
+                "vsRequestKeys": [
+                    "vocabulary",
+                    "code"
+                ],
+                "vsRequestValues": [
+                    "https://dartnet.info/graphModel/DrugExposure/drugType/normalizedSystemName",
+                    "https://dartnet.info/graphModel/DrugExposure/drugType/code"
+                ],
+                "vsResultKeys": [
+                    "concept_id",
+                    "concept_name"
+                ],
+                "vsResultValues": [
+                    "https://dartnet.info/graphModel/DrugExposure/drugType/normalizedCode",
+                    "https://dartnet.info/graphModel/DrugExposure/drugType/normalizedDisplayName"
+                ]
+            },
+            "https://dartnet.info/graphModel/DrugExposure/drugType/systemName": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/DrugExposure/drugType/code": {
+                "@type": ["Value","Code"]
+            },    
+                    
+            "https://dartnet.info/graphModel/DrugExposure/route/normalizedSystemName": {
+                "@type": ["Value","DrugRouteCodeSystem"]
+            },
+            "https://dartnet.info/graphModel/DrugExposure/route/normalizedDisplayName": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/DrugExposure/route/displayName": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/DrugExposure/route/normalizedCode": {
+                "@type": ["Value","DrugRouteCode"],
+                "vsValuesets": "code",
+                "vsRequestKeys": [
+                    "vocabulary",
+                    "code"
+                ],
+                "vsRequestValues": [
+                    "https://dartnet.info/graphModel/DrugExposure/route/normalizedSystemName",
+                    "https://dartnet.info/graphModel/DrugExposure/route/code"
+                ],
+                "vsResultKeys": [
+                    "concept_id",
+                    "concept_name"
+                ],
+                "vsResultValues": [
+                    "https://dartnet.info/graphModel/DrugExposure/route/normalizedCode",
+                    "https://dartnet.info/graphModel/DrugExposure/route/normalizedDisplayName"
+                ]
+            },
+            "https://dartnet.info/graphModel/DrugExposure/route/systemName": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/DrugExposure/route/code": {
+                "@type": ["Value","Code"]
+            },
+
+            "https://dartnet.info/graphModel/DrugExposure/stopReason": {
+                "@type": "Value"
+            },
+             "https://dartnet.info/graphModel/DrugExposure/refills": {
+                "@type": "Value"
+            },
+             "https://dartnet.info/graphModel/DrugExposure/quantity": {
+                "@type": "Value"
+            },
+             "https://dartnet.info/graphModel/DrugExposure/daysSupply": {
+                "@type": "Value"
+            },
+             "https://dartnet.info/graphModel/DrugExposure/sig": {
+                "@type": "Value"
+            },
+             "https://dartnet.info/graphModel/DrugExposure/lotNumber": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/DrugExposure/unit": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/DrugExposure/person": {
+                "@type": "Value",
+                "referenceFKFor": "https://dartnet.info/graphModel/Person",
+                "referenceDir": "from",
+                "referenceLabel": "https://lschema.org/has"
+            }
+        }
+    }
+}
+
+            

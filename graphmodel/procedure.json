@@ -1,0 +1,38 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@id": "https://dartnet.info/graphModel/Procedure/schema",
+    "@type": "Schema",
+    "valueType": "https://dartnet.info/graphModel/Procedure",
+    "layer": {
+        "@id": "https://dartnet.info/graphModel/Procedure",
+        "@type": [
+            "Attribute",
+            "Object",
+            "https://dartnet.info/graphModel/Procedure"
+        ],
+        "attributes": {
+            "https://dartnet.info/graphModel/Procedure/procedure": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Procedure/date": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Procedure/type": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Procedure/modifier": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Procedure/quantity": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Procedure/person": {
+                "@type": "Value",
+                "referenceFKFor": "https://dartnet.info/graphModel/Person",
+                "referenceDir": "from",
+                "referenceLabel": "https://lschema.org/has"
+            }
+        }
+    }
+}
+

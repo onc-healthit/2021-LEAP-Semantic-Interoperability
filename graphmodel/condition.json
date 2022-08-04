@@ -1,0 +1,71 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@id": "https://dartnet.info/graphModel/Condition/schema",
+    "@type": "Schema",
+    "valueType": "https://dartnet.info/graphModel/Condition",
+    "layer": {
+        "@id": "https://dartnet.info/graphModel/Condition",
+        "@type": [
+            "Attribute",
+            "Object",
+            "https://dartnet.info/graphModel/Condition"
+        ],
+        "attributes": {
+            "https://dartnet.info/graphModel/Condition/normalizedSystemName": {
+                "@type": ["Value","ConditionCodeSystem"]
+            },
+            "https://dartnet.info/graphModel/Condition/normalizedDisplayName": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Condition/displayName": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Condition/normalizedCode": {
+                "@type": ["Value","ConditionCode"],
+                "vsValuesets": "code",
+                "vsRequestKeys": [
+                    "vocabulary",
+                    "code"
+                ],
+                "vsRequestValues": [
+                    "https://dartnet.info/graphModel/Condition/normalizedSystemName",
+                    "https://dartnet.info/graphModel/condition/code"
+                ],
+                "vsResultKeys": [
+                    "concept_id",
+                    "concept_name"
+                ],
+                "vsResultValues": [
+                    "https://dartnet.info/graphModel/Condition/normalizedCode",
+                    "https://dartnet.info/graphModel/Condition/normalizedDisplayName"
+                ]
+            },
+            "https://dartnet.info/graphModel/Condition/systemName": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Condition/code": {
+                "@type": ["Value","Code"]
+            },
+            "https://dartnet.info/graphModel/Condition/start": {
+                "@type": "Value",
+                "valueType": "xsd:dateTime"
+            },
+            "https://dartnet.info/graphModel/Condition/end": {
+                "@type": "Value",
+                "valueType": "xsd:dateTime"
+            },
+            "https://dartnet.info/graphModel/Condition/type": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Condition/status": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Condition/person": {
+                "@type": "Value",
+                "referenceFKFor": "https://dartnet.info/graphModel/Person",
+                "referenceDir": "from",
+                "referenceLabel": "https://lschema.org/has"
+            }
+        }
+    }
+}

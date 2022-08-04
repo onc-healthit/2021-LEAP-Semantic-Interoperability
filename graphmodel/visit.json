@@ -1,0 +1,44 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@id": "https://dartnet.info/graphModel/Visit/schema",
+    "@type": "Schema",
+    "valueType": "https://dartnet.info/graphModel/Visit",
+    "layer": {
+        "@id": "https://dartnet.info/graphModel/Visit",
+        "@type": [
+            "Attribute",
+            "Object",
+            "https://dartnet.info/graphModel/Visit"
+        ],
+        "attributes": {
+            "https://dartnet.info/graphModel/Visit/id": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Visit/visit": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Visit/start": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Visit/end": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Visit/type": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Visit/provider": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Visit/careSite": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Visit/admittedFrom": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Visit/dischargeTo": {
+                "@type": "Value"
+            }
+        }
+    }
+}
+

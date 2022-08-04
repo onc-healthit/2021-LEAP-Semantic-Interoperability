@@ -1,0 +1,127 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@id": "https://dartnet.info/graphModel/Person/schema",
+    "@type": "Schema",
+    "valueType": "https://dartnet.info/graphModel/Person",
+    "layer": {
+        "@id": "https://dartnet.info/graphModel/Person",
+        "@type": [
+            "Attribute",
+            "Object",
+            "https://dartnet.info/graphModel/Person"
+        ],
+        "entityIdFields": "https://dartnet.info/graphModel/Person/id",
+        "attributes": {
+            "https://dartnet.info/graphModel/Person/id": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Person/gender": {
+                "@type": "Object",
+                "attributes": {
+                    "https://dartnet.info/graphModel/Person/gender/sourceValue": {
+                        "@type": "Value"
+                    },
+                    "https://dartnet.info/graphModel/Person/gender/sourceSystem": {
+                        "@type": "Value"
+                    },
+                    "https://dartnet.info/graphModel/Person/gender/normalizedValue": {
+                        "@type": "Value"
+                    }
+                }
+            },
+            "https://dartnet.info/graphModel/Person/birthDate": {
+                "@type": "Value",
+                "valueType": "xsd:date"
+            },
+            "https://dartnet.info/graphModel/Person/deathDate": {
+                "@type": "Value",
+                "valueType": "xsd:date"
+            },
+            "https://dartnet.info/graphModel/Person/race": {
+                "@type": "Object",
+                "attributes": {
+                    "https://dartnet.info/graphModel/Person/race/sourceValue": {
+                        "@type": "Value"
+                    },
+                    "https://dartnet.info/graphModel/Person/race/sourceSystem": {
+                        "@type": "Value"
+                    },
+                    "https://dartnet.info/graphModel/Person/race/normalizedValue": {
+                        "@type": "Value"
+                    }
+                }
+            },
+            "https://dartnet.info/graphModel/Person/ethnicity": {
+                "@type": "Object",
+                "attributes": {
+                    "https://dartnet.info/graphModel/Person/ethnicity/sourceValue": {
+                        "@type": "Value"
+                    },
+                    "https://dartnet.info/graphModel/Person/ethnicity/sourceSystem": {
+                        "@type": "Value"
+                    },
+                    "https://dartnet.info/graphModel/Person/ethnicity/normalizedValue": {
+                        "@type": "Value"
+                    }
+                }
+            },
+            "https://dartnet.info/graphModel/Person/locationId": {
+                "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Person/conditions": {
+                "@type": "Array",
+                "ingestAs": "none",
+                "arrayElements": {
+                    "@id": "https://dartnet.info/graphModel/Person/conditions/element",
+                    "@type": "Reference",
+                    "ref": "https://dartnet.info/graphModel/Condition"
+                }
+            },
+            "https://dartnet.info/graphModel/Person/drugExposures": {
+                "@type": "Array",
+                "ingestAs": "none",
+                "arrayElements": {
+                    "@id": "https://dartnet.info/graphModel/Person/drugExposures/element",
+                    "@type": "Reference",
+                    "ref": "https://dartnet.info/graphModel/DrugExposure"
+                }
+            },
+            "https://dartnet.info/graphModel/Person/measurements": {
+                "@type": "Array",
+                "ingestAs": "none",
+                "arrayElements": {
+                    "@id": "https://dartnet.info/graphModel/Person/measurements/element",
+                    "@type": "Reference",
+                    "ref": "https://dartnet.info/graphModel/Measurement"
+                }
+            },
+            "https://dartnet.info/graphModel/Person/observations": {
+                "@type": "Array",
+                "ingestAs": "none",
+                "arrayElements": {
+                    "@id": "https://dartnet.info/graphModel/Person/observations/element",
+                    "@type": "Reference",
+                    "ref": "https://dartnet.info/graphModel/Observation"
+                }
+            },
+            "https://dartnet.info/graphModel/Person/procedures": {
+                "@type": "Array",
+                "ingestAs": "none",
+                "arrayElements": {
+                    "@id": "https://dartnet.info/graphModel/Person/procedures/element",
+                    "@type": "Reference",
+                    "ref": "https://dartnet.info/graphModel/Procedure"
+                }
+            },
+            "https://dartnet.info/graphModel/Person/visits": {
+                "@type": "Array",
+                "ingestAs": "none",
+                "arrayElements": {
+                    "@id": "https://dartnet.info/graphModel/Person/visits/element",
+                    "@type": "Reference",
+                    "ref": "https://dartnet.info/graphModel/Visit"
+                }
+            }
+        }
+    }
+}
