@@ -58,14 +58,15 @@ var (
 				return err
 			}
 			ctx := getContext(ccmd)
-			inputs, err := input.ReadPaths(ctx, args[1:]...)
+			inputs, errch, err := input.ReadPaths(ctx, args[1:]...)
 			if err != nil {
 				return err
 			}
 
-			for x := range inputs {
-				fmt.Println(x)
-			}
+			go func() {
+				for err := range errch {
+				}
+			}()
 
 			// returns *pipeline.PipelineContext
 			_, err = pipeline.Run(ctx, pl, nil, func() (io.ReadCloser, error) {

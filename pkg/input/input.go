@@ -53,7 +53,7 @@ func ReadMany(ch ...<-chan Entry) <-chan Entry {
 }
 
 // ReadPaths reads files/directories
-func ReadPaths(ctx *ls.Context, paths ...string) (<-chan Entry, error) {
+func ReadPaths(ctx *ls.Context, paths ...string) (<-chan Entry, <-chan error, error) {
 	dirs := make([]string, 0)
 	files := make([]string, 0)
 	for _, p := range paths {
@@ -103,12 +103,5 @@ func ReadPaths(ctx *ls.Context, paths ...string) (<-chan Entry, error) {
 			}
 		}
 	}()
-	select {
-	case err, ok := <-errors:
-		if ok {
-			return entries, fmt.Errorf("%s", err.Error())
-		}
-	default:
-	}
-	return entries, nil
+	return entries, errors, nil
 }
