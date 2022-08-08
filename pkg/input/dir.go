@@ -16,6 +16,7 @@ package input
 
 import (
 	"context"
+	"fmt"
 	"io"
 	"io/fs"
 	"os"
@@ -28,6 +29,7 @@ func ReadDir(ctx context.Context, path string) (<-chan Entry, error) {
 	if err != nil {
 		return nil, err
 	}
+	fmt.Println("Opened", path)
 	ch := make(chan Entry)
 	go func() {
 		defer close(ch)
@@ -38,7 +40,9 @@ func ReadDir(ctx context.Context, path string) (<-chan Entry, error) {
 				return
 			default:
 			}
+			fmt.Println("Reading dir")
 			entries, err := dir.ReadDir(1024)
+			fmt.Println("entries", len(entries))
 			for _, entry := range entries {
 				if (entry.Type() & fs.ModeType) == 0 {
 					fEntry := Entry{
@@ -49,13 +53,16 @@ func ReadDir(ctx context.Context, path string) (<-chan Entry, error) {
 							}
 						},
 					}
+					fmt.Println("open", fEntry)
 					f, err := os.Open(fEntry.Name)
 					if err != nil {
 						fEntry.Err = err
 					} else {
 						fEntry.Stream = f
 					}
+					fmt.Println("sending")
 					ch <- fEntry
+					fmt.Println("Sent")
 				}
 			}
 			if err == io.EOF {

@@ -15,6 +15,7 @@
 package cmd
 
 import (
+	"fmt"
 	"io"
 	"log"
 	"os"
@@ -56,14 +57,27 @@ var (
 			if err != nil {
 				return err
 			}
-			inputs, err := input.ReadPaths(ls.DefaultContext(), args[1:]...)
+			ctx := getContext(ccmd)
+			inputs, err := input.ReadPaths(ctx, args[1:]...)
 			if err != nil {
 				return err
 			}
+
+			for x := range inputs {
+				fmt.Println(x)
+			}
+
 			// returns *pipeline.PipelineContext
-			_, err = pipeline.Run(ls.DefaultContext(), pl, nil, func() (io.ReadCloser, error) {
+			_, err = pipeline.Run(ctx, pl, nil, func() (io.ReadCloser, error) {
+				ctx.GetLogger().Debug(map[string]interface{}{
+					"pipeline": "fetching next input",
+				})
 				select {
 				case entry, ok := <-inputs:
+					ctx.GetLogger().Debug(map[string]interface{}{
+						"pipeline": entry.Name,
+						"ok":       ok,
+					})
 					if ok {
 						return io.NopCloser(entry.Stream), entry.Err
 					}
@@ -87,13 +101,13 @@ func init() {
 	rootCmd.PersistentFlags().Bool("log.info", false, "Enable logging at info level")
 }
 
-func getContext() *ls.Context {
-	l1, _ := rootCmd.PersistentFlags().GetBool("log")
-	l2, _ := rootCmd.PersistentFlags().GetBool("log.debug")
+func getContext(cmd *cobra.Command) *ls.Context {
+	l1, _ := cmd.Flags().GetBool("log")
+	l2, _ := cmd.Flags().GetBool("log.debug")
 	if l1 || l2 {
 		logger.Level = ls.LogLevelDebug
 	}
-	l1, _ = rootCmd.PersistentFlags().GetBool("log.info")
+	l1, _ = cmd.Flags().GetBool("log.info")
 	if l1 {
 		logger.Level = ls.LogLevelInfo
 	}
