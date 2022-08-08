@@ -16,6 +16,7 @@ package input
 
 import (
 	"context"
+	"fmt"
 	"io"
 	"os"
 	"path/filepath"
@@ -62,8 +63,38 @@ func ReadPaths(ctx context.Context, paths ...string) (<-chan Entry, error) {
 		if fi.IsDir() {
 			dirs = append(dirs, filepath.Join(p, fi.Name()))
 		} else {
-			files = append(files, filepath.Join(p, fi.Name()))
+			files = append(files, p)
 		}
 	}
-	return nil, nil
+	entries := make(chan Entry)
+	errors := make(chan error)
+	fch, err := ReadFiles(ctx, files...)
+	if err != nil {
+		return entries, err
+	}
+	go func() {
+		defer close(entries)
+		defer close(errors)
+		for f := range fch {
+			entries <- f
+		}
+		for _, dir := range dirs {
+			dirCh, err := ReadDir(ctx, dir)
+			if err != nil {
+				errors <- err
+				return
+			}
+			for dir := range dirCh {
+				entries <- dir
+			}
+		}
+	}()
+	select {
+	case err, ok := <-errors:
+		if ok {
+			return entries, fmt.Errorf("%s", err.Error())
+		}
+	default:
+	}
+	return entries, nil
 }

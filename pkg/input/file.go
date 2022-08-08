@@ -20,7 +20,7 @@ import (
 )
 
 // ReadFiles reads the given files
-func ReadFiles(ctx context.Context, files ...string) (<-chan Entry, error) {
+func ReadFiles(ctx context.Context, files ...string) (chan Entry, error) {
 	ch := make(chan Entry)
 	go func() {
 		defer close(ch)

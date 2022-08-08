@@ -62,8 +62,13 @@ var (
 			}
 			// returns *pipeline.PipelineContext
 			_, err = pipeline.Run(ls.DefaultContext(), pl, nil, func() (io.ReadCloser, error) {
-				entry := <-inputs
-				return io.NopCloser(entry.Stream), nil
+				select {
+				case entry, ok := <-inputs:
+					if ok {
+						return io.NopCloser(entry.Stream), entry.Err
+					}
+				}
+				return nil, nil
 			})
 			return nil
 		},
