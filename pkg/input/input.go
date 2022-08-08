@@ -15,7 +15,6 @@
 package input
 
 import (
-	"fmt"
 	"io"
 	"os"
 	"path/filepath"
@@ -53,7 +52,7 @@ func ReadMany(ch ...<-chan Entry) <-chan Entry {
 }
 
 // ReadPaths reads files/directories
-func ReadPaths(ctx *ls.Context, paths ...string) (<-chan Entry, <-chan error, error) {
+func ReadPaths(ctx *ls.Context, paths ...string) (<-chan Entry, error) {
 	dirs := make([]string, 0)
 	files := make([]string, 0)
 	for _, p := range paths {
@@ -67,41 +66,26 @@ func ReadPaths(ctx *ls.Context, paths ...string) (<-chan Entry, <-chan error, er
 			files = append(files, p)
 		}
 	}
-	ctx.GetLogger().Debug(map[string]interface{}{
-		"readPaths.dirs":  len(dirs),
-		"readPaths.files": len(files),
-	})
 	entries := make(chan Entry)
-	errors := make(chan error)
 	fch, err := ReadFiles(ctx, files...)
 	if err != nil {
 		return entries, err
 	}
 	go func() {
 		defer close(entries)
-		defer close(errors)
 		for f := range fch {
-			ctx.GetLogger().Debug(map[string]interface{}{
-				"readPaths.file": f.Name,
-			})
 			entries <- f
 		}
 		for _, dir := range dirs {
-			ctx.GetLogger().Debug(map[string]interface{}{
-				"readPaths.dir": dir,
-			})
 			dirCh, err := ReadDir(ctx, dir)
 			if err != nil {
-				errors <- err
+				entries <- Entry{Err: err}
 				return
 			}
 			for dir := range dirCh {
-				ctx.GetLogger().Debug(map[string]interface{}{
-					"readPaths.atdir": dir,
-				})
 				entries <- dir
 			}
 		}
 	}()
-	return entries, errors, nil
+	return entries, nil
 }

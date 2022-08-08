@@ -15,7 +15,6 @@
 package cmd
 
 import (
-	"fmt"
 	"io"
 	"log"
 	"os"
@@ -58,27 +57,14 @@ var (
 				return err
 			}
 			ctx := getContext(ccmd)
-			inputs, errch, err := input.ReadPaths(ctx, args[1:]...)
+			inputs, err := input.ReadPaths(ctx, args[1:]...)
 			if err != nil {
 				return err
 			}
-
-			go func() {
-				for err := range errch {
-				}
-			}()
-
 			// returns *pipeline.PipelineContext
 			_, err = pipeline.Run(ctx, pl, nil, func() (io.ReadCloser, error) {
-				ctx.GetLogger().Debug(map[string]interface{}{
-					"pipeline": "fetching next input",
-				})
 				select {
 				case entry, ok := <-inputs:
-					ctx.GetLogger().Debug(map[string]interface{}{
-						"pipeline": entry.Name,
-						"ok":       ok,
-					})
 					if ok {
 						return io.NopCloser(entry.Stream), entry.Err
 					}
