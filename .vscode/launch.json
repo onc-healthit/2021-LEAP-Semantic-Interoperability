@@ -16,5 +16,27 @@
                "data/fhir4_synthea/Aaron697_Brekke496_2fa15bc7-8866-461a-9000-f739e425860a.json",
             ]
         },
+        {
+            "name": "pipelineNeo4j",
+            "type": "go",
+            "request": "launch",
+            "mode": "debug",
+            "program": "${workspaceFolder}/pipeline",
+            "cwd": "${workspaceFolder}/pipeline",
+            "args" : [
+               "saveGraph",
+               "--user",
+               "neo4j",
+               "--pwd",
+               "password",
+               "--uri",
+               "neo4j://34.213.163.7:7687",
+               "db",
+               "neo4j",
+               "testdata/Aarontest.json",
+               "--batch",
+               "0",
+            ]
+        },
     ]
 }

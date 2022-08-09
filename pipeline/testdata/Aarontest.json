@@ -1,0 +1,136 @@
+{
+    "nodes": [
+        {
+            "n": 2,
+            "labels": [
+                "https://lschema.org/Object",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "1",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/gender"
+            },
+            "edges": [
+                {
+                    "to": 3,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 3,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/gender/sourceValue",
+                "https://lschema.org/value": "male"
+            }
+        },
+        {
+            "n": 4,
+            "labels": [
+                "https://lschema.org/Value",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "2",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/id",
+                "https://lschema.org/value": "5cbc121b-cd71-4428-b8b7-31e53eba8184"
+            }
+        },
+        {
+            "n": 5,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "3",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/race"
+            },
+            "edges": [
+                {
+                    "to": 6,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 7,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 6,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/race/sourceSystem",
+                "https://lschema.org/value": "urn:oid:2.16.840.1.113883.6.238"
+            }
+        },
+        {
+            "n": 7,
+            "labels": [
+                "https://lschema.org/Value",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "1",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/race/sourceValue",
+                "https://lschema.org/value": "2106-3"
+            }
+        },
+        {
+            "n": 0,
+            "labels": [
+                "https://lschema.org/Object",
+                "https://dartnet.info/graphModel/Person",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "3",
+                "https://lschema.org/entityId": "5cbc121b-cd71-4428-b8b7-31e53eba8184",
+                "https://lschema.org/entityIdFields": "https://dartnet.info/graphModel/Person/id",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/Person/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person"
+            },
+            "edges": [
+                {
+                    "to": 1,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 2,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 4,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 5,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 1,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/birthDate",
+                "https://lschema.org/value": "1945-12-10",
+                "https://lschema.org/valueType": "xsd:date"
+            }
+        }
+    ]
+}
