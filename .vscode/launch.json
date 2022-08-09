@@ -13,7 +13,7 @@
             "cwd": "${workspaceFolder}/fhir",
             "args" : [
                "bundle-to-gm.pipeline.yaml",
-               "data/fhir4_synthea/Aaron697_Brekke496_2fa15bc7-8866-461a-9000-f739e425860a.json",
+               "data/fhir4_synthea",
             ]
         },
         {

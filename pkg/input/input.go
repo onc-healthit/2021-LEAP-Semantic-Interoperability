@@ -17,7 +17,6 @@ package input
 import (
 	"io"
 	"os"
-	"path/filepath"
 
 	"github.com/cloudprivacylabs/lsa/pkg/ls"
 )
@@ -61,7 +60,7 @@ func ReadPaths(ctx *ls.Context, paths ...string) (<-chan Entry, error) {
 			return nil, err
 		}
 		if fi.IsDir() {
-			dirs = append(dirs, filepath.Join(p, fi.Name()))
+			dirs = append(dirs, p)
 		} else {
 			files = append(files, p)
 		}

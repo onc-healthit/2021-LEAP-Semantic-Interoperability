@@ -66,7 +66,10 @@ var (
 				select {
 				case entry, ok := <-inputs:
 					if ok {
-						return io.NopCloser(entry.Stream), entry.Err
+						if entry.Err != nil {
+							return nil, entry.Err
+						}
+						return io.NopCloser(entry.Stream), nil
 					}
 				}
 				return nil, nil
