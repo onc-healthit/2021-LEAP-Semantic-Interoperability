@@ -20,6 +20,7 @@ import (
 	"os"
 	"runtime/pprof"
 
+	"github.com/joho/godotenv"
 	"github.com/spf13/cobra"
 
 	"github.com/cloudprivacylabs/leap/pkg/input"
@@ -49,7 +50,7 @@ var (
 		},
 		PersistentPreRunE: func(cmd *cobra.Command, _ []string) error {
 			if f, _ := cmd.Flags().GetString("runlog"); len(f) > 0 {
-				logFile, err := os.OpenFile("../pipeline/cmd/logs/errors.log", os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
+				logFile, err := os.OpenFile(f, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
 				if err != nil {
 					return err
 				}
@@ -105,6 +106,11 @@ func init() {
 	rootCmd.PersistentFlags().Bool("log.info", false, "Enable logging at info level")
 	rootCmd.PersistentFlags().Bool("log.error", false, "Enable logging at error level")
 	rootCmd.Flags().String("runlog", "", "Prints error to file, if not provided then defaults to stderr")
+}
+
+func getEnvVariable(key string) string {
+	_ = godotenv.Load(".env")
+	return os.Getenv(key)
 }
 
 func getContext(cmd *cobra.Command) *ls.Context {
