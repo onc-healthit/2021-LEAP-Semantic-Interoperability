@@ -55,6 +55,9 @@ func (s *Step) Run(pl *pipeline.PipelineContext) error {
 		return err
 	}
 	err = cmdutil.ReadJSONOrYAML(s.CfgFile, &s.cfg)
+	if err != nil {
+		return err
+	}
 	neo.InitNamespaceTrie(&s.cfg)
 	_, err = neo.SaveGraph(s.pls.session, tx, pl.GetGraphRW(), func(graph.Node) bool { return true }, s.cfg, s.BatchSize)
 	if err != nil {
