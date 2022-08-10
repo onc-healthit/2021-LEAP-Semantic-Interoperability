@@ -28,6 +28,7 @@ import (
 )
 
 var logger = ls.NewDefaultLogger()
+var stdLogger = &log.Logger{}
 
 var (
 	rootCmd = &cobra.Command{
@@ -45,6 +46,19 @@ var (
 			if b, _ := cmd.Flags().GetBool("log"); b {
 				logger.Level = ls.LogLevelDebug
 			}
+		},
+		PersistentPreRunE: func(cmd *cobra.Command, _ []string) error {
+			if f, _ := cmd.Flags().GetString("runlog"); len(f) > 0 {
+				logFile, err := os.OpenFile("../pipeline/cmd/logs/errors.log", os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
+				if err != nil {
+					return err
+				}
+				stdLogger.SetOutput(logFile)
+				stdLogger.SetFlags(log.LstdFlags | log.Lshortfile | log.Lmicroseconds)
+			} else {
+				stdLogger.SetOutput(os.Stderr)
+			}
+			return nil
 		},
 		PersistentPostRun: func(cmd *cobra.Command, _ []string) {
 			if f, _ := cmd.Flags().GetString("cpuprofile"); len(f) > 0 {
@@ -89,6 +103,8 @@ func init() {
 	rootCmd.PersistentFlags().Bool("log", false, "Enable logging")
 	rootCmd.PersistentFlags().Bool("log.debug", false, "Enable logging at debug level")
 	rootCmd.PersistentFlags().Bool("log.info", false, "Enable logging at info level")
+	rootCmd.PersistentFlags().Bool("log.error", false, "Enable logging at error level")
+	rootCmd.Flags().String("runlog", "", "Prints error to file, if not provided then defaults to stderr")
 }
 
 func getContext(cmd *cobra.Command) *ls.Context {
@@ -101,7 +117,10 @@ func getContext(cmd *cobra.Command) *ls.Context {
 	if l1 {
 		logger.Level = ls.LogLevelInfo
 	}
-
+	l3, _ := cmd.Flags().GetBool("log.error")
+	if l3 {
+		logger.Level = ls.LogLevelError
+	}
 	ctx := ls.DefaultContext().SetLogger(logger)
 	return ctx
 }

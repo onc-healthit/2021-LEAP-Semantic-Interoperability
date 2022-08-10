@@ -17,6 +17,7 @@ require (
 	github.com/bserdar/jsonstream v0.0.0-20190428032403-9f1769267072 // indirect
 	github.com/emirpasic/gods v1.18.0 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
+	github.com/joho/godotenv v1.4.0 // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/neo4j/neo4j-go-driver v1.8.3 // indirect
 	github.com/nleeper/goment v1.4.2 // indirect

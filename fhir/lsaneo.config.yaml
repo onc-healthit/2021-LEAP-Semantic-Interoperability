@@ -1,0 +1,31 @@
+termMappings:
+  https://lschema.org/attributeName: ls:attributeName
+  https://lschema.org/attributeIndex: ls:attributeIndex
+  https://lschema.org/attributeValue: ls:attributeValue
+  https://lschema.org/entityId: ls:entityId
+  https://lschema.org/entityIdFields: ls:entityIdFields
+  https://lschema.org/nodeId: ls:nodeId
+  https://lschema.org/schemaNodeId: ls:schemaNodeId
+  https://lschema.org/edgeLabel: ls:edgeLabel
+  https://lschema.org/DocumentNode: ls:documentNode
+  https://lschema.org/entitySchema: ls:entitySchema
+  https://lschema.org/xml/ns: ls:xml/ns
+  https://lschema.org/conditional: ls:conditional
+  https://lschema.org/floatTest: ls:floatTest
+  https://lschema.org/boolTest: ls:boolTest
+  extension: extension
+  high: high
+  low: low
+  root: root
+
+# low, high json:number
+propertyTypes:
+  https://lschema.org/attributeIndex: json:number
+  https://lschema.org/floatTest: ls:double
+  negationInd: json:boolean
+  inversionInd: xsd:boolean
+
+namespaceMappings:
+  https://lschema.org/: ls
+  https://lschema.org/A/: lsa
+  https://lschema.org/Y/: lsy
