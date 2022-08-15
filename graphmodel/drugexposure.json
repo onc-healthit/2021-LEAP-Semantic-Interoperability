@@ -26,11 +26,11 @@
                             "@type": "Value",
                         "ingestAs": "property"
                     },
-                    "https://dartnet.info/graphModel/Condition/source/system": {
+                    "https://dartnet.info/graphModel/DrugExposure/source/system": {
                             "@type": "Value",
                             "ingestAs": "property"
                     },
-                    "https://dartnet.info/graphModel/Condition/source/text": {
+                    "https://dartnet.info/graphModel/DrugExposure/source/text": {
                         "@type": "Value",
                         "ingestAs": "property"
                     }
@@ -43,11 +43,11 @@
                             "@type": "Value",
                         "ingestAs": "property"
                     },
-                    "https://dartnet.info/graphModel/Condition/omop/system": {
+                    "https://dartnet.info/graphModel/DrugExposure/omop/system": {
                             "@type": "Value",
                             "ingestAs": "property"
                     },
-                    "https://dartnet.info/graphModel/Condition/omop/text": {
+                    "https://dartnet.info/graphModel/DrugExposure/omop/text": {
                         "@type": "Value",
                         "ingestAs": "property"
                     }

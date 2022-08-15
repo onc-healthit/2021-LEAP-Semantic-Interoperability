@@ -1,4 +1,4 @@
-typeNames:
+variants:
   https://dartnet.info/graphModel/Condition:
     schema: condition.json
   https://dartnet.info/graphModel/DrugExposure:
