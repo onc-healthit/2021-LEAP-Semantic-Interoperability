@@ -11,54 +11,74 @@
             "https://dartnet.info/graphModel/Condition"
         ],
         "attributes": {
-            "https://dartnet.info/graphModel/Condition/normalizedSystemName": {
-                "@type": ["Value","ConditionCodeSystem"]
-            },
-            "https://dartnet.info/graphModel/Condition/normalizedDisplayName": {
-                "@type": "Value"
-            },
-            "https://dartnet.info/graphModel/Condition/displayName": {
-                "@type": "Value"
-            },
-            "https://dartnet.info/graphModel/Condition/normalizedCode": {
-                "@type": ["Value","ConditionCode"],
-                "vsValuesets": "code",
-                "vsRequestKeys": [
-                    "vocabulary",
-                    "code"
-                ],
-                "vsRequestValues": [
-                    "https://dartnet.info/graphModel/Condition/normalizedSystemName",
-                    "https://dartnet.info/graphModel/condition/code"
-                ],
-                "vsResultKeys": [
-                    "concept_id",
-                    "concept_name"
-                ],
-                "vsResultValues": [
-                    "https://dartnet.info/graphModel/Condition/normalizedCode",
-                    "https://dartnet.info/graphModel/Condition/normalizedDisplayName"
-                ]
-            },
-            "https://dartnet.info/graphModel/Condition/systemName": {
-                "@type": "Value"
-            },
-            "https://dartnet.info/graphModel/Condition/code": {
-                "@type": ["Value","Code"]
-            },
             "https://dartnet.info/graphModel/Condition/start": {
                 "@type": "Value",
-                "valueType": "xsd:dateTime"
+                "valueType": "ls:dateTime"
             },
             "https://dartnet.info/graphModel/Condition/end": {
                 "@type": "Value",
-                "valueType": "xsd:dateTime"
+                "valueType": "ls:dateTime"
             },
             "https://dartnet.info/graphModel/Condition/type": {
                 "@type": "Value"
             },
             "https://dartnet.info/graphModel/Condition/status": {
                 "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Condition/source": {
+                "@type": ["Object","Code"],
+                "attributes": {
+                    "https://dartnet.info/graphModel/Condition/source/code": {
+                            "@type": "Value",
+                        "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Condition/source/system": {
+                            "@type": "Value",
+                            "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Condition/source/text": {
+                        "@type": "Value",
+                        "ingestAs": "property"
+                    }
+                }
+            },
+            "https://dartnet.info/graphModel/Condition/omop": {
+                "@type": "Array",
+                "arrayElements": {
+                    "@id": "https://dartnet.info/graphmodel/Condition/omop/items",
+                    "@type": ["Object","Code","ConditionCode","OMOPConcept"],
+                    "attributes": {
+                        "https://dartnet.info/graphModel/Condition/omop/code": {
+                            "@type": "Value",
+                            "ingestAs": "property",
+                            "vsValuesets": "omop",
+                            "vsRequestKeys": [
+                                "vocabulary",
+                                "code"
+                            ],
+                            "vsRequestValues": [
+                                "https://dartnet.info/graphModel/Condition/source/system",
+                                "https://dartnet.info/graphModel/Condition/source/code"
+                            ],
+                            "vsResultKeys": [
+                                "concept_id",
+                                "concept_name"
+                            ],
+                            "vsResultValues": [
+                                "https://dartnet.info/graphModel/Condition/omop/code",
+                                "https://dartnet.info/graphModel/Condition/omop/system"
+                            ]
+                        },
+                        "https://dartnet.info/graphModel/Condition/omop/system": {
+                            "@type": "Value",
+                            "ingestAs": "property"
+                        },
+                        "https://dartnet.info/graphModel/Condition/omop/text": {
+                            "@type": "Value",
+                            "ingestAs": "property"
+                        }
+                    }
+                }
             },
             "https://dartnet.info/graphModel/Condition/person": {
                 "@type": "Value",

@@ -13,12 +13,47 @@
         "attributes": {
             "https://dartnet.info/graphModel/DrugExposure/start": {
                 "@type": "Value",
-                "valueType": "xsd:dateTime"
+                "valueType": "ls:dateTime"
             },
             "https://dartnet.info/graphModel/DrugExposure/end": {
                 "@type": "Value",
-                "valueType": "xsd:dateTime"
+                "valueType": "ls:dateTime"
             },
+            "https://dartnet.info/graphModel/DrugExposure/drug/source": {
+                "@type": ["Object","Code"],
+                "attributes": {
+                    "https://dartnet.info/graphModel/DrugExposure/drug/source/code": {
+                            "@type": "Value",
+                        "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Condition/source/system": {
+                            "@type": "Value",
+                            "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Condition/source/text": {
+                        "@type": "Value",
+                        "ingestAs": "property"
+                    }
+                }
+            },
+            "https://dartnet.info/graphModel/DrugExposure/drug/omop": {
+                "@type": ["Object","Code","DrugExposureCode","OMOPConcept"],
+                "attributes": {
+                    "https://dartnet.info/graphModel/DrugExposure/drug/omop/code": {
+                            "@type": "Value",
+                        "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Condition/omop/system": {
+                            "@type": "Value",
+                            "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Condition/omop/text": {
+                        "@type": "Value",
+                        "ingestAs": "property"
+                    }
+                }
+            },
+            
             "https://dartnet.info/graphModel/DrugExposure/drug/normalizedSystemName": {
                 "@type": ["Value","DrugExposureCodeSystem"]
             },

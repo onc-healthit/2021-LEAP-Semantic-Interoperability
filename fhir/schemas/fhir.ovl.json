@@ -1,0 +1,33 @@
+{
+    "definitions": {
+        "Extension": {
+            "properties": {
+                "url": {
+                    "x=ls": {
+                        "https://lschema.org/ingestAs": "property"
+                    }
+                }
+            }
+        },
+        "Coding": {
+            "properties": {
+                "system": {
+                    "x-ls": {
+                        "https://lschema.org/ingestAs": "property"
+                    }
+                },
+                "code": {
+                    "x-ls": {
+                        "https://lschema.org/ingestAs": "property"
+                    }
+                },
+                "display": {
+                    "x-ls": {
+                        "https://lschema.org/ingestAs": "property"
+                    }
+                }
+            }
+        }
+    }
+}
+
