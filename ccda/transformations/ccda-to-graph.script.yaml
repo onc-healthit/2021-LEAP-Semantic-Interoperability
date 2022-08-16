@@ -1,0 +1,119 @@
+reshapeNodes:
+  "https://dartnet.info/graphModel/Person":
+    valueExpr: >-
+      match (n:Patient) return n as Patient
+
+  "https://dartnet.info/graphModel/Person/id":
+    valueExpr: >-
+      match (:Patient)-[*]->(id {`https://lschema.org/schemaNodeId`:"https://hl7.org/ccda/v3/patientRole/id/extension"}) return id limit 1
+
+      
+  "https://dartnet.info/graphModel/Person/measurements/element":
+    valueExpr: >-
+      match (measurement:VitalSignObservation) return measurement as measurement
+    mapContext: >-
+      return measurement
+
+  "https://dartnet.info/graphModel/Measurement/date":
+    valueExpr: 
+      - match (measurement)-[*]->(t:EffectiveTimeValue) return t
+      - match (measurement)-[*]->(t:EffectiveTimeHigh) return t
+      - match (measurement)-[*]->(t:EffectiveTimeLow) return t
+
+  "https://dartnet.info/graphModel/Measurement/value":
+    valueExpr:  >-
+      match (measurement)-[*]->(v:ObservationValue) return v
+      
+  "https://dartnet.info/graphModel/Measurement/unit":
+    valueExpr:  >-
+      match (measurement)-[*]->(v:ObservationUnit) return v
+
+
+  "https://dartnet.info/graphModel/Person/conditions/element":
+    valueExpr: >-
+      match (cond:ProblemObservation) return cond as cond
+    mapContext: >-
+      return cond
+
+  "https://dartnet.info/graphModel/Condition/start":
+    valueExpr: 
+      - match (cond)-[*]->(t:EffectiveTimeLow) return t
+      - match (cond)-[*]->(t:EffectiveTimeValue) return t
+      
+  "https://dartnet.info/graphModel/Condition/end":
+    valueExpr: 
+      - match (cond)-[*]->(t:EffectiveTimeHigh) return t
+      - match (cond)-[*]->(t:EffectiveTimeValue) return t
+
+      
+  "https://dartnet.info/graphModel/Person/drugExposures/element":
+    valueExpr: >-
+      match (sa:SubstanceAdministration) return sa as sa
+    mapContext: >-
+      return sa
+
+  "https://dartnet.info/graphModel/DrugExposure/start":
+    valueExpr: 
+      - match (sa)-[*]->(t:EffectiveTimeLow) return t
+      - match (sa)-[*]->(t:EffectiveTimeValue) return t
+      
+  "https://dartnet.info/graphModel/DrugExposure/end":
+    valueExpr: 
+      - match (sa)-[*]->(t:EffectiveTimeHigh) return t
+      - match (sa)-[*]->(t:EffectiveTimeValue) return t
+
+  "https://dartnet.info/graphModel/DrugExposure/drug/normalizedSystemName":
+    valueExpr: >-
+      match (sa) -[*]->(:ManufacturedMaterial)-[]->({`https://lschema.org/attributeName`:"code"})-[]->(s {`https://lschema.org/attributeName`:"codeSystem"}) return s
+        
+      
+  # - source: "https://hl7.org/ccda/v3/SubstanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code/system"
+  #   target: 
+  # - target: "https://dartnet.info/graphModel/DrugExposure/drug/displayName"
+  #   source: "https://hl7.org/ccda/v3/SubstanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code/displayName"
+  # - target: "https://dartnet.info/graphModel/DrugExposure/drug/systemName"
+  #   source: "https://hl7.org/ccda/v3/SubstanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code/systemName"
+  # - source: "https://hl7.org/ccda/v3/SubstanceAdministration/consumable/manufacturedProduct/manufacturedMaterial/code/code"
+  #   target: "https://dartnet.info/graphModel/DrugExposure/drug/code"
+
+      
+map:
+    
+  - source: "https://hl7.org/ccda/v3/patientRole/patient/administrativeGenderCode/code/code"
+    target: "https://dartnet.info/graphModel/Person/gender/sourceValue"
+    
+  - source: "https://hl7.org/ccda/v3/patientRole/patient/race/displayName"
+    target: "https://dartnet.info/graphModel/Person/race/sourceValue"
+    
+  - source: "https://hl7.org/ccda/v3/patientRole/patient/ethnicity/displayName"
+    target: "https://dartnet.info/graphModel/Person/ethnicity/sourceValue"
+    
+  - source: "https://hl7.org/ccda/v3/patientRole/patient/birthDate"
+    target: "https://dartnet.info/graphModel/Person/birthDate"
+
+    
+  - source: "https://hl7.org/ccda/v3/VitalSigns/Observation/code/normalizedSystemName"
+    target:  "https://dartnet.info/graphModel/Measurement/normalizedSystemName"
+
+  - source: "https://hl7.org/ccda/v3/VitalSigns/Observation/code/systemName"
+    target:  "https://dartnet.info/graphModel/Measurement/systemName"
+
+  - source: "https://hl7.org/ccda/v3/VitalSigns/Observation/code/code"
+    target:  "https://dartnet.info/graphModel/Measurement/code"
+
+  - source: "https://hl7.org/ccda/v3/VitalSigns/Observation/code/displayName"
+    target:  "https://dartnet.info/graphModel/Measurement/displayName"
+
+
+  - source: "https://hl7.org/ccda/v3/ProblemAct/Observation/value/normalizedSystemName"
+    target:  "https://dartnet.info/graphModel/Condition/normalizedSystemName"
+
+  - source: "https://hl7.org/ccda/v3/VitalSigns/ProblemAct/Observation/value/systemName"
+    target:  "https://dartnet.info/graphModel/Condition/systemName"
+
+  - source: "https://hl7.org/ccda/v3/ProblemAct/Observation/value/code"
+    target:  "https://dartnet.info/graphModel/Condition/code"
+
+
+
+            

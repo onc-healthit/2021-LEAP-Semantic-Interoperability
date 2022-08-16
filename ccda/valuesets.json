@@ -1,0 +1,17 @@
+{
+    "valuesets": [
+        {
+            "id": "https://ohdsi.org/omop/gender",
+            "values": [
+                {
+                    "values": ["F"],
+                    "result": "8532"
+                },
+                {
+                    "values": ["M"],
+                    "result": "8507"
+                }
+            ]
+        }
+    ]
+}

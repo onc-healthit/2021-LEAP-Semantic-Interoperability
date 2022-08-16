@@ -1,0 +1,83 @@
+variants:
+  Act: 
+    schema: act.schema.json
+  AllergyAct:
+    schema: act.schema.json
+    overlays:
+      - schema: allergyact.ovl.json
+  AllergyActObservation:
+    schema: observation.schema.json
+    overlays:
+      - schema: allergyactobservation.ovl.json
+  Address: 
+    schema: address.schema.json
+  AllergySection: 
+    schema: allergySection.schema.json
+  Author: 
+    schema: author.schema.json
+  ClinicalDocument: 
+    schema: clinical-document.schema.json
+  Component: 
+    schema: component.schema.json
+  EncounterSection: 
+    schema: encounterSection.schema.json
+  MedicationSection: 
+    schema: medicationSection.schema.json
+  MedicationSubstanceAdministration:
+    schema: substance-administration.schema.json
+    overlays:
+      - schema: medication-substance-administration.ovl.json
+  ImmunizationSection:
+    schema: immunizationSection.schema.json
+  ImmunizationSubstanceAdministration:
+    schema: substance-administration.schema.json
+    overlays:
+      - schema: immunization-substance-administration.ovl.json
+  Observation: 
+    schema: observation.schema.json
+  ProcedureSection: 
+    schema: procedureSection.schema.json
+  ProblemSection: 
+    schema: problemSection.schema.json
+  ProblemAct: 
+    schema: act.schema.json
+    overlays:
+      - schema: problemact.ovl.json
+  ProblemActObservation: 
+    schema: observation.schema.json
+    overlays:
+      - schema: problemactobservation.ovl.json
+  ProcedureAct: 
+    schema: act.schema.json
+    overlays:
+      - schema: procedureact.ovl.json
+  ProcedureObservation: 
+    schema: observation.schema.json
+    overlays:
+      - schema: procedureobservation.ovl.json
+  ProcedureActObservation: 
+    schema: observation.schema.json
+    overlays:
+      - schema: procedureactobservation.ovl.json
+  ResultsSection: 
+    schema: resultsSection.schema.json
+  SocialHistorySection: 
+    schema: socialHistorySection.schema.json
+  SocialHistoryObservation: 
+    schema: observation.schema.json
+    overlays:
+      - schema: socialhistoryobservation.ovl.json
+  SubstanceAdministration: 
+    schema: substance-administration.schema.json
+  Procedure: 
+    schema: procedure.schema.json
+  Patient: 
+    schema: patient.schema.json
+  Encounter: 
+    schema: encounter.schema.json
+  VitalSignsSection: 
+    schema: vitalsignsSection.schema.json
+  VitalSignObservation: 
+    schema: observation.schema.json
+    overlays:
+      - schema: vitalsignobservation.ovl.json

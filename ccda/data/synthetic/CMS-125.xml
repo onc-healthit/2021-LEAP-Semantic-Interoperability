@@ -1,0 +1,929 @@
+<?xml version='1.0'?>
+<?xml-stylesheet type='text/xsl' href='http://www.nextgenshare.com/public/CDA_NGMU2.xsl'?>
+<ClinicalDocument xmlns:voc="urn:hl7-org:v3/voc" xmlns:sdtc="urn:hl7-org:sdtc" xmlns="urn:hl7-org:v3" xmlns:mif="urn:hl7-org:v3/mif" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+  <realmCode code="US" />
+  <typeId root="2.16.840.1.113883.1.3" extension="POCD_HD000040" />
+  <templateId root="2.16.840.1.113883.10.20.22.1.1" />
+  <templateId root="2.16.840.1.113883.10.20.22.1.2" />
+  <id root="0001" extension="79efe282-b105-4e79-9e72-38427f7b9c1f" />
+  <code code="34133-9" displayName="SUMMARIZATION OF EPISODE NOTE" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+  <title>Continuity of Care Document (C-CDA)</title>
+  <effectiveTime value="20160202143147+0530" />
+  <confidentialityCode code="N" displayName="Normal Sharing" codeSystem="2.16.840.1.113883.5.25" codeSystemName="HL7 Confidentiality" />
+  <languageCode code="en-US" />
+  <recordTarget>
+    <patientRole>
+      <id extension="1002391" />
+      <addr>
+        <streetAddressLine>5 Mercury Street</streetAddressLine>
+        <city>OTO</city>
+        <state>IA</state>
+        <postalCode>51044</postalCode>
+        <country nullFlavor="UNK" />
+      </addr>
+      <telecom nullFlavor="UNK" />
+      <patient>
+        <name use="L">
+          <family>2015_CPCI_CMS_125V3</family>
+          <given qualifier="CL">PatF01</given>
+        </name>
+        <administrativeGenderCode code="F" displayName="Female" codeSystem="2.16.840.1.113883.5.1" codeSystemName="HL7 AdministrativeGender" />
+        <birthTime value="19510115" />
+        <raceCode code="2106-3" displayName="White" codeSystem="2.16.840.1.113883.6.238" codeSystemName="CDC Race and Ethnicity" />
+        <ethnicGroupCode nullFlavor="UNK" />
+        <languageCommunication>
+          <templateId root="2.16.840.1.113883.3.88.11.32.2" />
+          <languageCode nullFlavor="UNK" />
+          <preferenceInd value="true" />
+        </languageCommunication>
+      </patient>
+      <providerOrganization>
+        <id root="0001" extension="0007" />
+        <name>CPCI Practice</name>
+        <telecom use="WP" nullFlavor="UNK" />
+        <addr>
+          <streetAddressLine>St-Marks</streetAddressLine>
+          <city>AUBURN</city>
+          <state>NY</state>
+          <postalCode>13021</postalCode>
+        </addr>
+      </providerOrganization>
+    </patientRole>
+  </recordTarget>
+  <author>
+    <time value="20160202143147+0530" />
+    <assignedAuthor>
+      <id extension="ab6b1d3d-8626-49a8-a0c7-39d8aee04d06" />
+      <addr nullFlavor="UNK" />
+      <telecom nullFlavor="UNK" />
+      <assignedAuthoringDevice>
+        <manufacturerModelName>NextGen EHR</manufacturerModelName>
+        <softwareName>Rosetta v5.8.0.53</softwareName>
+      </assignedAuthoringDevice>
+      <representedOrganization>
+        <id root="0001" extension="0007" />
+        <name>CPCI Practice</name>
+        <telecom use="WP" nullFlavor="UNK" />
+        <addr>
+          <streetAddressLine>St-Marks</streetAddressLine>
+          <city>AUBURN</city>
+          <state>NY</state>
+          <postalCode>13021</postalCode>
+        </addr>
+      </representedOrganization>
+    </assignedAuthor>
+  </author>
+  <informant>
+    <assignedEntity>
+      <id extension="0" />
+      <addr nullFlavor="UNK" />
+      <telecom nullFlavor="UNK" />
+      <assignedPerson>
+        <name>
+          <family>Admin</family>
+          <given>NextGen</given>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="0001" extension="0007" />
+        <name>CPCI Practice</name>
+        <telecom use="WP" nullFlavor="UNK" />
+        <addr>
+          <streetAddressLine>St-Marks</streetAddressLine>
+          <city>AUBURN</city>
+          <state>NY</state>
+          <postalCode>13021</postalCode>
+        </addr>
+      </representedOrganization>
+    </assignedEntity>
+  </informant>
+  <custodian>
+    <assignedCustodian>
+      <representedCustodianOrganization>
+        <id root="0001" extension="0007" />
+        <name>CPCI Practice</name>
+        <telecom use="WP" nullFlavor="UNK" />
+        <addr>
+          <streetAddressLine>St-Marks</streetAddressLine>
+          <city>AUBURN</city>
+          <state>NY</state>
+          <postalCode>13021</postalCode>
+          <country>US</country>
+        </addr>
+      </representedCustodianOrganization>
+    </assignedCustodian>
+  </custodian>
+  <legalAuthenticator>
+    <time value="20160202143147+0530" />
+    <signatureCode code="S" />
+    <assignedEntity>
+      <id extension="0" />
+      <addr nullFlavor="UNK" />
+      <telecom use="WP" nullFlavor="UNK" />
+      <assignedPerson>
+        <name>
+          <given>NextGen</given>
+          <family>Admin</family>
+        </name>
+      </assignedPerson>
+      <representedOrganization>
+        <id root="0001" extension="0007" />
+        <name>CPCI Practice</name>
+        <telecom use="WP" nullFlavor="UNK" />
+        <addr>
+          <streetAddressLine>St-Marks</streetAddressLine>
+          <city>AUBURN</city>
+          <state>NY</state>
+          <postalCode>13021</postalCode>
+        </addr>
+      </representedOrganization>
+    </assignedEntity>
+  </legalAuthenticator>
+  <documentationOf typeCode="DOC">
+    <serviceEvent classCode="PCPR">
+      <effectiveTime>
+        <low value="201505070253" />
+        <high value="201505070253" />
+      </effectiveTime>
+    </serviceEvent>
+  </documentationOf>
+  <component>
+    <structuredBody>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.6" />
+          <templateId root="2.16.840.1.113883.10.20.22.2.6.1" />
+          <id root="0001" extension="Alerts" />
+          <code code="48765-2" displayName="ALLERGIES, ADVERSE REACTIONS, ALERTS" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Allergies, Adverse Reactions, Alerts</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Substance</th>
+                  <th>Reaction</th>
+                  <th>Severity</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="4">
+                    <content ID="UnKnownAlert" xmlns="urn:hl7-org:v3">Substance Type Unknown</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.30" />
+              <id nullFlavor="NA" />
+              <code code="48765-2" displayName="ALLERGIES, ADVERSE REACTIONS, ALERTS" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+              <statusCode nullFlavor="NA" />
+              <effectiveTime nullFlavor="NA" />
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.7" />
+                  <id nullFlavor="NA" />
+                  <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4" codeSystemName="HL7ActCode" />
+                  <statusCode nullFlavor="NA" />
+                  <effectiveTime nullFlavor="NA" />
+                  <value nullFlavor="NA" xsi:type="CD" />
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.1.1" />
+          <id root="0001" extension="Medications" />
+          <code code="10160-0" displayName="HISTORY OF MEDICATION USE" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Medications</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Medication</th>
+                  <th>Instructions</th>
+                  <th>Dosage</th>
+                  <th>Effective Dates (start - stop)</th>
+                  <th>Status</th>
+                  <th>Comments</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="6">
+                    <content ID="UnknownMedication" xmlns="urn:hl7-org:v3">Drug Treatment Unknown</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="true">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16" />
+              <id nullFlavor="UNK" />
+              <statusCode nullFlavor="UNK" />
+              <effectiveTime xsi:type="IVL_TS">
+                <low nullFlavor="UNK" />
+                <high nullFlavor="UNK" />
+              </effectiveTime>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23" />
+                  <manufacturedMaterial>
+                    <code nullFlavor="NI" />
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.5.1" />
+          <id root="0001" extension="Problems" />
+          <code code="11450-4" displayName="PROBLEM LIST" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Problems</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Condition</th>
+                  <th>Effective Dates (start - stop)</th>
+                  <th>Clinical Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="3">
+                    <content ID="UnknownProblem" xmlns="urn:hl7-org:v3">No Known Problems</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <act classCode="ACT" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.3" />
+              <id nullFlavor="UNK" />
+              <code code="CONC" codeSystem="2.16.840.1.113883.5.6" codeSystemName="HL7ActClass" />
+              <statusCode nullFlavor="UNK" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+              </effectiveTime>
+              <entryRelationship typeCode="SUBJ">
+                <observation classCode="OBS" moodCode="EVN" negationInd="true">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.4" />
+                  <id nullFlavor="UNK" />
+                  <code nullFlavor="UNK" />
+                  <statusCode code="completed" />
+                  <value code="55607006" displayName="Problem" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" xsi:type="CD" />
+                </observation>
+              </entryRelationship>
+            </act>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.7.1" />
+          <id root="0001" extension="Procedures" />
+          <code code="47519-4" displayName="HISTORY OF PROCEDURES" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Procedures</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Procedure</th>
+                  <th>Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="ProcedureDescription_0" xmlns="urn:hl7-org:v3">Preventive checkup, est, 18-39 yrs</content>
+                  </td>
+                  <td>
+                    <content>May-07-2015</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <procedure classCode="PROC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.14" />
+              <id root="0001" extension="f7ea4bed-2321-4f89-b567-f4ce34d7b006" />
+              <code nullFlavor="OTH">
+                <originalText>
+                  <reference value="#ProcedureDescription_0" />
+                </originalText>
+                <translation code="99395" displayName="Preventive checkup, est, 18-39 yrs" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT4" xsi:type="CE" />
+              </code>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20150507" />
+                <high value="20150507" />
+              </effectiveTime>
+              <entryRelationship typeCode="COMP" inversionInd="true">
+                <encounter classCode="ENC" moodCode="EVN">
+                  <id extension="0f9fb7e6-3ba9-420d-b767-022b4de408d7" root="0001" />
+                  <code code="99395" displayName="Preventive checkup, est, 18-39 yrs" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT4" />
+                </encounter>
+              </entryRelationship>
+            </procedure>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.3.1" />
+          <id root="0001" extension="Results" />
+          <code code="30954-2" displayName="STUDIES SUMMARY" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Results</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Test Name</th>
+                  <th>Date and Time</th>
+                  <th>Measure</th>
+                  <th>Units</th>
+                  <th>Reference Range</th>
+                  <th>Abnormal Flag</th>
+                  <th>Comments</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="7">
+                    <content ID="ResultDescription_" xmlns="urn:hl7-org:v3">Unknown</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <organizer classCode="BATTERY" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.1" />
+              <id nullFlavor="UNK" />
+              <code nullFlavor="UNK" />
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="UNK" />
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.2" />
+                  <id nullFlavor="UNK" />
+                  <code code="UNK" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+                  <text>
+                    <reference value="#ResultDescription_" />
+                  </text>
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="UNK" />
+                  <value xsi:type="PQ" nullFlavor="UNK" unit="UNK" />
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.21.1" />
+          <id root="0001" extension="AdvanceDirectives" />
+          <code code="42348-3" displayName="ADVANCE DIRECTIVES" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Advance Directives</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Directive</th>
+                  <th>Yes / No</th>
+                  <th>Effective Date</th>
+                  <th>File Name</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="4">
+                    <content ID="UnknownAdvanceDirective" xmlns="urn:hl7-org:v3">Unknown</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.48" />
+              <id nullFlavor="UNK" />
+              <code nullFlavor="UNK" />
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low nullFlavor="UNK" />
+                <high nullFlavor="UNK" />
+              </effectiveTime>
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.22" />
+          <id root="0001" extension="Encounters" />
+          <code code="46240-8" displayName="HISTORY OF ENCOUNTERS" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Encounters</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Encounter Description</th>
+                  <th>Practice</th>
+                  <th>Location</th>
+                  <th>Reason(s) For Visit</th>
+                  <th>Diagnoses</th>
+                  <th>Date</th>
+                  <th>Provider</th>
+                  <th>Care Team Members</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content ID="Encounter_0" xmlns="urn:hl7-org:v3">Preventive checkup, est, 18-39 yrs</content>
+                  </td>
+                  <td>
+                    <content>CPCI Practice, St-Marks, AUBURN, NY, 13021</content>
+                  </td>
+                  <td>
+                    <content>PrimaryCareLoc-1</content>
+                  </td>
+                  <td>
+                    <content></content>
+                  </td>
+                  <td>
+                    <content></content>
+                  </td>
+                  <td>
+                    <content>May-07-2015</content>
+                  </td>
+                  <td>
+                    <content>Jim Carrey. St-Marks, Jackpot Road, AUBURN, NY, 13021. </content>
+                  </td>
+                  <td>
+                    <content></content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <encounter classCode="ENC" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.49" />
+              <id root="0001" extension="0f9fb7e6-3ba9-420d-b767-022b4de408d7" />
+              <code code="99395" displayName="Preventive checkup, est, 18-39 yrs" codeSystem="2.16.840.1.113883.6.12" codeSystemName="CPT4">
+                <originalText>
+                  <reference value="#Encounter_0" />
+                </originalText>
+              </code>
+              <text>
+                <reference value="#Encounter_0" />
+              </text>
+              <statusCode code="completed" />
+              <effectiveTime>
+                <low value="20150507" />
+                <high value="20150507" />
+              </effectiveTime>
+              <performer>
+                <assignedEntity classCode="ASSIGNED">
+                  <id extension="e025ba62-1e30-48da-bf26-c965ba3ca38b" root="0001" />
+                  <addr>
+                    <streetAddressLine>St-Marks</streetAddressLine>
+                    <streetAddressLine>Jackpot Road</streetAddressLine>
+                    <city>AUBURN</city>
+                    <state>NY</state>
+                    <postalCode>13021</postalCode>
+                    <country nullFlavor="UNK" />
+                  </addr>
+                  <telecom nullFlavor="UNK" />
+                  <assignedPerson>
+                    <name>
+                      <family>Jim</family>
+                      <given>Carrey</given>
+                    </name>
+                  </assignedPerson>
+                  <representedOrganization>
+                    <id root="0001" extension="0007" />
+                    <name>CPCI Practice</name>
+                    <telecom use="WP" nullFlavor="UNK" />
+                    <addr>
+                      <streetAddressLine>St-Marks</streetAddressLine>
+                      <city>AUBURN</city>
+                      <state>NY</state>
+                      <postalCode>13021</postalCode>
+                    </addr>
+                  </representedOrganization>
+                </assignedEntity>
+              </performer>
+              <participant typeCode="LOC">
+                <participantRole classCode="SDLOC">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.32" />
+                  <id extension="635dc59b-e421-4aeb-9cc8-11c36cf1d6ed" root="0001" />
+                  <code nullFlavor="UNK" />
+                  <addr>
+                    <streetAddressLine>Rej</streetAddressLine>
+                    <streetAddressLine>Road</streetAddressLine>
+                    <city>AUBURN</city>
+                    <state>NY</state>
+                    <postalCode>13021</postalCode>
+                  </addr>
+                  <playingEntity classCode="PLC">
+                    <name>PrimaryCareLoc-1</name>
+                  </playingEntity>
+                </participantRole>
+              </participant>
+            </encounter>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.15" />
+          <id root="0001" extension="FamilyHistory" />
+          <code code="10157-6" displayName="HISTORY OF FAMILY MEMBER DISEASES" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Family History</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Family Member</th>
+                  <th>Diagnosis</th>
+                  <th>Age At Onset</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="3">
+                    <content ID="UnknownFamilyHistory" xmlns="urn:hl7-org:v3">Unknown</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.2.1" />
+          <id root="0001" extension="Immunizations" />
+          <code code="11369-6" displayName="HISTORY OF IMMUNIZATIONS" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Immunizations</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Vaccine</th>
+                  <th>Date</th>
+                  <th>Status</th>
+                  <th>Comments</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="4">
+                    <content ID="UnknownImmunization" xmlns="urn:hl7-org:v3">Unknown</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="INT" negationInd="false">
+              <templateId root="2.16.840.1.113883.10.20.22.4.52" />
+              <id nullFlavor="UNK" />
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="UNK" />
+              <consumable typeCode="CSM">
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.54" />
+                  <manufacturedMaterial>
+                    <code nullFlavor="NI" />
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.18" />
+          <id root="0001" extension="Payer" />
+          <code code="48768-6" displayName="PAYMENT SOURCES" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Payers</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Payer name</th>
+                  <th>Insurance type</th>
+                  <th>Covered party ID</th>
+                  <th>Authorization(s)</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="4">
+                    <content ID="UnknownPayer" xmlns="urn:hl7-org:v3">Unknown</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <act classCode="ACT" moodCode="EVN">
+              <id nullFlavor="UNK" />
+              <code nullFlavor="UNK" />
+            </act>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.17" />
+          <id root="0001" extension="SocialHistory" />
+          <code code="29762-2" displayName="SOCIAL HISTORY" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Social History</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Type</th>
+                  <th>Description</th>
+                  <th>Quantity</th>
+                  <th>Date Captured</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="4">
+                    <content ID="UnknownSocialHistory" xmlns="urn:hl7-org:v3">Unknown</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry>
+            <observation classCode="OBS" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.78" />
+              <code code="ASSERTION" codeSystem="2.16.840.1.113883.5.4" codeSystemName="HL7ActCode" />
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="UNK" />
+              <value nullFlavor="UNK" xsi:type="CD" />
+            </observation>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.4.1" />
+          <id root="0001" extension="VitalSigns" />
+          <code code="8716-3" displayName="PHYSICAL FINDINGS" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Vital Signs</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Date / Time:</th>
+                  <th>Height</th>
+                  <th>Weight</th>
+                  <th>BMI</th>
+                  <th>Pulse Rate</th>
+                  <th>Blood Pressure</th>
+                  <th>Temperature</th>
+                  <th>Respiratory Rate</th>
+                  <th>Body Surface Area</th>
+                  <th>Head Circumference</th>
+                  <th>BMI percentile</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="11">
+                    <content ID="UnknownVitalSigns" xmlns="urn:hl7-org:v3">Unknown</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <organizer classCode="CLUSTER" moodCode="EVN">
+              <templateId root="2.16.840.1.113883.10.20.22.4.26" />
+              <id nullFlavor="UNK" />
+              <code code="46680005" displayName="Vital signs" codeSystem="2.16.840.1.113883.6.96" codeSystemName="SNOMED CT" />
+              <statusCode code="completed" />
+              <effectiveTime nullFlavor="UNK" />
+              <component>
+                <observation classCode="OBS" moodCode="EVN">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.27" />
+                  <id nullFlavor="UNK" />
+                  <code nullFlavor="UNK" />
+                  <statusCode code="completed" />
+                  <effectiveTime nullFlavor="UNK" />
+                  <value nullFlavor="UNK" xsi:type="PQ" />
+                </observation>
+              </component>
+            </organizer>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.13" />
+          <id root="0001" extension="ChiefComplaintAndReasonForVisit" />
+          <code code="46239-0" displayName="CHIEF COMPLAINT AND REASON FOR VISIT" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Chief Complaint And Reason For Visit</title>
+          <text>
+            <paragraph>Unknown Chief Complaint And Reason For Visit</paragraph>
+          </text>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.1" />
+          <id root="0001" extension="ReferralReason" />
+          <code code="42349-1" displayName="REASON FOR REFERRAL" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Reason For Referral</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Reason For Referral</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>
+                    <content>Tesing</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.10" />
+          <id root="0001" extension="PlanOfCare" />
+          <code code="18776-5" displayName="TREATMENT PLAN" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Plan Of Care</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Action</th>
+                  <th>Status</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="4">
+                    <content ID="UnknownPlanOfCare" xmlns="urn:hl7-org:v3">Unknown.</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Type</th>
+                  <th>Problem</th>
+                  <th>Goal</th>
+                  <th>Intervention</th>
+                  <th>Status</th>
+                  <th>Start Date</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="4">
+                    <content ID="UnknownPlanOfCare_Goal" xmlns="urn:hl7-org:v3">Unknown.</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="1.3.6.1.4.1.19376.1.5.3.1.3.4" />
+          <id root="0001" extension="HistoryOfPresentIllness" />
+          <code code="10164-2" displayName="HISTORY OF PRESENT ILLNESS" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>History Of Present Illness</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Encounter Date</th>
+                  <th>Complaint</th>
+                  <th>History Of Present Illness</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="3">
+                    <content ID="UnknownHOPI" xmlns="urn:hl7-org:v3">This patient has no known history of present illness</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.38" />
+          <id root="0001" extension="CcdaMedicationsAdministered" />
+          <code code="29549-3" displayName="MEDICATION ADMINISTERED" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Medications Administered</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Medication</th>
+                  <th>Instructions</th>
+                  <th>Dosage</th>
+                  <th>Effective Dates (start - stop)</th>
+                  <th>Status</th>
+                  <th>Comments</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="6">
+                    <content ID="UnknownMedicationsAdministered" xmlns="urn:hl7-org:v3">Drug Treatment Unknown</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+          <entry typeCode="DRIV">
+            <substanceAdministration classCode="SBADM" moodCode="EVN" negationInd="true">
+              <templateId root="2.16.840.1.113883.10.20.22.4.16" />
+              <id nullFlavor="UNK" />
+              <statusCode nullFlavor="UNK" />
+              <effectiveTime xsi:type="IVL_TS">
+                <low nullFlavor="UNK" />
+                <high nullFlavor="UNK" />
+              </effectiveTime>
+              <consumable>
+                <manufacturedProduct classCode="MANU">
+                  <templateId root="2.16.840.1.113883.10.20.22.4.23" />
+                  <manufacturedMaterial>
+                    <code nullFlavor="NI" />
+                  </manufacturedMaterial>
+                </manufacturedProduct>
+              </consumable>
+            </substanceAdministration>
+          </entry>
+        </section>
+      </component>
+      <component>
+        <section>
+          <templateId root="2.16.840.1.113883.10.20.22.2.45" />
+          <id root="0001" extension="Instructions" />
+          <code code="69730-0" displayName="INSTRUCTIONS" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" />
+          <title>Instructions</title>
+          <text>
+            <table border="1" width="100%">
+              <thead>
+                <tr>
+                  <th>Date</th>
+                  <th>Instruction</th>
+                  <th>Additional Information</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td colspan="3">
+                    <content ID="UnknownInstructions" xmlns="urn:hl7-org:v3">Unknown</content>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </text>
+        </section>
+      </component>
+    </structuredBody>
+  </component>
+</ClinicalDocument>

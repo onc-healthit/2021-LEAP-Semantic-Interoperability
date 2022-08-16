@@ -19,6 +19,7 @@ import (
 	"log"
 	"os"
 	"runtime/pprof"
+	"time"
 
 	"github.com/joho/godotenv"
 	"github.com/spf13/cobra"
@@ -82,13 +83,18 @@ var (
 				case entry, ok := <-inputs:
 					if ok {
 						if entry.Err != nil {
+							logger.Error(map[string]interface{}{"File": entry.Name, "Error": err})
 							return nil, entry.Err
 						}
+						logger.Debug(map[string]interface{}{"File": entry.Name, "timestamp start": time.Now()})
 						return io.NopCloser(entry.Stream), nil
 					}
 				}
 				return nil, nil
 			})
+			if err != nil {
+				return err
+			}
 			return nil
 		},
 	}
@@ -138,3 +144,11 @@ func failErr(err error) {
 func fail(msg string) {
 	log.Fatalf(msg)
 }
+
+// func track(msg string) (string, time.Time) {
+// 	return fmt.Sprint("File: ", msg), time.Now()
+// }
+
+// func duration(msg string, start time.Time) {
+// 	logger.Debug(map[string]interface{}{msg: time.Since(start).Seconds()})
+// }

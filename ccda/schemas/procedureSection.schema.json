@@ -1,0 +1,123 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@type": "Schema",
+    "@id":"https://hl7.org/ccda/v3/ProcedureSection/schema",
+    "valueType": "ProcedureSection",
+    "layer": {
+        "@type": "Object",
+        "@id": "https://hl7.org/ccda/v3/ProcedureSection",
+        "xmlns": "urn:hl7-org:v3",
+        "attributeName": "section",
+        "attributes": {
+            "https://hl7.org/ccda/v3/ProcedureSection/templateID": {
+                "@type": "Value",
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "templateId",
+                "xmlvalueAttr": "root",
+                "ingestAs": "property",
+                "enumeration": ["2.16.840.1.113883.10.20.22.2.7.1"]
+            },
+            "https://hl7.org/ccda/v3/ProcedureSection/code": {
+                "@type": ["Object","Code"],
+                "xmlns": "urn:hl7-org:v3",
+                "conditional": "mustHaveChildren",
+                "attributeName": "code",
+                "attributeList": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/ProcedureSection/code/code",
+                        "@type": "Value",
+                        "attributeName": "code",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/ProcedureSection/code/displayName",
+                        "@type": "Value",
+                        "attributeName": "displayName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/ProcedureSection/code/system",
+                        "@type": "Value",
+                        "attributeName": "codeSystem",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/ProcedureSection/code/systemName",
+                        "@type": "Value",
+                        "attributeName": "codeSystemName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    }
+                ]
+            },
+            "https://hl7.org/ccda/v3/ProcedureSection/confidentialityCode": {
+                "@type": "Object",
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "confidentialityCode",
+                "conditional": "mustHaveChildren",
+                "attributeList": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/ProcedureSection/confidentialityCode/code",
+                        "@type": "Value",
+                        "attributeName": "code",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/ProcedureSection/confidentialityCode/displayName",
+                        "@type": "Value",
+                        "attributeName": "displayName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/ProcedureSection/confidentialityCode/system",
+                        "@type": "Value",
+                        "attributeName": "codeSystem",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/ProcedureSection/confidentialityCode/systemName",
+                        "@type": "Value",
+                        "attributeName": "codeSystemName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    }
+                ]
+            },
+            "https://hl7.org/ccda/v3/ProcedureSection/entry": {
+                "@type": "Object",
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "entry",
+                "ingestAs": "none",
+                "attributeList": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/ProcedureSection/entry/item",
+                        "@type": "Polymorphic",
+                        "oneOf": [
+                            {
+                                "@id": "https://hl7.org/ccda/v3/ProcedureSection/entry/procedure",
+                                "@type": "Reference",
+                                "ref": "Procedure"
+                            },
+                            {
+                                "@id": "https://hl7.org/ccda/v3/ProcedureSection/entry/observation",
+                                "@type": ["Reference"],
+                                "ref": "ProcedureObservation"
+                            },
+                            {
+                                "@id": "https://hl7.org/ccda/v3/ProcedureSection/entry/act",
+                                "@type": ["Reference"],
+                                "ref": "ProcedureAct"
+                            }
+                        ]
+                    }
+                ]
+            }
+        }
+    }
+}

@@ -1,0 +1,100 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@type": "Schema",
+    "@id":"https://hl7.org/ccda/v3/Author/schema",
+    "valueType": "Author",
+    "layer": {
+        "@type": "Object",
+        "@id": "https://hl7.org/ccda/v3/author",
+        "xmlns": "urn:hl7-org:v3",
+        "attributeName": "author",
+        "entityIdFields": "https://hl7.org/ccda/v3/author/id",
+        "attributeList": [
+            {
+                "@id": "https://hl7.org/ccda/v3/author/assignedAuthor",
+                "@type": "Object",
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "assignedAuthor",
+                "attributeList": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/author/assignedAuthor/id",
+                        "@type":"Object",
+                        "xmlns": "urn:hl7-org:v3",
+                        "attributeName": "id",
+                        "attributeList": [
+                            {
+                                "@id": "https://hl7.org/ccda/v3/author/id",
+                                "@type":"Value",
+                                "attributeName": "extension",
+                                "xmlattribute": true
+                            }
+                        ]
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/author/assignedAuthor/addr",
+                        "@type": "Reference",
+                        "xmlns": "urn:hl7-org:v3",
+                        "attributeName": "addr",
+                        "ref": "Address"
+                    },
+                    {
+                        "@id":   "https://hl7.org/ccda/v3/author/assignedAuthor/representedOrganization",
+                        "@type": "Object",
+                        "xmlns": "urn:hl7-org:v3",
+                        "attributeName": "representedOrganization",
+                        "attributeList": [
+                            {
+                                "@id": "https://hl7.org/ccda/v3/author/assignedAuthor/representedOrganization/id",
+                                "@type": "Object",
+                                "xmlns": "urn:hl7-org:v3",
+                                "attributeName": "id",
+                                "attributeList": [
+                                    {
+                                        "@id": "https://hl7.org/ccda/v3/author/assignedAuthor/representedOrganization/id/root",
+                                        "@type": "Value",
+                                        "attributeName": "root",
+                                        "xmlattribute": true
+                                    },
+                                    {
+                                        "@id": "https://hl7.org/ccda/v3/author/assignedAuthor/representedOrganization/id/root",
+                                        "@type": "Value",
+                                        "attributeName": "extension",
+                                        "xmlattribute": true
+                                    }
+                                ]
+                            },
+                             {
+                                "@id": "https://hl7.org/ccda/v3/author/assignedAuthor/representedOrganization/name",
+                                "@type": "Value",
+                                "xmlns": "urn:hl7-org:v3",
+                                "attributeName": "name"
+                            },
+                            {
+                                "@id": "https://hl7.org/ccda/v3/author/assignedAuthor/representedOrganization/addr",
+                                "@type": "Reference",
+                                "xmlns": "urn:hl7-org:v3",
+                                "attributeName": "addr",
+                                "ref": "Address"
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/author/time/object",
+                "@type": "Object",
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "time",
+                "attributeList": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/author/time",
+                        "@type": "Value",
+                        "attributeName": "value",
+                        "xmlattribute": true,
+                        "valueType": "https://unixtime.org"
+                    }
+                ]
+            }
+        ]
+    }
+}

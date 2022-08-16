@@ -1,0 +1,166 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@type": "Schema",
+    "@id":"https://hl7.org/ccda/v3/Encounter/schema",
+    "valueType": "Encounter",
+    "layer": {
+        "@type": "Object",
+        "@id":"https://hl7.org/ccda/v3/Encounter",
+        "entityIdFields": [
+            "https://hl7.org/ccda/v3/encounter/id/root",
+            "https://hl7.org/ccda/v3/encounter/id/extension"
+        ],
+        "xmlns": "urn:hl7-org:v3",
+        "attributeName": "encounter",
+        "attributeList": [
+            {
+                "@id": "https://hl7.org/ccda/v3/Encounter/Patient",
+                "@type": "Reference",
+                "ref":"Patient",
+                "referenceDir": "from",
+                "ingestAs": "edge",
+                "referenceLabel": "https://lschema.org/has"
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/encounter/classCode",
+                "@type": "Value",
+                "attributeName": "classCode",
+                "ingestAs": "property",
+                "xmlattribute": true
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/encounter/moodCode",
+                "@type": "Value",
+                "attributeName": "moodCode",
+                "ingestAs": "property",
+                "xmlattribute": true
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/encounter/id",
+                "@type": "Object",
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "id",
+                "attributes": {
+                    "https://hl7.org/ccda/v3/encounter/id/root": {
+                        "@type": "Value",
+                        "attributeName": "root",
+                        "xmlattribute": true
+                    },
+                    "https://hl7.org/ccda/v3/encounter/id/extension": {
+                        "@type": "Value",
+                        "attributeName": "extension",
+                        "xmlattribute": true
+                    }
+                }
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/encounter/code",
+                "@type": ["Object","Code"],
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "code",
+                "conditional": "mustHaveChildren",
+                "attributeList": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/encounter/code/code",
+                        "@type": "Value",
+                        "attributeName": "code",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/encounter/code/displayName",
+                        "@type": "Value",
+                        "attributeName": "displayName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/encounter/code/system",
+                        "@type": "Value",
+                        "attributeName": "codeSystem",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/encounter/code/systemName",
+                        "@type": "Value",
+                        "attributeName": "codeSystemName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/encounter/code/translation",
+                        "@type": "Object",
+                        "conditional": "mustHaveChildren",
+                        "attributeName": "translation",
+                        "attributes": {
+                            "https://hl7.org/ccda/v3/encounter/code/translation/code": {
+                                "@type": "Value",
+                                "attributeName": "code",
+                                "ingestAs": "property",
+                                "xmlattribute": true
+                            },
+                            "https://hl7.org/ccda/v3/encounter/code/translation/displayName": {
+                                "@type": "Value",
+                                "attributeName": "displayName",
+                                "ingestAs": "property",
+                                "xmlattribute": true
+                            },
+                            "https://hl7.org/ccda/v3/encounter/code/translation/displayName": {
+                                "@type": "Value",
+                                "attributeName": "codeSystem",
+                                "ingestAs": "property",
+                                "xmlattribute": true
+                            },
+                            "https://hl7.org/ccda/v3/encounter/code/translation/displayName": {
+                                "@type": "Value",
+                                "attributeName": "codeSystemName",
+                                "ingestAs": "property",
+                                "xmlattribute": true
+                            }
+                        }
+                    }
+                ]
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/encounter/author",
+                "@type": "Reference",
+                "ref": "Author",
+                "xmlns":"urn:hl7-org:v3",
+                "attributeName": "author"
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/Encounter/effectiveTime",
+                "@type": "Object",
+                "xmlns": "urn:hl7-org:v3",
+                "conditional": "mustHaveChildren",
+                "attributeName": "effectiveTime",
+                "attributeList": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Encounter/effectiveTime/low",
+                        "@type": "Value",
+                        "attributeName": "low",
+                        "xmlns": "urn:hl7-org:v3",
+                        "xmlvalueAttr": "value",
+                        "ingestAs": "property"
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Encounter/effectiveTime/high",
+                        "@type": "Value",
+                        "attributeName": "high",
+                        "xmlns": "urn:hl7-org:v3",
+                        "xmlvalueAttr": "value",
+                        "ingestAs": "property"
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Encounter/effectiveTime/value",
+                        "@type": "Value",
+                        "attributeName": "value",
+                        "xmlattribute": true,
+                        "ingestAs": "property"
+                    }
+                ]
+            }
+        ]
+    }
+}

@@ -1,0 +1,182 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@type": "Schema",
+    "@id":"https://hl7.org/ccda/v3/VitalSignsSection/schema",
+    "valueType": "VitalSignsSection",
+    "layer": {
+        "@type": "Object",
+        "@id": "https://hl7.org/ccda/v3/VitalSignsSection",
+        "xmlns": "urn:hl7-org:v3",
+        "attributeName": "section",
+        "attributes": {
+            "https://hl7.org/ccda/v3/VitalSignsSection/templateID": {
+                "@type": "Value",
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "templateId",
+                "xmlvalueAttr": "root",
+                "ingestAs": "property",
+                "enumeration": ["2.16.840.1.113883.10.20.22.2.4.1"]
+            },
+            "https://hl7.org/ccda/v3/VitalSignsSection/code": {
+                "@type": ["Object","Code"],
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "code",
+                "conditional": "mustHaveChildren",
+                "attributeList": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/VitalSignsSection/code/code",
+                        "@type": "Value",
+                        "attributeName": "code",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/VitalSignsSection/code/displayName",
+                        "@type": "Value",
+                        "attributeName": "displayName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/VitalSignsSection/code/system",
+                        "@type": "Value",
+                        "attributeName": "codeSystem",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/VitalSignsSection/code/systemName",
+                        "@type": "Value",
+                        "attributeName": "codeSystemName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    }
+                ]
+            },
+            "https://hl7.org/ccda/v3/VitalSignsSection/confidentialityCode": {
+                "@type": "Object",
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "confidentialityCode",
+                "conditional": "mustHaveChildren",
+                "attributeList": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/VitalSignsSection/confidentialityCode/code",
+                        "@type": "Value",
+                        "attributeName": "code",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/VitalSignsSection/confidentialityCode/displayName",
+                        "@type": "Value",
+                        "attributeName": "displayName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/VitalSignsSection/confidentialityCode/system",
+                        "@type": "Value",
+                        "attributeName": "codeSystem",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/VitalSignsSection/confidentialityCode/systemName",
+                        "@type": "Value",
+                        "attributeName": "codeSystemName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    }
+                ]
+            },
+            "https://hl7.org/ccda/v3/VitalSignsSection/entry": {
+                "@type": "Object",
+                "xmlns": "urn:hl7-org:v3",
+                "ingestAs": "none",
+                "attributeName": "entry",
+                "attributes": {
+                    "https://hl7.org/ccda/v3/VitalSignsSection/entry/typeCode": {
+                        "@type": "Value",
+                        "attributeName": "typeCode",
+                        "xmlattribute": true,
+                        "ingestAs": "property"
+                    },
+                    "https://hl7.org/ccda/v3/VitalSignsSection/entry/organizer": {
+                        "@type": "Object",
+                        "attributeName": "organizer",
+                        "ingestAs": "none",
+                        "attributes": {
+                            "https://hl7.org/ccda/v3/VitalSignsSection/entry/organizer/classCode": {
+                                "@type": "Value",
+                                "attributeName": "classCode",
+                                "ingestAs": "property",
+                                "xmlattribute": "true"
+                            },
+                            "https://hl7.org/ccda/v3/VitalSignsSection/entry/organizer/moodCode": {
+                                "@type": "Value",
+                                "attributeName": "moodCode",
+                                "ingestAs": "property",
+                                "xmlattribute": "true"
+                            },
+                            "https://hl7.org/ccda/v3/VitalSignsSection/entry/organizer/templateId": {
+                                "@type": "Value",
+                                "xmlns": "urn:hl7-org:v3",
+                                "attributeName": "templateId",
+                                "xmlvalueAttr": "root",
+                                "enumeration": ["2.16.840.1.113883.10.20.22.4.26"]
+                            },
+                            "https://hl7.org/ccda/v3/VitalSignsSection/entry/organizer/code": {
+                                "@type": ["Object","Code"],
+                                "xmlns": "urn:hl7-org:v3",
+                                "conditional": "mustHaveChildren",
+                                "attributeName": "code",
+                                "attributeList": [
+                                    {
+                                        "@id": "https://hl7.org/ccda/v3/VotalSignsSection/entry/organizer/code/code",
+                                        "@type": "Value",
+                                        "attributeName": "code",
+                                        "ingestAs": "property",
+                                        "xmlattribute": true
+                                    },
+                                    {
+                                        "@id": "https://hl7.org/ccda/v3/VotalSignsSection/entry/organizer/code/displayName",
+                                        "@type": "Value",
+                                        "attributeName": "displayName",
+                                        "ingestAs": "property",
+                                        "xmlattribute": true
+                                    },
+                                    {
+                                        "@id": "https://hl7.org/ccda/v3/VotalSignsSection/entry/organizer/code/system",
+                                        "@type": "Value",
+                                        "attributeName": "codeSystem",
+                                        "ingestAs": "property",
+                                        "xmlattribute": true
+                                    },
+                                    {
+                                        "@id": "https://hl7.org/ccda/v3/VotalSignsSection/entry/organizer/code/systemName",
+                                        "@type": "Value",
+                                        "attributeName": "codeSystemName",
+                                        "ingestAs": "property",
+                                        "xmlattribute": true
+                                    }
+                                ]
+                           },
+                            "https://hl7.org/ccda/v3/VitalSignsSection/entry/organizer/component": {
+                                "@type": "Object",
+                                "xmlns": "urn:hl7-org:v3",
+                                "attributeName": "component",
+                                "ingestAs": "none",
+                                "attributes": {
+                                    "https://hl7.org/ccda/v3/VitalSignsSection/entry/organizer/component/observation": {
+                                        "@type": ["Reference"],
+                                        "ref": "VitalSignObservation"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

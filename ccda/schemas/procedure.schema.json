@@ -1,0 +1,272 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@type": "Schema",
+    "@id":"https://hl7.org/ccda/v3/Procedure/schema",
+    "valueType": "Procedure",
+    "layer": {
+        "@type": "Object",
+        "@id": "https://hl7.org/ccda/v3/Procedure",
+        "xmlns": "urn:hl7-org:v3",
+        "attributeName": "procedure",
+        "attributeList": [
+            {
+                "@id": "https://hl7.org/ccda/v3/Procedure/Patient",
+                "@type": "Reference",
+                "ref":"Patient",
+                "referenceDir": "from",
+                "ingestAs": "edge",
+                "referenceLabel": "https://lschema.org/has"
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/Procedure/classCode",
+                "@type": "Value",
+                "attributeName": "classCode",
+                "ingestAs": "property",
+                "xmlattribute": true
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/Procedure/moodCode",
+                "@type": "Value",
+                "attributeName": "moodCode",
+                "ingestAs": "property",
+                "xmlattribute": true
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/Procedure/negationInd",
+                "@type": "Value",
+                "attributeName": "negationInd",
+                "ingestAs": "property",
+                "xmlattribute": true
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/Procedure/statusCode",
+                "@type": "Value",
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "statusCode",
+                "xmlvalueAttr": "code"
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/Procedure/code",
+                "@type": ["Object","Code"],
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "code",
+                "conditional": "mustHaveChildren",
+                "attributeList": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/code/code",
+                        "@type": "Value",
+                        "attributeName": "code",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/code/displayName",
+                        "@type": "Value",
+                        "attributeName": "displayName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/code/system",
+                        "@type": "Value",
+                        "attributeName": "codeSystem",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/code/systemName",
+                        "@type": "Value",
+                        "attributeName": "codeSystemName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/code/translation",
+                        "@type": "Object",
+                        "attributeName": "translation",
+                        "conditional": "mustHaveChildren",
+                        "attributeList": [
+                            {
+                                "@id": "https://hl7.org/ccda/v3/Procedure/code/translation/code",
+                                "@type": "Value",
+                                "attributeName": "code",
+                                "ingestAs": "property",
+                                "xmlattribute": true
+                            },
+                            {
+                                "@id": "https://hl7.org/ccda/v3/Procedure/code/translation/displayName",
+                                "@type": "Value",
+                                "attributeName": "displayName",
+                                "ingestAs": "property",
+                                "xmlattribute": true
+                            },
+                            {
+                                "@id": "https://hl7.org/ccda/v3/Procedure/code/translation/system",
+                                "@type": "Value",
+                                "attributeName": "codeSystem",
+                                "ingestAs": "property",
+                                "xmlattribute": true
+                            },
+                            {
+                                "@id": "https://hl7.org/ccda/v3/Procedure/code/translation/systemName",
+                                "@type": "Value",
+                                "attributeName": "codeSystemName",
+                                "ingestAs": "property",
+                                "xmlattribute": true
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/Procedure/methodCode",
+                "@type": "Object",
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "methodCode",
+                "conditional": "mustHaveChildren",
+                "attributeList": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/methodCode/code",
+                        "@type": "Value",
+                        "attributeName": "code",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/methodCode/displayName",
+                        "@type": "Value",
+                        "attributeName": "displayName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/methodCode/system",
+                        "@type": "Value",
+                        "attributeName": "codeSystem",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/methodCode/systemName",
+                        "@type": "Value",
+                        "attributeName": "codeSystemName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    }
+                ]
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/Procedure/targetSiteCode",
+                "@type": "Object",
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "targetSiteCode",
+                "conditional": "mustHaveChildren",
+                "attributeList": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/targetSiteCode/code",
+                        "@type": "Value",
+                        "attributeName": "code",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/targetSiteCode/displayName",
+                        "@type": "Value",
+                        "attributeName": "displayName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/targetSiteCode/system",
+                        "@type": "Value",
+                        "attributeName": "codeSystem",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/targetSiteCode/systemName",
+                        "@type": "Value",
+                        "attributeName": "codeSystemName",
+                        "ingestAs": "property",
+                        "xmlattribute": true
+                    }
+                ]
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/Procedure/effectiveTime",
+                "@type": "Object",
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "effectiveTime",
+                "conditional": "mustHaveChildren",
+                "attributeList": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/effectiveTime/low",
+                        "@type": "Value",
+                        "attributeName": "low",
+                        "xmlns": "urn:hl7-org:v3",
+                        "xmlvalueAttr": "value",
+                        "ingestAs": "property"
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/effectiveTime/high",
+                        "@type": "Value",
+                        "attributeName": "high",
+                        "xmlns": "urn:hl7-org:v3",
+                        "xmlvalueAttr": "value",
+                        "ingestAs": "property"
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/effectiveTime/value",
+                        "@type": "Value",
+                        "attributeName": "value",
+                        "xmlattribute": true,
+                        "ingestAs": "property"
+                    }
+                ]
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/Procedure/entryRelationship",
+                "@type": "Object",
+                "xmlns": "urn:hl7-org:v3",
+                "attributeName": "entryRelationship",
+                "ingestAs": "none",
+                "attributeList": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/entryRelationship/typeCode",
+                        "@type": "Value",
+                        "xmlattribute": true,
+                        "ingestAs": "property",
+                        "attributeName": "typeCode"
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/entryRelationship/inversionInd",
+                        "@type": "Value",
+                        "xmlattribute": true,
+                        "ingestAs": "property",
+                        "attributeName": "inversionInd"
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Procedure/entryRelationship/content",
+                        "@type": "Polymorphic",
+                        "oneOf": [
+                            {
+                                "@id": "https://hl7.org/ccda/v3/Procedure/entryRelationship/encounter",
+                                "@type": "Object",
+                                "attributeName": "encounter",
+                                "xmlns": "urn:hl7-org:v3",
+                                "attributes": {
+                                    "https://hl7.org/ccda/v3/Procedure/entryRelationship/encounter/id": {
+                                        "@type": "Object",
+                                        "attributeName": "id",
+                                        "xmlns": "urn:hl7-org:v3"
+                                    }
+                                }
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
+

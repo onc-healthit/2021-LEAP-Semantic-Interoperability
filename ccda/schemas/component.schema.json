@@ -1,0 +1,82 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@type": "Schema",
+    "@id":"https://hl7.org/ccda/v3/Component/schema",
+    "valueType": "Component",
+    "layer": {
+        "@type": "Object",
+        "@id": "https://hl7.org/ccda/v3/Component",
+        "xmlns": "urn:hl7-org:v3",
+        "conditional": "mustHaveChildren",
+        "attributeName": "component",
+        "ingestAs": "none",
+        "attributeList": [
+            {
+                "@id": "https://hl7.org/ccda/v3/Component/structuredBody",
+                "@type": "Object",
+                "xmlns": "urn:hl7-org:v3",
+                "ingestAs": "none",
+                "attributeName": "structuredBody",
+                "attributeList": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Component/structuredBody/component",
+                        "@type": "Reference",
+                        "ref": "Component"
+                    }
+                ]
+            },
+            {
+                "@id": "https://hl7.org/ccda/v3/Component/section",
+                "@type": "Polymorphic",
+                "attributeName": "section",
+                "oneOf": [
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Component/section/AllergySection",
+                        "@type": "Reference",
+                        "ref": "AllergySection"
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Component/section/EncounterSection",
+                        "@type": "Reference",
+                        "ref": "EncounterSection"
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Component/section/MedicationSection",
+                        "@type": "Reference",
+                        "ref": "MedicationSection"
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Component/section/ImmunizationSection",
+                        "@type": "Reference",
+                        "ref": "ImmunizationSection"
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Component/section/ProblemSection",
+                        "@type": "Reference",
+                        "ref": "ProblemSection"
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Component/section/ProcedureSection",
+                        "@type": "Reference",
+                        "ref": "ProcedureSection"
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Component/section/VitalSignsSection",
+                        "@type": "Reference",
+                        "ref": "VitalSignsSection"
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Component/section/ResultsSection",
+                        "@type": "Reference",
+                        "ref": "ResultsSection"
+                    },
+                    {
+                        "@id": "https://hl7.org/ccda/v3/Component/section/SocialHistorySection",
+                        "@type": "Reference",
+                        "ref": "SocialHistorySection"
+                    }
+                ]
+            }
+        ]
+    }
+}

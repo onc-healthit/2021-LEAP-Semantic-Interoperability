@@ -1,0 +1,37 @@
+- operation: ingest/xml
+  params:
+    bundle:
+      - schemas/ccda.bundle.yaml
+    type: ClinicalDocument
+    onlySchemaAttributes: true
+# - operation: valueset
+#   params:
+#     valuesetFiles:
+#       - valuesets.json
+#     tables:
+#       - vocabularies
+# - operation: valueset
+#   params:
+#     valuesetFiles:
+#       - valuesets.json
+- operation: reshape
+  params:
+    bundle:
+      - ../graphmodel/graphmodel.bundle.yaml
+    type: https://dartnet.info/graphModel/Person
+    scriptFile: ../ccda/transformations/ccda-to-graph.script.yaml
+# - operation: valueset
+#   params:
+#     valuesetFiles:
+#       - valuesets.json
+# - operation: measures
+#   params:
+# - operation: writeGraph
+- operation: saveGraph/neo4j
+  params:
+    cfg: ../lsaneo.config.yaml
+    user: ${user}
+    pwd: ${password}
+    uri: ${uri}
+    db: neo4j
+    batchSize: 0

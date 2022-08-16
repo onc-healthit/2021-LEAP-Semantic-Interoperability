@@ -1,0 +1,1340 @@
+{
+    "nodes": [
+        {
+            "n": 0,
+            "labels": [
+                "https://lschema.org/Object",
+                "https://dartnet.info/graphModel/Person",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "7",
+                "https://lschema.org/entityId": "1002391",
+                "https://lschema.org/entityIdFields": "https://dartnet.info/graphModel/Person/id",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/Person/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person"
+            },
+            "edges": [
+                {
+                    "to": 1,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 2,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 4,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 5,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 6,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 8,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 10,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 11,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 5,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object",
+                "https://dartnet.info/graphModel/DrugExposure"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/DrugExposure",
+                "https://lschema.org/attributeIndex": "3",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/DrugExposure/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/drugExposures/element"
+            }
+        },
+        {
+            "n": 6,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "4",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/ethnicity"
+            },
+            "edges": [
+                {
+                    "to": 7,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 7,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Array"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/ethnicity/omop"
+            }
+        },
+        {
+            "n": 8,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "5",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/gender"
+            },
+            "edges": [
+                {
+                    "to": 9,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 9,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Array"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/gender/omop"
+            }
+        },
+        {
+            "n": 1,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/birthDate",
+                "https://lschema.org/value": "1951-01-15",
+                "https://lschema.org/valueType": "ls:date"
+            }
+        },
+        {
+            "n": 2,
+            "labels": [
+                "https://dartnet.info/graphModel/Condition",
+                "https://lschema.org/Object",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/Condition",
+                "https://lschema.org/attributeIndex": "1",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/Condition/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/conditions/element"
+            },
+            "edges": [
+                {
+                    "to": 3,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 3,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Array"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Condition/omop"
+            }
+        },
+        {
+            "n": 4,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object",
+                "https://dartnet.info/graphModel/DrugExposure"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/DrugExposure",
+                "https://lschema.org/attributeIndex": "2",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/DrugExposure/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/drugExposures/element"
+            }
+        },
+        {
+            "n": 10,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "6",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/id",
+                "https://lschema.org/value": "1002391"
+            }
+        },
+        {
+            "n": 11,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "7",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/race"
+            },
+            "edges": [
+                {
+                    "to": 12,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 12,
+            "labels": [
+                "https://lschema.org/Array",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/race/omop"
+            }
+        }
+    ]
+}{
+    "nodes": [
+        {
+            "n": 0,
+            "labels": [
+                "https://lschema.org/Object",
+                "https://dartnet.info/graphModel/Person",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "10",
+                "https://lschema.org/entityId": "1001471",
+                "https://lschema.org/entityIdFields": "https://dartnet.info/graphModel/Person/id",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/Person/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person"
+            },
+            "edges": [
+                {
+                    "to": 1,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 2,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 4,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 6,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 7,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 9,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 11,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 12,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 19,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 26,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 33,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 21,
+            "labels": [
+                "https://lschema.org/Value",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "1",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/date",
+                "https://lschema.org/value": "2015-03-21",
+                "https://lschema.org/valueType": "ls:date"
+            }
+        },
+        {
+            "n": 23,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "3",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/systemName",
+                "https://lschema.org/value": "LOINC"
+            }
+        },
+        {
+            "n": 31,
+            "labels": [
+                "https://lschema.org/Value",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "4",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/unit",
+                "https://lschema.org/value": "/min"
+            }
+        },
+        {
+            "n": 9,
+            "labels": [
+                "https://lschema.org/Object",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "5",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/gender"
+            },
+            "edges": [
+                {
+                    "to": 10,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 17,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "4",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/unit",
+                "https://lschema.org/value": "/min"
+            }
+        },
+        {
+            "n": 18,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "5",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/value",
+                "https://lschema.org/value": "48"
+            }
+        },
+        {
+            "n": 20,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value",
+                "Code"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/code",
+                "https://lschema.org/value": "8867-4"
+            }
+        },
+        {
+            "n": 30,
+            "labels": [
+                "https://lschema.org/Value",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "3",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/systemName",
+                "https://lschema.org/value": "LOINC"
+            }
+        },
+        {
+            "n": 4,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object",
+                "https://dartnet.info/graphModel/DrugExposure"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/DrugExposure",
+                "https://lschema.org/attributeIndex": "2",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/DrugExposure/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/drugExposures/element"
+            },
+            "edges": [
+                {
+                    "to": 5,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 5,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/DrugExposure/start",
+                "https://lschema.org/value": "2015-03-21T00:00:00Z",
+                "https://lschema.org/valueType": "ls:dateTime"
+            }
+        },
+        {
+            "n": 7,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "4",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/ethnicity"
+            },
+            "edges": [
+                {
+                    "to": 8,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 10,
+            "labels": [
+                "https://lschema.org/Array",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/gender/omop"
+            }
+        },
+        {
+            "n": 16,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "3",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/systemName",
+                "https://lschema.org/value": "LOINC"
+            }
+        },
+        {
+            "n": 1,
+            "labels": [
+                "https://lschema.org/Value",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/birthDate",
+                "https://lschema.org/value": "1987-01-30",
+                "https://lschema.org/valueType": "ls:date"
+            }
+        },
+        {
+            "n": 14,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "1",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/date",
+                "https://lschema.org/value": "2015-03-21",
+                "https://lschema.org/valueType": "ls:date"
+            }
+        },
+        {
+            "n": 22,
+            "labels": [
+                "https://lschema.org/Value",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "2",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/displayName",
+                "https://lschema.org/value": "Heart Beat"
+            }
+        },
+        {
+            "n": 34,
+            "labels": [
+                "https://lschema.org/Array",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/race/omop"
+            }
+        },
+        {
+            "n": 2,
+            "labels": [
+                "https://dartnet.info/graphModel/Condition",
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/Condition",
+                "https://lschema.org/attributeIndex": "1",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/Condition/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/conditions/element"
+            },
+            "edges": [
+                {
+                    "to": 3,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 8,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Array"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/ethnicity/omop"
+            }
+        },
+        {
+            "n": 13,
+            "labels": [
+                "https://lschema.org/Value",
+                "Code",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/code",
+                "https://lschema.org/value": "8867-4"
+            }
+        },
+        {
+            "n": 24,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "4",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/unit",
+                "https://lschema.org/value": "/min"
+            }
+        },
+        {
+            "n": 25,
+            "labels": [
+                "https://lschema.org/Value",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "5",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/value",
+                "https://lschema.org/value": "50"
+            }
+        },
+        {
+            "n": 28,
+            "labels": [
+                "https://lschema.org/Value",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "1",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/date",
+                "https://lschema.org/value": "2015-02-20",
+                "https://lschema.org/valueType": "ls:date"
+            }
+        },
+        {
+            "n": 32,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "5",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/value",
+                "https://lschema.org/value": "46"
+            }
+        },
+        {
+            "n": 3,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Array"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Condition/omop"
+            }
+        },
+        {
+            "n": 11,
+            "labels": [
+                "https://lschema.org/Value",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "6",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/id",
+                "https://lschema.org/value": "1001471"
+            }
+        },
+        {
+            "n": 12,
+            "labels": [
+                "https://lschema.org/Object",
+                "https://lschema.org/DocumentNode",
+                "https://dartnet.info/graphModel/Measurement"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/Measurement",
+                "https://lschema.org/attributeIndex": "7",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/Measurement/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/measurements/element"
+            },
+            "edges": [
+                {
+                    "to": 13,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 14,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 15,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 16,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 17,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 18,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 15,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "2",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/displayName",
+                "https://lschema.org/value": "Heart Beat"
+            }
+        },
+        {
+            "n": 27,
+            "labels": [
+                "Code",
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/code",
+                "https://lschema.org/value": "8867-4"
+            }
+        },
+        {
+            "n": 33,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "10",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/race"
+            },
+            "edges": [
+                {
+                    "to": 34,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 6,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object",
+                "https://dartnet.info/graphModel/DrugExposure"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/DrugExposure",
+                "https://lschema.org/attributeIndex": "3",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/DrugExposure/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/drugExposures/element"
+            }
+        },
+        {
+            "n": 19,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://dartnet.info/graphModel/Measurement",
+                "https://lschema.org/Object"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/Measurement",
+                "https://lschema.org/attributeIndex": "8",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/Measurement/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/measurements/element"
+            },
+            "edges": [
+                {
+                    "to": 20,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 21,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 22,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 23,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 24,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 25,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 26,
+            "labels": [
+                "https://lschema.org/Object",
+                "https://lschema.org/DocumentNode",
+                "https://dartnet.info/graphModel/Measurement"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/Measurement",
+                "https://lschema.org/attributeIndex": "9",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/Measurement/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/measurements/element"
+            },
+            "edges": [
+                {
+                    "to": 27,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 28,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 29,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 30,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 31,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 32,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 29,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "2",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Measurement/displayName",
+                "https://lschema.org/value": "Heart Beat"
+            }
+        }
+    ]
+}{
+    "nodes": [
+        {
+            "n": 8,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object",
+                "https://dartnet.info/graphModel/DrugExposure"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/DrugExposure",
+                "https://lschema.org/attributeIndex": "3",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/DrugExposure/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/drugExposures/element"
+            }
+        },
+        {
+            "n": 10,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "5",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/ethnicity"
+            },
+            "edges": [
+                {
+                    "to": 11,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 16,
+            "labels": [
+                "https://lschema.org/Array",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/race/omop"
+            }
+        },
+        {
+            "n": 4,
+            "labels": [
+                "https://lschema.org/Value",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "1",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Condition/start",
+                "https://lschema.org/value": "2015-08-19T00:00:00Z",
+                "https://lschema.org/valueType": "ls:dateTime"
+            }
+        },
+        {
+            "n": 6,
+            "labels": [
+                "https://lschema.org/Array",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Condition/omop"
+            }
+        },
+        {
+            "n": 5,
+            "labels": [
+                "https://dartnet.info/graphModel/Condition",
+                "https://lschema.org/Object",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/Condition",
+                "https://lschema.org/attributeIndex": "2",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/Condition/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/conditions/element"
+            },
+            "edges": [
+                {
+                    "to": 6,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 7,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 7,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "1",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Condition/start",
+                "https://lschema.org/value": "2015-08-18T00:00:00Z",
+                "https://lschema.org/valueType": "ls:dateTime"
+            }
+        },
+        {
+            "n": 9,
+            "labels": [
+                "https://dartnet.info/graphModel/DrugExposure",
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/DrugExposure",
+                "https://lschema.org/attributeIndex": "4",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/DrugExposure/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/drugExposures/element"
+            }
+        },
+        {
+            "n": 14,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "7",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/id",
+                "https://lschema.org/value": "1000963"
+            }
+        },
+        {
+            "n": 15,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "8",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/race"
+            },
+            "edges": [
+                {
+                    "to": 16,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 0,
+            "labels": [
+                "https://lschema.org/Object",
+                "https://dartnet.info/graphModel/Person",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "8",
+                "https://lschema.org/entityId": "1000963",
+                "https://lschema.org/entityIdFields": "https://dartnet.info/graphModel/Person/id",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/Person/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person"
+            },
+            "edges": [
+                {
+                    "to": 1,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 2,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 5,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 8,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 9,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 10,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 12,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 14,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 15,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 3,
+            "labels": [
+                "https://lschema.org/Array",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Condition/omop"
+            }
+        },
+        {
+            "n": 13,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Array"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/gender/omop"
+            }
+        },
+        {
+            "n": 1,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/birthDate",
+                "https://lschema.org/value": "1945-08-18",
+                "https://lschema.org/valueType": "ls:date"
+            }
+        },
+        {
+            "n": 12,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "6",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/gender"
+            },
+            "edges": [
+                {
+                    "to": 13,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 2,
+            "labels": [
+                "https://lschema.org/Object",
+                "https://dartnet.info/graphModel/Condition",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/Condition",
+                "https://lschema.org/attributeIndex": "1",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/Condition/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/conditions/element"
+            },
+            "edges": [
+                {
+                    "to": 3,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 4,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 11,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Array"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/ethnicity/omop"
+            }
+        }
+    ]
+}{
+    "nodes": [
+        {
+            "n": 4,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "1",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Condition/start",
+                "https://lschema.org/value": "2015-02-20T00:00:00Z",
+                "https://lschema.org/valueType": "ls:dateTime"
+            }
+        },
+        {
+            "n": 8,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Array"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/ethnicity/omop"
+            }
+        },
+        {
+            "n": 0,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object",
+                "https://dartnet.info/graphModel/Person"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "7",
+                "https://lschema.org/entityId": "34199",
+                "https://lschema.org/entityIdFields": "https://dartnet.info/graphModel/Person/id",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/Person/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person"
+            },
+            "edges": [
+                {
+                    "to": 1,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 2,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 5,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 6,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 7,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 9,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 11,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 12,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 1,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/birthDate",
+                "https://lschema.org/value": "1960-04-20",
+                "https://lschema.org/valueType": "ls:date"
+            }
+        },
+        {
+            "n": 2,
+            "labels": [
+                "https://lschema.org/Object",
+                "https://lschema.org/DocumentNode",
+                "https://dartnet.info/graphModel/Condition"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/Condition",
+                "https://lschema.org/attributeIndex": "1",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/Condition/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/conditions/element"
+            },
+            "edges": [
+                {
+                    "to": 3,
+                    "label": "https://lschema.org/has"
+                },
+                {
+                    "to": 4,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 3,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Array"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Condition/omop"
+            }
+        },
+        {
+            "n": 13,
+            "labels": [
+                "https://lschema.org/Array",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/race/omop"
+            }
+        },
+        {
+            "n": 7,
+            "labels": [
+                "https://lschema.org/Object",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "4",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/ethnicity"
+            },
+            "edges": [
+                {
+                    "to": 8,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 10,
+            "labels": [
+                "https://lschema.org/Array",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "0",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/gender/omop"
+            }
+        },
+        {
+            "n": 11,
+            "labels": [
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Value"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "6",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/id",
+                "https://lschema.org/value": "34199"
+            }
+        },
+        {
+            "n": 12,
+            "labels": [
+                "https://lschema.org/Object",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "7",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/race"
+            },
+            "edges": [
+                {
+                    "to": 13,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        },
+        {
+            "n": 5,
+            "labels": [
+                "https://lschema.org/Object",
+                "https://dartnet.info/graphModel/DrugExposure",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/DrugExposure",
+                "https://lschema.org/attributeIndex": "2",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/DrugExposure/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/drugExposures/element"
+            }
+        },
+        {
+            "n": 6,
+            "labels": [
+                "https://dartnet.info/graphModel/DrugExposure",
+                "https://lschema.org/DocumentNode",
+                "https://lschema.org/Object"
+            ],
+            "properties": {
+                "https://lschema.org/Reference/ref": "https://dartnet.info/graphModel/DrugExposure",
+                "https://lschema.org/attributeIndex": "3",
+                "https://lschema.org/entitySchema": "https://dartnet.info/graphModel/DrugExposure/schema",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/drugExposures/element"
+            }
+        },
+        {
+            "n": 9,
+            "labels": [
+                "https://lschema.org/Object",
+                "https://lschema.org/DocumentNode"
+            ],
+            "properties": {
+                "https://lschema.org/attributeIndex": "5",
+                "https://lschema.org/schemaNodeId": "https://dartnet.info/graphModel/Person/gender"
+            },
+            "edges": [
+                {
+                    "to": 10,
+                    "label": "https://lschema.org/has"
+                }
+            ]
+        }
+    ]
+}
