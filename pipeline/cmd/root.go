@@ -15,6 +15,7 @@
 package cmd
 
 import (
+	"fmt"
 	"io"
 	"log"
 	"os"
@@ -42,24 +43,22 @@ var (
 				if err != nil {
 					panic(err)
 				}
+				fmt.Println("Recording profile to ", f)
 				pprof.StartCPUProfile(file)
 			}
 			if b, _ := cmd.Flags().GetBool("log"); b {
 				logger.Level = ls.LogLevelDebug
 			}
-		},
-		PersistentPreRunE: func(cmd *cobra.Command, _ []string) error {
 			if f, _ := cmd.Flags().GetString("runlog"); len(f) > 0 {
 				logFile, err := os.OpenFile(f, os.O_WRONLY|os.O_APPEND|os.O_CREATE, 0644)
 				if err != nil {
-					return err
+					panic(err)
 				}
 				stdLogger.SetOutput(logFile)
 				stdLogger.SetFlags(log.LstdFlags | log.Lshortfile | log.Lmicroseconds)
 			} else {
 				stdLogger.SetOutput(os.Stderr)
 			}
-			return nil
 		},
 		PersistentPostRun: func(cmd *cobra.Command, _ []string) {
 			if f, _ := cmd.Flags().GetString("cpuprofile"); len(f) > 0 {
