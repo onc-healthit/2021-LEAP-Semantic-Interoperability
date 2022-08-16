@@ -7,6 +7,7 @@ import (
 	"github.com/cloudprivacylabs/lsa/layers/cmd/cmdutil"
 	"github.com/cloudprivacylabs/lsa/layers/cmd/pipeline"
 	"github.com/cloudprivacylabs/opencypher/graph"
+	"github.com/drone/envsubst"
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/neo4j/neo4j-go-driver/v4/neo4j"
 )
@@ -16,12 +17,25 @@ type plSession struct {
 }
 
 func initPlSession(step *Step) {
-	user := getEnvVariable("user")
-	password := getEnvVariable("pwd")
-	uri := getEnvVariable("uri")
+	user, err := envsubst.EvalEnv(step.User)
+	if err != nil {
+		panic(err)
+	}
+	password, err := envsubst.EvalEnv(step.Pwd)
+	if err != nil {
+		panic(err)
+	}
+	uri, err := envsubst.EvalEnv(step.URI)
+	if err != nil {
+		panic(err)
+	}
+	realm, err := envsubst.EvalEnv(step.Realm)
+	if err != nil {
+		panic(err)
+	}
 	var auth neo4j.AuthToken
 	if len(user) > 0 {
-		auth = neo4j.BasicAuth(user, password, step.Realm)
+		auth = neo4j.BasicAuth(user, password, realm)
 	} else {
 		auth = neo4j.NoAuth()
 	}
@@ -29,7 +43,11 @@ func initPlSession(step *Step) {
 	if err != nil {
 		log.Fatal(err)
 	}
-	drv := neo.NewDriver(driver, step.Database)
+	db, err := envsubst.EvalEnv(step.Database)
+	if err != nil {
+		panic(err)
+	}
+	drv := neo.NewDriver(driver, db)
 	step.pls = &plSession{session: drv.NewSession()}
 }
 
@@ -40,6 +58,9 @@ type Step struct {
 	Realm     string `json:"realm" yaml:"realm"`
 	Database  string `json:"db" yaml:"db"`
 	BatchSize int    `json:"batchSize" yaml:"batchSize"`
+	User      string `json:"user" yaml:"user"`
+	Pwd       string `json:"pwd" yaml:"pwd"`
+	URI       string `json:"uri" yaml:"uri"`
 }
 
 func (s *Step) Run(pl *pipeline.PipelineContext) error {

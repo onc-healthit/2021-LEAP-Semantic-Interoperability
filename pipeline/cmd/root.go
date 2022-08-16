@@ -39,6 +39,7 @@ var (
 		Short: "LSA data pipeline CLI",
 		Args:  cobra.MinimumNArgs(1),
 		PersistentPreRun: func(cmd *cobra.Command, _ []string) {
+			_ = godotenv.Load(".env")
 			if f, _ := cmd.Flags().GetString("cpuprofile"); len(f) > 0 {
 				file, err := os.Create(f)
 				if err != nil {
@@ -85,7 +86,7 @@ var (
 							logger.Error(map[string]interface{}{"File": entry.Name, "Error": err})
 							return nil, entry.Err
 						}
-						logger.Debug(map[string]interface{}{"File": entry.Name, "timestamp start": time.Now()})
+						logger.Info(map[string]interface{}{"File": entry.Name, "timestamp start": time.Now()})
 						return io.NopCloser(entry.Stream), nil
 					}
 				}
@@ -111,11 +112,6 @@ func init() {
 	rootCmd.PersistentFlags().Bool("log.info", false, "Enable logging at info level")
 	rootCmd.PersistentFlags().Bool("log.error", false, "Enable logging at error level")
 	rootCmd.Flags().String("runlog", "", "Prints error to file, if not provided then defaults to stderr")
-}
-
-func getEnvVariable(key string) string {
-	_ = godotenv.Load(".env")
-	return os.Getenv(key)
 }
 
 func getContext(cmd *cobra.Command) *ls.Context {
