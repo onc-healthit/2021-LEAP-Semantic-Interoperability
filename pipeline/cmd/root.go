@@ -73,6 +73,7 @@ var (
 				return err
 			}
 			ctx := getContext(ccmd)
+			// *stdLogger = ctx.AdaptToStandardLog(ctx.GetLogger())
 			inputs, err := input.ReadPaths(ctx, args[1:]...)
 			if err != nil {
 				return err
@@ -140,10 +141,9 @@ func fail(msg string) {
 	log.Fatalf(msg)
 }
 
-// func track(msg string) (string, time.Time) {
-// 	return fmt.Sprint("File: ", msg), time.Now()
-// }
-
-// func duration(msg string, start time.Time) {
-// 	logger.Debug(map[string]interface{}{msg: time.Since(start).Seconds()})
-// }
+func connectLogger(pctx *pipeline.PipelineContext) {
+	pctx.ErrorLogger = func(pc *pipeline.PipelineContext, err error) bool {
+		stdLogger.Println(err)
+		return err != nil
+	}
+}

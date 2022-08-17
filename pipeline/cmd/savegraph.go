@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"log"
+	"time"
 
 	neo "github.com/cloudprivacylabs/lsa-neo4j"
 	"github.com/cloudprivacylabs/lsa/layers/cmd/cmdutil"
@@ -16,7 +17,7 @@ type plSession struct {
 	session *neo.Session
 }
 
-func initPlSession(step *Step) {
+func initPlSession(pl *pipeline.PipelineContext, step *Step) {
 	user, err := envsubst.EvalEnv(step.User)
 	if err != nil {
 		panic(err)
@@ -48,6 +49,12 @@ func initPlSession(step *Step) {
 		panic(err)
 	}
 	drv := neo.NewDriver(driver, db)
+	err = cmdutil.ReadJSONOrYAML(step.CfgFile, &step.cfg)
+	if err != nil {
+		pl.ErrorLogger(pl, err)
+		panic(err)
+	}
+	neo.InitNamespaceTrie(&step.cfg)
 	step.pls = &plSession{session: drv.NewSession()}
 }
 
@@ -65,31 +72,26 @@ type Step struct {
 
 func (s *Step) Run(pl *pipeline.PipelineContext) error {
 	if s.pls == nil {
-		initPlSession(s)
+		initPlSession(pl, s)
 	}
 	defer s.pls.session.Close()
 	// begin new transaction
 	tx, err := s.pls.session.BeginTransaction()
 	if err != nil {
 		stdLogger.Println(err)
-		pl.Context.GetLogger().Error(map[string]interface{}{"error starting transaction": err})
+		pl.ErrorLogger(pl, err)
 		return err
 	}
-	err = cmdutil.ReadJSONOrYAML(s.CfgFile, &s.cfg)
-	if err != nil {
-		return err
-	}
-	neo.InitNamespaceTrie(&s.cfg)
+	start := time.Now()
 	_, err = neo.SaveGraph(s.pls.session, tx, pl.GetGraphRW(), func(graph.Node) bool { return true }, s.cfg, s.BatchSize)
 	if err != nil {
 		tx.Rollback()
 		stdLogger.Println(err)
+		pl.ErrorLogger(pl, err)
 		return err
 	}
-	tx.Commit()
-	_, err = pl.NextInput()
-	if err != nil {
-		stdLogger.Println(err)
+	pl.Context.GetLogger().Info(map[string]interface{}{"time elapsed for graph creation": time.Since(start)})
+	if err := tx.Commit(); err != nil {
 		return err
 	}
 	return nil
