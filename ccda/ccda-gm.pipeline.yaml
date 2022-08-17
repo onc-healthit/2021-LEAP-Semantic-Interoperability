@@ -31,7 +31,7 @@
   params:
     cfg: ../lsaneo.config.yaml
     user: ${user}
-    pwd: ${password}
+    pwd: ${pwd}
     uri: ${uri}
     db: neo4j
     batchSize: 0
