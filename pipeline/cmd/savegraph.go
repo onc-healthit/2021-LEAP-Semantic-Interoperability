@@ -17,7 +17,7 @@ type plSession struct {
 	session *neo.Session
 }
 
-func initPlSession(pl *pipeline.PipelineContext, step *Step) {
+func initPlSession(pctx *pipeline.PipelineContext, step *Step) {
 	user, err := envsubst.EvalEnv(step.User)
 	if err != nil {
 		panic(err)
@@ -51,7 +51,7 @@ func initPlSession(pl *pipeline.PipelineContext, step *Step) {
 	drv := neo.NewDriver(driver, db)
 	err = cmdutil.ReadJSONOrYAML(step.CfgFile, &step.cfg)
 	if err != nil {
-		pl.ErrorLogger(pl, err)
+		pctx.ErrorLogger(pctx, err)
 		panic(err)
 	}
 	neo.InitNamespaceTrie(&step.cfg)
@@ -70,28 +70,27 @@ type Step struct {
 	URI       string `json:"uri" yaml:"uri"`
 }
 
-func (s *Step) Run(pl *pipeline.PipelineContext) error {
+func (s *Step) Run(pctx *pipeline.PipelineContext) error {
 	if s.pls == nil {
-		initPlSession(pl, s)
+		initPlSession(pctx, s)
 	}
 	defer s.pls.session.Close()
 	// begin new transaction
 	tx, err := s.pls.session.BeginTransaction()
 	if err != nil {
-		stdLogger.Println(err)
-		pl.ErrorLogger(pl, err)
+		pctx.ErrorLogger(pctx, err)
 		return err
 	}
 	start := time.Now()
-	_, err = neo.SaveGraph(s.pls.session, tx, pl.GetGraphRW(), func(graph.Node) bool { return true }, s.cfg, s.BatchSize)
+	_, err = neo.SaveGraph(s.pls.session, tx, pctx.Graph, func(graph.Node) bool { return true }, s.cfg, s.BatchSize)
 	if err != nil {
 		tx.Rollback()
-		stdLogger.Println(err)
-		pl.ErrorLogger(pl, err)
+		pctx.ErrorLogger(pctx, err)
 		return err
 	}
-	pl.Context.GetLogger().Info(map[string]interface{}{"time elapsed for graph creation": time.Since(start)})
+	pctx.Context.GetLogger().Info(map[string]interface{}{"time elapsed for graph creation": time.Since(start)})
 	if err := tx.Commit(); err != nil {
+		pctx.ErrorLogger(pctx, err)
 		return err
 	}
 	return nil

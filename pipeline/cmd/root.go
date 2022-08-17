@@ -73,13 +73,12 @@ var (
 				return err
 			}
 			ctx := getContext(ccmd)
-			// *stdLogger = ctx.AdaptToStandardLog(ctx.GetLogger())
 			inputs, err := input.ReadPaths(ctx, args[1:]...)
 			if err != nil {
 				return err
 			}
 			// returns *pipeline.PipelineContext
-			_, err = pipeline.Run(ctx, pl, nil, func() (io.ReadCloser, error) {
+			pctx := pipeline.NewContext(ctx, pl, nil, func() (io.ReadCloser, error) {
 				select {
 				case entry, ok := <-inputs:
 					if ok {
@@ -93,7 +92,9 @@ var (
 				}
 				return nil, nil
 			})
+			err = pipeline.Run(pctx)
 			if err != nil {
+				pctx.ErrorLogger(pctx, err)
 				return err
 			}
 			return nil
@@ -139,11 +140,4 @@ func failErr(err error) {
 
 func fail(msg string) {
 	log.Fatalf(msg)
-}
-
-func connectLogger(pctx *pipeline.PipelineContext) {
-	pctx.ErrorLogger = func(pc *pipeline.PipelineContext, err error) bool {
-		stdLogger.Println(err)
-		return err != nil
-	}
 }
