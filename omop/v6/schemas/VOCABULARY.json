@@ -1,0 +1,68 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/VOCABULARY/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/VOCABULARY",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/VOCABULARY"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/VOCABULARY/vocabulary_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "vocabulary_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VOCABULARY/vocabulary_name",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "vocabulary_name",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VOCABULARY/vocabulary_reference",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "vocabulary_reference",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VOCABULARY/vocabulary_version",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "vocabulary_version"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VOCABULARY/vocabulary_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "vocabulary_concept_id",
+        "required": "true"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/VOCABULARY/vocabulary_id"
+  },
+  "valueType": "https://ohdsi.org/omop/VOCABULARY"
+}

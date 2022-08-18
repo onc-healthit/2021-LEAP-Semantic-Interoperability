@@ -1,0 +1,57 @@
+{
+    "@context": [
+        "https://lschema.org/ls.json"
+    ],
+    "@id": "https://ohdsi.org/omop/OBSERVATION/ovl",
+    "@type": "Overlay",
+    "layer": {
+        "@id": "https://ohdsi.org/omop/OBSERVATION",
+        "@type": "Object",
+        "attributeList": [
+            {
+                "@id": "https://ohdsi.org/omop/OBSERVATION/person_id",
+                "@type": "Value",
+                "referenceFKFor": "https://ohdsi.org/omop/PERSON",
+                "link": "from",
+                "label": "https://lschema.org/has"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/OBSERVATION/observation_date",
+                "@type": "Value",
+                "valueType": "xsd:date"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/OBSERVATION/observation_datetime",
+                "@type": "Value",
+                "valueType": "xsd:dateTime"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/OBSERVATION/value_as_datetime",
+                "@type": "Value",
+                "valueType": "xsd:dateTime"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/OBSERVATION/observation_source_value",
+                "@type": "Value",
+                "vsValueSets": "https://ohdsi.org/omop/vs/observation",
+                "vsContext": "https://ohdsi.org/omop/OBSERVATION",
+                "vsResultSetValues": "https://ohdsi.org/omop/OBSERVATION/observation_concept_id"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/OBSERVATION/unit_source_value",
+                "@type": "Value",
+                "vsValueSets": "https://ohdsi.org/omop/vs/unit",
+                "vsContext": "https://ohdsi.org/omop/OBSERVATION",
+                "vsResultSetValues": "https://ohdsi.org/omop/OBSERVATION/unit_concept_id"
+
+            },
+            {
+                "@id": "https://ohdsi.org/omop/OBSERVATION/qualifier_source_value",
+                "@type": "Value",
+                "vsValueSets": "https://ohdsi.org/omop/vs/qualifier",
+                "vsContext": "https://ohdsi.org/omop/OBSERVATION",
+                "vsResultSetValues": "https://ohdsi.org/omop/OBSERVATION/qualifier_concept_id"
+            }            
+        ]
+    }
+}

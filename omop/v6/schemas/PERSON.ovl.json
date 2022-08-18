@@ -1,0 +1,54 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@id": "https://ohdsi.org/omop/PERSON/ovl",
+    "@type": "Overlay",
+    "layer": {
+        "@id": "https://ohdsi.org/omop/PERSON",
+        "@type": "Object",
+        "attributeList": [
+            {
+                "@id": "https://ohdsi.org/omop/PERSON/year_of_birth",
+                "@type": "Value",
+                "valueType": "xs:gYear"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/PERSON/month_of_birth",
+                "@type": "Value",
+                "valueType": "xs:gMonth"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/PERSON/day_of_birth",
+                "@type": "Value",
+                "valueType": "xs:gDay"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/PERSON/birth_datetime",
+                "@type": "Value",
+                "valueType": "xs:dateTime"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/PERSON/death_datetime",
+                "@type": "Value",
+                "valueType": "xs:dateTime"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/PERSON/gender_source_value",
+                "vsValesets": "https://ohdsi.org/omop/vs/gender",
+                "vsContext": "https://ohdsi.org/omop/PERSON",
+                "vsResultSetValues": "https://ohdsi.org/omop/PERSON/gender_concept_id"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/PERSON/race_source_value",
+                "vsValesets": "https://ohdsi.org/omop/vs/race",
+                "vsContext": "https://ohdsi.org/omop/PERSON",
+                "vsResultSetValues": "https://ohdsi.org/omop/PERSON/race_concept_id"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/PERSON/ethnicity_source_value",
+                "vsValesets": "https://ohdsi.org/omop/vs/ethnicity",
+                "vsContext": "https://ohdsi.org/omop/PERSON",
+                "vsResultSetValues": "https://ohdsi.org/omop/PERSON/ethnicity_concept_id"
+            }
+        ]
+    }
+}

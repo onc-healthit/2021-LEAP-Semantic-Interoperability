@@ -1,0 +1,205 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/MEASUREMENT/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/MEASUREMENT",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/MEASUREMENT"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/measurement_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "measurement_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/person_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "person_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/measurement_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "measurement_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/measurement_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "measurement_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/measurement_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "measurement_datetime"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/measurement_time",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "measurement_time"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/measurement_type_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "measurement_type_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/operator_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "operator_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/value_as_number",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "value_as_number"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/value_as_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "value_as_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/unit_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "10",
+        "attributeName": "unit_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/range_low",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "11",
+        "attributeName": "range_low"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/range_high",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "12",
+        "attributeName": "range_high"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/provider_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "13",
+        "attributeName": "provider_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/visit_occurrence_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "14",
+        "attributeName": "visit_occurrence_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/visit_detail_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "15",
+        "attributeName": "visit_detail_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/measurement_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "16",
+        "attributeName": "measurement_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/measurement_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "17",
+        "attributeName": "measurement_source_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/unit_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "18",
+        "attributeName": "unit_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT/value_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "19",
+        "attributeName": "value_source_value"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/MEASUREMENT/measurement_id"
+  },
+  "valueType": "https://ohdsi.org/omop/MEASUREMENT"
+}

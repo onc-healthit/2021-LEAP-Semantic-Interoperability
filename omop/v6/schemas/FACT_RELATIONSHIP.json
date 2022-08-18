@@ -1,0 +1,68 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/FACT_RELATIONSHIP/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/FACT_RELATIONSHIP",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/FACT_RELATIONSHIP"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/FACT_RELATIONSHIP/domain_concept_id_1",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "domain_concept_id_1",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/FACT_RELATIONSHIP/fact_id_1",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "fact_id_1",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/FACT_RELATIONSHIP/domain_concept_id_2",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "domain_concept_id_2",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/FACT_RELATIONSHIP/fact_id_2",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "fact_id_2",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/FACT_RELATIONSHIP/relationship_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "relationship_concept_id",
+        "required": "true"
+      }
+    ]
+  },
+  "valueType": "https://ohdsi.org/omop/FACT_RELATIONSHIP"
+}

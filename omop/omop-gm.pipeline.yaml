@@ -1,0 +1,16 @@
+- operation: ingest/json
+  params:
+    bundle:
+      - v6/schemas/omop.bundle.yaml
+    type: ????
+    onlySchemaAttributes: true
+- operation: reshape
+  params:
+    bundle:
+      - ../graphmodel/graphmodel.bundle.yaml
+    type: https://dartnet.info/graphModel/Person
+    scriptFile: reshape/fhir-to-graph.script.yaml
+- operation: measures
+  params:
+- operation: writeGraph
+  

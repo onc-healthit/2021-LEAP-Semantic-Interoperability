@@ -1,0 +1,159 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/SPECIMEN/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/SPECIMEN",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/SPECIMEN"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/SPECIMEN/specimen_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "specimen_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/SPECIMEN/person_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "person_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/SPECIMEN/specimen_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "specimen_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/SPECIMEN/specimen_type_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "specimen_type_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/SPECIMEN/specimen_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "specimen_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/SPECIMEN/specimen_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "specimen_datetime"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/SPECIMEN/quantity",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "quantity"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/SPECIMEN/unit_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "unit_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/SPECIMEN/anatomic_site_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "anatomic_site_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/SPECIMEN/disease_status_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "disease_status_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/SPECIMEN/specimen_source_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "10",
+        "attributeName": "specimen_source_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/SPECIMEN/specimen_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "11",
+        "attributeName": "specimen_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/SPECIMEN/unit_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "12",
+        "attributeName": "unit_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/SPECIMEN/anatomic_site_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "13",
+        "attributeName": "anatomic_site_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/SPECIMEN/disease_status_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "14",
+        "attributeName": "disease_status_source_value"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/SPECIMEN/specimen_id"
+  },
+  "valueType": "https://ohdsi.org/omop/SPECIMEN"
+}

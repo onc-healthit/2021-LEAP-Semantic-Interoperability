@@ -1,0 +1,149 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/NOTE_NLP/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/NOTE_NLP",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/NOTE_NLP"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/NOTE_NLP/note_nlp_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "note_nlp_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE_NLP/note_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "note_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE_NLP/section_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "section_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE_NLP/snippet",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "snippet"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE_NLP/\\\"offset\\\"",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "\\\"offset\\\""
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE_NLP/lexical_variant",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "lexical_variant",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE_NLP/note_nlp_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "note_nlp_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE_NLP/note_nlp_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "note_nlp_source_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE_NLP/nlp_system",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "nlp_system"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE_NLP/nlp_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "nlp_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE_NLP/nlp_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "10",
+        "attributeName": "nlp_datetime"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE_NLP/term_exists",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "11",
+        "attributeName": "term_exists"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE_NLP/term_temporal",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "12",
+        "attributeName": "term_temporal"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE_NLP/term_modifiers",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "13",
+        "attributeName": "term_modifiers"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/NOTE_NLP/note_nlp_id"
+  },
+  "valueType": "https://ohdsi.org/omop/NOTE_NLP"
+}

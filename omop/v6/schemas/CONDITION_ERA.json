@@ -1,0 +1,78 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/CONDITION_ERA/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/CONDITION_ERA",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/CONDITION_ERA"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_ERA/condition_era_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "condition_era_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_ERA/person_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "person_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_ERA/condition_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "condition_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_ERA/condition_era_start_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "condition_era_start_datetime",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_ERA/condition_era_end_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "condition_era_end_datetime",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_ERA/condition_occurrence_count",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "condition_occurrence_count"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/CONDITION_ERA/condition_era_id"
+  },
+  "valueType": "https://ohdsi.org/omop/CONDITION_ERA"
+}

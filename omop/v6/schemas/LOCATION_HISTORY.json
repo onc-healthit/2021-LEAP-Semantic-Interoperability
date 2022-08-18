@@ -1,0 +1,77 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/LOCATION_HISTORY/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/LOCATION_HISTORY",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/LOCATION_HISTORY"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION_HISTORY/location_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "location_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION_HISTORY/relationship_type_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "relationship_type_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION_HISTORY/domain_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "domain_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION_HISTORY/entity_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "entity_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION_HISTORY/start_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "start_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION_HISTORY/end_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "end_date"
+      }
+    ]
+  },
+  "valueType": "https://ohdsi.org/omop/LOCATION_HISTORY"
+}

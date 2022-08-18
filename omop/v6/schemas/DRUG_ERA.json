@@ -1,0 +1,87 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/DRUG_ERA/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/DRUG_ERA",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/DRUG_ERA"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_ERA/drug_era_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "drug_era_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_ERA/person_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "person_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_ERA/drug_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "drug_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_ERA/drug_era_start_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "drug_era_start_datetime",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_ERA/drug_era_end_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "drug_era_end_datetime",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_ERA/drug_exposure_count",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "drug_exposure_count"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_ERA/gap_days",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "gap_days"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/DRUG_ERA/drug_era_id"
+  },
+  "valueType": "https://ohdsi.org/omop/DRUG_ERA"
+}

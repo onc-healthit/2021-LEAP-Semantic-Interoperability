@@ -1,0 +1,160 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/DEVICE_EXPOSURE"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/device_exposure_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "device_exposure_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/person_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "person_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/device_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "device_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/device_exposure_start_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "device_exposure_start_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/device_exposure_start_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "device_exposure_start_datetime"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/device_exposure_end_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "device_exposure_end_date"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/device_exposure_end_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "device_exposure_end_datetime"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/device_type_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "device_type_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/unique_device_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "unique_device_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/quantity",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "quantity"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/provider_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "10",
+        "attributeName": "provider_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/visit_occurrence_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "11",
+        "attributeName": "visit_occurrence_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/visit_detail_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "12",
+        "attributeName": "visit_detail_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/device_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "13",
+        "attributeName": "device_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEVICE_EXPOSURE/device_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "14",
+        "attributeName": "device_source_concept_id",
+        "required": "true"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/DEVICE_EXPOSURE/device_exposure_id"
+  },
+  "valueType": "https://ohdsi.org/omop/DEVICE_EXPOSURE"
+}

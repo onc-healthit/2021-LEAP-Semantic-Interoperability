@@ -1,0 +1,233 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/DRUG_EXPOSURE"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_exposure_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "drug_exposure_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/person_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "person_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "drug_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_exposure_start_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "drug_exposure_start_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_exposure_start_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "drug_exposure_start_datetime"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_exposure_end_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "drug_exposure_end_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_exposure_end_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "drug_exposure_end_datetime"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/verbatim_end_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "verbatim_end_date"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_type_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "drug_type_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/stop_reason",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "stop_reason"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/refills",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "10",
+        "attributeName": "refills"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/quantity",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "11",
+        "attributeName": "quantity"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/days_supply",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "12",
+        "attributeName": "days_supply"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/sig",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "13",
+        "attributeName": "sig"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/route_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "14",
+        "attributeName": "route_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/lot_number",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "15",
+        "attributeName": "lot_number"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/provider_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "16",
+        "attributeName": "provider_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/visit_occurrence_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "17",
+        "attributeName": "visit_occurrence_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/visit_detail_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "18",
+        "attributeName": "visit_detail_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "19",
+        "attributeName": "drug_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "20",
+        "attributeName": "drug_source_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/route_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "21",
+        "attributeName": "route_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DRUG_EXPOSURE/dose_unit_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "22",
+        "attributeName": "dose_unit_source_value"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_exposure_id"
+  },
+  "valueType": "https://ohdsi.org/omop/DRUG_EXPOSURE"
+}

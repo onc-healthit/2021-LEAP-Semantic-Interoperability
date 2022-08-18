@@ -1,0 +1,77 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/CONCEPT_RELATIONSHIP/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/CONCEPT_RELATIONSHIP",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/CONCEPT_RELATIONSHIP"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT_RELATIONSHIP/concept_id_1",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "concept_id_1",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT_RELATIONSHIP/concept_id_2",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "concept_id_2",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT_RELATIONSHIP/relationship_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "relationship_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT_RELATIONSHIP/valid_start_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "valid_start_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT_RELATIONSHIP/valid_end_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "valid_end_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT_RELATIONSHIP/invalid_reason",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "invalid_reason"
+      }
+    ]
+  },
+  "valueType": "https://ohdsi.org/omop/CONCEPT_RELATIONSHIP"
+}

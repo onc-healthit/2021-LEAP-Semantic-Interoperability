@@ -1,0 +1,170 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/CONDITION_OCCURRENCE"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_occurrence_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "condition_occurrence_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/person_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "person_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "condition_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_start_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "condition_start_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_start_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "condition_start_datetime"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_end_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "condition_end_date"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_end_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "condition_end_datetime"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_type_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "condition_type_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_status_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "condition_status_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/stop_reason",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "stop_reason"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/provider_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "10",
+        "attributeName": "provider_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/visit_occurrence_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "11",
+        "attributeName": "visit_occurrence_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/visit_detail_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "12",
+        "attributeName": "visit_detail_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "13",
+        "attributeName": "condition_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "14",
+        "attributeName": "condition_source_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_status_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "15",
+        "attributeName": "condition_status_source_value"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_occurrence_id"
+  },
+  "valueType": "https://ohdsi.org/omop/CONDITION_OCCURRENCE"
+}

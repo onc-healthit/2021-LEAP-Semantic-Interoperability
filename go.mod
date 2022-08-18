@@ -4,7 +4,7 @@ go 1.18
 
 require (
 	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220817201100-c8703a08b155
-	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20220730183001-00dc48a94562
+	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20220817204633-caf980c27fb0
 	github.com/cloudprivacylabs/opencypher v1.0.0-beta-4.0.20220817144111-cf7287cfafd8
 	github.com/drone/envsubst v1.0.3
 	github.com/joho/godotenv v1.4.0

@@ -1,0 +1,171 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/NOTE/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/NOTE",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/NOTE"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/note_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "note_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/person_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "person_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/note_event_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "note_event_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/note_event_field_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "note_event_field_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/note_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "note_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/note_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "note_datetime"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/note_type_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "note_type_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/note_class_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "note_class_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/note_title",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "note_title"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/note_text",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "note_text",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/encoding_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "10",
+        "attributeName": "encoding_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/language_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "11",
+        "attributeName": "language_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/provider_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "12",
+        "attributeName": "provider_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/visit_occurrence_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "13",
+        "attributeName": "visit_occurrence_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/visit_detail_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "14",
+        "attributeName": "visit_detail_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/NOTE/note_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "15",
+        "attributeName": "note_source_value"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/NOTE/note_id"
+  },
+  "valueType": "https://ohdsi.org/omop/NOTE"
+}

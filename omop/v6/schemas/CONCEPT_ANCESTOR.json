@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/CONCEPT_ANCESTOR/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/CONCEPT_ANCESTOR",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/CONCEPT_ANCESTOR"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT_ANCESTOR/ancestor_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "ancestor_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT_ANCESTOR/descendant_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "descendant_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT_ANCESTOR/min_levels_of_separation",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "min_levels_of_separation",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT_ANCESTOR/max_levels_of_separation",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "max_levels_of_separation",
+        "required": "true"
+      }
+    ]
+  },
+  "valueType": "https://ohdsi.org/omop/CONCEPT_ANCESTOR"
+}

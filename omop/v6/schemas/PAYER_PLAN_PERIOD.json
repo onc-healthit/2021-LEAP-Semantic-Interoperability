@@ -1,0 +1,220 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/PAYER_PLAN_PERIOD"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/payer_plan_period_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "payer_plan_period_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/person_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "person_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/contract_person_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "contract_person_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/payer_plan_period_start_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "payer_plan_period_start_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/payer_plan_period_end_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "payer_plan_period_end_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/payer_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "payer_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/payer_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "payer_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/payer_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "payer_source_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/plan_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "plan_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/plan_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "plan_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/plan_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "10",
+        "attributeName": "plan_source_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/contract_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "11",
+        "attributeName": "contract_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/contract_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "12",
+        "attributeName": "contract_source_value",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/contract_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "13",
+        "attributeName": "contract_source_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/sponsor_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "14",
+        "attributeName": "sponsor_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/sponsor_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "15",
+        "attributeName": "sponsor_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/sponsor_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "16",
+        "attributeName": "sponsor_source_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/family_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "17",
+        "attributeName": "family_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/stop_reason_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "18",
+        "attributeName": "stop_reason_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/stop_reason_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "19",
+        "attributeName": "stop_reason_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/stop_reason_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "20",
+        "attributeName": "stop_reason_source_concept_id"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/payer_plan_period_id"
+  },
+  "valueType": "https://ohdsi.org/omop/PAYER_PLAN_PERIOD"
+}

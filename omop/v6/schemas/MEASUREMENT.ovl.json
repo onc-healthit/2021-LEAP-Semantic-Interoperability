@@ -1,0 +1,30 @@
+{
+    "@context": [
+        "https://lschema.org/ls.json"
+    ],
+    "@id": "https://ohdsi.org/omop/MEASUREMENT/ovl",
+    "@type": "Overlay",
+    "layer": {
+        "@id": "https://ohdsi.org/omop/MEASUREMENT",
+        "@type": "Object",
+        "attributeList": [
+            {
+                "@id": "https://ohdsi.org/omop/MEASUREMENT/person_id",
+                "@type": "Value",
+                "referenceFKFor": "https://ohdsi.org/omop/PERSON",
+                "link": "from",
+                "label": "https://lschema.org/has"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/MEASUREMENT/measurement_date",
+                "@type": "Value",
+                "valueType": "xsd:date"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/MEASUREMENT/measurement_datetime",
+                "@type": "Value",
+                "valueType": "xsd:dateTime"
+            }
+        ]
+    }
+}

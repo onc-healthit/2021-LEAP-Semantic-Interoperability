@@ -1,0 +1,198 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/PERSON/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/PERSON",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/PERSON"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/person_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "person_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/gender_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "gender_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/year_of_birth",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "year_of_birth",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/month_of_birth",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "month_of_birth"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/day_of_birth",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "day_of_birth"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/birth_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "birth_datetime"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/death_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "death_datetime"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/race_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "race_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/ethnicity_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "ethnicity_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/location_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "location_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/provider_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "10",
+        "attributeName": "provider_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/care_site_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "11",
+        "attributeName": "care_site_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/person_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "12",
+        "attributeName": "person_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/gender_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "13",
+        "attributeName": "gender_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/gender_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "14",
+        "attributeName": "gender_source_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/race_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "15",
+        "attributeName": "race_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/race_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "16",
+        "attributeName": "race_source_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/ethnicity_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "17",
+        "attributeName": "ethnicity_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PERSON/ethnicity_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "18",
+        "attributeName": "ethnicity_source_concept_id",
+        "required": "true"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/PERSON/person_id"
+  },
+  "valueType": "https://ohdsi.org/omop/PERSON"
+}

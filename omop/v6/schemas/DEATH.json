@@ -1,0 +1,81 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/DEATH/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/DEATH",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/DEATH"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/DEATH/person_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "person_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEATH/death_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "death_date"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEATH/death_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "death_datetime"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEATH/death_type_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "death_type_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEATH/cause_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "cause_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEATH/cause_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "cause_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/DEATH/cause_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "cause_source_concept_id"
+      }
+    ]
+  },
+  "valueType": "https://ohdsi.org/omop/DEATH"
+}

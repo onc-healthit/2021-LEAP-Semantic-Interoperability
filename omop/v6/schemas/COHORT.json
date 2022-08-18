@@ -1,0 +1,58 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/COHORT/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/COHORT",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/COHORT"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/COHORT/cohort_definition_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "cohort_definition_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COHORT/subject_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "subject_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COHORT/cohort_start_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "cohort_start_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COHORT/cohort_end_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "cohort_end_date",
+        "required": "true"
+      }
+    ]
+  },
+  "valueType": "https://ohdsi.org/omop/COHORT"
+}

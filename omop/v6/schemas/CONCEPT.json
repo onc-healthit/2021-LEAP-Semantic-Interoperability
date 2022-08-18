@@ -1,0 +1,117 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/CONCEPT/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/CONCEPT",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/CONCEPT"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT/concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT/concept_name",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "concept_name",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT/domain_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "domain_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT/vocabulary_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "vocabulary_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT/concept_class_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "concept_class_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT/standard_concept",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "standard_concept"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT/concept_code",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "concept_code",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT/valid_start_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "valid_start_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT/valid_end_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "valid_end_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CONCEPT/invalid_reason",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "invalid_reason"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/CONCEPT/concept_id"
+  },
+  "valueType": "https://ohdsi.org/omop/CONCEPT"
+}

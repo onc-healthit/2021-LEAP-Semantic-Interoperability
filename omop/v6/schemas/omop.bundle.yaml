@@ -1,0 +1,93 @@
+variants:
+  https://ohdsi.org/omop/CARE_SITE:
+    schema: CARE_SITE.json
+  https://ohdsi.org/omop/CDM_SOURCE:
+    schema: CDM_SOURCE.json
+  https://ohdsi.org/omop/COHORT:
+    schema: COHORT.json
+  https://ohdsi.org/omop/COHORT_DEFINITION:
+    schema: COHORT_DEFINITION.json
+  https://ohdsi.org/omop/CONCEPT:
+    schema: CONCEPT.json
+  https://ohdsi.org/omop/CONCEPT_ANCESTOR:
+    schema: CONCEPT_ANCESTOR.json
+  https://ohdsi.org/omop/CONCEPT_CLASS:
+    schema: CONCEPT_CLASS.json
+  https://ohdsi.org/omop/CONCEPT_RELATIONSHIP:
+    schema: CONCEPT_RELATIONSHIP.json
+  https://ohdsi.org/omop/CONCEPT_SYNONYM:
+    schema: CONCEPT_SYNONYM.json
+  https://ohdsi.org/omop/CONDITION_ERA:
+    schema: CONDITION_ERA.json
+  https://ohdsi.org/omop/CONDITION_OCCURRENCE:
+    schema: CONDITION_OCCURRENCE.json
+    overlays:
+      - schema: CONDITION_OCCURRENCE.ovl.json
+  https://ohdsi.org/omop/COST:
+    schema: COST.json
+  https://ohdsi.org/omop/DEATH:
+    schema: DEATH.json
+  https://ohdsi.org/omop/DEVICE_EXPOSURE:
+    schema: DEVICE_EXPOSURE.json
+  https://ohdsi.org/omop/DOMAIN:
+    schema: DOMAIN.json
+  https://ohdsi.org/omop/DOSE_ERA:
+    schema: DOSE_ERA.json
+  https://ohdsi.org/omop/DRUG_ERA:
+    schema: DRUG_ERA.json
+  https://ohdsi.org/omop/DRUG_EXPOSURE:
+    schema: DRUG_EXPOSURE.json
+    overlays:
+      - schema: DRUG_EXPOSURE.ovl.json
+  https://ohdsi.org/omop/DRUG_STRENGTH:
+    schema: DRUG_STRENGTH.json
+  https://ohdsi.org/omop/FACT_RELATIONSHIP:
+    schema: FACT_RELATIONSHIP.json
+  https://ohdsi.org/omop/LOCATION:
+    schema: LOCATION.json
+  https://ohdsi.org/omop/LOCATION_HISTORY:
+    schema: LOCATION_HISTORY.json
+  https://ohdsi.org/omop/MEASUREMENT:
+    schema: MEASUREMENT.json
+    overlays:
+      - schema: MEASUREMENT.ovl.json
+  https://ohdsi.org/omop/METADATA:
+    schema: METADATA.json
+  https://ohdsi.org/omop/NOTE:
+    schema: NOTE.json
+  https://ohdsi.org/omop/NOTE_NLP:
+    schema: NOTE_NLP.json
+  https://ohdsi.org/omop/OBSERVATION:
+    schema: OBSERVATION.json
+    overlays:
+      - schema: OBSERVATION.ovl.json
+  https://ohdsi.org/omop/OBSERVATION_PERIOD:
+    schema: OBSERVATION_PERIOD.json
+  https://ohdsi.org/omop/PAYER_PLAN_PERIOD:
+    schema: PAYER_PLAN_PERIOD.json
+  https://ohdsi.org/omop/PERSON:
+    schema: PERSON.json
+    overlays:
+      - schema: PERSON.ovl.json
+  https://ohdsi.org/omop/PROCEDURE_OCCURRENCE:
+    schema: PROCEDURE_OCCURRENCE.json
+    overlays:
+      - schema: PROCEDURE_OCCURRENCE.ovl.json
+  https://ohdsi.org/omop/PROVIDER:
+    schema: PROVIDER.json
+  https://ohdsi.org/omop/RELATIONSHIP:
+    schema: RELATIONSHIP.json
+  https://ohdsi.org/omop/SOURCE_TO_CONCEPT_MAP:
+    schema: SOURCE_TO_CONCEPT_MAP.json
+  https://ohdsi.org/omop/SPECIMEN:
+    schema: SPECIMEN.json
+  https://ohdsi.org/omop/SURVEY_CONDUCT:
+    schema: SURVEY_CONDUCT.json
+  https://ohdsi.org/omop/VISIT_DETAIL:
+    schema: VISIT_DETAIL.json
+  https://ohdsi.org/omop/VISIT_OCCURRENCE:
+    schema: VISIT_OCCURRENCE.json
+    overlays:
+      - schema: VISIT_OCCURRENCE.ovl.json
+  https://ohdsi.org/omop/VOCABULARY:
+    schema: VOCABULARY.json

@@ -1,0 +1,109 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/CDM_SOURCE/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/CDM_SOURCE",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/CDM_SOURCE"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/CDM_SOURCE/cdm_source_name",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "cdm_source_name",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CDM_SOURCE/cdm_source_abbreviation",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "cdm_source_abbreviation"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CDM_SOURCE/cdm_holder",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "cdm_holder"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CDM_SOURCE/source_description",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "source_description"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CDM_SOURCE/source_documentation_reference",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "source_documentation_reference"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CDM_SOURCE/cdm_etl_reference",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "cdm_etl_reference"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CDM_SOURCE/source_release_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "source_release_date"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CDM_SOURCE/cdm_release_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "cdm_release_date"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CDM_SOURCE/cdm_version",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "cdm_version"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/CDM_SOURCE/vocabulary_version",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "vocabulary_version"
+      }
+    ]
+  },
+  "valueType": "https://ohdsi.org/omop/CDM_SOURCE"
+}

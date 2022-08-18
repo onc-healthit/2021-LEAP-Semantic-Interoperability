@@ -1,0 +1,40 @@
+{
+    "@context": [
+        "https://lschema.org/ls.json"
+    ],
+    "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/ovl",
+    "@type": "Overlay",
+    "layer": {
+        "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE",
+        "@type": "Object",
+        "attributeList": [
+            {
+                "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/person_id",
+                "@type": "Value",
+                "referenceFKFor": "https://ohdsi.org/omop/PERSON",
+                "link": "from",
+                "label": "https://lschema.org/has"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_start_date",
+                "@type": "Value",
+                "valueType": "xsd:date"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_start_datetime",
+                "@type": "Value",
+                "valueType": "xsd:date"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_end_date",
+                "@type": "Value",
+                "valueType": "xsd:date"
+            },
+            {
+                "@id": "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_end_datetime",
+                "@type": "Value",
+                "valueType": "xsd:date"
+            }
+        ]
+    }
+}

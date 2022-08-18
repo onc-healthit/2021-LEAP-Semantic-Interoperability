@@ -1,0 +1,214 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/OBSERVATION/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/OBSERVATION",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/OBSERVATION"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/observation_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "observation_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/person_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "person_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/observation_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "observation_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/observation_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "observation_date"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/observation_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "observation_datetime",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/observation_type_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "observation_type_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/value_as_number",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "value_as_number"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/value_as_string",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "value_as_string"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/value_as_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "value_as_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/qualifier_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "qualifier_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/unit_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "10",
+        "attributeName": "unit_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/provider_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "11",
+        "attributeName": "provider_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/visit_occurrence_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "12",
+        "attributeName": "visit_occurrence_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/visit_detail_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "13",
+        "attributeName": "visit_detail_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/observation_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "14",
+        "attributeName": "observation_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/observation_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "15",
+        "attributeName": "observation_source_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/unit_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "16",
+        "attributeName": "unit_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/qualifier_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "17",
+        "attributeName": "qualifier_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/observation_event_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "18",
+        "attributeName": "observation_event_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/obs_event_field_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "19",
+        "attributeName": "obs_event_field_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/OBSERVATION/value_as_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "20",
+        "attributeName": "value_as_datetime"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/OBSERVATION/observation_id"
+  },
+  "valueType": "https://ohdsi.org/omop/OBSERVATION"
+}

@@ -1,0 +1,200 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/VISIT_DETAIL/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/VISIT_DETAIL",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/VISIT_DETAIL"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/visit_detail_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "visit_detail_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/person_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "person_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/visit_detail_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "visit_detail_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/visit_detail_start_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "visit_detail_start_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/visit_detail_start_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "visit_detail_start_datetime"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/visit_detail_end_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "visit_detail_end_date",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/visit_detail_end_datetime",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "visit_detail_end_datetime"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/visit_detail_type_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "visit_detail_type_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/provider_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "provider_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/care_site_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "care_site_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/visit_detail_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "10",
+        "attributeName": "visit_detail_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/visit_detail_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "11",
+        "attributeName": "visit_detail_source_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/admitted_from_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "12",
+        "attributeName": "admitted_from_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/admitted_from_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "13",
+        "attributeName": "admitted_from_source_value",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/discharge_to_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "14",
+        "attributeName": "discharge_to_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/discharge_to_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "15",
+        "attributeName": "discharge_to_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/preceding_visit_detail_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "16",
+        "attributeName": "preceding_visit_detail_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/visit_detail_parent_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "17",
+        "attributeName": "visit_detail_parent_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/VISIT_DETAIL/visit_occurrence_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "18",
+        "attributeName": "visit_occurrence_id",
+        "required": "true"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/VISIT_DETAIL/visit_detail_id"
+  },
+  "valueType": "https://ohdsi.org/omop/VISIT_DETAIL"
+}

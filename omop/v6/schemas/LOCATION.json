@@ -1,0 +1,110 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/LOCATION/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/LOCATION",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/LOCATION"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION/location_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "location_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION/address_1",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "address_1"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION/address_2",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "address_2"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION/city",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "city"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION/state",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "state"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION/zip",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "zip"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION/county",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "county"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION/location_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "location_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION/latitude",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "latitude"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/LOCATION/longitude",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "longitude"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/LOCATION/location_id"
+  },
+  "valueType": "https://ohdsi.org/omop/LOCATION"
+}

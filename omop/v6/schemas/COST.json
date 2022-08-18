@@ -1,0 +1,185 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/COST/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/COST",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/COST"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/COST/cost_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "cost_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/person_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "person_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/cost_event_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "cost_event_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/cost_event_field_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "cost_event_field_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/cost_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "cost_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/cost_type_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "cost_type_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/cost_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "cost_source_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/cost_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "cost_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/currency_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "currency_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/cost",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "cost"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/incurred_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "10",
+        "attributeName": "incurred_date"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/billed_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "11",
+        "attributeName": "billed_date"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/paid_date",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "12",
+        "attributeName": "paid_date"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/revenue_code_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "13",
+        "attributeName": "revenue_code_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/drg_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "14",
+        "attributeName": "drg_concept_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/revenue_code_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "15",
+        "attributeName": "revenue_code_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/drg_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "16",
+        "attributeName": "drg_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/COST/payer_plan_period_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "17",
+        "attributeName": "payer_plan_period_id"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/COST/cost_id"
+  },
+  "valueType": "https://ohdsi.org/omop/COST"
+}

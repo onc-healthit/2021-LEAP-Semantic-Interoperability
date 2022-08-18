@@ -1,0 +1,141 @@
+{
+  "@context": [
+    "https://lschema.org/ls.json"
+  ],
+  "@id": "https://ohdsi.org/omop/PROVIDER/schema",
+  "@type": "Schema",
+  "layer": {
+    "@id": "https://ohdsi.org/omop/PROVIDER",
+    "@type": [
+      "Attribute",
+      "Object",
+      "https://ohdsi.org/omop/PROVIDER"
+    ],
+    "attributeList": [
+      {
+        "@id": "https://ohdsi.org/omop/PROVIDER/provider_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "0",
+        "attributeName": "provider_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PROVIDER/provider_name",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "1",
+        "attributeName": "provider_name"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PROVIDER/npi",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "2",
+        "attributeName": "npi"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PROVIDER/dea",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "3",
+        "attributeName": "dea"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PROVIDER/specialty_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "4",
+        "attributeName": "specialty_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PROVIDER/care_site_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "5",
+        "attributeName": "care_site_id"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PROVIDER/year_of_birth",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "6",
+        "attributeName": "year_of_birth"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PROVIDER/gender_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "7",
+        "attributeName": "gender_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PROVIDER/provider_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "8",
+        "attributeName": "provider_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PROVIDER/specialty_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "9",
+        "attributeName": "specialty_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PROVIDER/specialty_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "10",
+        "attributeName": "specialty_source_concept_id",
+        "required": "true"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PROVIDER/gender_source_value",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "11",
+        "attributeName": "gender_source_value"
+      },
+      {
+        "@id": "https://ohdsi.org/omop/PROVIDER/gender_source_concept_id",
+        "@type": [
+          "Attribute",
+          "Value"
+        ],
+        "attributeIndex": "12",
+        "attributeName": "gender_source_concept_id",
+        "required": "true"
+      }
+    ],
+    "entityIdFields": "https://ohdsi.org/omop/PROVIDER/provider_id"
+  },
+  "valueType": "https://ohdsi.org/omop/PROVIDER"
+}
