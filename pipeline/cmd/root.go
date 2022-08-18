@@ -78,19 +78,19 @@ var (
 				return err
 			}
 			// returns *pipeline.PipelineContext
-			pctx := pipeline.NewContext(ctx, pl, nil, func() (io.ReadCloser, error) {
+			pctx := pipeline.NewContext(ctx, pl, nil, func() (pipeline.PipelineEntryInfo, io.ReadCloser, error) {
 				select {
 				case entry, ok := <-inputs:
 					if ok {
 						if entry.Err != nil {
 							logger.Error(map[string]interface{}{"File": entry.Name, "Error": err})
-							return nil, entry.Err
+							return nil, nil, entry.Err
 						}
 						logger.Info(map[string]interface{}{"File": entry.Name, "timestamp start": time.Now()})
-						return io.NopCloser(entry.Stream), nil
+						return entry.GetName(), io.NopCloser(entry.Stream), nil
 					}
 				}
-				return nil, nil
+				return nil, nil, nil
 			})
 			err = pipeline.Run(pctx)
 			if err != nil {
