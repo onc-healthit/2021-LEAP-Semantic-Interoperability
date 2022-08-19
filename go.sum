@@ -14,12 +14,16 @@ github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220817144239-960b8076036d h1:Da
 github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220817144239-960b8076036d/go.mod h1:hFShxu2iLIfpBtQvR+qIAzq9XQvZwbAUiQhQZOokEG4=
 github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220817201100-c8703a08b155 h1:ebXQmI4lrnftVTRLfnDVmL4KqXRbrZi7bGD2ksA+fJA=
 github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220817201100-c8703a08b155/go.mod h1:hFShxu2iLIfpBtQvR+qIAzq9XQvZwbAUiQhQZOokEG4=
+github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220819164356-75c58b1a617a h1:gMvrHSv1EeVQignQWC1IsTmz5y8v8Va0vaDsiCP/NBc=
+github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220819164356-75c58b1a617a/go.mod h1:P129/SZPiNJmVq4T5mdISYh62kiaBRLgvj5V5YyRrQA=
 github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20220730183001-00dc48a94562 h1:U37BvebnwcM7b4kpNfFsIpWgl/jbpa5tvy87kpU3ppQ=
 github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20220730183001-00dc48a94562/go.mod h1:mbTdZ24tYHJcJ98nllBIonyLiGL5NcDtCp6CipkFrsc=
 github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20220817204633-caf980c27fb0 h1:JzhpuuTklAPm7XyKx3pucjl6v4ihNZMt5cwJbM2XVUo=
 github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20220817204633-caf980c27fb0/go.mod h1:mbTdZ24tYHJcJ98nllBIonyLiGL5NcDtCp6CipkFrsc=
 github.com/cloudprivacylabs/opencypher v1.0.0-beta-4.0.20220817144111-cf7287cfafd8 h1:GWcdvJ/SDBOmKtZxUJl7hU+Qh6muhnAFH/OBsldvMo4=
 github.com/cloudprivacylabs/opencypher v1.0.0-beta-4.0.20220817144111-cf7287cfafd8/go.mod h1:qEWSpb/GEgFzHqSMI2RD3OxruB4upIbWJcXrI60PFKI=
+github.com/cloudprivacylabs/opencypher v1.0.0-beta-4.0.20220819163823-d5cb12aaab5d h1:kOH/GCRdMJ/5i3b0iRUC0bOw17pyIbtaP0zlBriVh3A=
+github.com/cloudprivacylabs/opencypher v1.0.0-beta-4.0.20220819163823-d5cb12aaab5d/go.mod h1:qEWSpb/GEgFzHqSMI2RD3OxruB4upIbWJcXrI60PFKI=
 github.com/containerd/cgroups v1.0.1 h1:iJnMvco9XGvKUvNQkv88bE4uJXxRQH18efbKo9w5vHQ=
 github.com/containerd/containerd v1.5.9 h1:rs6Xg1gtIxaeyG+Smsb/0xaSDu1VgFhOCKBXxMxbsF4=
 github.com/cpuguy83/go-md2man/v2 v2.0.2/go.mod h1:tgQtvFlXSQOSOSIRvRPT7W67SCa46tRHOmNcaadrF8o=

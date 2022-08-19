@@ -87,7 +87,7 @@ var (
 							return nil, nil, entry.Err
 						}
 						logger.Info(map[string]interface{}{"File": entry.Name, "timestamp start": time.Now()})
-						return entry.GetName(), io.NopCloser(entry.Stream), nil
+						return pipeline.DefaultPipelineEntryInfo{Name: entry.Name}, io.NopCloser(entry.Stream), nil
 					}
 				}
 				return nil, nil, nil

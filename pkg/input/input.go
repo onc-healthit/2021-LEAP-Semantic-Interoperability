@@ -31,10 +31,6 @@ type Entry struct {
 	Closer func(Entry)
 }
 
-func (e Entry) GetName() string {
-	return e.Name
-}
-
 func (e Entry) Close() {
 	if e.Closer != nil && e.Stream != nil {
 		e.Closer(e)
