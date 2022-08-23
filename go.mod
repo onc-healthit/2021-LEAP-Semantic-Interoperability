@@ -3,8 +3,8 @@ module github.com/cloudprivacylabs/leap
 go 1.18
 
 require (
-	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220819164356-75c58b1a617a
-	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20220817204633-caf980c27fb0
+	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220823024644-fce562bc61a3
+	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20220823025221-c2438d351eea
 	github.com/cloudprivacylabs/opencypher v1.0.0-beta-4.0.20220819163823-d5cb12aaab5d
 	github.com/drone/envsubst v1.0.3
 	github.com/joho/godotenv v1.4.0
