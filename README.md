@@ -8,7 +8,11 @@ support, contact:
  * [DARTNet Institute](https://dartnet.info/contact.htm)
  * [Cloud Privacy Labs](https://cloudprivacylabs.com/)
 
-## Vision
+The project's vision is to build an integrated ecosystem of tools and
+technologies that connect and harmonize health and health-related data
+obtained from organizations of all sizes, as well as individuals,
+supported by a person-centric and privacy-conscious approach to data
+access and sharing among patients, clinical settings, and researchers.
 
 ![Project Vision](assets/leap-vision.png)
 
@@ -76,6 +80,8 @@ metadata to fields. A field may be a simple value, a structured object
 (e.g a JSON object, array, polymorphic object), or a reference to
 another schema.
 
+![Layered schemas for data ingestion](assets/layers_ingestion.png)
+
 Different schema variants can be used to ingest data that shows
 variations based on data source. Data variations can be structural
 (e.g. additional data fields, extensions) or semantic
@@ -84,6 +90,10 @@ systems), and can be due to different vendor implementations, local
 conventions, or regulations. Ingesting structured data using a schema
 variant creates an LPG whose nodes combine the annotations from the
 schema variant and data values from the input.
+
+## Technical Overview
+
+![Semantic Data Warehouse](assets/dw-arch.png)
 
 ## Acknowledgments
 
