@@ -26,11 +26,11 @@ a highly valuable resource for medical and public health researchers
 through the creation of various data commons where disparate data are
 structured and harmonized to expand research options. Many challenges
 hinder the complete and efficient capture and exchange of health data,
-including: 
+including:
 
   1. a lack of semantic interoperability across systems
-  2. the varying adoption of data standards within and between systems 
-  3. a lack of standardized metadata, and 
+  2. the varying adoption of data standards within and between systems
+  3. a lack of standardized metadata, and
   4. the poor integration of electronic health records (EHR) data with data from other relevant
 sources such as social services, environmental measurements,
 patient-entered, and data collected from wearable devices.
@@ -85,18 +85,216 @@ another schema.
 ![Layered schemas for data ingestion](assets/layers_ingestion.png)
 
 Different schema variants can be used to ingest data that shows
-variations based on data source. Data variations can be structural
-(e.g. additional data fields, extensions) or semantic
+variations depending on the data source. Data variations can be
+structural (e.g. additional data fields, extensions) or semantic
 (e.g. measurements in different units, different ontologies or coding
 systems), and can be due to different vendor implementations, local
 conventions, or regulations. Ingesting structured data using a schema
 variant creates an LPG whose nodes combine the annotations from the
 schema variant and data values from the input.
 
+## Layered Schemas for Interoperability
+
+The focus of layered schema architecture is achieving interoperability
+in an environment with multiple data standards. These standards can be
+
+  * structural, such as data represented as a FHIR message, or CCDA,
+  * representational, e.g. different date formats, data entry conventions,
+  * semantic, e.g. different coding systems, measurement units.
+
+The goal is **not** to ingest and normalize data with an ETL process,
+but to ingest data verbatim with annotations that capture context and
+metadata. The actual interpretation of data happens closer to the
+analytics side of the process.
+
+Structural differences in ingested data are solved using labeled
+property graphs as the core data model. A labeled property graph
+allows storing individual data elements and the relationships between
+those data elements together with semantic annotations. Data is
+ingested using a layered schema describing the input data elements,
+and converted into an LPG. Then source-specific transformations are
+performed on that LPG to map it to a graph model. The schemas and the
+transformations used to process the input can be reused and shared.
+
+Representational differences are solved using a type system built into
+the layered schema tools, and valueset lookups. For example, the input
+may contain a date field:
+
+```
+   dob
+----------
+2001-01-04
+```
+
+The schema that ingests this field can be defined as:
+
+```
+"birthDate": {
+  "@type": "Value",
+  "valueType": "xs:date",
+  "attributeName": "dob"
+}
+```
+
+`xs:date` is the XML date format that says the date is of the form
+`YYYY-MM-DD`, Which causes the field to be ingested as as graph node:
+
+```
++-----------------------+
+|   :Value              |
++-----------------------+
+| id: birthDate         |
+| valueType: xs:date    |
+| attributeName: dob    |
+| value: 2001-01-04     |
++-----------------------+
+```
+When data is extracted from this node using a schema that looks like:
+
+```
+"birthYear": {
+  "@type": "Value",
+  "valueType": "xs:gYear"
+```
+
+where `xs:gYear` is the XML data type "Gregorian Year", the output will be:
+
+```
+birthYear
+--------
+2001
+```
+
+So the ingestion phase ingests data with type information, and when
+exported using a different type, it is converted if possible.
+
+[This is the complete set of data types supported by LSA.](https://layeredschemas.org/docs/data_types/)
+
+
+Data entry and data capture conventions for enumerated data may
+require dictionary lookups to correctly interpret data. For example,
+one data source may report:
+
+```
+gender
+------
+F
+M
+```
+
+and another may report:
+
+```
+gender
+-----
+Female
+Male
+```
+
+This can be modeled using a schema:
+
+```
+"gender": {
+   "@type": "Value",
+   "attributeName": "gender"
+}
+```
+
+And an overlay for data source 1 with:
+
+```
+"gender": {
+   "@type": "Value",
+   "vsValuesets": "gender_source_1",
+   "vsResultValues": [ "normalized_gender"]
+},
+"normalizedGender": {
+   "@type": "Value"
+}
+```
+
+And a valueset:
+
+```
+{
+  "id": "gender_source_1",
+  "values": [
+      {
+         "values": ["F"],
+         "result": "8532"
+      },
+      {
+         "values": ["M"],
+         "result": "8507"
+      }
+    ]
+}
+```
+
+And for data source 2 with:
+
+```
+"gender": {
+   "@type": "Value",
+   "vsValuesets": "gender_source_2",
+   "vsResultValues": [ "normalized_gender"]
+},
+"normalizedGender": {
+   "@type": "Value"
+}
+```
+
+```
+{
+  "id": "gender_source_1",
+  "values": [
+      {
+         "values": ["Female"],
+         "result": "8532"
+      },
+      {
+         "values": ["Male"],
+         "result": "8507"
+      }
+    ]
+}
+```
+
+The ingested data becomes:
+
+```
++-----------------------+   +-----------------------+
+|   :Value              |   | :Value                |
++-----------------------+   +-----------------------+
+| id: gender            |   |id: normalizedGender   |
+| attributeName: gender |   |value: 8532            |
+| value: F              |   |                       |
++-----------------------+   +-----------------------+
+
+```
+
+```
++-----------------------+   +-----------------------+
+|   :Value              |   | :Value                |
++-----------------------+   +-----------------------+
+| id: gender            |   |id: normalizedGender   |
+| attributeName: gender |   |value: 8532            |
+| value: Female         |   |                       |
++-----------------------+   +-----------------------+
+
+```
+
+Such valueset lookups are feasible for a small number of
+options. There are cases where an terminology database is needed. The
+LSa tooling provides facilities to call out to third-party servers to
+perform terminology lookups. 
+
 ## Data Flow Overview
 
 The overall process of ingestion, harmonization, and the extraction of
-data in a common model is depicted in the following diagram:
+data in a common model is depicted in the following diagram. This
+project primarily works with OMOP, but the model is flexible enough to
+be adapted to other common data models.
 
 ![Semantic Data Warehouse](assets/dw-arch.png)
 
@@ -112,7 +310,7 @@ data formats:
    variability. There are usually multiple files, each representing a
    single object (like patient, or measurement), but there are cases
    where the result of a SQL JOIN is provided as a single file.
-   
+
 For most CSV data, we write custom schemas to describe the input
 format.  For CCDAs, we developed a set of interlinked schemas and
 overlays to extract relevant parts of a CCDA document. FHIR ingestion
@@ -152,7 +350,7 @@ elements:
      observation entries are linked to a Person.
    * Procedure: All procedures are recoded here. Multiple procedure
      entries are linked to a Person.
-     
+
 The graph model is stored in a graph database. This project uses Neo4j
 community version to store the ingested data, but other graph
 databases that have openCypher support can be adapted as well. It is
@@ -167,7 +365,7 @@ fields to OMOP schema fields.
 This repository contains a `pipeline` program that can be built and
 used to ingest data contained in this repository. You can get a
 pre-built binary for your platform, or build it yourself using the Go
-language build system. 
+language build system.
 
 To build, after cloning this repository, run:
 
