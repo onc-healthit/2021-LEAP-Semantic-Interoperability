@@ -209,7 +209,7 @@ And an overlay for data source 1 with:
    "vsResultValues": [ "normalized_gender"]
 },
 "normalizedGender": {
-   "@type": "Value"
+   "@type": ["Value","OMOPConcept"]
 }
 ```
 
@@ -240,7 +240,7 @@ And for data source 2 with:
    "vsResultValues": [ "normalized_gender"]
 },
 "normalizedGender": {
-   "@type": "Value"
+   "@type": ["Value","OMOPConcept"]
 }
 ```
 
@@ -260,11 +260,13 @@ And for data source 2 with:
 }
 ```
 
+The codes 8532 and 8507 are OMOP concept IDs for "female" and "male".
+
 The ingested data becomes:
 
 ```
 +-----------------------+   +-----------------------+
-|   :Value              |   | :Value                |
+|   :Value              |   | :Value:OMOPConcept    |
 +-----------------------+   +-----------------------+
 | id: gender            |   |id: normalizedGender   |
 | attributeName: gender |   |value: 8532            |
@@ -275,7 +277,7 @@ The ingested data becomes:
 
 ```
 +-----------------------+   +-----------------------+
-|   :Value              |   | :Value                |
+|   :Value              |   | :Value:OMOPConcept    |
 +-----------------------+   +-----------------------+
 | id: gender            |   |id: normalizedGender   |
 | attributeName: gender |   |value: 8532            |
@@ -283,6 +285,12 @@ The ingested data becomes:
 +-----------------------+   +-----------------------+
 
 ```
+
+Such lookups allow creation of codified nodes as data is
+ingested. This way, the stored data contains both the raw input and
+the concept normalized based on a terminology. Multiple terminologies
+can also be used. The data model is not strict and can be extended
+ad-hoc as needed.
 
 Such valueset lookups are feasible for a small number of
 options. There are cases where an terminology database is needed. The
@@ -360,7 +368,7 @@ relational database, or a document database can be used to store data.
 OMOP output is generated from this data model by mapping individual
 fields to OMOP schema fields.
 
-## Building
+## Building and Running the Tools
 
 This repository contains a `pipeline` program that can be built and
 used to ingest data contained in this repository. You can get a
