@@ -16,6 +16,8 @@ access and sharing among patients, clinical settings, and researchers.
 
 ![Project Vision](assets/leap-vision.png)
 
+All data files included in the repository are synthetic data files.
+
 ## Introduction
 
 The longitudinal health data from large diverse populations with
@@ -91,9 +93,90 @@ conventions, or regulations. Ingesting structured data using a schema
 variant creates an LPG whose nodes combine the annotations from the
 schema variant and data values from the input.
 
-## Technical Overview
+## Data Flow Overview
+
+The overall process of ingestion, harmonization, and the extraction of
+data in a common model is depicted in the following diagram:
 
 ![Semantic Data Warehouse](assets/dw-arch.png)
+
+The input to the ingestion process contains support for the following
+data formats:
+
+ * FHIR data in JSON format. Every patient record is a FHIR Bundle
+   resource stored in a separate JSON file.
+ * CCDA data in XML format. Every patient record is a separate XML
+   file.
+ * Raw EHR data in CSV format. This data files are obtained by running
+   EHR reports, thus show a great deal of structural and semantic
+   variability. There are usually multiple files, each representing a
+   single object (like patient, or measurement), but there are cases
+   where the result of a SQL JOIN is provided as a single file.
+   
+For most CSV data, we write custom schemas to describe the input
+format.  For CCDAs, we developed a set of interlinked schemas and
+overlays to extract relevant parts of a CCDA document. FHIR ingestion
+uses HL7 published FHIR schemas with additional overlays to link
+vocabulary lookups, type variations, and other processing directives.
+Then, data files are ingested and converted into labeled property
+graph form.
+
+For FHIR and CCDA files, a single file can generate a graph containing
+all the necessary elements. For CSV files, each row usually contains a
+single data object (like a patient, or an observation for a
+patient). Thus, when ingested, these records must be linked to form a
+common patient view. This linking is done by using special annotations
+on the schemas. For instance, the schema for an observation table
+contains a foreign key to the patient table.
+
+The harmonization process does **not** normalize the data elements to
+a common format. Instead, input data elements are tagged with type
+information and additional annotations that describe how they can be
+interpreted.
+
+Once ingested, all data elements are harmonized and translated into an
+intermediate graph model. This graph model is not a strict structural
+construct. The model is Person centric, and contains the following
+elements:
+
+ * Person: Demographic information and identity
+   * Condition: Multiple conditions are linked to a Person. Condition
+     entries include start/end dates, raw input data, and
+     codifications.
+   * DrugExposure: All drug related activity is recorded
+     here. Multiple DrugExposure entries are linked to a Person.
+   * Measurement: All laboratory measurements are recorded
+     here. Multiple measurement entries are linked to a Person. The
+     same measurement may appear multiple times, in different dates.
+   * Observation: All observations are recored here. Multiple
+     observation entries are linked to a Person.
+   * Procedure: All procedures are recoded here. Multiple procedure
+     entries are linked to a Person.
+     
+The graph model is stored in a graph database. This project uses Neo4j
+community version to store the ingested data, but other graph
+databases that have openCypher support can be adapted as well. It is
+also possible to change the data ingestion pipelines so that a
+relational database, or a document database can be used to store data.
+
+OMOP output is generated from this data model by mapping individual
+fields to OMOP schema fields.
+
+## Building
+
+This repository contains a `pipeline` program that can be built and
+used to ingest data contained in this repository. You can get a
+pre-built binary for your platform, or build it yourself using the Go
+language build system. 
+
+To build, after cloning this repository, run:
+
+```
+cd pipeline
+go build
+```
+
+This will build the `pipeline` binary in the current directory.
 
 ## Acknowledgments
 
