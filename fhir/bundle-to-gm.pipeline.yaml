@@ -1,16 +1,42 @@
+#
+# FHIR Bundle to Graph Model Conversion Pipeline
+#
+# The input to this bundle is a FHIR Bundle stored in a JSON file.
+#
+
+# The first step is the ingestion of the JSON file using the FHIR
+# schema. At this stage, this will produce a graph that looks like the
+# JSON structure
+
 - operation: ingest/json
   params:
     bundle:
       - schemas/fhir.bundle.yaml
     type: https://hl7.org/fhir/Bundle
-    onlySchemaAttributes: true
+    onlySchemaAttributes: false
+
+# This step will convert the FHIR graph into the graph model using the
+# fhir-to-graph overlay
+
 - operation: reshape
   params:
     bundle:
       - ../graphmodel/graphmodel.bundle.yaml
     type: https://dartnet.info/graphModel/Person
-    scriptFile: reshape/fhir-to-graph.script.yaml
-- operation: measures
+    scriptFile: transformations/fhir-to-graph.script.yaml
+
+- operation: valueset
   params:
+    valuesetFiles:
+      - valuesets.json
+    tables:
+      - codeSystemNames
+- operation: valueset
+  params:
+    valuesetFiles:
+      - valuesets.json
+    tables:
+      - omop
+    
 - operation: writeGraph
   

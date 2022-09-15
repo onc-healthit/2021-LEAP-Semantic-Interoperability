@@ -3,7 +3,7 @@
         "Extension": {
             "properties": {
                 "url": {
-                    "x=ls": {
+                    "x-ls": {
                         "https://lschema.org/ingestAs": "property"
                     }
                 }
