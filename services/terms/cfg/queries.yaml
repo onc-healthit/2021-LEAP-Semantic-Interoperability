@@ -1,0 +1,22 @@
+valuesets:
+  - tableId: code
+    queries:
+      - query: "select concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,concept_code from concept where vocabulary_id=%(vocabulary)s and concept_code=%(code)s;"
+        columns: 
+              - code
+              - vocabulary
+      - query: "select concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,concept_code from concept where vocabulary_id=%(vocabulary)s and concept_name=%(code)s;"
+        columns: 
+              - code
+              - vocabulary
+  - tableId: observation
+    queries:
+      - query: "select concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,concept_code from concept where vocabulary_id=%(vocabulary)s and concept_code=%(code)s;"
+        columns:
+              - code
+              - vocabulary
+      - query: "select concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,concept_code from concept where vocabulary_id=%(vocabulary)s and concept_name=%(code)s;"
+        columns:
+              - code
+              - vocabulary
+
