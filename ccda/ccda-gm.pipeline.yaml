@@ -1,9 +1,30 @@
+#
+# CCDA to Graph Model Conversion Pipeline
+#
+
+# The first step is the ingestion of the XML file using the CCDA
+# schemas.  This will produce a graph that looks like the CCDA structure
+
 - operation: ingest/xml
   params:
     bundle:
       - schemas/ccda.bundle.yaml
     type: ClinicalDocument
     onlySchemaAttributes: true
+#- operation: writeGraph
+
+# Next step is to convert that CCDA graph into the common graph model.
+# The graph model is Person centric.
+    
+- operation: reshape
+  params:
+    bundle:
+      - ../graphmodel/graphmodel.bundle.yaml
+    type: https://dartnet.info/graphModel/Person
+    scriptFile: transformations/ccda-to-graph.script.yaml
+
+- operation: writeGraph
+    
 # - operation: valueset
 #   params:
 #     valuesetFiles:
@@ -14,12 +35,6 @@
 #   params:
 #     valuesetFiles:
 #       - valuesets.json
-- operation: reshape
-  params:
-    bundle:
-      - ../graphmodel/graphmodel.bundle.yaml
-    type: https://dartnet.info/graphModel/Person
-    scriptFile: ../ccda/transformations/ccda-to-graph.script.yaml
 # - operation: valueset
 #   params:
 #     valuesetFiles:
@@ -27,11 +42,11 @@
 # - operation: measures
 #   params:
 # - operation: writeGraph
-- operation: saveGraph/neo4j
-  params:
-    cfg: ../lsaneo.config.yaml
-    user: ${user}
-    pwd: ${pwd}
-    uri: ${uri}
-    db: neo4j
-    batchSize: 0
+#- operation: saveGraph/neo4j
+#  params:
+#    cfg: ../lsaneo.config.yaml
+#    user: ${user}
+#    pwd: ${pwd}
+#    uri: ${uri}
+#    db: neo4j
+#    batchSize: 0

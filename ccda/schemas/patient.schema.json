@@ -91,19 +91,19 @@
                                 "xmlattribute": true
                             },
                             {
-                                "@id": "https://hl7.org/ccda/v3/patientRole/patient/administrativeGenderCode/code/displayName",
+                                "@id": "https://hl7.org/ccda/v3/patientRole/patient/administrativeGenderCode/displayName",
                                 "@type": "Value",
                                 "attributeName": "displayName",
                                 "xmlattribute": true
                             },
                             {
-                                "@id": "https://hl7.org/ccda/v3/patientRole/patient/administrativeGenderCode/code/system",
+                                "@id": "https://hl7.org/ccda/v3/patientRole/patient/administrativeGenderCode/system",
                                 "@type": "Value",
                                 "attributeName": "codeSystem",
                                 "xmlattribute": true
                             },
                             {
-                                "@id": "https://hl7.org/ccda/v3/patientRole/patient/administrativeGenderCode/code/systemName",
+                                "@id": "https://hl7.org/ccda/v3/patientRole/patient/administrativeGenderCode/systemName",
                                 "@type": "Value",
                                 "attributeName": "codeSystemName",
                                 "xmlattribute": true

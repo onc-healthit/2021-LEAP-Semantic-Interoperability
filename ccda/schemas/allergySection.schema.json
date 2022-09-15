@@ -1,81 +1,89 @@
 {
-    "@context": "https://lschema.org/ls.json",
+    "@context": [
+        "https://lschema.org/ls.json",
+        {
+            "ccda":"https://hl7.org/ccda/v3/"
+        }
+    ],
     "@type": "Schema",
-    "@id":"https://hl7.org/ccda/v3/AllergySection/schema",
+    "@id":"ccda:AllergySection/schema",
     "valueType": "AllergySection",
     "layer": {
         "@type": "Object",
-        "@id": "https://hl7.org/ccda/v3/AllergySection",
+        "@id": "ccda:AllergySection",
         "xmlns": "urn:hl7-org:v3",
         "attributeName": "section",
         "attributes": {
-            "https://hl7.org/ccda/v3/AllergySection/templateID": {
+            "ccda:AllergySection/templateID": {
                 "@type": "Value",
                 "xmlns": "urn:hl7-org:v3",
                 "attributeName": "templateId",
                 "xmlvalueAttr": "root",
                 "ingestAs": "property",
-                "enumeration":[ "2.16.840.1.113883.10.20.22.2.6.1","2.16.840.1.113883.10.20.22.2.6"]
+                "enumeration":[
+                    "2.16.840.1.113883.10.20.22.2.6.1",
+                    "2.16.840.1.113883.10.20.22.2.6"
+                ]
             },
-            "https://hl7.org/ccda/v3/AllergySection/code": {
+            "ccda:AllergySection/code": {
                 "@type": ["Object","Code"],
                 "xmlns": "urn:hl7-org:v3",
                 "attributeName": "code",
                 "conditional": "mustHaveChildren",
                 "attributeList": [
                     {
-                        "@id": "https://hl7.org/ccda/v3/AllergySection/code/code",
+                        "@id": "ccda:AllergySection/code/code",
                         "@type": "Value",
                         "attributeName": "code",
                         "xmlattribute": true,
                         "ingestAs": "property"
                     },
                     {
-                        "@id": "https://hl7.org/ccda/v3/AllergySection/code/displayName",
+                        "@id": "ccda:AllergySection/code/displayName",
                         "@type": "Value",
                         "attributeName": "displayName",
                         "xmlattribute": true,
                         "ingestAs": "property"
                     },
                     {
-                        "@id": "https://hl7.org/ccda/v3/AllergySection/code/system",
+                        "@id": "ccda:AllergySection/code/system",
                         "@type": "Value",
                         "attributeName": "codeSystem",
                         "xmlattribute": true,
                         "ingestAs": "property"
                     },
                     {
-                        "@id": "https://hl7.org/ccda/v3/AllergySection/code/systemName",
+                        "@id": "ccda:AllergySection/code/systemName",
                         "@type": "Value",
                         "attributeName": "codeSystemName",
                         "xmlattribute": true,
                         "ingestAs": "property"
                     },
                     {
-                        "@id": "https://hl7.org/ccda/v3/AllergySection/code/translation",
+                        "@id": "ccda:AllergySection/code/translation",
                         "@type": "Object",
                         "attributeName": "translation",
                         "conditional": "mustHaveChildren",
                         "attributes": {
-                            "https://hl7.org/ccda/v3/AllergySection/code/translation/code": {
+                            "ccda:AllergySection/code/translation/code": {
                                 "@type": "Value",
                                 "attributeName": "code",
                                 "xmlattribute": true,
                                 "ingestAs": "property"
                             },
-                            "https://hl7.org/ccda/v3/AllergySection/code/translation/displayName": {
+                            "ccda:AllergySection/code/translation/displayName": {
                                 "@type": "Value",
                                 "attributeName": "displayName",
                                 "ingestAs": "property",
                                 "xmlattribute": true
                             },
-                            "https://hl7.org/ccda/v3/AllergySection/code/translation/displayName": {
+                            "ccda:AllergySection/code/translation/displayName": {
                                 "@type": "Value",
                                 "attributeName": "codeSystem",
                                 "ingestAs": "property",
                                 "xmlattribute": true
                             },
-                            "https://hl7.org/ccda/v3/AllergySection/code/translation/displayName": {
+                            "ccda:AllergySection/code/translation/displayName": {
                                 "@type": "Value",
                                 "attributeName": "codeSystemName",
                                 "ingestAs": "property",
@@ -85,19 +93,19 @@
                     }
                 ]
             },
-            "https://hl7.org/ccda/v3/AllergySection/entry": {
+            "ccda:AllergySection/entry": {
                 "@type": "Object",
                 "xmlns": "urn:hl7-org:v3",
                 "ingestAs": "none",
                 "attributeName": "entry",
                 "attributes": {
-                    "https://hl7.org/ccda/v3/AllergySection/entry/typeCode": {
+                    "ccda:AllergySection/entry/typeCode": {
                         "@type": "Value",
                         "ingestAs": "property",
                         "attributeName": "typeCode",
                         "xmlattribute": true
                     },
-                    "https://hl7.org/ccda/v3/AllergySection/entryact": {
+                    "ccda:AllergySection/entryact": {
                         "@type": ["Reference","AllergyAct"],
                         "ref": "AllergyAct"
                     }

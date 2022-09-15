@@ -194,21 +194,21 @@
                     },
                     {
                         "@id": "https://hl7.org/ccda/v3/Observation/value/code",
-                        "@type": "Value",
+                        "@type": ["Value","ObservationCode"],
                         "attributeName": "code",
                         "ingestAs": "node",
                         "xmlattribute": true
                     },
                     {
                         "@id": "https://hl7.org/ccda/v3/Observation/value/displayName",
-                        "@type": "Value",
+                        "@type": ["Value","ObservationDisplayName"],
                         "attributeName": "displayName",
                         "ingestAs": "node",
                         "xmlattribute": true
                     },
                     {
                         "@id": "https://hl7.org/ccda/v3/Observation/value/system",
-                        "@type": "Value",
+                        "@type": ["Value","ObservationSystem"],
                         "attributeName": "codeSystem",
                         "ingestAs": "node",
                         "xmlattribute": true
