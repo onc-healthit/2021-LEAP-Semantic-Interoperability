@@ -11,21 +11,9 @@ termMappings:
   https://lschema.org/entitySchema: ls:entitySchema
   https://lschema.org/xml/ns: ls:xml/ns
   https://lschema.org/conditional: ls:conditional
-  https://lschema.org/floatTest: ls:floatTest
-  https://lschema.org/boolTest: ls:boolTest
-  extension: extension
-  high: high
-  low: low
-  root: root
 
-# low, high json:number
 propertyTypes:
   https://lschema.org/attributeIndex: json:number
-  https://lschema.org/floatTest: ls:double
-  negationInd: json:boolean
-  inversionInd: xsd:boolean
 
 namespaceMappings:
   https://lschema.org/: ls
-  https://lschema.org/A/: lsa
-  https://lschema.org/Y/: lsy
