@@ -10,31 +10,10 @@
             "Object",
             "https://dartnet.info/graphModel/Observation"
         ],
+        "entityIdFields": "https://dartnet.info/graphModel/Observation/id",
         "attributes": {
-            "https://dartnet.info/graphModel/Observation/observation/normalizedSystemName": {
-                "@type": ["Value","ObservationCodeSystem"]
-            },
-            "https://dartnet.info/graphModel/Observation/observation/normalizedCode": {
-                "@type": ["Value","ObservationCode"],
-                "vsValuesets": "code",
-                "vsRequestKeys": [
-                    "vocabulary",
-                    "code"
-                ],
-                "vsRequestValues": [
-                    "https://dartnet.info/graphModel/Observation/observation/systemName",
-                    "https://dartnet.info/graphModel/Observation/observation/code"
-                ],
-                "vsResultKeys": [
-                    "concept_id"
-                ],
-                "vsResultValues": "https://dartnet.info/graphModel/Observation/observation/normalizedCode"
-            },
-            "https://dartnet.info/graphModel/Observation/observation/systemName": {
+            "https://dartnet.info/graphModel/Observation/id": {
                 "@type": "Value"
-            },
-            "https://dartnet.info/graphModel/Observation/observation/code": {
-                "@type": ["Value","Code"]
             },
             "https://dartnet.info/graphModel/Observation/date": {
                 "@type": "Value",
@@ -43,45 +22,165 @@
             "https://dartnet.info/graphModel/Observation/type": {
                 "@type": "Value"
             },
-            "https://dartnet.info/graphModel/Observation/value/normalizedSystemName": {
-                "@type": ["Value","ObservationCodeSystem"]
+            
+            "https://dartnet.info/graphModel/Observation/source": {
+                "@type": ["Object","Code"],
+                "attributes": {
+                    "https://dartnet.info/graphModel/Observation/source/code": {
+                        "@type": "Value",
+                        "attributeName":"code",
+                        "ingestAs": "node"
+                    },
+                    "https://dartnet.info/graphModel/Observation/source/system": {
+                        "@type": "Value",
+                        "attributeName":"system",
+                        "ingestAs": "node"
+                    },
+                    "https://dartnet.info/graphModel/Observation/source/text": {
+                        "@type": "Value",
+                        "attributeName":"text",
+                        "ingestAs": "node"
+                    }
+                }
             },
-            "https://dartnet.info/graphModel/Observation/value/normalizedCode": {
-                "@type": ["Value","ObservationCode"],
-                "vsValuesets": "code",
-                "vsRequestKeys": [
-                    "vocabulary",
-                    "code"
-                ],
-                "vsRequestValues": [
-                    "https://dartnet.info/graphModel/Observation/value/systemName",
-                    "https://dartnet.info/graphModel/Observation/value/code"
-                ],
-                "vsResultKeys": [
-                    "concept_id"
-                ],
-                "vsResultValues": "https://dartnet.info/graphModel/Observation/value/normalizedCode"
+
+            "https://dartnet.info/graphModel/Observation/omop": {
+                "@type": "Array",
+                "arrayElements": {
+                    "@id": "https://dartnet.info/graphmodel/Observation/omop/items",
+                    "@type": ["Object","Code","ObservationCode","OMOPConcept"],
+                    "attributes": {
+                        "https://dartnet.info/graphModel/Observation/omop/code": {
+                            "@type": "Value",
+                            "ingestAs": "node",
+                            "attributeName": "code",
+                            "vsValuesets": "omop",
+                            "vsRequestKeys": [
+                                "vocabulary",
+                                "code"
+                            ],
+                            "vsRequestValues": [
+                                "https://dartnet.info/graphModel/Observation/omop/system",
+                                "https://dartnet.info/graphModel/Observation/source/code"
+                            ],
+                            "vsResultKeys": [
+                                "concept_id",
+                                "concept_name"
+                            ],
+                            "vsResultValues": [
+                                "https://dartnet.info/graphModel/Observation/omop/code",
+                                "https://dartnet.info/graphModel/Observation/omop/text"
+                            ]
+                        },
+                        "https://dartnet.info/graphModel/Observation/omop/system": {
+                            "@type": "Value",
+                            "ingestAs": "node",
+                            "attributeName": "system",
+                            "vsValuesets": "codeSystemNames",
+                            "vsResultValues": "https://dartnet.info/graphModel/Observation/omop/system",
+                            "vsRequestValues": "https://dartnet.info/graphModel/Observation/source/system"
+                        },
+                        "https://dartnet.info/graphModel/Observation/omop/text": {
+                            "@type": "Value",
+                            "ingestAs": "node",
+                            "attributeName": "text"
+                        }
+                    }
+                }
             },
-            "https://dartnet.info/graphModel/Observation/value/systemName": {
-                "@type": "Value"
+
+
+            "https://dartnet.info/graphModel/Observation/codedValue/source": {
+                "@type": ["Object","Code"],
+                "attributes": {
+                    "https://dartnet.info/graphModel/Observation/codedValue/source/code": {
+                        "@type": "Value",
+                        "attributeName":"code",
+                        "ingestAs": "node"
+                    },
+                    "https://dartnet.info/graphModel/Observation/codedValue/source/system": {
+                        "@type": "Value",
+                        "attributeName":"system",
+                        "ingestAs": "node"
+                    },
+                    "https://dartnet.info/graphModel/Observation/codedValue/source/text": {
+                        "@type": "Value",
+                        "attributeName":"text",
+                        "ingestAs": "node"
+                    }
+                }
             },
-            "https://dartnet.info/graphModel/Observation/value/code": {
-                "@type": ["Value","Code"]
+
+            "https://dartnet.info/graphModel/Observation/codedValue/omop": {
+                "@type": "Array",
+                "arrayElements": {
+                    "@id": "https://dartnet.info/graphmodel/Observation/codedValue/omop/items",
+                    "@type": ["Object","Code","ObservationValueCode","OMOPConcept"],
+                    "attributes": {
+                        "https://dartnet.info/graphModel/Observation/codedValue/omop/code": {
+                            "@type": "Value",
+                            "ingestAs": "node",
+                            "attributeName": "code",
+                            "vsValuesets": "omop",
+                            "vsRequestKeys": [
+                                "vocabulary",
+                                "code"
+                            ],
+                            "vsRequestValues": [
+                                "https://dartnet.info/graphModel/Observation/codedValue/omop/system",
+                                "https://dartnet.info/graphModel/Observation/codedValue/source/code"
+                            ],
+                            "vsResultKeys": [
+                                "concept_id",
+                                "concept_name"
+                            ],
+                            "vsResultValues": [
+                                "https://dartnet.info/graphModel/Observation/codedValue/omop/code",
+                                "https://dartnet.info/graphModel/Observation/codedValue/omop/text"
+                            ]
+                        },
+                        "https://dartnet.info/graphModel/Observation/codedValue/omop/system": {
+                            "@type": "Value",
+                            "ingestAs": "node",
+                            "attributeName": "system",
+                            "vsValuesets": "codeSystemNames",
+                            "vsResultValues": "https://dartnet.info/graphModel/Observation/codedValue/omop/system",
+                            "vsRequestValues": "https://dartnet.info/graphModel/Observation/codedValue/source/system"
+                        },
+                        "https://dartnet.info/graphModel/Observation/codedValue/omop/text": {
+                            "@type": "Value",
+                            "ingestAs": "node",
+                            "attributeName": "text"
+                        }
+                    }
+                }
             },
-            "https://dartnet.info/graphModel/Observation/value/value": {
-                "@type": ["Value"]
+
+            
+
+            "https://dartnet.info/graphModel/Observation/measuredValue/source": {
+                "@type": ["Object"],
+                "attributes": {
+                    "https://dartnet.info/graphModel/Observation/measuredValue/source/value": {
+                        "@type": "Value",
+                        "ingestAs": "node"
+                    },
+                    "https://dartnet.info/graphModel/Observation/measuredValue/source/unit": {
+                        "@type": "Value",
+                        "ingestAs": "node"
+                    },
+                    "https://dartnet.info/graphModel/Observation/measuredValue/source/system": {
+                        "@type": "Value",
+                        "ingestAs": "node"
+                    }
+                }
             },
-            "https://dartnet.info/graphModel/Observation/qualifier": {
-                "@type": "Value"
-            },
-            "https://dartnet.info/graphModel/Observation/unit": {
-                "@type": "Value"
-            },
+
             "https://dartnet.info/graphModel/Observation/measure": {
                 "@type": "Value",
                 "valueType": "Measure",
-                "measureValueNode": "https://dartnet.info/graphModel/Observation/value",
-                "measureUnitNode": "https://dartnet.info/graphModel/Observation/unit"
+                "measureValueNode": "https://dartnet.info/graphModel/Observation/measuredValue/source/value",
+                "measureUnitNode": "https://dartnet.info/graphModel/Observation/measuredValue/source/unit"
             },
             "https://dartnet.info/graphModel/Observation/person": {
                 "@type": "Value",

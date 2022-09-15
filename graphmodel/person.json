@@ -1,64 +1,76 @@
 {
-    "@context":  "https://lschema.org/ls.json",
-    "@id": "https://dartnet.info/graphModel/Person/schema",
+    "@context":  [
+        "https://lschema.org/ls.json",
+        {
+            "di": "https://dartnet.info/",
+            "gm": "di:graphModel/"
+        }
+    ],
+    "@id": "gm:Person/schema",
     "@type": "Schema",
     "valueType": "https://dartnet.info/graphModel/Person",
     "layer": {
-        "@id": "https://dartnet.info/graphModel/Person",
+        "@id": "gm:Person",
         "@type": [
             "Attribute",
             "Object",
-            "https://dartnet.info/graphModel/Person"
+            "gm:Person"
         ],
         "entityIdFields": "https://dartnet.info/graphModel/Person/id",
         "attributes": {
-            "https://dartnet.info/graphModel/Person/id": {
+            "gm:Person/id": {
                 "@type": "Value"
             },
-            "https://dartnet.info/graphModel/Person/birthDate": {
+            "gm:Person/birthDate": {
                 "@type": "Value",
                 "valueType": "ls:date"
             },
-            "https://dartnet.info/graphModel/Person/deathDate": {
+            "gm:Person/deathDate": {
                 "@type": "Value",
                 "valueType": "ls:date"
             },
-            "https://dartnet.info/graphModel/Person/gender": {
+            "gm:Person/gender": {
                 "@type": "Object",
                 "attributes": {
-                    "https://dartnet.info/graphModel/Person/gender/source": {
+                    "gm:Person/gender/source": {
                         "@type": ["Object","Code"],
                         "attributes": {
-                            "https://dartnet.info/graphModel/Person/gender/source/code": {
+                            "gm:Person/gender/source/code": {
                                 "@type": "Value",
+                                "attributeName": "code",
                                 "ingestAs": "property"
                             },
-                            "https://dartnet.info/graphModel/Person/gender/source/system": {
+                            "gm:Person/gender/source/system": {
                                 "@type": "Value",
+                                "attributeName": "system",
                                 "ingestAs": "property"
                             },
-                            "https://dartnet.info/graphModel/Person/gender/source/text": {
+                            "gm:Person/gender/source/text": {
                                 "@type": "Value",
+                                "attributeName": "text",
                                 "ingestAs": "property"
                             }
                         }
                     },
-                    "https://dartnet.info/graphModel/Person/gender/omop": {
+                    "gm:Person/gender/omop": {
                         "@type": "Array",
                         "arrayElements": {
-                            "@id": "https://dartnet.info/graphmodel/Person/gender/omop/items",
+                            "@id": "gm:Person/gender/omop/items",
                             "@type": ["Object","Code","OMOPConcept"],
                             "attributes": {
-                                "https://dartnet.info/graphModel/Person/gender/omop/code": {
+                                "gm:Person/gender/omop/code": {
                                     "@type": "Value",
+                                    "attributeName": "code",
                                     "ingestAs": "property"
                                 },
-                                "https://dartnet.info/graphModel/Person/gender/omop/system": {
+                                "gm:Person/gender/omop/system": {
                                     "@type": "Value",
+                                    "attributeName": "system",
                                     "ingestAs": "property"
                                 },
-                                "https://dartnet.info/graphModel/Person/gender/omop/text": {
+                                "gm:Person/gender/omop/text": {
                                     "@type": "Value",
+                                    "attributeName": "text",
                                     "ingestAs": "property"
                                 }
                             }
@@ -66,42 +78,48 @@
                     }
                 }
             },
-            "https://dartnet.info/graphModel/Person/race": {
+            "gm:Person/race": {
                 "@type": "Object",
                 "attributes": {
-                    "https://dartnet.info/graphModel/Person/race/source": {
+                    "gm:Person/race/source": {
                         "@type": ["Object","Code"],
                         "attributes": {
-                            "https://dartnet.info/graphModel/Person/race/source/code": {
+                            "gm:Person/race/source/code": {
                                 "@type": "Value",
+                                "attributeName": "code",
                                 "ingestAs": "property"
                             },
-                            "https://dartnet.info/graphModel/Person/race/source/system": {
+                            "gm:Person/race/source/system": {
                                 "@type": "Value",
+                                "attributeName": "system",
                                 "ingestAs": "property"
                             },
-                            "https://dartnet.info/graphModel/Person/race/source/text": {
+                            "gm:Person/race/source/text": {
                                 "@type": "Value",
+                                "attributeName": "text",
                                 "ingestAs": "property"
                             }
                         }
                     },
-                    "https://dartnet.info/graphModel/Person/race/omop": {
+                    "gm:Person/race/omop": {
                         "@type": "Array",
                         "arrayElements": {
-                            "@id": "https://dartnet.info/graphmodel/Person/race/omop/items",
+                            "@id": "gm:Person/race/omop/items",
                             "@type": ["Object","Code","OMOPConcept"],
                             "attributes": {
-                                "https://dartnet.info/graphModel/Person/race/omop/code": {
+                                "gm:Person/race/omop/code": {
                                     "@type": "Value",
+                                    "attributeName": "code",
                                     "ingestAs": "property"
                                 },
-                                "https://dartnet.info/graphModel/Person/race/omop/system": {
+                                "gm:Person/race/omop/system": {
                                     "@type": "Value",
+                                    "attributeName": "system",
                                     "ingestAs": "property"
                                 },
-                                "https://dartnet.info/graphModel/Person/race/omop/text": {
+                                "gm:Person/race/omop/text": {
                                     "@type": "Value",
+                                    "attributeName": "text",
                                     "ingestAs": "property"
                                 }
                             }
@@ -109,42 +127,48 @@
                     }
                 }
             },
-            "https://dartnet.info/graphModel/Person/ethnicity": {
+            "gm:Person/ethnicity": {
                 "@type": "Object",
                 "attributes": {
-                    "https://dartnet.info/graphModel/Person/ethnicity/source": {
+                    "gm:Person/ethnicity/source": {
                         "@type": ["Object","Code"],
                         "attributes": {
-                            "https://dartnet.info/graphModel/Person/ethnicity/source/code": {
+                            "gm:Person/ethnicity/source/code": {
                                 "@type": "Value",
+                                "attributeName": "code",
                                 "ingestAs": "property"
                             },
-                            "https://dartnet.info/graphModel/Person/ethnicity/source/system": {
+                            "gm:Person/ethnicity/source/system": {
                                 "@type": "Value",
+                                "attributeName": "system",
                                 "ingestAs": "property"
                             },
-                            "https://dartnet.info/graphModel/Person/ethnicity/source/text": {
+                            "gm:Person/ethnicity/source/text": {
                                 "@type": "Value",
+                                "attributeName": "text",
                                 "ingestAs": "property"
                             }
                         }
                     },
-                    "https://dartnet.info/graphModel/Person/ethnicity/omop": {
+                    "gm:Person/ethnicity/omop": {
                         "@type": "Array",
                         "arrayElements": {
-                            "@id": "https://dartnet.info/graphmodel/Person/ethnicity/omop/items",
+                            "@id": "gm:Person/ethnicity/omop/items",
                             "@type": ["Object","Code","OMOPConcept"],
                             "attributes": {
-                                "https://dartnet.info/graphModel/Person/ethnicity/omop/code": {
+                                "gm:Person/ethnicity/omop/code": {
                                     "@type": "Value",
+                                    "attributeName": "code",
                                     "ingestAs": "property"
                                 },
-                                "https://dartnet.info/graphModel/Person/ethnicity/omop/system": {
+                                "gm:Person/ethnicity/omop/system": {
                                     "@type": "Value",
+                                    "attributeName": "system",
                                     "ingestAs": "property"
                                 },
-                                "https://dartnet.info/graphModel/Person/ethnicity/omop/text": {
+                                "gm:Person/ethnicity/omop/text": {
                                     "@type": "Value",
+                                    "attributeName": "text",
                                     "ingestAs": "property"
                                 }
                             }
@@ -152,59 +176,59 @@
                     }
                 }
             },
-            "https://dartnet.info/graphModel/Person/locationId": {
+            "gm:Person/locationId": {
                 "@type": "Value"
             },
-            "https://dartnet.info/graphModel/Person/conditions": {
+            "gm:Person/conditions": {
                 "@type": "Array",
                 "ingestAs": "none",
                 "arrayElements": {
-                    "@id": "https://dartnet.info/graphModel/Person/conditions/element",
+                    "@id": "gm:Person/conditions/element",
                     "@type": "Reference",
                     "ref": "https://dartnet.info/graphModel/Condition"
                 }
             },
-            "https://dartnet.info/graphModel/Person/drugExposures": {
+            "gm:Person/drugExposures": {
                 "@type": "Array",
                 "ingestAs": "none",
                 "arrayElements": {
-                    "@id": "https://dartnet.info/graphModel/Person/drugExposures/element",
+                    "@id": "gm:Person/drugExposures/element",
                     "@type": "Reference",
                     "ref": "https://dartnet.info/graphModel/DrugExposure"
                 }
             },
-            "https://dartnet.info/graphModel/Person/measurements": {
+            "gm:Person/measurements": {
                 "@type": "Array",
                 "ingestAs": "none",
                 "arrayElements": {
-                    "@id": "https://dartnet.info/graphModel/Person/measurements/element",
+                    "@id": "gm:Person/measurements/element",
                     "@type": "Reference",
                     "ref": "https://dartnet.info/graphModel/Measurement"
                 }
             },
-            "https://dartnet.info/graphModel/Person/observations": {
+            "gm:Person/observations": {
                 "@type": "Array",
                 "ingestAs": "none",
                 "arrayElements": {
-                    "@id": "https://dartnet.info/graphModel/Person/observations/element",
+                    "@id": "gm:Person/observations/element",
                     "@type": "Reference",
                     "ref": "https://dartnet.info/graphModel/Observation"
                 }
             },
-            "https://dartnet.info/graphModel/Person/procedures": {
+            "gm:Person/procedures": {
                 "@type": "Array",
                 "ingestAs": "none",
                 "arrayElements": {
-                    "@id": "https://dartnet.info/graphModel/Person/procedures/element",
+                    "@id": "gm:Person/procedures/element",
                     "@type": "Reference",
                     "ref": "https://dartnet.info/graphModel/Procedure"
                 }
             },
-            "https://dartnet.info/graphModel/Person/visits": {
+            "gm:Person/visits": {
                 "@type": "Array",
                 "ingestAs": "none",
                 "arrayElements": {
-                    "@id": "https://dartnet.info/graphModel/Person/visits/element",
+                    "@id": "gm:Person/visits/element",
                     "@type": "Reference",
                     "ref": "https://dartnet.info/graphModel/Visit"
                 }
