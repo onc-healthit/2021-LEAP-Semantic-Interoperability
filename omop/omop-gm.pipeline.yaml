@@ -1,16 +1,70 @@
-- operation: ingest/json
+- operation: readGraph
   params:
-    bundle:
-      - v6/schemas/omop.bundle.yaml
-    type: ????
-    onlySchemaAttributes: true
-- operation: reshape
+- operation: fork
   params:
-    bundle:
-      - ../graphmodel/graphmodel.bundle.yaml
-    type: https://dartnet.info/graphModel/Person
-    scriptFile: reshape/fhir-to-graph.script.yaml
-- operation: measures
-  params:
-- operation: writeGraph
+    pipelines:
+      person:
+        - operation: reshape
+          params:
+            bundle:
+              - v6/schemas/omop.bundle.yaml
+            type: https://ohdsi.org/omop/PERSON
+            scriptFile: transformations/graph-to-omop.script.yaml
+        - operation: export/csv
+          params:
+            file: person_omop.csv
+            columns:
+              - name:  "person_id"
+              - name: "gender_concept_id"
+              - name: "year_of_birth"
+              - name: "month_of_birth"
+              - name: "day_of_birth"
+              - name: "birth_datetime"
+              - name: "death_datetime"
+              - name: "race_concept_id"
+              - name: "ethnicity_concept_id"
+              - name: "location_id"
+              - name: "provider_id"
+              - name: "care_site_id"
+              - name: "person_source_value"
+              - name: "gender_source_value"
+              - name: "gender_source_concept_id"
+              - name: "race_source_value"
+              - name: "race_source_concept_id"
+              - name: "ethnicity_source_value"
+              - name: "ethnicity_source_concept_id"
+             
+
   
+      observation:
+        - operation: reshape
+          params:
+            bundle:
+              - v6/schemas/omop.bundle.yaml
+            type: https://ohdsi.org/omop/OBSERVATION
+            scriptFile: transformations/graph-to-omop.script.yaml
+        - operation: export/csv
+          params:
+            file: observation_omop.csv
+            columns:
+              - name: "observation_id"
+              - name: "person_id"
+              - name: "observation_concept_id"
+              - name: "observation_date"
+              - name: "observation_datetime"
+              - name: "observation_type_concept_id"
+              - name: "value_as_number"
+              - name: "value_as_string"
+              - name: "value_as_concept_id"
+              - name: "qualifier_concept_id"
+              - name: "unit_concept_id"
+              - name: "provider_id"
+              - name: "visit_occurrence_id"
+              - name: "visit_detail_id"
+              - name: "observation_source_value"
+              - name: "observation_source_concept_id"
+              - name: "unit_source_value"
+              - name: "qualifier_source_value"
+              - name: "observation_event_id"
+              - name: "obs_event_field_concept_id"
+              - name: "value_as_datetime"
