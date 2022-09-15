@@ -1,0 +1,58 @@
+reshapeNodes:
+  "https://dartnet.info/graphModel/Observation":
+    valueExpr.all:
+      - match (n:LivingSituationToday:Steady) where n.`https://lschema.org/value`='Yes' return 'LivingSituationToday' as type, 'Steady' as value
+      - match (n:LivingSituationToday:Worried) where n.`https://lschema.org/value`='1' return 'LivingSituationToday' as type, 'Worried' as value
+      - match (n:LivingSituationToday:NotSteady) where n.`https://lschema.org/value`='1' return 'LivingSituationToday' as type, 'NotSteady' as value
+      - match (n:Problem:Pest) where n.`https://lschema.org/value`='1' return 'Problem' as type, 'Pest' as value
+      - match (n:Problem:Mold) where n.`https://lschema.org/value`='1' return 'Problem' as type, 'Mold' as value
+      - match (n:Problem:Lead) where n.`https://lschema.org/value`='1' return 'Problem' as type, 'Lead' as value
+      - match (n:Problem:Heat) where n.`https://lschema.org/value`='1' return 'Problem' as type, 'Heat' as value
+      - match (n:Problem:Oven) where n.`https://lschema.org/value`='1' return 'Problem' as type, 'Oven' as value
+      - match (n:Problem:Smoke) where n.`https://lschema.org/value`='1' return 'Problem' as type, 'Smoke' as value
+      - match (n:Problem:Leaks) where n.`https://lschema.org/value`='1' return 'Problem' as type, 'Leaks' as value
+      - match (n:Problem:None) where n.`https://lschema.org/value`='Yes' return 'Problem' as type, 'None' as value
+      - match (n:FoodWorried:Never) where n.`https://lschema.org/value`='Yes' return 'FoodWorry' as type, 'Never' as value
+      - match (n:FoodWorried:Often) where n.`https://lschema.org/value`='1' return 'FoodWorry' as type, 'Often' as value
+      - match (n:FoodWorried:Sometimes) where n.`https://lschema.org/value`='1' return 'FoodWorry' as type, 'Sometimes' as value
+      - match (n:FoodDidntLast:Never) where n.`https://lschema.org/value`='Yes' return 'FoodDidntLast' as type, 'Never' as value
+      - match (n:FoodDidntLast:Often) where n.`https://lschema.org/value`='1' return 'FoodDidntLast' as type, 'Often' as value
+      - match (n:FoodDidntLast:Sometimes) where n.`https://lschema.org/value`='1' return 'FoodDidntLast' as type, 'Sometimes' as value
+      - match (n:TransportationIssue:Yes) where n.`https://lschema.org/value`='1' return 'Transportation' as type, 'Yes' as value
+      - match (n:TransportationIssue:No) where n.`https://lschema.org/value`='Yes' return 'Transportation' as type, 'No' as value
+      - match (n:Utilities:No) where n.`https://lschema.org/value`='Yes' return 'Utilities' as type, 'No' as value
+      - match (n:Utilities:Yes) where n.`https://lschema.org/value`='1' return 'Utilities' as type, 'Yes' as value
+      - match (n:Utilities:Shut) where n.`https://lschema.org/value`='1' return 'Utilities' as type, 'Shut' as value
+      - match (n:HurtNever) where n.`https://lschema.org/value`='Yes' return 'Hurt' as type, 'Never' as value
+      - match (n:HurtRarely) where n.`https://lschema.org/value`='1' return 'Hurt' as type, 'Rarely' as value
+      - match (n:HurtSometimes) where n.`https://lschema.org/value`='1' return 'Hurt' as type, 'Sometimes' as value
+      - match (n:HurtOften) where n.`https://lschema.org/value`='1' return 'Hurt' as type, 'Often' as value
+      - match (n:HurtFrequently) where n.`https://lschema.org/value`='1' return 'Hurt' as type, 'Frequently' as value
+      - match (n:InsultNever) where n.`https://lschema.org/value`='Yes' return 'Insult' as type, 'Never' as value
+      - match (n:InsultRarely) where n.`https://lschema.org/value`='1' return 'Insult' as type, 'Rarely' as value
+      - match (n:InsultSometimes) where n.`https://lschema.org/value`='1' return 'Insult' as type, 'Sometimes' as value
+      - match (n:InsultOften) where n.`https://lschema.org/value`='1' return 'Insult' as type, 'Often' as value
+      - match (n:InsultFrequently) where n.`https://lschema.org/value`='1' return 'Insult' as type, 'Frequently' as value
+      - match (n:ThreatenNever) where n.`https://lschema.org/value`='Yes' return 'Threaten' as type, 'Never' as value
+      - match (n:ThreatenRarely) where n.`https://lschema.org/value`='1' return 'Threaten' as type, 'Rarely' as value
+      - match (n:ThreatenSometimes) where n.`https://lschema.org/value`='1' return 'Threaten' as type, 'Sometimes' as value
+      - match (n:ThreatenOften) where n.`https://lschema.org/value`='1' return 'Threaten' as type, 'Often' as value
+      - match (n:ThreatenFrequently) where n.`https://lschema.org/value`='1' return 'Threaten' as type, 'Frequently' as value
+      - match (n:ScreamNever) where n.`https://lschema.org/value`='Yes' return 'Scream' as type, 'Never' as value
+      - match (n:ScreamRarely) where n.`https://lschema.org/value`='1' return 'Scream' as type, 'Rarely' as value
+      - match (n:ScreamSometimes) where n.`https://lschema.org/value`='1' return 'Scream' as type, 'Sometimes' as value
+      - match (n:ScreamOften) where n.`https://lschema.org/value`='1' return 'Scream' as type, 'Often' as value
+      - match (n:ScreamFrequently) where n.`https://lschema.org/value`='1' return 'Scream' as type, 'Frequently' as value
+     
+
+  "https://dartnet.info/graphModel/Observation/type":
+    valueExpr: return type
+    
+  "https://dartnet.info/graphModel/Observation/source/text":
+    valueExpr: return value
+      
+map:
+  - source: https://dartnet.info/sdoh/sdoh10/Date
+    target: https://dartnet.info/graphModel/Observation/date
+  - source: https://dartnet.info/sdoh/sdoh10/Record_ID
+    target: https://dartnet.info/graphModel/Observation/person

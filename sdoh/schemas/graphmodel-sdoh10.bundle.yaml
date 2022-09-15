@@ -1,0 +1,7 @@
+base: ../../graphmodel/graphmodel.bundle.yaml
+
+variants:
+  https://dartnet.info/graphModel/Observation:
+    overlays:
+      - schema: sdoh10-omop-ovl.json
+    

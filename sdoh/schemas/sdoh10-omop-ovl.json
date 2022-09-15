@@ -1,0 +1,50 @@
+{
+	  "@context": "https://lschema.org/ls.json",
+	  "@id": "https://dartnet.info/sdoh/sdoh10/omop/ovl",
+	  "@type": "Overlay",
+    "valueType": "https://dartnet.info/graphModel/Observation",
+    "layer": {
+        "@id": "https://dartnet.info/graphModel/Observation",
+        "@type": ["Object","SDOH10"],
+        "attributes": {
+            "https://dartnet.info/graphModel/Observation/id": {
+                "@type": "Value",
+                "hash": [
+                    "https://dartnet.info/graphModel/Observation/date",
+                    "https://dartnet.info/graphModel/Observation/type",
+                    "https://dartnet.info/graphModel/Observation/source/code",
+                    "https://dartnet.info/graphModel/Observation/source/text",
+                    "https://dartnet.info/graphModel/Observation/measuredValue/source/value",
+                    "https://dartnet.info/graphModel/Observation/measuredValue/source/unit"
+                ]
+            },
+            "https://dartnet.info/graphModel/Observation/omop": {
+                "@type": "Array",
+                "arrayElements": {
+                    "@id": "https://dartnet.info/graphmodel/Observation/omop/items",
+                    "@type": ["Object" ],
+                    "attributes": {
+                        "https://dartnet.info/graphModel/Observation/omop/code": {
+                            "@type": "Value",
+                            "vsValuesets": "sdoh10",
+                            "vsRequestKeys": [
+                                "Q",
+                                "A"
+                            ],
+                            "vsRequestValues": [
+                                "https://dartnet.info/graphModel/Observation/type",
+                                "https://dartnet.info/graphModel/Observation/source/text"
+                            ],
+                            "vsResultKeys": [
+                                "AnswerConceptId"
+                            ],
+                            "vsResultValues": [
+                                "https://dartnet.info/graphModel/Observation/omop/code"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

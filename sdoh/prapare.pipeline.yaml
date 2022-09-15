@@ -1,0 +1,32 @@
+- operation: ingest/csv
+  params:
+    schema: schemas/prapare.schema.json
+    onlySchemaAttributes: true
+    endRow: 2
+
+- operation: reshape
+  params:
+    bundle:
+      - schemas/graphmodel-prapare.bundle.yaml
+    type: https://dartnet.info/graphModel/Observation
+    scriptFile: transformations/prapare-to-obs.script.yaml
+
+- operation: valueset
+  params:
+    valuesetFiles:
+      - prapare-valuesets.json
+    tables:
+      - prapare
+- operation: writeGraph
+
+# - operation: saveGraph/neo4j
+#   params:
+#     cfg: lsaneo.config.yaml
+#     user: ${user}
+#     pwd: ${password}
+#     uri: ${uri}
+#     db: neo4j
+#     batchSize: 100
+
+  
+  

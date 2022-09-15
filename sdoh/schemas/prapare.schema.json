@@ -1,0 +1,135 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@id": "https://dartnet.info/prapare/schema",
+    "@type": "Schema",
+    "valueType": "Prapare",
+    "layer": {
+        "@type": ["Object","Prapare"],
+        "@id": "https://dartnet.info/prapare",
+        "attributes": {
+            "https://dartnet.info/prapare/patientNumber": {
+                "@type": "Value",
+                "attributeName": "PAT_NBR"
+            },
+            "https://dartnet.info/prapare/date": {
+                "@type": "Value",
+                "attributeName": "QUESTION_DATE",
+                "valueType": "ls:date"
+            },
+            "https://dartnet.info/prapare/questionCode": {
+                "@type": "Value",
+                "attributeName": "QUESTIONCODE"
+            },
+            "https://dartnet.info/prapare/questionConceptId": {
+                "@type": "Value",
+                "vsValuesets": "prapareQuestion",
+                "vsRequestValues": [
+                    "https://dartnet.info/prapare/questionCode"
+                ],
+                "vsRequestKeys": [
+                    "questionCode"
+                ],
+                "vsResultValues": [
+                    "https://dartnet.info/prapare/questionConceptId"
+                ],
+                "vsResultKeys": [
+                    "conceptId"
+                ]
+            },
+            "https://dartnet.info/prapare/questionText": {
+                "@type": "Value",
+                "attributeName": "QUESTIONTEXT"
+            },
+            "https://dartnet.info/prapare/answer": {
+                "@type": "Value",
+                "attributeName": "ANSWER"
+            },
+            "https://dartnet.info/prapare/answerConceptId": {
+                "@type": "Value",
+                "vsValuesets": "prapareAnswer",
+                "vsRequestValues": [
+                    "https://dartnet.info/prapare/questionCode",
+                    "https://dartnet.info/prapare/answer"
+                ],
+                "vsRequestKeys": [
+                    "questionCode",
+                    "answer"
+                ],
+                "vsResultValues": [
+                    "https://dartnet.info/prapare/answerConceptId"
+                ],
+                "vsResultKeys": [
+                    "conceptId"
+                ]
+            },
+            "https://dartnet.info/prapare/gender": {
+                "@type": "Value",
+                "attributeName": "gender"
+            },
+            "https://dartnet.info/prapare/genderConceptId": {
+                "@type": "Value",
+                "vsValuesets": "prapareGender",
+                "vsRequestValues": [
+                    "https://dartnet.info/prapare/gender"
+                ],
+                "vsRequestKeys": [
+                    "value"
+                ],
+                "vsResultValues": [
+                    "https://dartnet.info/prapare/genderConceptId"
+                ],
+                "vsResultKeys": [
+                    "code"
+                ]
+            },
+            "https://dartnet.info/prapare/race": {
+                "@type": "Value",
+                "attributeName": "race"
+            },
+            "https://dartnet.info/prapare/raceConceptId": {
+                "@type": "Value",
+                "vsValuesets": "prapareRace",
+                "vsRequestValues": [
+                    "https://dartnet.info/prapare/race"
+                ],
+                "vsRequestKeys": [
+                    "value"
+                ],
+                "vsResultValues": [
+                    "https://dartnet.info/prapare/raceConceptId"
+                ],
+                "vsResultKeys": [
+                    "code"
+                ]
+            },
+            "https://dartnet.info/prapare/ethnicity": {
+                "@type": "Value",
+                "attributeName": "ethnicity"
+            },
+            "https://dartnet.info/prapare/ethnicityConceptId": {
+                "@type": "Value",
+                "vsValuesets": "prapareEthnicity",
+                "vsRequestValues": [
+                    "https://dartnet.info/prapare/ethnicity"
+                ],
+                "vsRequestKeys": [
+                    "value"
+                ],
+                "vsResultValues": [
+                    "https://dartnet.info/prapare/ethnicityConceptId"
+                ],
+                "vsResultKeys": [
+                    "code"
+                ]
+            },
+            "https://dartnet.info/prapare/language": {
+                "@type": "Value",
+                "attributeName": "language"
+            },
+            "https://dartnet.info/prapare/zip": {
+                "@type": "Value",
+                "attributeName": "DEID_ZIP"
+            }
+        }
+    }
+}

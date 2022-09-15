@@ -1,0 +1,23 @@
+reshapeNodes:
+  "https://dartnet.info/graphModel/Observation":
+    valueExpr: >-
+      match (n:Prapare) return n as Item
+      
+    mapContext: >-
+      return Item
+
+    
+map:
+  - source: "https://dartnet.info/prapare/patientNumber"
+    target: "https://dartnet.info/graphModel/Observation/person"
+  - source: "https://dartnet.info/prapare/date"
+    target: "https://dartnet.info/graphModel/Observation/date"
+  - source: "https://dartnet.info/prapare/questionConceptId"
+    target: "https://dartnet.info/graphModel/Observation/observation/normalizedCode"
+  - source: "https://dartnet.info/prapare/questionCode"
+    target: "https://dartnet.info/graphModel/Observation/observation/code"
+  - source: "https://dartnet.info/prapare/answerConceptId"
+    target: "https://dartnet.info/graphModel/Observation/value/normalizedCode"
+  - source: "https://dartnet.info/prapare/answer"
+    target: "https://dartnet.info/graphModel/Observation/value/value"
+    
