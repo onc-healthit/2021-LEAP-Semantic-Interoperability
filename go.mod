@@ -2,6 +2,8 @@ module github.com/cloudprivacylabs/leap
 
 go 1.18
 
+replace github.com/cloudprivacylabs/lsa-neo4j => ../lsa-neo4j
+
 require (
 	github.com/cloudprivacylabs/lpg v1.0.8
 	github.com/cloudprivacylabs/lsa v1.0.0-beta16

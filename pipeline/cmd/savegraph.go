@@ -82,7 +82,7 @@ func (s *Step) Run(pctx *pipeline.PipelineContext) error {
 		return err
 	}
 	start := time.Now()
-	_, err = neo.SaveGraph(s.pls.session, tx, pctx.Graph, func(*lpg.Node) bool { return true }, s.cfg, s.BatchSize)
+	_, err = neo.SaveGraph(pctx.Context, s.pls.session, tx, pctx.Graph, func(*lpg.Node) bool { return true }, s.cfg, s.BatchSize)
 	if err != nil {
 		tx.Rollback()
 		pctx.ErrorLogger(pctx, err)
