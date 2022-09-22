@@ -60,6 +60,23 @@ transformed into a common data model or used directly, such as into a
 training data set for an AI application using the source data and the
 metadata associated with it.
 
+## Scope
+
+Even though the project scope included different types of EHR data at
+the outset, there was a lot of intereset to incorporate non-EHR health
+related data. Because of this, we worked on the harmonization of the
+following types of data:
+
+  * Raw EHR data captured CSV files,
+  * FHIR data in JSON format,
+  * CCDAs in XML format,
+  * Social health needs assessment tools captured as spreadsheets in
+    various forms
+  * Pharmacy data captured as CSV files.
+  
+This repository contains synthetic data that reflects the shape and
+variations of data we collected from our partners.
+
 ## Layered Schemas
 
 A **schema** is a machine-readable document that describes the
