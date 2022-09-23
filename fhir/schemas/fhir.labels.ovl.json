@@ -1,0 +1,1329 @@
+{
+    "definitions": {
+        "Account": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ActivityDefinition": {
+            "properties": {
+                "resourceType": {
+                  "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "AdverseEvent": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "AllergyIntolerance": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Appointment": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "AppointmentResponse": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "AuditEvent": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Basic": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Binary": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "BiologicallyDerivedProduct": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "BodyStructure": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Bundle": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "CapabilityStatement": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "CarePlan": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "CareTeam": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "CatalogEntry": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ChargeItem": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ChargeItemDefinition": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Claim": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ClaimResponse": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ClinicalImpression": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "CodeSystem": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Communication": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "CommunicationRequest": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "CompartmentDefinition": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Composition": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ConceptMap": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Condition": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Consent": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Contract": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Coverage": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "CoverageEligibilityRequest": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "CoverageEligibilityResponse": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "DetectedIssue": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Device": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "DeviceDefinition": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "DeviceMetric": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "DeviceRequest": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "DeviceUseStatement": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "DiagnosticReport": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "DocumentManifest": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "DocumentReference": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "EffectEvidenceSynthesis": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Encounter": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Endpoint": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "EnrollmentRequest": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "EnrollmentResponse": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "EpisodeOfCare": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "EventDefinition": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Evidence": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "EvidenceVariable": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ExampleScenario": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ExampleScenario_Instance": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ExplanationOfBenefit": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "FamilyMemberHistory": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Flag": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Goal": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "GraphDefinition": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Group": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "GuidanceResponse": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "HealthcareService": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ImagingStudy": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Immunization": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ImmunizationEvaluation": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ImmunizationRecommendation": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ImplementationGuide": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "InsurancePlan": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Invoice": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Library": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Linkage": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "List": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Location": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Measure": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MeasureReport": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Media": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Medication": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MedicationAdministration": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MedicationDispense": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MedicationKnowledge": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MedicationRequest": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MedicationStatement": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MedicinalProduct": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MedicinalProductAuthorization": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MedicinalProductContraindication": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MedicinalProductIndication": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MedicinalProductIngredient": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MedicinalProductInteraction": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MedicinalProductManufactured": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MedicinalProductPackaged": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MedicinalProductPharmaceutical": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MedicinalProductUndesirableEffect": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MessageDefinition": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MessageHeader": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "MolecularSequence": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "NamingSystem": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "NutritionOrder": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Observation": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ObservationDefinition": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "OperationDefinition": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "OperationOutcome": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Organization": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "OrganizationAffiliation": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Parameters": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Patient": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "PaymentNotice": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "PaymentReconciliation": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Person": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "PlanDefinition": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Practitioner": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "PractitionerRole": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Procedure": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Provenance": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Questionnaire": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "QuestionnaireResponse": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "RelatedPerson": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "RequestGroup": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ResearchDefinition": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ResearchElementDefinition": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ResearchStudy": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ResearchSubject": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "RiskAssessment": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "RiskEvidenceSynthesis": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Schedule": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "SearchParameter": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ServiceRequest": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Slot": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Specimen": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "SpecimenDefinition": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "StructureDefinition": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "StructureMap": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Subscription": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Substance": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "SubstanceNucleicAcid": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "SubstancePolymer": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "SubstanceProtein": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "SubstanceReferenceInformation": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "SubstanceSourceMaterial": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "SubstanceSpecification": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "SupplyDelivery": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "SupplyRequest": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "Task": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "TerminologyCapabilities": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "TestReport": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "TestScript": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "ValueSet": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "VerificationResult": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        },
+        "VisionPrescription": {
+            "properties": {
+              "resourceType": {
+                   "x-ls": {
+                      "https://lschema.org/labelAs": [ "https://lschema.org/typeDiscriminator" ]
+                    }
+                }
+            }
+        }
+
+    }
+}
+

@@ -2,6 +2,7 @@
   params:
     schema: schemas/sdoh10.schema.json
     onlySchemaAttributes: true
+    startRow: 2
     endRow: 2
 
 - operation: reshape

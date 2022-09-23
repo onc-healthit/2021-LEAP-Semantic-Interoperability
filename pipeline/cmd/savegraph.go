@@ -8,6 +8,7 @@ import (
 	neo "github.com/cloudprivacylabs/lsa-neo4j"
 	"github.com/cloudprivacylabs/lsa/layers/cmd/cmdutil"
 	"github.com/cloudprivacylabs/lsa/layers/cmd/pipeline"
+	"github.com/cloudprivacylabs/lsa/pkg/ls"
 	"github.com/drone/envsubst"
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/neo4j/neo4j-go-driver/v4/neo4j"
@@ -82,7 +83,7 @@ func (s *Step) Run(pctx *pipeline.PipelineContext) error {
 		return err
 	}
 	start := time.Now()
-	_, err = neo.SaveGraph(pctx.Context, s.pls.session, tx, pctx.Graph, func(*lpg.Node) bool { return true }, s.cfg, s.BatchSize)
+	_, err = neo.SaveGraph(ls.DefaultContext(), s.pls.session, tx, pctx.Graph, func(*lpg.Node) bool { return true }, s.cfg, s.BatchSize)
 	if err != nil {
 		tx.Rollback()
 		pctx.ErrorLogger(pctx, err)
