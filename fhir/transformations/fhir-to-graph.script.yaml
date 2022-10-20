@@ -11,21 +11,20 @@ reshapeNodes:
       - >-
         match (n:`https://hl7.org/fhir/Patient`) return n as patient
       - >-
-        match (patient) -[*]->(raceExt:`https://hl7.org/fhir/Extension`) -[]->
-             ({`https://lschema.org/value`:"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"})
-             return raceExt as raceExtension
-      - >-
-        match (raceExtension) -[*]->(code {`https://lschema.org/attributeName`: "valueCoding"}) return code as raceCode
-    valueExpr:  return patient
+        match (patient) -[*]->
+             (raceExt:`https://hl7.org/fhir/Extension` {url:"http://hl7.org/fhir/us/core/StructureDefinition/us-core-race"}) -[*]->
+             (code {`https://lschema.org/attributeName`: "valueCoding"}) return code as raceCode
+    valueExpr:
+      - return patient
     mapContext: return patient
 
   "https://dartnet.info/graphModel/Person/race/source/code":
-    valueExpr: >-
-      match (raceCode) -[]->(code {`https://lschema.org/attributeName`: "code"}) return code
+    valueExpr:
+      - return raceCode.code
 
   "https://dartnet.info/graphModel/Person/race/source/system":
-    valueExpr: >-
-      match (raceCode) -[]->(system {`https://lschema.org/attributeName`: "system"}) return system
+    valueExpr:
+      - return raceCode.system
       
 
 #
@@ -45,11 +44,10 @@ reshapeNodes:
   "https://dartnet.info/graphModel/Observation/type":
     evaluate:
       - >-
-        match (observation)-[*]->(c)-[]->
-               ({`https://lschema.org/value`:"http://terminology.hl7.org/CodeSystem/observation-category"})
+        match (observation)-[*]->(c {system:"http://terminology.hl7.org/CodeSystem/observation-category"})
                return c as observationTypeCode
-    valueExpr: >-
-      match (observationTypeCode)-[]->(s{`https://lschema.org/attributeName`:"code"}) return s
+    valueExpr:
+      - return observationTypeCode.code
 
 
   "https://dartnet.info/graphModel/Observation/measuredValue/source":
@@ -57,37 +55,37 @@ reshapeNodes:
       match (observation)-[]->(v {`https://lschema.org/attributeName`:"valueQuantity"}) return v as valueQuantity
     mapContext: return valueQuantity
 
-    "https://dartnet.info/graphModel/Observation/source":
-    valueExpr: >-
+  "https://dartnet.info/graphModel/Observation/source":
+    evaluate: >-
       match (observation)-[]->
            (v {`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Observation/code/coding/*"})
            return v as observationCode
-    mapContext: return observationCode
+    valueExpr:
+      - return observationCode
 
+  "https://dartnet.info/graphModel/Observation/source/system":
+    valueExpr:
+      - return observationCode.system
+  "https://dartnet.info/graphModel/Observation/source/code":
+    valueExpr:
+      - return observationCode.code
+  "https://dartnet.info/graphModel/Observation/source/text":
+    valueExpr:
+      - return observationCode.text
       
+  "https://dartnet.info/graphModel/Person/id":
+    source: "https://hl7.org/fhir/Patient/id"
+  "https://dartnet.info/graphModel/Person/birthDate":
+    source: "https://hl7.org/fhir/Patient/birthDate"
+  "https://dartnet.info/graphModel/Person/gender/source/text":
+    source: "https://hl7.org/fhir/Patient/gender"
 
 
-      
-map:
-  - source: "https://hl7.org/fhir/Patient/id"
-    target: "https://dartnet.info/graphModel/Person/id"
-  - source: "https://hl7.org/fhir/Patient/birthDate"
-    target: "https://dartnet.info/graphModel/Person/birthDate"
-  - source: "https://hl7.org/fhir/Patient/gender"
-    target: "https://dartnet.info/graphModel/Person/gender/source/text"
-
-
-  - source: "https://hl7.org/fhir/Observation/effectiveDateTime"
-    target: "https://dartnet.info/graphModel/Observation/date"
-  - source: "https://hl7.org/fhir/Observation/valueQuantity/value"
-    target: "https://dartnet.info/graphModel/Observation/measuredValue/source/value"
-  - source: "https://hl7.org/fhir/Observation/valueQuantity/unit"
-    target: "https://dartnet.info/graphModel/Observation/measuredValue/source/unit"
-  - source: "https://hl7.org/fhir/Observation/valueQuantity/system"
-    target: "https://dartnet.info/graphModel/Observation/measuredValue/source/system"
-  - source: "https://hl7.org/fhir/Observation/code/coding/*/system"
-    target: "https://dartnet.info/graphModel/Observation/source/system"
-  - source: "https://hl7.org/fhir/Observation/code/coding/*/code"
-    target: "https://dartnet.info/graphModel/Observation/source/code"
-  - source: "https://hl7.org/fhir/Observation/code/coding/*/display"
-    target: "https://dartnet.info/graphModel/Observation/source/text"
+  "https://dartnet.info/graphModel/Observation/date":
+    source: "https://hl7.org/fhir/Observation/effectiveDateTime"
+  "https://dartnet.info/graphModel/Observation/measuredValue/source/value":
+    source: "https://hl7.org/fhir/Observation/valueQuantity/value"
+  "https://dartnet.info/graphModel/Observation/measuredValue/source/unit":
+    source: "https://hl7.org/fhir/Observation/valueQuantity/unit"
+  "https://dartnet.info/graphModel/Observation/measuredValue/source/system":
+    source: "https://hl7.org/fhir/Observation/valueQuantity/system"

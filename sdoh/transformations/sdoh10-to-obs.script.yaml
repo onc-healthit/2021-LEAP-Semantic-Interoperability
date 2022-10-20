@@ -51,8 +51,7 @@ reshapeNodes:
   "https://dartnet.info/graphModel/Observation/source/text":
     valueExpr: return value
       
-map:
-  - source: https://dartnet.info/sdoh/sdoh10/Date
-    target: https://dartnet.info/graphModel/Observation/date
-  - source: https://dartnet.info/sdoh/sdoh10/Record_ID
-    target: https://dartnet.info/graphModel/Observation/person
+  "https://dartnet.info/graphModel/Observation/date":
+    source: https://dartnet.info/sdoh/sdoh10/Date
+  "https://dartnet.info/graphModel/Observation/person":
+    source: https://dartnet.info/sdoh/sdoh10/Record_ID
