@@ -232,6 +232,15 @@
                     "@type": "Reference",
                     "ref": "https://dartnet.info/graphModel/Visit"
                 }
+            },
+            "gm:Person/payerPlans": {
+                "@type": "Array",
+                "ingestAs": "none",
+                "arrayElements": {
+                    "@id": "gm:Person/payerPlans/element",
+                    "@type": "Reference",
+                    "ref": "https://dartnet.info/graphModel/PayerPlan"
+                }
             }
         }
     }

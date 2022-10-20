@@ -37,6 +37,12 @@
             },
             "https://dartnet.info/graphModel/Visit/dischargeTo": {
                 "@type": "Value"
+            },
+            "https://dartnet.info/graphModel/Visit/person": {
+                "@type": "Value",
+                "referenceFKFor": "https://dartnet.info/graphModel/Person",
+                "referenceDir": "from",
+                "referenceLabel": "https://lschema.org/has"
             }
         }
     }
