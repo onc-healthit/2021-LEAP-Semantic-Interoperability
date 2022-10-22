@@ -1,0 +1,10 @@
+- operation: neo4j/mergeGraph
+  params:
+    cfg: lsaneo.config.yaml
+    user: ${user}
+    pwd: ${password}
+    uri: ${uri}
+    db: ${db}
+    batchSize: 100
+
+  

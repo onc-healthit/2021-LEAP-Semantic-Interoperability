@@ -2,10 +2,14 @@ module github.com/cloudprivacylabs/leap
 
 go 1.18
 
+replace github.com/cloudprivacylabs/lsa-neo4j => /Users/jasoncruz/lsa-neo4j
+
+replace github.com/cloudprivacylabs/lsa => /Users/jasoncruz/lsa
+
 require (
-	github.com/cloudprivacylabs/lpg v1.0.8
-	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220921235515-0d9d41065773
-	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20220916180405-970035c5cef3
+	github.com/cloudprivacylabs/lpg v1.0.10
+	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220930203914-625f92f402eb
+	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20220915222640-dfd508242e9c
 	github.com/drone/envsubst v1.0.3
 	github.com/joho/godotenv v1.4.0
 	github.com/neo4j/neo4j-go-driver/v4 v4.3.3
@@ -28,8 +32,6 @@ require (
 	github.com/pquerna/cachecontrol v0.0.0-20180517163645-1555304b9b35 // indirect
 	github.com/richardlehane/mscfb v1.0.4 // indirect
 	github.com/richardlehane/msoleps v1.0.1 // indirect
-	github.com/santhosh-tekuri/jsonschema/v3 v3.0.1 // indirect
-	github.com/santhosh-tekuri/jsonschema/v5 v5.0.0 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/tkuchiki/go-timezone v0.2.0 // indirect
 	github.com/xuri/efp v0.0.0-20220407160117-ad0f7a785be8 // indirect

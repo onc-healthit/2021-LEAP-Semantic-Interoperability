@@ -42,14 +42,14 @@ reshapeNodes:
       match (n:`https://hl7.org/fhir/Observation`) return n as observation
     mapContext: return observation
 
-  "https://dartnet.info/graphModel/Observation/type":
-    evaluate:
-      - >-
-        match (observation)-[*]->(c)-[]->
-               ({`https://lschema.org/value`:"http://terminology.hl7.org/CodeSystem/observation-category"})
-               return c as observationTypeCode
-    valueExpr: >-
-      match (observationTypeCode)-[]->(s{`https://lschema.org/attributeName`:"code"}) return s
+  # "https://dartnet.info/graphModel/Observation/type":
+  #   evaluate:
+  #     - >-
+  #       match (observation)-[*]->(c)-[]->
+  #              ({`https://lschema.org/value`:"http://terminology.hl7.org/CodeSystem/observation-category"})
+  #              return c as observationTypeCode
+  #   valueExpr: >-
+  #     match (observationTypeCode)-[]->(s{`https://lschema.org/attributeName`:"code"}) return s
 
 
   "https://dartnet.info/graphModel/Observation/measuredValue/source":
