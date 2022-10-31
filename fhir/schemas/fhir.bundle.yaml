@@ -1,6 +1,8 @@
 jsonSchemas:
   - name: fhir.schema.json
     id: https://hl7.org/fhir
+    overlays:
+      - fhir.ovl.json
 variants:
   https://hl7.org/fhir/Extension:
     jsonSchema:

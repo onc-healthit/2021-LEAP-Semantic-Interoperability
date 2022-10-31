@@ -13,4 +13,6 @@ variants:
     schema: procedure.json
   https://dartnet.info/graphModel/Visit:
     schema: visit.json
+  https://dartnet.info/graphModel/PayerPlan:
+    schema: payer_plan.json
     

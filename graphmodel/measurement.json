@@ -11,34 +11,74 @@
             "https://dartnet.info/graphModel/Measurement"
         ],
         "attributes": {
-            "https://dartnet.info/graphModel/Measurement/normalizedSystemName": {
-                "@type": ["Value","MeasurementCodeSystem"]
+
+            "https://dartnet.info/graphModel/Measurement/source": {
+                "@type": ["Object","Code"],
+                "attributes": {
+                    "https://dartnet.info/graphModel/Measurement/source/code": {
+                        "@type": "Value",
+                        "attributeName":"code",
+                        "ingestAs": "node"
+                    },
+                    "https://dartnet.info/graphModel/Measurement/source/system": {
+                        "@type": "Value",
+                        "attributeName":"system",
+                        "ingestAs": "node"
+                    },
+                    "https://dartnet.info/graphModel/Measurement/source/text": {
+                        "@type": "Value",
+                        "attributeName":"text",
+                        "ingestAs": "node"
+                    }
+                }
             },
-            "https://dartnet.info/graphModel/Measurement/normalizedCode": {
-                "@type": ["Value","MeasurementCode"],
-                "vsValuesets": "code",
-                "vsRequestKeys": [
-                    "vocabulary",
-                    "code"
-                ],
-                "vsRequestValues": [
-                    "https://dartnet.info/graphModel/Measurement/normalizedSystemName",
-                    "https://dartnet.info/graphModel/Measurement/code"
-                ],
-                "vsResultKeys": [
-                    "concept_id"
-                ],
-                "vsResultValues": "https://dartnet.info/graphModel/Measurement/normalizedCode"
+
+            "https://dartnet.info/graphModel/Measurement/omop": {
+                "@type": "Array",
+                "arrayElements": {
+                    "@id": "https://dartnet.info/graphmodel/Measurement/omop/items",
+                    "@type": ["Object","Code","MeasurementCode","OMOPConcept"],
+                    "attributes": {
+                        "https://dartnet.info/graphModel/Measurement/omop/code": {
+                            "@type": "Value",
+                            "ingestAs": "node",
+                            "attributeName": "code",
+                            "vsValuesets": "omop",
+                            "vsRequestKeys": [
+                                "vocabulary",
+                                "code"
+                            ],
+                            "vsRequestValues": [
+                                "https://dartnet.info/graphModel/Measurement/omop/system",
+                                "https://dartnet.info/graphModel/Measurement/source/code"
+                            ],
+                            "vsResultKeys": [
+                                "concept_id",
+                                "concept_name"
+                            ],
+                            "vsResultValues": [
+                                "https://dartnet.info/graphModel/Measurement/omop/code",
+                                "https://dartnet.info/graphModel/Measurement/omop/text"
+                            ]
+                        },
+                        "https://dartnet.info/graphModel/Measurement/omop/system": {
+                            "@type": "Value",
+                            "ingestAs": "node",
+                            "attributeName": "system",
+                            "vsValuesets": "codeSystemNames",
+                            "vsResultValues": "https://dartnet.info/graphModel/Measurement/omop/system",
+                            "vsRequestValues": "https://dartnet.info/graphModel/Measurement/source/system"
+                        },
+                        "https://dartnet.info/graphModel/Measurement/omop/text": {
+                            "@type": "Value",
+                            "ingestAs": "node",
+                            "attributeName": "text"
+                        }
+                    }
+                }
             },
-            "https://dartnet.info/graphModel/Measurement/systemName": {
-                "@type": "Value"
-            },
-            "https://dartnet.info/graphModel/Measurement/code": {
-                "@type": ["Value","Code"]
-            },
-            "https://dartnet.info/graphModel/Measurement/displayName": {
-                "@type": ["Value"]
-            },
+            
+            
             "https://dartnet.info/graphModel/Measurement/date": {
                 "@type": "Value",
                 "valueType": "ls:date"

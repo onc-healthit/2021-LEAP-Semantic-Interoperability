@@ -17,7 +17,7 @@
             },
             "https://dartnet.info/graphModel/Observation/date": {
                 "@type": "Value",
-                "valueType": "xsd:date"
+                "valueType": "ls:date"
             },
             "https://dartnet.info/graphModel/Observation/type": {
                 "@type": "Value"
