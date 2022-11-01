@@ -5,3 +5,4 @@
 pipeline.darwin-amd64
 pipeline.linux-amd64
 pipeline.windows-amd64
+*.out

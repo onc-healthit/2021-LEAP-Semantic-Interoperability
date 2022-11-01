@@ -3,11 +3,12 @@ module github.com/cloudprivacylabs/leap
 go 1.18
 
 replace github.com/cloudprivacylabs/lsa-neo4j => ../lsa-neo4j
+
 replace github.com/cloudprivacylabs/lsa => ../lsa
 
 require (
 	github.com/cloudprivacylabs/lpg v1.0.10
-	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220930162948-3724bfdf6d24
+	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220930203914-625f92f402eb
 	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20220915222640-dfd508242e9c
 	github.com/drone/envsubst v1.0.3
 	github.com/joho/godotenv v1.4.0

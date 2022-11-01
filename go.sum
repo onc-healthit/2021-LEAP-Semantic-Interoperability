@@ -12,8 +12,6 @@ github.com/bserdar/jsonstream v0.0.0-20190428032403-9f1769267072/go.mod h1:MDfUY
 github.com/cenkalti/backoff/v4 v4.1.2 h1:6Yo7N8UP2K6LWZnW94DLVSSrbobcWdVzAYOisuDPIFo=
 github.com/cloudprivacylabs/lpg v1.0.10 h1:QF849RJGz4RyFvrLEutjXVNwaefnnLMtImMVeq3qlO0=
 github.com/cloudprivacylabs/lpg v1.0.10/go.mod h1:3bLpI1OIk3h/ZVfGhq3sdULexmVbd7qANVhVSYbvCe8=
-github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220930162948-3724bfdf6d24 h1:Kzp8mwO7Nn2J1a+gnuXXETYeMPDOqOTE0phKlejLmDk=
-github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20220930162948-3724bfdf6d24/go.mod h1:qYB8erpCHtS0Y+vbhgQtcoM/iMYEEIJYFXSrMrOdWZQ=
 github.com/cloudprivacylabs/opencypher v1.0.0-beta-8 h1:krJC4yBPSgX25P3bt8q6RWexhMsACwIrG6PguWsqV38=
 github.com/cloudprivacylabs/opencypher v1.0.0-beta-8/go.mod h1:3Ttn9wqZrtJxAFhmT16PUrS3O3cbJwWrI5cr08kh8nw=
 github.com/containerd/cgroups v1.0.1 h1:iJnMvco9XGvKUvNQkv88bE4uJXxRQH18efbKo9w5vHQ=

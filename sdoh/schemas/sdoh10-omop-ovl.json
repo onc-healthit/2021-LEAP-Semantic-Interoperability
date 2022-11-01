@@ -15,7 +15,8 @@
                     "https://dartnet.info/graphModel/Observation/source/code",
                     "https://dartnet.info/graphModel/Observation/source/text",
                     "https://dartnet.info/graphModel/Observation/measuredValue/source/value",
-                    "https://dartnet.info/graphModel/Observation/measuredValue/source/unit"
+                    "https://dartnet.info/graphModel/Observation/measuredValue/source/unit",
+                    "https://dartnet.info/graphModel/Observation/person"
                 ]
             },
             "https://dartnet.info/graphModel/Observation/omop": {

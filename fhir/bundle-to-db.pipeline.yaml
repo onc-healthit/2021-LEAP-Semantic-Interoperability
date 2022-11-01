@@ -25,20 +25,20 @@
     type: https://dartnet.info/graphModel/Person
     scriptFile: transformations/fhir-to-graph.script.yaml
 
-- operation: valueset
-  params:
-    valuesetFiles:
-      - valuesets.json
-    tables:
-      - codeSystemNames
-- operation: valueset
-  params:
-    valuesetFiles:
-      - valuesets.json
-    tables:
-      - omop
+# - operation: valueset
+#   params:
+#     valuesetFiles:
+#       - valuesets.json
+#     tables:
+#       - codeSystemNames
+# - operation: valueset
+#   params:
+#     valuesetFiles:
+#       - valuesets.json
+#     tables:
+#       - omop
 
-- operation: saveGraph/neo4j
+- operation: neo4j/saveGraph
   params:
     cfg: lsaneo.config.yaml
     user: ${user}
