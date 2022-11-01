@@ -1,0 +1,24 @@
+- operation: ingest/csv
+  params:
+    schema: schemas/sdoh10.schema.json
+    onlySchemaAttributes: true
+    endRow: 2
+
+- operation: reshape
+  params:
+    bundle:
+      - schemas/graphmodel-sdoh10.bundle.yaml
+    type: https://dartnet.info/graphModel/Observation
+    scriptFile: transformations/sdoh10-to-obs.script.yaml
+
+- operation: valueset
+  params:
+    valuesetFiles:
+      - sdoh10-valuesets.json
+    tables:
+      - sdoh10
+- operation: writeGraph
+
+
+  
+  
