@@ -1,12 +1,15 @@
 package cmd
 
 import (
+	"fmt"
 	"time"
 
 	"github.com/cloudprivacylabs/lpg"
 	neo "github.com/cloudprivacylabs/lsa-neo4j"
 	"github.com/cloudprivacylabs/lsa/layers/cmd/cmdutil"
 	"github.com/cloudprivacylabs/lsa/layers/cmd/pipeline"
+	"github.com/cloudprivacylabs/lsa/pkg/ls"
+	"github.com/cloudprivacylabs/opencypher"
 	"github.com/drone/envsubst"
 	_ "github.com/joho/godotenv/autoload"
 	"github.com/neo4j/neo4j-go-driver/v4/neo4j"
@@ -100,15 +103,41 @@ func (s *SaveGraphStep) Run(pctx *pipeline.PipelineContext) error {
 }
 
 type MergeGraphStep struct {
-	session *neo.Session
-	cfg     neo.Config
+	session       *neo.Session
+	cfg           neo.Config
+	cachedDBGraph map[string]*neo.DBGraph
 	Neo4jStep
+	// CacheByID keeps the ID that uniquely identifies a graph
+	CacheByID string `json:"cacheBy" yaml:"cacheBy"`
+}
+
+func (s *MergeGraphStep) getIDToCache(g *lpg.Graph) string {
+	if len(s.CacheByID) == 0 {
+		return ""
+	}
+	idq := fmt.Sprintf("match (n {`%s`:$id}) return n.`%s` as id", ls.SchemaNodeIDTerm, ls.EntityIDTerm)
+	ectx := opencypher.NewEvalContext(g)
+	ectx.SetParameter("$id", opencypher.ValueOf(s.CacheByID))
+	r, err := opencypher.ParseAndEvaluate(idq, ectx)
+	if err != nil {
+		panic(err)
+	}
+	rs := r.Get().(opencypher.ResultSet)
+	if len(rs.Rows) == 1 {
+		v := rs.Rows[0]["id"].Get()
+		if v == nil {
+			return ""
+		}
+		return fmt.Sprint(v)
+	}
+	return ""
 }
 
 func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 	if s.session == nil {
 		s.session = s.getSession()
 		s.cfg = s.getConfig()
+		s.cachedDBGraph = make(map[string]*neo.DBGraph)
 	}
 	// begin new transaction
 	tx, err := s.session.BeginTransaction()
@@ -118,14 +147,28 @@ func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 	}
 
 	start := time.Now()
-	dbGraph, nodeIds, edgeIds, err := s.session.LoadDBGraph(tx, pctx.Graph, s.cfg)
-	if err != nil {
-		tx.Rollback()
-		pctx.ErrorLogger(pctx, err)
-		return err
+	var dbGraph *neo.DBGraph
+	idc := s.getIDToCache(pctx.Graph)
+	if len(idc) > 0 {
+		var ok bool
+		dbGraph, ok = s.cachedDBGraph[idc]
+		// Remember only one graph
+		if !ok {
+			s.cachedDBGraph = make(map[string]*neo.DBGraph)
+		}
 	}
-	pctx.Context.GetLogger().Debug(map[string]interface{}{"Loaded db graph with nodes": dbGraph.GetNodes().MaxSize()})
-	delta, err := neo.Merge(pctx.Graph, dbGraph, nodeIds, edgeIds, s.cfg)
+
+	if dbGraph == nil {
+		dbGraph, err = s.session.LoadDBGraph(tx, pctx.Graph, s.cfg)
+		if err != nil {
+			tx.Rollback()
+			pctx.ErrorLogger(pctx, err)
+			return err
+		}
+	}
+	pctx.Context.GetLogger().Debug(map[string]interface{}{"Loaded db graph with nodes": dbGraph.G.GetNodes().MaxSize()})
+	start = time.Now()
+	delta, err := neo.Merge(pctx.Graph, dbGraph, s.cfg)
 	if err != nil {
 		tx.Rollback()
 		pctx.ErrorLogger(pctx, err)
@@ -137,8 +180,9 @@ func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 		_, ok := d.(neo.CreateNodeDelta)
 		return ok
 	})
+	start = time.Now()
 	for _, c := range createNodeDeltas {
-		if err := c.Run(tx, nodeIds, edgeIds, s.cfg); err != nil {
+		if err := c.Run(tx, dbGraph.NodeIds, dbGraph.EdgeIds, s.cfg); err != nil {
 			tx.Rollback()
 			pctx.ErrorLogger(pctx, err)
 			return err
@@ -149,7 +193,7 @@ func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 		return !ok
 	})
 	for _, c := range updateDeltas {
-		if err := c.Run(tx, nodeIds, edgeIds, s.cfg); err != nil {
+		if err := c.Run(tx, dbGraph.NodeIds, dbGraph.EdgeIds, s.cfg); err != nil {
 			tx.Rollback()
 			pctx.ErrorLogger(pctx, err)
 			return err
@@ -160,6 +204,11 @@ func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 		pctx.ErrorLogger(pctx, err)
 		return err
 	}
+	idc = s.getIDToCache(dbGraph.G)
+	if len(idc) > 0 {
+		s.cachedDBGraph = map[string]*neo.DBGraph{idc: dbGraph}
+	}
+
 	return nil
 }
 

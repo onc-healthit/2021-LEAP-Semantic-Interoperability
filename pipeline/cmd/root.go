@@ -15,6 +15,7 @@
 package cmd
 
 import (
+	"encoding/json"
 	"fmt"
 	"io"
 	"log"
@@ -92,6 +93,10 @@ var (
 				}
 				return nil, nil, nil
 			})
+			pctx.EntryLogger = func(ctx *pipeline.PipelineContext, data map[string]interface{}) {
+				d, _ := json.Marshal(data)
+				fmt.Fprintln(os.Stderr, string(d))
+			}
 			err = pipeline.Run(pctx)
 			if err != nil {
 				pctx.ErrorLogger(pctx, err)
