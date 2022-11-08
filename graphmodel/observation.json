@@ -20,7 +20,9 @@
                 "valueType": "ls:date"
             },
             "https://dartnet.info/graphModel/Observation/type": {
-                "@type": "Value"
+                "@type": "Value",
+                "attributeName": "type",
+                "ingestAs": "property"
             },
             
             "https://dartnet.info/graphModel/Observation/source": {
@@ -28,18 +30,18 @@
                 "attributes": {
                     "https://dartnet.info/graphModel/Observation/source/code": {
                         "@type": "Value",
-                        "attributeName":"code",
-                        "ingestAs": "node"
+                        "attributeName": "code",
+                        "ingestAs": "property"
                     },
                     "https://dartnet.info/graphModel/Observation/source/system": {
                         "@type": "Value",
-                        "attributeName":"system",
-                        "ingestAs": "node"
+                        "attributeName": "system",
+                        "ingestAs": "property"
                     },
                     "https://dartnet.info/graphModel/Observation/source/text": {
                         "@type": "Value",
-                        "attributeName":"text",
-                        "ingestAs": "node"
+                        "attributeName": "text",
+                        "ingestAs": "property"
                     }
                 }
             },
@@ -50,40 +52,30 @@
                     "@id": "https://dartnet.info/graphmodel/Observation/omop/items",
                     "@type": ["Object","Code","ObservationCode","OMOPConcept"],
                     "attributes": {
-                        "https://dartnet.info/graphModel/Observation/omop/code": {
+                        "https://dartnet.info/graphModel/Observation/omop/id": {
                             "@type": "Value",
-                            "ingestAs": "node",
-                            "attributeName": "code",
-                            "vsValuesets": "omop",
-                            "vsRequestKeys": [
-                                "vocabulary",
-                                "code"
-                            ],
-                            "vsRequestValues": [
-                                "https://dartnet.info/graphModel/Observation/omop/system",
-                                "https://dartnet.info/graphModel/Observation/source/code"
-                            ],
-                            "vsResultKeys": [
-                                "concept_id",
-                                "concept_name"
-                            ],
-                            "vsResultValues": [
-                                "https://dartnet.info/graphModel/Observation/omop/code",
-                                "https://dartnet.info/graphModel/Observation/omop/text"
-                            ]
+                            "attributeName": "id",
+                            "ingestAs": "property"
                         },
-                        "https://dartnet.info/graphModel/Observation/omop/system": {
+                        "https://dartnet.info/graphModel/Observation/omop/name": {
                             "@type": "Value",
-                            "ingestAs": "node",
-                            "attributeName": "system",
-                            "vsValuesets": "codeSystemNames",
-                            "vsResultValues": "https://dartnet.info/graphModel/Observation/omop/system",
-                            "vsRequestValues": "https://dartnet.info/graphModel/Observation/source/system"
+                            "attributeName": "name",
+                            "ingestAs": "property"
                         },
-                        "https://dartnet.info/graphModel/Observation/omop/text": {
+                        "https://dartnet.info/graphModel/Observation/omop/domainId": {
                             "@type": "Value",
-                            "ingestAs": "node",
-                            "attributeName": "text"
+                            "attributeName": "domainId",
+                            "ingestAs": "property"
+                        },
+                        "https://dartnet.info/graphModel/Observation/omop/vocabularyId": {
+                            "@type": "Value",
+                            "attributeName": "vocabularyId",
+                            "ingestAs": "property"
+                        },
+                        "https://dartnet.info/graphModel/Observation/omop/classId": {
+                            "@type": "Value",
+                            "attributeName": "classId",
+                            "ingestAs": "property"
                         }
                     }
                 }
@@ -95,18 +87,18 @@
                 "attributes": {
                     "https://dartnet.info/graphModel/Observation/codedValue/source/code": {
                         "@type": "Value",
-                        "attributeName":"code",
-                        "ingestAs": "node"
+                        "attributeName": "code",
+                        "ingestAs": "property"
                     },
                     "https://dartnet.info/graphModel/Observation/codedValue/source/system": {
                         "@type": "Value",
-                        "attributeName":"system",
-                        "ingestAs": "node"
+                        "attributeName": "system",
+                        "ingestAs": "property"
                     },
                     "https://dartnet.info/graphModel/Observation/codedValue/source/text": {
                         "@type": "Value",
-                        "attributeName":"text",
-                        "ingestAs": "node"
+                        "attributeName": "text",
+                        "ingestAs": "property"
                     }
                 }
             },
@@ -117,40 +109,30 @@
                     "@id": "https://dartnet.info/graphmodel/Observation/codedValue/omop/items",
                     "@type": ["Object","Code","ObservationValueCode","OMOPConcept"],
                     "attributes": {
-                        "https://dartnet.info/graphModel/Observation/codedValue/omop/code": {
+                        "https://dartnet.info/graphModel/Observation/omop/id": {
                             "@type": "Value",
-                            "ingestAs": "node",
-                            "attributeName": "code",
-                            "vsValuesets": "omop",
-                            "vsRequestKeys": [
-                                "vocabulary",
-                                "code"
-                            ],
-                            "vsRequestValues": [
-                                "https://dartnet.info/graphModel/Observation/codedValue/omop/system",
-                                "https://dartnet.info/graphModel/Observation/codedValue/source/code"
-                            ],
-                            "vsResultKeys": [
-                                "concept_id",
-                                "concept_name"
-                            ],
-                            "vsResultValues": [
-                                "https://dartnet.info/graphModel/Observation/codedValue/omop/code",
-                                "https://dartnet.info/graphModel/Observation/codedValue/omop/text"
-                            ]
+                            "attributeName": "id",
+                            "ingestAs": "property"
                         },
-                        "https://dartnet.info/graphModel/Observation/codedValue/omop/system": {
+                        "https://dartnet.info/graphModel/Observation/omop/name": {
                             "@type": "Value",
-                            "ingestAs": "node",
-                            "attributeName": "system",
-                            "vsValuesets": "codeSystemNames",
-                            "vsResultValues": "https://dartnet.info/graphModel/Observation/codedValue/omop/system",
-                            "vsRequestValues": "https://dartnet.info/graphModel/Observation/codedValue/source/system"
+                            "attributeName": "name",
+                            "ingestAs": "property"
                         },
-                        "https://dartnet.info/graphModel/Observation/codedValue/omop/text": {
+                        "https://dartnet.info/graphModel/Observation/omop/domainId": {
                             "@type": "Value",
-                            "ingestAs": "node",
-                            "attributeName": "text"
+                            "attributeName": "domainId",
+                            "ingestAs": "property"
+                        },
+                        "https://dartnet.info/graphModel/Observation/omop/vocabularyId": {
+                            "@type": "Value",
+                            "attributeName": "vocabularyId",
+                            "ingestAs": "property"
+                        },
+                        "https://dartnet.info/graphModel/Observation/omop/classId": {
+                            "@type": "Value",
+                            "attributeName": "classId",
+                            "ingestAs": "property"
                         }
                     }
                 }
@@ -163,15 +145,18 @@
                 "attributes": {
                     "https://dartnet.info/graphModel/Observation/measuredValue/source/value": {
                         "@type": "Value",
-                        "ingestAs": "node"
+                        "attributeName": "value",
+                        "ingestAs": "property"
                     },
                     "https://dartnet.info/graphModel/Observation/measuredValue/source/unit": {
                         "@type": "Value",
-                        "ingestAs": "node"
+                        "attributeName": "unit",
+                        "ingestAs": "property"
                     },
                     "https://dartnet.info/graphModel/Observation/measuredValue/source/system": {
                         "@type": "Value",
-                        "ingestAs": "node"
+                        "attributeName": "system",
+                        "ingestAs": "property"
                     }
                 }
             },

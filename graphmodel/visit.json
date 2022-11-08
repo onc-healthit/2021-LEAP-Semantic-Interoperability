@@ -5,6 +5,7 @@
     "valueType": "https://dartnet.info/graphModel/Visit",
     "layer": {
         "@id": "https://dartnet.info/graphModel/Visit",
+        "entityIdFields": "https://dartnet.info/graphModel/Visit/id",        
         "@type": [
             "Attribute",
             "Object",
@@ -15,7 +16,9 @@
                 "@type": "Value"
             },
             "https://dartnet.info/graphModel/Visit/visit": {
-                "@type": "Value"
+                "@type": "Value",
+                "attributeName": "visit",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Visit/start": {
                 "@type": "Value"
@@ -24,19 +27,29 @@
                 "@type": "Value"
             },
             "https://dartnet.info/graphModel/Visit/type": {
-                "@type": "Value"
+                "@type": "Value",
+                "attributeName": "type",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Visit/provider": {
-                "@type": "Value"
+                "@type": "Value",
+                "attributeName": "provider",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Visit/careSite": {
-                "@type": "Value"
+                "@type": "Value",
+                "attributeName": "careSite",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Visit/admittedFrom": {
-                "@type": "Value"
+                "@type": "Value",
+                "attributeName": "admittedFrom",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Visit/dischargeTo": {
-                "@type": "Value"
+                "@type": "Value",
+                "attributeName": "dischargeTo",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Visit/person": {
                 "@type": "Value",

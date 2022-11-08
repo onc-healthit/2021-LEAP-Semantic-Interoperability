@@ -5,6 +5,7 @@
     "valueType": "https://dartnet.info/graphModel/PayerPlan",
     "layer": {
         "@id": "https://dartnet.info/graphModel/PayerPlan",
+        "entityIdFields": "https://dartnet.info/graphModel/PayerPlan/id",        
         "@type": [
             "Attribute",
             "Object",
@@ -27,17 +28,17 @@
                 "attributes": {
                     "https://dartnet.info/graphModel/PayerPlan/payer/source/code": {
                         "@type": "Value",
-                        "attributeName":"code",
+                        "attributeName": "code",
                         "ingestAs": "property"
                     },
                     "https://dartnet.info/graphModel/PayerPlan/payer/source/system": {
                         "@type": "Value",
-                        "attributeName":"system",
+                        "attributeName": "system",
                         "ingestAs": "property"
                     },
                     "https://dartnet.info/graphModel/PayerPlan/payer/source/text": {
                         "@type": "Value",
-                        "attributeName":"text",
+                        "attributeName": "text",
                         "ingestAs": "property"
                     }
                 }
@@ -48,37 +49,30 @@
                     "@id": "https://dartnet.info/graphmodel/PayerPlan/payer/omop/items",
                     "@type": ["Object","Code","ConditionCode","OMOPConcept"],
                     "attributes": {
-                        "https://dartnet.info/graphModel/PayerPlan/payer/omop/code": {
+                        "https://dartnet.info/graphModel/PayerPlan/payer/omop/id": {
                             "@type": "Value",
-                            "ingestAs": "property",
-                            "attributeName": "code",
-                            "vsValuesets": "omop",
-                            "vsRequestKeys": [
-                                "vocabulary",
-                                "code"
-                            ],
-                            "vsRequestValues": [
-                                "https://dartnet.info/graphModel/PayerPlan/payer/source/system",
-                                "https://dartnet.info/graphModel/PayerPlan/payer/source/code"
-                            ],
-                            "vsResultKeys": [
-                                "concept_id",
-                                "concept_name"
-                            ],
-                            "vsResultValues": [
-                                "https://dartnet.info/graphModel/PayerPlan/payer/omop/code",
-                                "https://dartnet.info/graphModel/PayerPlan/payer/omop/system"
-                            ]
+                            "attributeName": "id",
+                            "ingestAs": "property"
                         },
-                        "https://dartnet.info/graphModel/PayerPlan/payer/omop/system": {
+                        "https://dartnet.info/graphModel/PayerPlan/payer/omop/name": {
                             "@type": "Value",
-                            "ingestAs": "property",
-                            "attributeName": "system"
+                            "attributeName": "name",
+                            "ingestAs": "property"
                         },
-                        "https://dartnet.info/graphModel/PayerPlan/payer/omop/text": {
+                        "https://dartnet.info/graphModel/PayerPlan/payer/omop/domainId": {
                             "@type": "Value",
-                            "ingestAs": "property",
-                            "attributeName": "text"
+                            "attributeName": "domainId",
+                            "ingestAs": "property"
+                        },
+                        "https://dartnet.info/graphModel/PayerPlan/payer/omop/vocabularyId": {
+                            "@type": "Value",
+                            "attributeName": "vocabularyId",
+                            "ingestAs": "property"
+                        },
+                        "https://dartnet.info/graphModel/PayerPlan/payer/omop/classId": {
+                            "@type": "Value",
+                            "attributeName": "classId",
+                            "ingestAs": "property"
                         }
                     }
                 }
@@ -88,17 +82,17 @@
                 "attributes": {
                     "https://dartnet.info/graphModel/PayerPlan/plan/source/code": {
                         "@type": "Value",
-                        "attributeName":"code",
+                        "attributeName": "code",
                         "ingestAs": "property"
                     },
                     "https://dartnet.info/graphModel/PayerPlan/plan/source/system": {
                         "@type": "Value",
-                        "attributeName":"system",
+                        "attributeName": "system",
                         "ingestAs": "property"
                     },
                     "https://dartnet.info/graphModel/PayerPlan/plan/source/text": {
                         "@type": "Value",
-                        "attributeName":"text",
+                        "attributeName": "text",
                         "ingestAs": "property"
                     }
                 }
@@ -109,37 +103,30 @@
                     "@id": "https://dartnet.info/graphmodel/PayerPlan/plan/omop/items",
                     "@type": ["Object","Code","ConditionCode","OMOPConcept"],
                     "attributes": {
-                        "https://dartnet.info/graphModel/PayerPlan/plan/omop/code": {
+                        "https://dartnet.info/graphModel/PayerPlan/plan/omop/id": {
                             "@type": "Value",
-                            "ingestAs": "property",
-                            "attributeName": "code",
-                            "vsValuesets": "omop",
-                            "vsRequestKeys": [
-                                "vocabulary",
-                                "code"
-                            ],
-                            "vsRequestValues": [
-                                "https://dartnet.info/graphModel/PayerPlan/plan/source/system",
-                                "https://dartnet.info/graphModel/PayerPlan/plan/source/code"
-                            ],
-                            "vsResultKeys": [
-                                "concept_id",
-                                "concept_name"
-                            ],
-                            "vsResultValues": [
-                                "https://dartnet.info/graphModel/PayerPlan/plan/omop/code",
-                                "https://dartnet.info/graphModel/PayerPlan/plan/omop/system"
-                            ]
+                            "attributeName": "id",
+                            "ingestAs": "property"
                         },
-                        "https://dartnet.info/graphModel/PayerPlan/plan/omop/system": {
+                        "https://dartnet.info/graphModel/PayerPlan/plan/omop/name": {
                             "@type": "Value",
-                            "ingestAs": "property",
-                            "attributeName": "system"
+                            "attributeName": "name",
+                            "ingestAs": "property"
                         },
-                        "https://dartnet.info/graphModel/PayerPlan/plan/omop/text": {
+                        "https://dartnet.info/graphModel/PayerPlan/plan/omop/domainId": {
                             "@type": "Value",
-                            "ingestAs": "property",
-                            "attributeName": "text"
+                            "attributeName": "domainId",
+                            "ingestAs": "property"
+                        },
+                        "https://dartnet.info/graphModel/PayerPlan/plan/omop/vocabularyId": {
+                            "@type": "Value",
+                            "attributeName": "vocabularyId",
+                            "ingestAs": "property"
+                        },
+                        "https://dartnet.info/graphModel/PayerPlan/plan/omop/classId": {
+                            "@type": "Value",
+                            "attributeName": "classId",
+                            "ingestAs": "property"
                         }
                     }
                 }
@@ -149,17 +136,17 @@
                 "attributes": {
                     "https://dartnet.info/graphModel/PayerPlan/contract/source/code": {
                         "@type": "Value",
-                        "attributeName":"code",
+                        "attributeName": "code",
                         "ingestAs": "property"
                     },
                     "https://dartnet.info/graphModel/PayerPlan/contract/source/system": {
                         "@type": "Value",
-                        "attributeName":"system",
+                        "attributeName": "system",
                         "ingestAs": "property"
                     },
                     "https://dartnet.info/graphModel/PayerPlan/contract/source/text": {
                         "@type": "Value",
-                        "attributeName":"text",
+                        "attributeName": "text",
                         "ingestAs": "property"
                     }
                 }
@@ -170,37 +157,30 @@
                     "@id": "https://dartnet.info/graphmodel/PayerPlan/contract/omop/items",
                     "@type": ["Object","Code","ConditionCode","OMOPConcept"],
                     "attributes": {
-                        "https://dartnet.info/graphModel/PayerPlan/contract/omop/code": {
+                        "https://dartnet.info/graphModel/PayerPlan/contract/omop/id": {
                             "@type": "Value",
-                            "ingestAs": "property",
-                            "attributeName": "code",
-                            "vsValuesets": "omop",
-                            "vsRequestKeys": [
-                                "vocabulary",
-                                "code"
-                            ],
-                            "vsRequestValues": [
-                                "https://dartnet.info/graphModel/PayerPlan/contract/source/system",
-                                "https://dartnet.info/graphModel/PayerPlan/contract/source/code"
-                            ],
-                            "vsResultKeys": [
-                                "concept_id",
-                                "concept_name"
-                            ],
-                            "vsResultValues": [
-                                "https://dartnet.info/graphModel/PayerPlan/contract/omop/code",
-                                "https://dartnet.info/graphModel/PayerPlan/contract/omop/system"
-                            ]
+                            "attributeName": "id",
+                            "ingestAs": "property"
                         },
-                        "https://dartnet.info/graphModel/PayerPlan/contract/omop/system": {
+                        "https://dartnet.info/graphModel/PayerPlan/contract/omop/name": {
                             "@type": "Value",
-                            "ingestAs": "property",
-                            "attributeName": "system"
+                            "attributeName": "name",
+                            "ingestAs": "property"
                         },
-                        "https://dartnet.info/graphModel/PayerPlan/contract/omop/text": {
+                        "https://dartnet.info/graphModel/PayerPlan/contract/omop/domainId": {
                             "@type": "Value",
-                            "ingestAs": "property",
-                            "attributeName": "text"
+                            "attributeName": "domainId",
+                            "ingestAs": "property"
+                        },
+                        "https://dartnet.info/graphModel/PayerPlan/contract/omop/vocabularyId": {
+                            "@type": "Value",
+                            "attributeName": "vocabularyId",
+                            "ingestAs": "property"
+                        },
+                        "https://dartnet.info/graphModel/PayerPlan/contract/omop/classId": {
+                            "@type": "Value",
+                            "attributeName": "classId",
+                            "ingestAs": "property"
                         }
                     }
                 }
