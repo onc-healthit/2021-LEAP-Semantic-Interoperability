@@ -1,0 +1,35 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@id": "http://example.org/omop/schema",
+    "@type": "Schema",
+    "valueType": "https://example.org/omop",
+    "layer": {
+        "attributes": {
+            "https://dartnet.info/graphModel/Observation/omop/id": {
+                "@type": "Value",
+                "attributeName": "id",
+                "ingestAs": "property"
+            },
+            "https://dartnet.info/graphModel/Observation/omop/name": {
+                "@type": "Value",
+                "attributeName": "name",
+                "ingestAs": "property"
+            },
+            "https://dartnet.info/graphModel/Observation/omop/domainId": {
+                "@type": "Value",
+                "attributeName": "domainId",
+                "ingestAs": "property"
+            },
+            "https://dartnet.info/graphModel/Observation/omop/vocabularyId": {
+                "@type": "Value",
+                "attributeName": "vocabularyId",
+                "ingestAs": "property"
+            },
+            "https://dartnet.info/graphModel/Observation/omop/classId": {
+                "@type": "Value",
+                "attributeName": "classId",
+                "ingestAs": "property"
+            }
+        }
+    }
+}
