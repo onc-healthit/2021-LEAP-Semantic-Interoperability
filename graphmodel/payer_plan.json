@@ -8,7 +8,7 @@
         "entityIdFields": "https://dartnet.info/graphModel/PayerPlan/id",        
         "@type": [
             "Attribute",
-            "Object",
+            "Reference",
             "https://dartnet.info/graphModel/PayerPlan"
         ],
         "attributes": {
@@ -24,39 +24,39 @@
                 "valueType": "ls:dateTime"
             },
             "https://dartnet.info/graphModel/PayerPlan/payer/source": {
-                "@type": ["Object","Code"],
-                "include":"source-include.schema.json"
+                "@type": ["Reference","Code"],
+                "include":"sourcevalue.schema.json"
             },
             "https://dartnet.info/graphModel/PayerPlan/payer/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/PayerPlan/payer/omop/items",
-                    "@type": ["Object","Code","ConditionCode","OMOPConcept"],
-                    "include":"omop-include.schema.json"
+                    "@type": ["Reference","Code","ConditionCode"],
+                    "include":"omop-concept.schema.json"
                 }
             },
             "https://dartnet.info/graphModel/PayerPlan/plan/source": {
-                "@type": ["Object","Code"],
-                "include":"source-include.schema.json"
+                "@type": ["Reference","Code"],
+                "include":"sourcevalue.schema.json"
             },
             "https://dartnet.info/graphModel/PayerPlan/plan/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/PayerPlan/plan/omop/items",
-                    "@type": ["Object","Code","ConditionCode","OMOPConcept"],
-                    "include":"omop-include.schema.json"
+                    "@type": ["Reference","Code","ConditionCode"],
+                    "include":"omop-concept.schema.json"
                 }
             },
             "https://dartnet.info/graphModel/PayerPlan/contract/source": {
-                "@type": ["Object","Code"],
-                "include":"source-include.schema.json"
+                "@type": ["Reference","Code"],
+                "include":"sourcevalue.schema.json"
             },
             "https://dartnet.info/graphModel/PayerPlan/contract/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/PayerPlan/contract/omop/items",
-                    "@type": ["Object","Code","ConditionCode","OMOPConcept"],
-                    "include":"omop-include.schema.json"
+                    "@type": ["Reference","Code","ConditionCode"],
+                    "include":"omop-concept.schema.json"
                 }
             },
             "https://dartnet.info/graphModel/PayerPlan/person": {

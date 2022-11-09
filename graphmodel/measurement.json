@@ -17,15 +17,15 @@
             },
             "https://dartnet.info/graphModel/Measurement/source": {
                 "@type": ["Object","Code"],
-                "include":"source-include.schema.json"
+                "include":"sourcevalue.schema.json"
             },
 
             "https://dartnet.info/graphModel/Measurement/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/Measurement/omop/items",
-                    "@type": ["Object","Code","MeasurementCode","OMOPConcept"],
-                    "include":"omop-include.schema.json"
+                    "@type": ["Object","Code","MeasurementCode"],
+                    "include":"omop-concept.schema.json"
                 }
             },
             

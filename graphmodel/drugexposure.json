@@ -25,39 +25,39 @@
             },
             "https://dartnet.info/graphModel/DrugExposure/drug/source": {
                 "@type": ["Object","Code"],
-                "include":"source-include.schema.json"
+                "include":"sourcevalue.schema.json"
             },
             "https://dartnet.info/graphModel/DrugExposure/drug/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphModel/DrugExposure/drug/omop/items",
-                    "@type": ["Object","Code","DrugExposureCode","OMOPConcept"],
-                    "include":"omop-include.schema.json"
+                    "@type": ["Object","Code","DrugExposureCode"],
+                    "include":"omop-concept.schema.json"
                 }
             },
             "https://dartnet.info/graphModel/DrugExposure/drugType/source": {
                 "@type": ["Object","Code"],
-                "include":"source-include.schema.json"
+                "include":"sourcevalue.schema.json"
             },
             "https://dartnet.info/graphModel/DrugExposure/drugType/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphModel/DrugExposure/drugType/omop/items",
-                    "@type": ["Object","Code","DrugTypeCode","OMOPConcept"],
-                    "include":"omop-include.schema.json"
+                    "@type": ["Object","Code","DrugTypeCode"],
+                    "include":"omop-concept.schema.json"
                 }
             },
 
             "https://dartnet.info/graphModel/DrugExposure/route/source": {
                 "@type": ["Object","Code"],
-                "include":"source-include.schema.json"
+                "include":"sourcevalue.schema.json"
             },
             "https://dartnet.info/graphModel/DrugExposure/route/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphModel/DrugExposure/route/omop/items",
-                    "@type": ["Object","Code","DrugRouteCode","OMOPConcept"],
-                    "include":"omop-include.schema.json"
+                    "@type": ["Object","Code","DrugRouteCode"],
+                    "include":"omop-concept.schema.json"
                 }
             },
             

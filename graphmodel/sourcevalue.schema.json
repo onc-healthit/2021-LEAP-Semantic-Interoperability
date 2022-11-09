@@ -1,21 +1,24 @@
 {
     "@context": "https://lschema.org/ls.json",
-    "@id": "http://example.org/source/schema",
+    "@id": "https://dartnet.info/graphModel/sourceValue/schema",
     "@type": "Schema",
-    "valueType": "https://example.org/source",
+    "valueType": "https://dartnet.info/graphModel/sourceValue",
     "layer": {
+        "@id": "https://dartnet.info/graphModel/sourceValue",
+        "@type":["Object"],
+        "entityIdFields": "https://dartnet.info/graphModel/sourceValue/id",
         "attributes": {
-            "https://dartnet.info/graphModel/Observation/source/code": {
+            "https://dartnet.info/graphModel/sourceValue/code": {
                 "@type": "Value",
                 "attributeName": "code",
                 "ingestAs": "property"
             },
-            "https://dartnet.info/graphModel/Observation/source/system": {
+            "https://dartnet.info/graphModel/sourceValue/system": {
                 "@type": "Value",
                 "attributeName": "system",
                 "ingestAs": "property"
             },
-            "https://dartnet.info/graphModel/Observation/source/text": {
+            "https://dartnet.info/graphModel/sourceValue/text": {
                 "@type": "Value",
                 "attributeName": "text",
                 "ingestAs": "property"

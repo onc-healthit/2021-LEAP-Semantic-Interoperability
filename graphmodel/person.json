@@ -31,38 +31,38 @@
             },
             "gm:Person/gender/source": {
                 "@type": ["Object","Code"],
-                "include":"source-include.schema.json"
+                "include":"sourcevalue.schema.json"
             },
             "gm:Person/gender/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "gm:Person/gender/omop/concepts",
-                    "@type": ["Object","Code","OMOPConcept"],
-                    "include":"omop-include.schema.json"
+                    "@type": ["Reference","Code"],
+                    "include":"omop-concept.schema.json"
                 }
             },
             "gm:Person/race/source": {
                 "@type": ["Object","Code"],
-                "include":"source-include.schema.json"
+                "include":"sourcevalue.schema.json"
             },
             "gm:Person/race/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "gm:Person/race/omop/items",
-                    "@type": ["Object","Code","OMOPConcept"],
-                    "include":"omop-include.schema.json"
+                    "@type": ["Reference","Code"],
+                    "include":"omop-concept.schema.json"
                 }
             },
             "gm:Person/ethnicity/source": {
                 "@type": ["Object","Code"],
-                "include":"source-include.schema.json"
+                "include":"sourcevalue.schema.json"
             },
             "gm:Person/ethnicity/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "gm:Person/ethnicity/omop/items",
-                    "@type": ["Object","Code","OMOPConcept"],
-                    "include":"omop-include.schema.json"
+                    "@type": ["Reference","Code"],
+                    "include":"omop-concept.schema.json"
                 }
             },
             "gm:Person/locationId": {
