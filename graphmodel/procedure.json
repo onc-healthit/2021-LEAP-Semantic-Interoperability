@@ -17,7 +17,8 @@
             },
             "https://dartnet.info/graphModel/Procedure/procedure/source": {
                 "@type": ["Object","Code"],
-                "include":"source-include.schema.json"
+                "namespace":"https://dartnet.info/graphModel/Procedure/procedure",
+                "include":"https://dartnet.info/graphModel/sourceValue"
             },
             "https://dartnet.info/graphModel/Procedure/date": {
                 "@type": "Value"

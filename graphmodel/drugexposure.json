@@ -13,7 +13,8 @@
         ],
         "attributes": {
             "https://dartnet.info/graphModel/DrugExposure/id": {
-                "@type": "Value"
+                "@type": "Value",
+                "namespace":"https://dartnet.info/graphModel/DrugExposure"
             },
             "https://dartnet.info/graphModel/DrugExposure/start": {
                 "@type": "Value",
@@ -25,39 +26,45 @@
             },
             "https://dartnet.info/graphModel/DrugExposure/drug/source": {
                 "@type": ["Object","Code"],
-                "include":"sourcevalue.schema.json"
+                "namespace":"https://dartnet.info/graphModel/DrugExposure/drug",
+                "include":"https://dartnet.info/graphModel/sourceValue"
             },
             "https://dartnet.info/graphModel/DrugExposure/drug/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphModel/DrugExposure/drug/omop/items",
-                    "@type": ["Object","Code","DrugExposureCode"],
-                    "include":"omop-concept.schema.json"
+                    "@type": ["Reference","Code","DrugExposureCode"],
+                    "namespace":"https://dartnet.info/graphModel/DrugExposure/drug",
+                    "include":"https://ohdsi.org/omop/concept"
                 }
             },
             "https://dartnet.info/graphModel/DrugExposure/drugType/source": {
                 "@type": ["Object","Code"],
-                "include":"sourcevalue.schema.json"
+                "namespace":"https://dartnet.info/graphModel/DrugExposure/drugType",
+                "include":"https://dartnet.info/graphModel/sourceValue"
             },
             "https://dartnet.info/graphModel/DrugExposure/drugType/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphModel/DrugExposure/drugType/omop/items",
-                    "@type": ["Object","Code","DrugTypeCode"],
-                    "include":"omop-concept.schema.json"
+                    "@type": ["Reference","Code","DrugTypeCode"],
+                    "namespace":"https://dartnet.info/graphModel/DrugExposure/drugType",
+                    "include":"https://ohdsi.org/omop/concept"
                 }
             },
 
             "https://dartnet.info/graphModel/DrugExposure/route/source": {
                 "@type": ["Object","Code"],
-                "include":"sourcevalue.schema.json"
+                "namespace":"https://dartnet.info/graphModel/DrugExposure/route",
+                "include":"https://dartnet.info/graphModel/sourceValue"
             },
             "https://dartnet.info/graphModel/DrugExposure/route/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphModel/DrugExposure/route/omop/items",
-                    "@type": ["Object","Code","DrugRouteCode"],
-                    "include":"omop-concept.schema.json"
+                    "namespace":"https://dartnet.info/graphModel/DrugExposure/route",
+                    "@type": ["Reference","Code","DrugRouteCode"],
+                    "include":"https://ohdsi.org/omop/concept"
                 }
             },
             

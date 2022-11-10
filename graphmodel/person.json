@@ -31,38 +31,44 @@
             },
             "gm:Person/gender/source": {
                 "@type": ["Object","Code"],
-                "include":"sourcevalue.schema.json"
+                "namespace":"gm:Person/gender",
+                "include":"https://dartnet.info/graphModel/sourceValue"
             },
             "gm:Person/gender/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "gm:Person/gender/omop/concepts",
                     "@type": ["Reference","Code"],
-                    "include":"omop-concept.schema.json"
+                    "namespace":"gm:Person/gender",
+                    "include":"https://ohdsi.org/omop/concept"
                 }
             },
             "gm:Person/race/source": {
                 "@type": ["Object","Code"],
-                "include":"sourcevalue.schema.json"
+                "namespace":"gm:Person/race",
+                "include":"https://dartnet.info/graphModel/sourceValue"
             },
             "gm:Person/race/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "gm:Person/race/omop/items",
                     "@type": ["Reference","Code"],
-                    "include":"omop-concept.schema.json"
+                    "namespace":"gm:Person/race",
+                    "include":"https://ohdsi.org/omop/concept"
                 }
             },
             "gm:Person/ethnicity/source": {
                 "@type": ["Object","Code"],
-                "include":"sourcevalue.schema.json"
+                "namespace":"gm:Person/ethnicity",
+                "include":"https://dartnet.info/graphModel/sourceValue"
             },
             "gm:Person/ethnicity/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "gm:Person/ethnicity/omop/items",
                     "@type": ["Reference","Code"],
-                    "include":"omop-concept.schema.json"
+                    "namespace":"gm:Person/ethnicity",
+                    "include":"https://ohdsi.org/omop/concept"
                 }
             },
             "gm:Person/locationId": {

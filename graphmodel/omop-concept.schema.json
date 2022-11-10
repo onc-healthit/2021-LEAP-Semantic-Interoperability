@@ -8,27 +8,27 @@
         "@type":["Object", "OMOPConcept"],
         "entityIdFields": "https://ohdsi.org/omop/concept/id",
         "attributes": {
-            "https://dartnet.info/graphModel/Observation/omop/id": {
+            "https://ohdsi.org/omop/concept/id": {
                 "@type": "Value",
                 "attributeName": "id",
                 "ingestAs": "property"
             },
-            "https://dartnet.info/graphModel/Observation/omop/name": {
+            "https://ohdsi.org/omop/concept/name": {
                 "@type": "Value",
                 "attributeName": "name",
                 "ingestAs": "property"
             },
-            "https://dartnet.info/graphModel/Observation/omop/domainId": {
+            "https://ohdsi.org/omop/concept/domainId": {
                 "@type": "Value",
                 "attributeName": "domainId",
                 "ingestAs": "property"
             },
-            "https://dartnet.info/graphModel/Observation/omop/vocabularyId": {
+            "https://ohdsi.org/omop/concept/vocabularyId": {
                 "@type": "Value",
                 "attributeName": "vocabularyId",
                 "ingestAs": "property"
             },
-            "https://dartnet.info/graphModel/Observation/omop/classId": {
+            "https://ohdsi.org/omop/concept/classId": {
                 "@type": "Value",
                 "attributeName": "classId",
                 "ingestAs": "property"

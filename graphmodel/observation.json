@@ -27,34 +27,39 @@
             
             "https://dartnet.info/graphModel/Observation/source": {
                 "@type": ["Object","Code"],
-                "include": "sourcevalue.schema.json"
+                "namespace":"https://dartnet.info/graphModel/Observation",
+                "include": "https://dartnet.info/graphModel/sourceValue"
             },
             "https://dartnet.info/graphModel/Observation/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/Observation/omop/items",
-                    "@type": ["Object","Code","ObservationCode"],
-                    "include": "omop-concept.schema.json"
+                    "namespace":"https://dartnet.info/graphModel/Observation",
+                    "@type": ["Reference","Code","ObservationCode"],
+                    "include": "https://ohdsi.org/omop/concept"
                 }
             },
 
 
             "https://dartnet.info/graphModel/Observation/codedValue/source": {
                 "@type": ["Object","Code"],
-                "include":"sourcevalue.schema.json"
+                "namespace":"https://dartnet.info/graphModel/Observation/codedValue",
+                "include":"https://dartnet.info/graphModel/sourceValue"
             },
 
             "https://dartnet.info/graphModel/Observation/codedValue/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/Observation/codedValue/omop/items",
-                    "@type": ["Object","Code","ObservationValueCode"],
-                    "include":"omop-concept.schema.json"
+                    "@type": ["Reference","Code","ObservationValueCode"],
+                    "namespace":"https://dartnet.info/graphModel/Observation/codedValue",
+                    "include":"https://ohdsi.org/omop/concept"
                 }
             },
             "https://dartnet.info/graphModel/Observation/measuredValue/source": {
                 "@type": ["Object"],
-                "include":"sourcevalue.schema.json"
+                "namespace":"https://dartnet.info/graphModel/Observation/measuredValue",
+                "include":"https://dartnet.info/graphModel/sourceValue"
             },
 
             "https://dartnet.info/graphModel/Observation/measure": {

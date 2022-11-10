@@ -6,6 +6,7 @@
     "layer": {
         "@id": "https://dartnet.info/graphModel/Condition",
         "entityIdFields": "https://dartnet.info/graphModel/Condition/id",
+        "namespace":"https://darnet.info/graphModel/Condition",
         "@type": [
             "Attribute",
             "Object",
@@ -35,14 +36,14 @@
             },
             "https://dartnet.info/graphModel/Condition/source": {
                 "@type": ["Object","Code"],
-                "include":"sourcevalue.schema.json"
+                "include":"https://dartnet.info/graphModel/sourceValue"
             },
             "https://dartnet.info/graphModel/Condition/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/Condition/omop/items",
                     "@type": ["Reference", "Code", "ConditionCode"],
-                    "include":"omop-concept.schema.json"
+                    "include":"https://ohdsi.org/omop/concept"
                 }
             },
             "https://dartnet.info/graphModel/Condition/person": {
