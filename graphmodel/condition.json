@@ -36,6 +36,7 @@
             },
             "https://dartnet.info/graphModel/Condition/source": {
                 "@type": ["Object","Code"],
+                "namespace":"https://dartnet.info/graphModel/Condition/source",
                 "include":"https://dartnet.info/graphModel/sourceValue"
             },
             "https://dartnet.info/graphModel/Condition/omop": {
@@ -43,7 +44,7 @@
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/Condition/omop/items",
                     "@type": ["Reference", "Code", "ConditionCode"],
-                    "include":"https://ohdsi.org/omop/concept"
+                    "ref":"https://ohdsi.org/omop/concept"
                 }
             },
             "https://dartnet.info/graphModel/Condition/person": {

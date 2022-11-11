@@ -25,7 +25,7 @@
             },
             "https://dartnet.info/graphModel/PayerPlan/payer/source": {
                 "@type": ["Reference","Code"],
-                "namespace":"https://dartnet.info/graphModel/PayerPlan/payer",
+                "namespace":"https://dartnet.info/graphModel/PayerPlan/payer/source",
                 "include":"https://dartnet.info/graphModel/sourceValue"
             },
             "https://dartnet.info/graphModel/PayerPlan/payer/omop": {
@@ -33,13 +33,12 @@
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/PayerPlan/payer/omop/items",
                     "@type": ["Reference","Code","ConditionCode"],
-                    "namespace":"https://dartnet.info/graphModel/PayerPlan/payer",
-                    "include":"https://ohdsi.org/omop/concept"
+                    "ref":"https://ohdsi.org/omop/concept"
                 }
             },
             "https://dartnet.info/graphModel/PayerPlan/plan/source": {
                 "@type": ["Reference","Code"],
-                "namespace":"https://dartnet.info/graphModel/PayerPlan/plan",
+                "namespace":"https://dartnet.info/graphModel/PayerPlan/plan/source",
                 "include":"https://dartnet.info/graphModel/sourceValue"
             },
             "https://dartnet.info/graphModel/PayerPlan/plan/omop": {
@@ -47,13 +46,12 @@
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/PayerPlan/plan/omop/items",
                     "@type": ["Reference","Code","ConditionCode"],
-                    "namespace":"https://dartnet.info/graphModel/PayerPlan/plan",
-                    "include":"https://ohdsi.org/omop/concept"
+                    "ref":"https://ohdsi.org/omop/concept"
                 }
             },
             "https://dartnet.info/graphModel/PayerPlan/contract/source": {
                 "@type": ["Reference","Code"],
-                "namespace":"https://dartnet.info/graphModel/PayerPlan/contract",
+                "namespace":"https://dartnet.info/graphModel/PayerPlan/contract/source",
                 "include":"https://dartnet.info/graphModel/sourceValue"
             },
             "https://dartnet.info/graphModel/PayerPlan/contract/omop": {
@@ -61,8 +59,7 @@
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/PayerPlan/contract/omop/items",
                     "@type": ["Reference","Code","ConditionCode"],
-                    "namespace":"https://dartnet.info/graphModel/PayerPlan/contract",
-                    "include":"https://ohdsi.org/omop/concept"
+                    "ref":"https://ohdsi.org/omop/concept"
                 }
             },
             "https://dartnet.info/graphModel/PayerPlan/person": {

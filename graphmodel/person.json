@@ -39,8 +39,7 @@
                 "arrayElements": {
                     "@id": "gm:Person/gender/omop/concepts",
                     "@type": ["Reference","Code"],
-                    "namespace":"gm:Person/gender",
-                    "include":"https://ohdsi.org/omop/concept"
+                    "ref":"https://ohdsi.org/omop/concept"
                 }
             },
             "gm:Person/race/source": {
@@ -53,13 +52,12 @@
                 "arrayElements": {
                     "@id": "gm:Person/race/omop/items",
                     "@type": ["Reference","Code"],
-                    "namespace":"gm:Person/race",
-                    "include":"https://ohdsi.org/omop/concept"
+                    "ref":"https://ohdsi.org/omop/concept"
                 }
             },
             "gm:Person/ethnicity/source": {
                 "@type": ["Object","Code"],
-                "namespace":"gm:Person/ethnicity",
+                "namespace":"gm:Person/ethnicity/source",
                 "include":"https://dartnet.info/graphModel/sourceValue"
             },
             "gm:Person/ethnicity/omop": {
@@ -67,8 +65,7 @@
                 "arrayElements": {
                     "@id": "gm:Person/ethnicity/omop/items",
                     "@type": ["Reference","Code"],
-                    "namespace":"gm:Person/ethnicity",
-                    "include":"https://ohdsi.org/omop/concept"
+                    "ref":"https://ohdsi.org/omop/concept"
                 }
             },
             "gm:Person/locationId": {

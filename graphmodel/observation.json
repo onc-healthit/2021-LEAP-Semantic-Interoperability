@@ -34,16 +34,15 @@
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/Observation/omop/items",
-                    "namespace":"https://dartnet.info/graphModel/Observation",
                     "@type": ["Reference","Code","ObservationCode"],
-                    "include": "https://ohdsi.org/omop/concept"
+                    "ref": "https://ohdsi.org/omop/concept"
                 }
             },
 
 
             "https://dartnet.info/graphModel/Observation/codedValue/source": {
                 "@type": ["Object","Code"],
-                "namespace":"https://dartnet.info/graphModel/Observation/codedValue",
+                "namespace":"https://dartnet.info/graphModel/Observation/codedValue/source",
                 "include":"https://dartnet.info/graphModel/sourceValue"
             },
 
@@ -52,13 +51,12 @@
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/Observation/codedValue/omop/items",
                     "@type": ["Reference","Code","ObservationValueCode"],
-                    "namespace":"https://dartnet.info/graphModel/Observation/codedValue",
-                    "include":"https://ohdsi.org/omop/concept"
+                    "ref":"https://ohdsi.org/omop/concept"
                 }
             },
             "https://dartnet.info/graphModel/Observation/measuredValue/source": {
                 "@type": ["Object"],
-                "namespace":"https://dartnet.info/graphModel/Observation/measuredValue",
+                "namespace":"https://dartnet.info/graphModel/Observation/measuredValue/source",
                 "include":"https://dartnet.info/graphModel/sourceValue"
             },
 

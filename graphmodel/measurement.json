@@ -17,7 +17,7 @@
             },
             "https://dartnet.info/graphModel/Measurement/source": {
                 "@type": ["Object","Code"],
-                "namespace":"https://dartnet.info/graphModel/Measurement",
+                "namespace":"https://dartnet.info/graphModel/Measurement/source",
                 "include":"https://dartnet.info/graphModel/sourceValue"
             },
 
@@ -26,11 +26,9 @@
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/Measurement/omop/items",
                     "@type": ["Reference","Code","MeasurementCode"],
-                    "namespace":"https://dartnet.info/graphModel/Measurement",
-                    "include":"https://ohdsi.org/omop/concept"
+                    "ref":"https://ohdsi.org/omop/concept"
                 }
             },
-            
             
             "https://dartnet.info/graphModel/Measurement/date": {
                 "@type": "Value",

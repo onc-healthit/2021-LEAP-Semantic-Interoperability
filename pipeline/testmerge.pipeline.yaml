@@ -6,5 +6,10 @@
     uri: ${uri}
     db: ${db}
     batchSize: 100
+    cacheBy: https://dartnet.info/graphModel/Person
+    merge:
+      person: merge
+      observation: merge
+      omopConcept: merge
 
   
