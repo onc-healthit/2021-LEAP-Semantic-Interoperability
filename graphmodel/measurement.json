@@ -17,60 +17,18 @@
             },
             "https://dartnet.info/graphModel/Measurement/source": {
                 "@type": ["Object","Code"],
-                "attributes": {
-                    "https://dartnet.info/graphModel/Measurement/source/code": {
-                        "@type": "Value",
-                        "attributeName": "code",
-                        "ingestAs": "property"
-                    },
-                    "https://dartnet.info/graphModel/Measurement/source/system": {
-                        "@type": "Value",
-                        "attributeName": "system",
-                        "ingestAs": "property"
-                    },
-                    "https://dartnet.info/graphModel/Measurement/source/text": {
-                        "@type": "Value",
-                        "attributeName": "text",
-                        "ingestAs": "property"
-                    }
-                }
+                "namespace":"https://dartnet.info/graphModel/Measurement/source",
+                "include":"https://dartnet.info/graphModel/sourceValue"
             },
 
             "https://dartnet.info/graphModel/Measurement/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/Measurement/omop/items",
-                    "@type": ["Object","Code","MeasurementCode","OMOPConcept"],
-                    "attributes": {
-                        "https://dartnet.info/graphModel/Measurement/omop/id": {
-                            "@type": "Value",
-                            "attributeName": "id",
-                            "ingestAs": "property"
-                        },
-                        "https://dartnet.info/graphModel/Measurement/omop/name": {
-                            "@type": "Value",
-                            "attributeName": "name",
-                            "ingestAs": "property"
-                        },
-                        "https://dartnet.info/graphModel/Measurement/omop/domainId": {
-                            "@type": "Value",
-                            "attributeName": "domainId",
-                            "ingestAs": "property"
-                        },
-                        "https://dartnet.info/graphModel/Measurement/omop/vocabularyId": {
-                            "@type": "Value",
-                            "attributeName": "vocabularyId",
-                            "ingestAs": "property"
-                        },
-                        "https://dartnet.info/graphModel/Measurement/omop/classId": {
-                            "@type": "Value",
-                            "attributeName": "classId",
-                            "ingestAs": "property"
-                        }
-                    }
+                    "@type": ["Reference","Code","MeasurementCode"],
+                    "ref":"https://ohdsi.org/omop/concept"
                 }
             },
-            
             
             "https://dartnet.info/graphModel/Measurement/date": {
                 "@type": "Value",

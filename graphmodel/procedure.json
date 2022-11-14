@@ -17,23 +17,8 @@
             },
             "https://dartnet.info/graphModel/Procedure/procedure/source": {
                 "@type": ["Object","Code"],
-                "attributes": {
-                    "https://dartnet.info/graphModel/Procedure/source/code": {
-                        "@type": "Value",
-                        "attributeName": "code",
-                        "ingestAs": "property"
-                    },
-                    "https://dartnet.info/graphModel/Procedure/source/system": {
-                        "@type": "Value",
-                        "attributeName": "system",
-                        "ingestAs": "property"
-                    },
-                    "https://dartnet.info/graphModel/Procedure/source/text": {
-                        "@type": "Value",
-                        "attributeName": "text",
-                        "ingestAs": "property"
-                    }
-                }
+                "namespace":"https://dartnet.info/graphModel/Procedure/procedure/source",
+                "include":"https://dartnet.info/graphModel/sourceValue"
             },
             "https://dartnet.info/graphModel/Procedure/date": {
                 "@type": "Value"

@@ -27,138 +27,37 @@
             
             "https://dartnet.info/graphModel/Observation/source": {
                 "@type": ["Object","Code"],
-                "attributes": {
-                    "https://dartnet.info/graphModel/Observation/source/code": {
-                        "@type": "Value",
-                        "attributeName": "code",
-                        "ingestAs": "property"
-                    },
-                    "https://dartnet.info/graphModel/Observation/source/system": {
-                        "@type": "Value",
-                        "attributeName": "system",
-                        "ingestAs": "property"
-                    },
-                    "https://dartnet.info/graphModel/Observation/source/text": {
-                        "@type": "Value",
-                        "attributeName": "text",
-                        "ingestAs": "property"
-                    }
-                }
+                "namespace":"https://dartnet.info/graphModel/Observation",
+                "include": "https://dartnet.info/graphModel/sourceValue"
             },
-
             "https://dartnet.info/graphModel/Observation/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/Observation/omop/items",
-                    "@type": ["Object","Code","ObservationCode","OMOPConcept"],
-                    "attributes": {
-                        "https://dartnet.info/graphModel/Observation/omop/id": {
-                            "@type": "Value",
-                            "attributeName": "id",
-                            "ingestAs": "property"
-                        },
-                        "https://dartnet.info/graphModel/Observation/omop/name": {
-                            "@type": "Value",
-                            "attributeName": "name",
-                            "ingestAs": "property"
-                        },
-                        "https://dartnet.info/graphModel/Observation/omop/domainId": {
-                            "@type": "Value",
-                            "attributeName": "domainId",
-                            "ingestAs": "property"
-                        },
-                        "https://dartnet.info/graphModel/Observation/omop/vocabularyId": {
-                            "@type": "Value",
-                            "attributeName": "vocabularyId",
-                            "ingestAs": "property"
-                        },
-                        "https://dartnet.info/graphModel/Observation/omop/classId": {
-                            "@type": "Value",
-                            "attributeName": "classId",
-                            "ingestAs": "property"
-                        }
-                    }
+                    "@type": ["Reference","Code","ObservationCode"],
+                    "ref": "https://ohdsi.org/omop/concept"
                 }
             },
 
 
             "https://dartnet.info/graphModel/Observation/codedValue/source": {
                 "@type": ["Object","Code"],
-                "attributes": {
-                    "https://dartnet.info/graphModel/Observation/codedValue/source/code": {
-                        "@type": "Value",
-                        "attributeName": "code",
-                        "ingestAs": "property"
-                    },
-                    "https://dartnet.info/graphModel/Observation/codedValue/source/system": {
-                        "@type": "Value",
-                        "attributeName": "system",
-                        "ingestAs": "property"
-                    },
-                    "https://dartnet.info/graphModel/Observation/codedValue/source/text": {
-                        "@type": "Value",
-                        "attributeName": "text",
-                        "ingestAs": "property"
-                    }
-                }
+                "namespace":"https://dartnet.info/graphModel/Observation/codedValue/source",
+                "include":"https://dartnet.info/graphModel/sourceValue"
             },
 
             "https://dartnet.info/graphModel/Observation/codedValue/omop": {
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "https://dartnet.info/graphmodel/Observation/codedValue/omop/items",
-                    "@type": ["Object","Code","ObservationValueCode","OMOPConcept"],
-                    "attributes": {
-                        "https://dartnet.info/graphModel/Observation/omop/id": {
-                            "@type": "Value",
-                            "attributeName": "id",
-                            "ingestAs": "property"
-                        },
-                        "https://dartnet.info/graphModel/Observation/omop/name": {
-                            "@type": "Value",
-                            "attributeName": "name",
-                            "ingestAs": "property"
-                        },
-                        "https://dartnet.info/graphModel/Observation/omop/domainId": {
-                            "@type": "Value",
-                            "attributeName": "domainId",
-                            "ingestAs": "property"
-                        },
-                        "https://dartnet.info/graphModel/Observation/omop/vocabularyId": {
-                            "@type": "Value",
-                            "attributeName": "vocabularyId",
-                            "ingestAs": "property"
-                        },
-                        "https://dartnet.info/graphModel/Observation/omop/classId": {
-                            "@type": "Value",
-                            "attributeName": "classId",
-                            "ingestAs": "property"
-                        }
-                    }
+                    "@type": ["Reference","Code","ObservationValueCode"],
+                    "ref":"https://ohdsi.org/omop/concept"
                 }
             },
-
-            
-
             "https://dartnet.info/graphModel/Observation/measuredValue/source": {
                 "@type": ["Object"],
-                "attributes": {
-                    "https://dartnet.info/graphModel/Observation/measuredValue/source/value": {
-                        "@type": "Value",
-                        "attributeName": "value",
-                        "ingestAs": "property"
-                    },
-                    "https://dartnet.info/graphModel/Observation/measuredValue/source/unit": {
-                        "@type": "Value",
-                        "attributeName": "unit",
-                        "ingestAs": "property"
-                    },
-                    "https://dartnet.info/graphModel/Observation/measuredValue/source/system": {
-                        "@type": "Value",
-                        "attributeName": "system",
-                        "ingestAs": "property"
-                    }
-                }
+                "namespace":"https://dartnet.info/graphModel/Observation/measuredValue/source",
+                "include":"https://dartnet.info/graphModel/sourceValue"
             },
 
             "https://dartnet.info/graphModel/Observation/measure": {
