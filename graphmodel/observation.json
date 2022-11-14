@@ -13,11 +13,13 @@
         "entityIdFields": "https://dartnet.info/graphModel/Observation/id",
         "attributes": {
             "https://dartnet.info/graphModel/Observation/id": {
-                "@type": "Value"
+                "@type": "Value",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Observation/date": {
                 "@type": "Value",
-                "valueType": "ls:date"
+                "valueType": "ls:date",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Observation/type": {
                 "@type": "Value",

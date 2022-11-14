@@ -2,6 +2,7 @@ package cmd
 
 import (
 	"fmt"
+	"sync"
 	"time"
 
 	"github.com/cloudprivacylabs/lpg"
@@ -109,6 +110,8 @@ type MergeGraphStep struct {
 	Neo4jStep
 	// CacheByID keeps the ID that uniquely identifies a graph
 	CacheByID string `json:"cacheBy" yaml:"cacheBy"`
+
+	mu sync.Mutex
 }
 
 func (s *MergeGraphStep) getIDToCache(g *lpg.Graph) string {
@@ -133,83 +136,124 @@ func (s *MergeGraphStep) getIDToCache(g *lpg.Graph) string {
 	return ""
 }
 
+func (s *MergeGraphStep) createNodesEdges(ctx *ls.Context, tx neo4j.Transaction, dbGraph *neo.DBGraph, delta []neo.Delta) error {
+	// Create nodes
+	createNodeDeltas := neo.SelectDelta(delta, func(d neo.Delta) bool {
+		_, ok := d.(neo.CreateNodeDelta)
+		return ok
+	})
+	nodes := make([]*lpg.Node, 0, len(createNodeDeltas))
+	for _, x := range createNodeDeltas {
+		nodes = append(nodes, x.(neo.CreateNodeDelta).DBNode)
+	}
+	if len(nodes) > 0 {
+		if err := neo.CreateNodesUnwind(ctx, nodes, dbGraph.NodeIds, s.cfg)(tx); err != nil {
+			return err
+		}
+	}
+
+	createEdgeDeltas := neo.SelectDelta(delta, func(d neo.Delta) bool {
+		_, ok := d.(neo.CreateEdgeDelta)
+		return ok
+	})
+	edges := make([]*lpg.Edge, 0, len(createEdgeDeltas))
+	for _, c := range createEdgeDeltas {
+		edges = append(edges, c.(neo.CreateEdgeDelta).DBEdge)
+	}
+	if len(edges) > 0 {
+		if err := neo.CreateEdgesUnwind(ctx, edges, dbGraph.NodeIds, s.cfg)(tx); err != nil {
+			return err
+		}
+	}
+
+	updateDeltas := neo.SelectDelta(delta, func(d neo.Delta) bool {
+		if _, ok := d.(neo.CreateNodeDelta); ok {
+			return false
+		}
+		if _, ok := d.(neo.CreateEdgeDelta); ok {
+			return false
+		}
+		return true
+	})
+
+	for _, c := range updateDeltas {
+		if err := c.Run(tx, dbGraph.NodeIds, dbGraph.EdgeIds, s.cfg); err != nil {
+			return err
+		}
+	}
+
+	return nil
+}
+
 func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 	if s.session == nil {
 		s.session = s.getSession()
 		s.cfg = s.getConfig()
 		s.cachedDBGraph = make(map[string]*neo.DBGraph)
 	}
-	// begin new transaction
-	tx, err := s.session.BeginTransaction()
-	if err != nil {
-		pctx.ErrorLogger(pctx, err)
-		return err
-	}
 
-	start := time.Now()
-	var dbGraph *neo.DBGraph
-	idc := s.getIDToCache(pctx.Graph)
-	if len(idc) > 0 {
-		var ok bool
-		dbGraph, ok = s.cachedDBGraph[idc]
-		// Remember only one graph
-		if !ok {
-			s.cachedDBGraph = make(map[string]*neo.DBGraph)
+	merge := func(tx neo4j.Transaction, graph *lpg.Graph, useCache bool) (*neo.DBGraph, []neo.Delta, error) {
+		var dbGraph *neo.DBGraph
+		if useCache {
+			idc := s.getIDToCache(graph)
+			if len(idc) > 0 {
+				var ok bool
+				dbGraph, ok = s.cachedDBGraph[idc]
+				// Remember only one graph
+				if !ok {
+					s.cachedDBGraph = make(map[string]*neo.DBGraph)
+				}
+			}
 		}
-	}
 
-	if dbGraph == nil {
-		dbGraph, err = s.session.LoadDBGraph(tx, pctx.Graph, s.cfg)
+		if dbGraph == nil {
+			var err error
+			dbGraph, err = s.session.LoadDBGraph(tx, graph, s.cfg)
+			if err != nil {
+				return nil, nil, err
+			}
+		}
+		pctx.Context.GetLogger().Debug(map[string]interface{}{"Loaded db graph with nodes": dbGraph.G.GetNodes().MaxSize()})
+		delta, err := neo.Merge(graph, dbGraph, s.cfg)
 		if err != nil {
-			tx.Rollback()
+			return nil, nil, err
+		}
+		return dbGraph, delta, nil
+	}
+
+	doTx := func(tx neo4j.Transaction, delta []neo.Delta, dbGraph *neo.DBGraph, useCache bool) error {
+		pctx.Context.GetLogger().Debug(map[string]interface{}{"Merge delta": len(delta)})
+		if err := s.createNodesEdges(pctx.Context, tx, dbGraph, delta); err != nil {
+			return err
+		}
+		if err := tx.Commit(); err != nil {
 			pctx.ErrorLogger(pctx, err)
 			return err
 		}
+		if useCache {
+			idc := s.getIDToCache(dbGraph.G)
+			if len(idc) > 0 {
+				s.cachedDBGraph = map[string]*neo.DBGraph{idc: dbGraph}
+			}
+		}
+		return nil
 	}
-	pctx.Context.GetLogger().Debug(map[string]interface{}{"Loaded db graph with nodes": dbGraph.G.GetNodes().MaxSize()})
-	start = time.Now()
-	delta, err := neo.Merge(pctx.Graph, dbGraph, s.cfg)
+	transaction, err := s.session.BeginTransaction()
 	if err != nil {
-		tx.Rollback()
 		pctx.ErrorLogger(pctx, err)
 		return err
 	}
-	pctx.Context.GetLogger().Debug(map[string]interface{}{"Merge delta": len(delta)})
-
-	createNodeDeltas := neo.SelectDelta(delta, func(d neo.Delta) bool {
-		_, ok := d.(neo.CreateNodeDelta)
-		return ok
-	})
-	start = time.Now()
-	for _, c := range createNodeDeltas {
-		if err := c.Run(tx, dbGraph.NodeIds, dbGraph.EdgeIds, s.cfg); err != nil {
-			tx.Rollback()
-			pctx.ErrorLogger(pctx, err)
-			return err
-		}
-	}
-	updateDeltas := neo.SelectDelta(delta, func(d neo.Delta) bool {
-		_, ok := d.(neo.CreateNodeDelta)
-		return !ok
-	})
-	for _, c := range updateDeltas {
-		if err := c.Run(tx, dbGraph.NodeIds, dbGraph.EdgeIds, s.cfg); err != nil {
-			tx.Rollback()
-			pctx.ErrorLogger(pctx, err)
-			return err
-		}
-	}
-	pctx.Context.GetLogger().Info(map[string]interface{}{"time elapsed for graph merge": time.Since(start)})
-	if err := tx.Commit(); err != nil {
+	dbGraph, delta, err := merge(transaction, pctx.Graph, true)
+	if err != nil {
 		pctx.ErrorLogger(pctx, err)
 		return err
 	}
-	idc = s.getIDToCache(dbGraph.G)
-	if len(idc) > 0 {
-		s.cachedDBGraph = map[string]*neo.DBGraph{idc: dbGraph}
+	if err := doTx(transaction, delta, dbGraph, true); err != nil {
+		transaction.Rollback()
+		pctx.ErrorLogger(pctx, err)
+		return err
 	}
-
-	return nil
+	return pctx.Next()
 }
 
 func init() {

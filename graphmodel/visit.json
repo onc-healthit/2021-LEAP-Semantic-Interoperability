@@ -13,7 +13,8 @@
         ],
         "attributes": {
             "https://dartnet.info/graphModel/Visit/id": {
-                "@type": "Value"
+                "@type": "Value",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Visit/visit": {
                 "@type": "Value",
@@ -21,10 +22,14 @@
                 "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Visit/start": {
-                "@type": "Value"
+                "@type": "Value",
+                "valueType": "ls:date",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Visit/end": {
-                "@type": "Value"
+                "@type": "Value",
+                "valueType": "ls:date",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Visit/type": {
                 "@type": "Value",

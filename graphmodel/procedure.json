@@ -13,7 +13,8 @@
         ],
         "attributes": {
             "https://dartnet.info/graphModel/Procedure/id": {
-                "@type": "Value"
+                "@type": "Value",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Procedure/procedure/source": {
                 "@type": ["Object","Code"],
@@ -36,7 +37,9 @@
                 }
             },
             "https://dartnet.info/graphModel/Procedure/date": {
-                "@type": "Value"
+                "@type": "Value",
+                "valueType": "ls:date",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Procedure/type": {
                 "@type": "Value",
@@ -50,7 +53,8 @@
             },
             "https://dartnet.info/graphModel/Procedure/quantity": {
                 "@type": "Value",
-                "attributeName": "quantity"
+                "attributeName": "quantity",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Procedure/person": {
                 "@type": "Value",

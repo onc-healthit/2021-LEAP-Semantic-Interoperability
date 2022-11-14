@@ -13,15 +13,18 @@
         ],
         "attributes": {
             "https://dartnet.info/graphModel/DrugExposure/id": {
-                "@type": "Value"
+                "@type": "Value",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/DrugExposure/start": {
                 "@type": "Value",
-                "valueType": "ls:dateTime"
+                "valueType": "ls:dateTime",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/DrugExposure/end": {
                 "@type": "Value",
-                "valueType": "ls:dateTime"
+                "valueType": "ls:dateTime",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/DrugExposure/drug/source": {
                 "@type": ["Object","Code"],

@@ -13,15 +13,18 @@
         ],
         "attributes": {
             "https://dartnet.info/graphModel/PayerPlan/id": {
-                "@type": "Value"
+                "@type": "Value",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/PayerPlan/start": {
                 "@type": "Value",
-                "valueType": "ls:dateTime"
+                "valueType": "ls:dateTime",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/PayerPlan/end": {
                 "@type": "Value",
-                "valueType": "ls:dateTime"
+                "valueType": "ls:dateTime",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/PayerPlan/payer/source": {
                 "@type": ["Object","Code"],

@@ -13,15 +13,18 @@
         ],
         "attributes": {
             "https://dartnet.info/graphModel/Condition/id": {
-                "@type": "Value"
+                "@type": "Value",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Condition/start": {
                 "@type": "Value",
-                "valueType": "ls:dateTime"
+                "valueType": "ls:dateTime",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Condition/end": {
                 "@type": "Value",
-                "valueType": "ls:dateTime"
+                "valueType": "ls:dateTime",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Condition/type": {
                 "@type": "Value",

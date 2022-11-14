@@ -19,15 +19,18 @@
         "entityIdFields": "https://dartnet.info/graphModel/Person/id",
         "attributes": {
             "gm:Person/id": {
-                "@type": "Value"
+                "@type": "Value",
+                "ingestAs": "property"
             },
             "gm:Person/birthDate": {
                 "@type": "Value",
-                "valueType": "ls:date"
+                "valueType": "ls:date",
+                "ingestAs": "property"
             },
             "gm:Person/deathDate": {
                 "@type": "Value",
-                "valueType": "ls:date"
+                "valueType": "ls:date",
+                "ingestAs": "property"
             },
             "gm:Person/gender/source": {
                 "@type": ["Object","Code"],
