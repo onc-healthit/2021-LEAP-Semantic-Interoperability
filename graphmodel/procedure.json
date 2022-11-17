@@ -16,8 +16,10 @@
                 "@type": "Value",
                 "ingestAs": "property"
             },
-            "https://dartnet.info/graphModel/Procedure/procedure/source": {
+            "https://dartnet.info/graphModel/Procedure/source": {
                 "@type": ["Object","Code"],
+                "xnamespace":"https://dartnet.info/graphModel/Procedure/source",
+                "xinclude":"https://dartnet.info/graphModel/sourceValue",
                 "attributes": {
                     "https://dartnet.info/graphModel/Procedure/source/code": {
                         "@type": "Value",
@@ -34,6 +36,14 @@
                         "attributeName": "text",
                         "ingestAs": "property"
                     }
+                }                
+            },
+            "https://dartnet.info/graphModel/Procedure/omop": {
+                "@type": "Array",
+                "arrayElements": {
+                    "@id": "https://dartnet.info/graphmodel/Procedure/omop/items",
+                    "@type": ["Reference","Code","ProcedureCode"],
+                    "ref": "https://ohdsi.org/omop/concept"
                 }
             },
             "https://dartnet.info/graphModel/Procedure/date": {

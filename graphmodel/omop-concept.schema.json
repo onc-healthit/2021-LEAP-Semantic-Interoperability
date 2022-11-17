@@ -1,0 +1,38 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@id": "https://ohdsi.org/omop/schema",
+    "@type": "Schema",
+    "valueType": "https://ohdsi.org/omop/concept",
+    "layer": {
+        "@id": "https://ohdsi.org/omop/concept",
+        "@type":["Object", "OMOPConcept"],
+        "entityIdFields": "https://ohdsi.org/omop/concept/id",
+        "attributes": {
+            "https://ohdsi.org/omop/concept/id": {
+                "@type": "Value",
+                "attributeName": "id",
+                "ingestAs": "property"
+            },
+            "https://ohdsi.org/omop/concept/name": {
+                "@type": "Value",
+                "attributeName": "name",
+                "ingestAs": "property"
+            },
+            "https://ohdsi.org/omop/concept/domainId": {
+                "@type": "Value",
+                "attributeName": "domainId",
+                "ingestAs": "property"
+            },
+            "https://ohdsi.org/omop/concept/vocabularyId": {
+                "@type": "Value",
+                "attributeName": "vocabularyId",
+                "ingestAs": "property"
+            },
+            "https://ohdsi.org/omop/concept/classId": {
+                "@type": "Value",
+                "attributeName": "classId",
+                "ingestAs": "property"
+            }
+        }
+    }
+}

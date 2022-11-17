@@ -13,20 +13,13 @@ import json
 
 def parseYAML() -> defaultdict:
     queries = defaultdict(list)
-    columns = []
     with open("cfg/queries.yaml","r") as yaml_file:
         vs_list = yaml.full_load(yaml_file)
-        for item, doc in vs_list.items():
-            for key,val in doc[0].items():
-                if key == "tableId":
-                    id = val
-                elif key == "queries":
-                    for i in range(len(val)):
-                        for k, v in val[i].items():
-                            if k == "query":
-                                queries[id].append(v)
-                            elif k == "columns":
-                                columns.append(v)
+        tables = vs_list["valuesets"]
+        for table in tables:
+            tableId = table["tableId"]
+            for query in table["queries"]:
+                queries[tableId].append(query["query"])
     return queries
 
 db = PostgresqlManager
@@ -42,6 +35,7 @@ def process(url):
     # {'foo': ['bar', 'baz'], 'bar': 'baz'}
 
     # iterate through yaml dictionary and for each query, execute statement, binding url query parameters
+    key = url_query_params["tableId"]
     for key,val in config.items():
         for i in range(len(val)):
             result = db.get_results(db,config[key][i],url_query_params)

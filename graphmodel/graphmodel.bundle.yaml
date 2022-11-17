@@ -15,4 +15,9 @@ variants:
     schema: visit.json
   https://dartnet.info/graphModel/PayerPlan:
     schema: payer_plan.json
-    
+  https://dartnet.info/graphModel/sourceValue:
+    schema: sourcevalue.schema.json
+  https://ohdsi.org/omop/concept:
+    schema: omop-concept.schema.json
+
+

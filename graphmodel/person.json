@@ -34,18 +34,20 @@
             },
             "gm:Person/gender/source": {
                 "@type": ["Object","Code"],
+                "xnamespace":"https://dartnet.info/graphModel/Person/gender/source",
+                "xinclude":"https://dartnet.info/graphModel/sourceValue",
                 "attributes": {
-                    "gm:Person/gender/source/code": {
+                    "https://dartnet.info/graphModel/Person/gender/source/code": {
                         "@type": "Value",
                         "attributeName": "code",
                         "ingestAs": "property"
                     },
-                    "gm:Person/gender/source/system": {
+                    "https://dartnet.info/graphModel/Person/gender/source/system": {
                         "@type": "Value",
                         "attributeName": "system",
                         "ingestAs": "property"
                     },
-                    "gm:Person/gender/source/text": {
+                    "https://dartnet.info/graphModel/Person/gender/source/text": {
                         "@type": "Value",
                         "attributeName": "text",
                         "ingestAs": "property"
@@ -55,51 +57,27 @@
             "gm:Person/gender/omop": {
                 "@type": "Array",
                 "arrayElements": {
-                    "@id": "gm:Person/gender/omop/concepts",
-                    "@type": ["Object","Code","OMOPConcept"],
-                    "attributes": {
-                        "gm:Person/gender/omop/id": {
-                            "@type": "Value",
-                            "attributeName": "id",
-                            "ingestAs": "property"
-                        },
-                        "gm:Person/gender/omop/name": {
-                            "@type": "Value",
-                            "attributeName": "name",
-                            "ingestAs": "property"
-                        },
-                        "gm:Person/gender/omop/domainId": {
-                            "@type": "Value",
-                            "attributeName": "domainId",
-                            "ingestAs": "property"
-                        },
-                        "gm:Person/gender/omop/vocabularyId": {
-                            "@type": "Value",
-                            "attributeName": "vocabularyId",
-                            "ingestAs": "property"
-                        },
-                        "gm:Person/gender/omop/classId": {
-                            "@type": "Value",
-                            "attributeName": "classId",
-                            "ingestAs": "property"
-                        }
-                    }
+                    "@id": "https://dartnet.info/graphModel/Person/gender/omop/items",
+                    "@type": ["Reference","Code"],
+                    "ref":"https://ohdsi.org/omop/concept"
                 }
             },
             "gm:Person/race/source": {
                 "@type": ["Object","Code"],
+                "xnamespace":"https://dartnet.info/graphModel/Person/race/source",
+                "xinclude":"https://dartnet.info/graphModel/sourceValue",
                 "attributes": {
-                    "gm:Person/race/source/code": {
+                    "https://dartnet.info/graphModel/Person/race/source/code": {
                         "@type": "Value",
                         "attributeName": "code",
                         "ingestAs": "property"
                     },
-                    "gm:Person/race/source/system": {
+                    "https://dartnet.info/graphModel/Person/race/source/system": {
                         "@type": "Value",
                         "attributeName": "system",
                         "ingestAs": "property"
                     },
-                    "gm:Person/race/source/text": {
+                    "https://dartnet.info/graphModel/Person/race/source/text": {
                         "@type": "Value",
                         "attributeName": "text",
                         "ingestAs": "property"
@@ -110,50 +88,26 @@
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "gm:Person/race/omop/items",
-                    "@type": ["Object","Code","OMOPConcept"],
-                    "attributes": {
-                        "gm:Person/race/omop/id": {
-                            "@type": "Value",
-                            "attributeName": "id",
-                            "ingestAs": "property"
-                        },
-                        "gm:Person/race/omop/name": {
-                            "@type": "Value",
-                            "attributeName": "name",
-                            "ingestAs": "property"
-                        },
-                        "gm:Person/race/omop/domainId": {
-                            "@type": "Value",
-                            "attributeName": "domainId",
-                            "ingestAs": "property"
-                        },
-                        "gm:Person/race/omop/vocabularyId": {
-                            "@type": "Value",
-                            "attributeName": "vocabularyId",
-                            "ingestAs": "property"
-                        },
-                        "gm:Person/race/omop/classId": {
-                            "@type": "Value",
-                            "attributeName": "classId",
-                            "ingestAs": "property"
-                        }
-                    }
+                    "@type": ["Reference","Code"],
+                    "ref":"https://ohdsi.org/omop/concept"
                 }
             },
             "gm:Person/ethnicity/source": {
                 "@type": ["Object","Code"],
+                "xnamespace":"https://dartnet.info/graphModel/Person/ethnicity/source",
+                "xinclude":"https://dartnet.info/graphModel/sourceValue",
                 "attributes": {
-                    "gm:Person/ethnicity/source/code": {
+                    "https://dartnet.info/graphModel/Person/ethnicity/source/code": {
                         "@type": "Value",
                         "attributeName": "code",
                         "ingestAs": "property"
                     },
-                    "gm:Person/ethnicity/source/system": {
+                    "https://dartnet.info/graphModel/Person/ethnicity/source/system": {
                         "@type": "Value",
                         "attributeName": "system",
                         "ingestAs": "property"
                     },
-                    "gm:Person/ethnicity/source/text": {
+                    "https://dartnet.info/graphModel/Person/ethnicity/source/text": {
                         "@type": "Value",
                         "attributeName": "text",
                         "ingestAs": "property"
@@ -164,34 +118,8 @@
                 "@type": "Array",
                 "arrayElements": {
                     "@id": "gm:Person/ethnicity/omop/items",
-                    "@type": ["Object","Code","OMOPConcept"],
-                    "attributes": {
-                        "gm:Person/ethnicity/omop/id": {
-                            "@type": "Value",
-                            "attributeName": "id",
-                            "ingestAs": "property"
-                        },
-                        "gm:Person/ethnicity/omop/name": {
-                            "@type": "Value",
-                            "attributeName": "name",
-                            "ingestAs": "property"
-                        },
-                        "gm:Person/ethnicity/omop/domainId": {
-                            "@type": "Value",
-                            "attributeName": "domainId",
-                            "ingestAs": "property"
-                        },
-                        "gm:Person/ethnicity/omop/vocabularyId": {
-                            "@type": "Value",
-                            "attributeName": "vocabularyId",
-                            "ingestAs": "property"
-                        },
-                        "gm:Person/ethnicity/omop/classId": {
-                            "@type": "Value",
-                            "attributeName": "classId",
-                            "ingestAs": "property"
-                        }
-                    }
+                    "@type": ["Reference","Code"],
+                    "ref":"https://ohdsi.org/omop/concept"
                 }
             },
             "gm:Person/locationId": {
