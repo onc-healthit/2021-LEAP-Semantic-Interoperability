@@ -3,6 +3,7 @@ package pkg
 import (
 	"time"
 
+	"github.com/cloudprivacylabs/lsa/pkg/ls"
 	oc "github.com/cloudprivacylabs/opencypher"
 	"github.com/neo4j/neo4j-go-driver/neo4j"
 )
@@ -12,11 +13,17 @@ func init() {
 		Name:      "age",
 		MinArgs:   1,
 		MaxArgs:   2,
-		ValueFunc: AgeFunc,
+		ValueFunc: ageFunc,
+	})
+	oc.RegisterGlobalFunc(oc.Function{
+		Name:      "lookupValueset",
+		MinArgs:   1,
+		MaxArgs:   -1,
+		ValueFunc: lookupValuesetFunc,
 	})
 }
 
-func AgeFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) {
+func ageFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) {
 	if args[0].Get() == nil {
 		return oc.RValue{}, nil
 	}
@@ -45,4 +52,34 @@ func AgeFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) {
 	deltaMonths--
 	age := deltaMonths / 12
 	return oc.RValue{Value: age}, nil
+}
+
+var ValuesetLookupFunc func(*ls.Context, ls.ValuesetLookupRequest) (ls.ValuesetLookupResponse, error)
+
+func lookupValuesetFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) {
+	if args[0] == nil {
+		return oc.RValue{}, nil
+	}
+	vs, ok := args[0].Get().(map[string]oc.Value)
+	if !ok {
+		return oc.RValue{}, nil
+	}
+	reqs := make([]ls.ValuesetLookupRequest, 0)
+	for k, v := range vs {
+		reqs = append(reqs, ls.ValuesetLookupRequest{
+			TableIDs:  []string{k},
+			KeyValues: v.Get().(map[string]string),
+		})
+	}
+	vals := make(map[string]oc.Value)
+	for _, req := range reqs {
+		resp, err := ValuesetLookupFunc(ls.DefaultContext(), req)
+		if err != nil {
+			return oc.RValue{}, nil
+		}
+		for k, v := range resp.KeyValues {
+			vals[k] = oc.ValueOf(v)
+		}
+	}
+	return oc.RValue{Value: vals}, nil
 }
