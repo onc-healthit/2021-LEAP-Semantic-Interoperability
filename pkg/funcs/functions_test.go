@@ -26,12 +26,16 @@ func TestAge(t *testing.T) {
 			expected: 122,
 		},
 		{
-			query:    `return age(parseDate("01/01/1678", "MM/DD/YYYY"), parseDate("01/01/2022", "MM/DD/YYYY"))`,
+			query:    `return age(parseDate("01/01/1678", "MM/DD/YYYY"), parseDate("01/01/2000", "MM/DD/YYYY"))`,
+			expected: 322,
+		},
+		{
+			query:    `return age(parseDate("01/01/1678", "MM/DD/YYYY"))`,
 			expected: 344,
 		},
 		{
-			query:    `return age(parseDate("01/01/1677", "MM/DD/YYYY"), parseDate("01/01/2022", "MM/DD/YYYY"))`,
-			expected: 345,
+			query:    `return age(parseDate("01/01/1922", "MM/DD/YYYY"), parseDate("01/01/2022", "MM/DD/YYYY"))`,
+			expected: 100,
 		},
 	}
 	ctx := opencypher.NewEvalContext(lpg.NewGraph())
