@@ -1,12 +1,10 @@
 package pkg
 
 import (
-	"fmt"
-	"math"
-	"reflect"
 	"time"
 
-	"github.com/araddon/dateparse"
+	neo "github.com/cloudprivacylabs/lsa-neo4j"
+	"github.com/cloudprivacylabs/lsa/pkg/types"
 	oc "github.com/cloudprivacylabs/opencypher"
 	"github.com/neo4j/neo4j-go-driver/neo4j"
 )
@@ -14,13 +12,13 @@ import (
 func init() {
 	oc.RegisterGlobalFunc(oc.Function{
 		Name:      "age",
-		MinArgs:   0,
+		MinArgs:   1,
 		MaxArgs:   2,
-		ValueFunc: ageFunc,
+		ValueFunc: AgeFunc,
 	})
 }
 
-func ageFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) {
+func AgeFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) {
 	if args[0].Get() == nil {
 		return oc.RValue{}, nil
 	}
@@ -30,45 +28,67 @@ func ageFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) {
 	// check if argument a neo4j.Date or neo4j.LocalDateTime
 	if n4jDate, err = valueAsNeo4jDate(args[0]); err != nil {
 		return nil, err
-	} else if n4jDateTime, err = valueAsNeo4jDateTime(args[0]); err != nil {
-		return nil, err
 	}
-
-	var tDob time.Time
+	if n4jDate == (neo4j.Date{}) {
+		if n4jDateTime, err = valueAsNeo4jDateTime(args[0]); err != nil {
+			return nil, err
+		}
+	}
+	var dob interface{}
 	if n4jDateTime != (neo4j.LocalDateTime{}) {
-		tDob, err = dateparse.ParseAny(n4jDateTime.String())
-		if err != nil {
-			return nil, err
-		}
+		dob = neo.Neo4jValueToNativeValue(n4jDateTime)
 	} else {
-		tDob, err = dateparse.ParseAny(n4jDate.String())
-		if err != nil {
-			return nil, err
+		dob = neo.Neo4jValueToNativeValue(n4jDate)
+	}
+	var tDob types.Date
+	var tDobDt types.DateTime
+	tDob, ok := dob.(types.Date)
+	if !ok {
+		tDobDt, ok = dob.(types.DateTime)
+		if !ok {
+			panic("")
 		}
 	}
-	tDate := time.Now()
+	var tm interface{}
 	if len(args) > 1 && args[1].Get() != nil {
 		if n4jDate, err = valueAsNeo4jDate(args[1]); err != nil {
 			return nil, err
-		} else if n4jDateTime, err = valueAsNeo4jDateTime(args[1]); err != nil {
-			return nil, err
+		}
+		if n4jDate == (neo4j.Date{}) {
+			if n4jDateTime, err = valueAsNeo4jDateTime(args[1]); err != nil {
+				return nil, err
+			}
 		}
 		if n4jDateTime != (neo4j.LocalDateTime{}) {
-			tDate, err = dateparse.ParseAny(n4jDateTime.String())
-			if err != nil {
-				return nil, err
-			}
+			tm = neo.Neo4jValueToNativeValue(n4jDateTime)
 		} else {
-			tDate, err = dateparse.ParseAny(n4jDate.String())
-			if err != nil {
-				return nil, err
-			}
+			tm = neo.Neo4jValueToNativeValue(n4jDate)
 		}
-
+	} else {
+		tm = time.Now()
 	}
-	// age will only represent the year
-	deltaMonths := (tDob.Year()*12 + int(tDob.Month()) - 1) - (tDate.Year()*12 + int(tDate.Month()) - 1)
-	age := int(math.Floor(float64(deltaMonths / 12)))
+	// determine second argument type, default to time.Time
+	var tDate types.Date
+	var tDateTime types.DateTime
+	var tTime time.Time
+	switch t := tm.(type) {
+	case types.Date:
+		tDate = t
+	case types.DateTime:
+		tDateTime = t
+	default:
+		tTime = tm.(time.Time)
+	}
+	var age int
+	if tDate.Year != 0 && tDob.Year != 0 {
+		age = tDate.Year - tDob.Year
+	} else if tDateTime.Year != 0 && tDobDt.Year != 0 {
+		age = tDateTime.Year - tDobDt.Year
+	} else if tDobDt.Year != 0 {
+		age = tTime.Year() - tDobDt.Year
+	} else {
+		age = tTime.Year() - tDob.Year
+	}
 	return oc.RValue{Value: age}, nil
 }
 
@@ -78,10 +98,9 @@ func valueAsNeo4jDate(v oc.Value, err ...error) (neo4j.Date, error) {
 	if len(err) != 0 {
 		return neo4j.Date{}, err[0]
 	}
-	fmt.Println(reflect.TypeOf(v.Get()))
 	s, ok := v.Get().(neo4j.Date)
 	if !ok {
-		return neo4j.Date{}, oc.ErrStringValueRequired
+		return neo4j.Date{}, oc.ErrNeo4jDateValueRequired
 	}
 	return s, nil
 }
@@ -94,7 +113,7 @@ func valueAsNeo4jDateTime(v oc.Value, err ...error) (neo4j.LocalDateTime, error)
 	}
 	s, ok := v.Get().(neo4j.LocalDateTime)
 	if !ok {
-		return neo4j.LocalDateTime{}, oc.ErrStringValueRequired
+		return neo4j.LocalDateTime{}, oc.ErrNeo4jDateTimeValueRequired
 	}
 	return s, nil
 }

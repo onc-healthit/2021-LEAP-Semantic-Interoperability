@@ -32,7 +32,8 @@ func TestReadDir(t *testing.T) {
 		MaxArgs:   2,
 		ValueFunc: pkg.AgeFunc,
 	})
-	x, err := opencypher.ParseAndEvaluate(`return age("01/01/2022", "09/01/2022")`, opencypher.NewEvalContext(lpg.NewGraph()))
+	// return age(parseDate("01/01/2022","MM/DD/YYYY"))
+	x, err := opencypher.ParseAndEvaluate(`return age(parseDate("01/01/2000", "MM/DD/YYYY"))`, opencypher.NewEvalContext(lpg.NewGraph()))
 	fmt.Println(x)
 	ch, err := ReadDir(context.Background(), "testdata/dir")
 	if err != nil {
