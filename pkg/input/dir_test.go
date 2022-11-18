@@ -16,25 +16,11 @@ package input
 
 import (
 	"context"
-	"fmt"
 	"io/ioutil"
 	"testing"
-
-	pkg "github.com/cloudprivacylabs/leap/pkg/funcs"
-	"github.com/cloudprivacylabs/lpg"
-	"github.com/cloudprivacylabs/opencypher"
 )
 
 func TestReadDir(t *testing.T) {
-	opencypher.RegisterGlobalFunc(opencypher.Function{
-		Name:      "age",
-		MinArgs:   0,
-		MaxArgs:   2,
-		ValueFunc: pkg.AgeFunc,
-	})
-	// return age(parseDate("01/01/2022","MM/DD/YYYY"))
-	x, err := opencypher.ParseAndEvaluate(`return age(parseDate("01/01/2000", "MM/DD/YYYY"))`, opencypher.NewEvalContext(lpg.NewGraph()))
-	fmt.Println(x)
 	ch, err := ReadDir(context.Background(), "testdata/dir")
 	if err != nil {
 		t.Error(err)
