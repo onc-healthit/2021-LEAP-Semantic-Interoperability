@@ -13,15 +13,43 @@
         ],
         "attributes": {
             "https://dartnet.info/graphModel/Procedure/id": {
-                "@type": "Value"
+                "@type": "Value",
+                "ingestAs": "property"
             },
-            "https://dartnet.info/graphModel/Procedure/procedure/source": {
+            "https://dartnet.info/graphModel/Procedure/source": {
                 "@type": ["Object","Code"],
-                "namespace":"https://dartnet.info/graphModel/Procedure/procedure/source",
-                "include":"https://dartnet.info/graphModel/sourceValue"
+                "xnamespace":"https://dartnet.info/graphModel/Procedure/source",
+                "xinclude":"https://dartnet.info/graphModel/sourceValue",
+                "attributes": {
+                    "https://dartnet.info/graphModel/Procedure/source/code": {
+                        "@type": "Value",
+                        "attributeName": "code",
+                        "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Procedure/source/system": {
+                        "@type": "Value",
+                        "attributeName": "system",
+                        "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Procedure/source/text": {
+                        "@type": "Value",
+                        "attributeName": "text",
+                        "ingestAs": "property"
+                    }
+                }                
+            },
+            "https://dartnet.info/graphModel/Procedure/omop": {
+                "@type": "Array",
+                "arrayElements": {
+                    "@id": "https://dartnet.info/graphmodel/Procedure/omop/items",
+                    "@type": ["Reference","Code","ProcedureCode"],
+                    "ref": "https://ohdsi.org/omop/concept"
+                }
             },
             "https://dartnet.info/graphModel/Procedure/date": {
-                "@type": "Value"
+                "@type": "Value",
+                "valueType": "ls:date",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Procedure/type": {
                 "@type": "Value",
@@ -35,7 +63,8 @@
             },
             "https://dartnet.info/graphModel/Procedure/quantity": {
                 "@type": "Value",
-                "attributeName": "quantity"
+                "attributeName": "quantity",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Procedure/person": {
                 "@type": "Value",

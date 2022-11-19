@@ -14,15 +14,18 @@
         ],
         "attributes": {
             "https://dartnet.info/graphModel/Condition/id": {
-                "@type": "Value"
+                "@type": "Value",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Condition/start": {
                 "@type": "Value",
-                "valueType": "ls:dateTime"
+                "valueType": "ls:dateTime",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Condition/end": {
                 "@type": "Value",
-                "valueType": "ls:dateTime"
+                "valueType": "ls:dateTime",
+                "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Condition/type": {
                 "@type": "Value",
@@ -36,8 +39,25 @@
             },
             "https://dartnet.info/graphModel/Condition/source": {
                 "@type": ["Object","Code"],
-                "namespace":"https://dartnet.info/graphModel/Condition/source",
-                "include":"https://dartnet.info/graphModel/sourceValue"
+                "xnamespace":"https://dartnet.info/graphModel/Condition/source",
+                "xinclude":"https://dartnet.info/graphModel/sourceValue",
+                "attributes": {
+                    "https://dartnet.info/graphModel/Condition/source/code": {
+                        "@type": "Value",
+                        "attributeName": "code",
+                        "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Condition/source/system": {
+                        "@type": "Value",
+                        "attributeName": "system",
+                        "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Condition/source/text": {
+                        "@type": "Value",
+                        "attributeName": "text",
+                        "ingestAs": "property"
+                    }
+                }
             },
             "https://dartnet.info/graphModel/Condition/omop": {
                 "@type": "Array",

@@ -1,6 +1,8 @@
 package pkg
 
 import (
+	"fmt"
+	"reflect"
 	"testing"
 
 	"github.com/cloudprivacylabs/lpg"
@@ -48,4 +50,39 @@ func TestAge(t *testing.T) {
 			t.Errorf("Got age: %d, expected age: %d", rGetter(v), tt.expected)
 		}
 	}
+}
+
+func TestValuesetLookup(t *testing.T) {
+	// lookupValueset({tableId: tableId, param1: x, ...})
+	rGetter := func(v opencypher.Value) interface{} {
+		return v.Get().(opencypher.ResultSet).Rows[0]["1"].Get()
+	}
+	vsTests := []struct {
+		query    string
+		expected map[string]string
+	}{
+		{
+			query:    `return lookupValueset({tableId: "tableId", param1: "x1", param2: "x2"})`,
+			expected: map[string]string{"tableId": "tableId", "param1": "x1", "param2": "x2"},
+		},
+	}
+	ctx := opencypher.NewEvalContext(lpg.NewGraph())
+	v, err := opencypher.ParseAndEvaluate(`return lookupValueset({tableId: "someTableId", param1: "x1", param2: "x2"})`, ctx)
+	if err != nil {
+		t.Error(err)
+	}
+	for _, tt := range vsTests {
+		v, err := opencypher.ParseAndEvaluate(tt.query, ctx)
+		if err != nil {
+			t.Error(err)
+		}
+		mp := make(map[string]string)
+		for k, v := range rGetter(v).(map[string]opencypher.Value) {
+			mp[k] = v.Get().(string)
+		}
+		if !reflect.DeepEqual(mp, tt.expected) {
+			t.Errorf("Got valueset: %v, expected valueset: %v", rGetter(v), tt.expected)
+		}
+	}
+	fmt.Println(v)
 }

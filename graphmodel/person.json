@@ -19,33 +19,70 @@
         "entityIdFields": "https://dartnet.info/graphModel/Person/id",
         "attributes": {
             "gm:Person/id": {
-                "@type": "Value"
+                "@type": "Value",
+                "ingestAs": "property"
             },
             "gm:Person/birthDate": {
                 "@type": "Value",
-                "valueType": "ls:date"
+                "valueType": "ls:date",
+                "ingestAs": "property"
             },
             "gm:Person/deathDate": {
                 "@type": "Value",
-                "valueType": "ls:date"
+                "valueType": "ls:date",
+                "ingestAs": "property"
             },
             "gm:Person/gender/source": {
                 "@type": ["Object","Code"],
-                "namespace":"gm:Person/gender",
-                "include":"https://dartnet.info/graphModel/sourceValue"
+                "xnamespace":"https://dartnet.info/graphModel/Person/gender/source",
+                "xinclude":"https://dartnet.info/graphModel/sourceValue",
+                "attributes": {
+                    "https://dartnet.info/graphModel/Person/gender/source/code": {
+                        "@type": "Value",
+                        "attributeName": "code",
+                        "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Person/gender/source/system": {
+                        "@type": "Value",
+                        "attributeName": "system",
+                        "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Person/gender/source/text": {
+                        "@type": "Value",
+                        "attributeName": "text",
+                        "ingestAs": "property"
+                    }
+                }
             },
             "gm:Person/gender/omop": {
                 "@type": "Array",
                 "arrayElements": {
-                    "@id": "gm:Person/gender/omop/concepts",
+                    "@id": "https://dartnet.info/graphModel/Person/gender/omop/items",
                     "@type": ["Reference","Code"],
                     "ref":"https://ohdsi.org/omop/concept"
                 }
             },
             "gm:Person/race/source": {
                 "@type": ["Object","Code"],
-                "namespace":"gm:Person/race",
-                "include":"https://dartnet.info/graphModel/sourceValue"
+                "xnamespace":"https://dartnet.info/graphModel/Person/race/source",
+                "xinclude":"https://dartnet.info/graphModel/sourceValue",
+                "attributes": {
+                    "https://dartnet.info/graphModel/Person/race/source/code": {
+                        "@type": "Value",
+                        "attributeName": "code",
+                        "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Person/race/source/system": {
+                        "@type": "Value",
+                        "attributeName": "system",
+                        "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Person/race/source/text": {
+                        "@type": "Value",
+                        "attributeName": "text",
+                        "ingestAs": "property"
+                    }
+                }
             },
             "gm:Person/race/omop": {
                 "@type": "Array",
@@ -57,8 +94,25 @@
             },
             "gm:Person/ethnicity/source": {
                 "@type": ["Object","Code"],
-                "namespace":"gm:Person/ethnicity/source",
-                "include":"https://dartnet.info/graphModel/sourceValue"
+                "xnamespace":"https://dartnet.info/graphModel/Person/ethnicity/source",
+                "xinclude":"https://dartnet.info/graphModel/sourceValue",
+                "attributes": {
+                    "https://dartnet.info/graphModel/Person/ethnicity/source/code": {
+                        "@type": "Value",
+                        "attributeName": "code",
+                        "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Person/ethnicity/source/system": {
+                        "@type": "Value",
+                        "attributeName": "system",
+                        "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Person/ethnicity/source/text": {
+                        "@type": "Value",
+                        "attributeName": "text",
+                        "ingestAs": "property"
+                    }
+                }
             },
             "gm:Person/ethnicity/omop": {
                 "@type": "Array",

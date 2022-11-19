@@ -18,7 +18,7 @@ func init() {
 	oc.RegisterGlobalFunc(oc.Function{
 		Name:      "lookupValueset",
 		MinArgs:   1,
-		MaxArgs:   -1,
+		MaxArgs:   1,
 		ValueFunc: lookupValuesetFunc,
 	})
 }
@@ -68,9 +68,15 @@ func lookupValuesetFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) 
 	for k, v := range vs {
 		reqs = append(reqs, ls.ValuesetLookupRequest{
 			TableIDs:  []string{k},
-			KeyValues: v.Get().(map[string]string),
+			KeyValues: map[string]string{k: v.Get().(string)},
 		})
 	}
+	// 	fmt.Println([]string{vs["tableId"].Get().(string)})
+
+	ValuesetLookupFunc = func(ctx *ls.Context, vsreq ls.ValuesetLookupRequest) (ls.ValuesetLookupResponse, error) {
+		return ls.ValuesetLookupResponse{KeyValues: vsreq.KeyValues}, nil
+	}
+
 	vals := make(map[string]oc.Value)
 	for _, req := range reqs {
 		resp, err := ValuesetLookupFunc(ls.DefaultContext(), req)
