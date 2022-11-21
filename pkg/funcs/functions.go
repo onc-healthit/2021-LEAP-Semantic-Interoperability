@@ -71,11 +71,6 @@ func lookupValuesetFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) 
 			KeyValues: map[string]string{k: v.Get().(string)},
 		})
 	}
-	// 	fmt.Println([]string{vs["tableId"].Get().(string)})
-
-	ValuesetLookupFunc = func(ctx *ls.Context, vsreq ls.ValuesetLookupRequest) (ls.ValuesetLookupResponse, error) {
-		return ls.ValuesetLookupResponse{KeyValues: vsreq.KeyValues}, nil
-	}
 
 	vals := make(map[string]oc.Value)
 	for _, req := range reqs {

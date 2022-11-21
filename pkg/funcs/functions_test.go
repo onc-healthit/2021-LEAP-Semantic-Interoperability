@@ -6,6 +6,7 @@ import (
 	"testing"
 
 	"github.com/cloudprivacylabs/lpg"
+	"github.com/cloudprivacylabs/lsa/pkg/ls"
 	"github.com/cloudprivacylabs/opencypher"
 )
 
@@ -67,6 +68,9 @@ func TestValuesetLookup(t *testing.T) {
 		},
 	}
 	ctx := opencypher.NewEvalContext(lpg.NewGraph())
+	ValuesetLookupFunc = func(ctx *ls.Context, vsreq ls.ValuesetLookupRequest) (ls.ValuesetLookupResponse, error) {
+		return ls.ValuesetLookupResponse{KeyValues: vsreq.KeyValues}, nil
+	}
 	v, err := opencypher.ParseAndEvaluate(`return lookupValueset({tableId: "someTableId", param1: "x1", param2: "x2"})`, ctx)
 	if err != nil {
 		t.Error(err)
