@@ -40,6 +40,14 @@ func TestAge(t *testing.T) {
 			query:    `return age(parseDate("01/01/1922", "MM/DD/YYYY"), parseDate("01/01/2022", "MM/DD/YYYY"))`,
 			expected: 100,
 		},
+		{
+			query:    `return age(parseDate("03/03/2001", "MM/DD/YYYY"), parseDate("03/03/2010", "MM/DD/YYYY"))`,
+			expected: 9,
+		},
+		{
+			query:    `return age(parseDate("03/03/2001", "MM/DD/YYYY"), parseDate("03/02/2010", "MM/DD/YYYY"))`,
+			expected: 9,
+		},
 	}
 	ctx := opencypher.NewEvalContext(lpg.NewGraph())
 	for _, tt := range ageTests {
