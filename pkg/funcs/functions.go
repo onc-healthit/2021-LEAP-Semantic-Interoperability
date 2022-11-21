@@ -23,6 +23,8 @@ func init() {
 	})
 }
 
+var GetNow = time.Now()
+
 func ageFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) {
 	if args[0].Get() == nil {
 		return oc.RValue{}, nil
@@ -34,7 +36,7 @@ func ageFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) {
 	} else if dateTime, ok := args[0].Get().(neo4j.LocalDateTime); ok {
 		goDate = dateTime.Time()
 	}
-	tm := time.Now()
+	tm := GetNow
 	// check for second argument type, if null default to time.Now()
 	if len(args) > 1 && args[1].Get() != nil {
 		if date, ok := args[1].Get().(neo4j.Date); ok {
@@ -45,8 +47,11 @@ func ageFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) {
 	}
 	// determine age by total month difference, days will be tiebreak
 	deltaMonths := (tm.Year()*12 + int(tm.Month()) - 1) - (goDate.Year()*12 + int(goDate.Month()) - 1)
-	if goDate.Day() >= tm.Day() {
+	if int(goDate.Month()) == int(tm.Month()) {
 		age := deltaMonths / 12
+		if goDate.Day() == tm.Day() {
+			return oc.RValue{Value: age + 1}, nil
+		}
 		return oc.RValue{Value: age}, nil
 	}
 	deltaMonths--
@@ -64,23 +69,22 @@ func lookupValuesetFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) 
 	if !ok {
 		return oc.RValue{}, nil
 	}
-	reqs := make([]ls.ValuesetLookupRequest, 0)
+	req := ls.ValuesetLookupRequest{
+		TableIDs:  []string{vs["tableId"].Get().(string)},
+		KeyValues: make(map[string]string),
+	}
 	for k, v := range vs {
-		reqs = append(reqs, ls.ValuesetLookupRequest{
-			TableIDs:  []string{k},
-			KeyValues: map[string]string{k: v.Get().(string)},
-		})
+		req.KeyValues[k] = v.Get().(string)
 	}
 
 	vals := make(map[string]oc.Value)
-	for _, req := range reqs {
-		resp, err := ValuesetLookupFunc(ls.DefaultContext(), req)
-		if err != nil {
-			return oc.RValue{}, nil
-		}
-		for k, v := range resp.KeyValues {
-			vals[k] = oc.ValueOf(v)
-		}
+	resp, err := ValuesetLookupFunc(ls.DefaultContext(), req)
+	if err != nil {
+		return oc.RValue{}, nil
 	}
+	for k, v := range resp.KeyValues {
+		vals[k] = oc.ValueOf(v)
+	}
+
 	return oc.RValue{Value: vals}, nil
 }
