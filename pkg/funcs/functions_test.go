@@ -24,12 +24,20 @@ func TestAge(t *testing.T) {
 	defer func() {
 		GetNow = oldNow
 	}()
-	GetNow = func() time.Time { return time.Now() }
+	GetNow = func() time.Time { return time.Date(2023, time.January, 1, 0, 0, 0, 0, time.UTC) }
 	tm := GetNow()
 	ageTests := []ageTest{
 		{
-			query:    fmt.Sprintf(`return age(parseDate("01/01/2000", "MM/DD/YYYY"), parseDate("%d/%d/%d", "MM/DD/YYYY"))`, tm.Month(), tm.Day(), tm.Year()),
+			query:    fmt.Sprintf(`return age(parseDate("01/01/2000", "MM/DD/YYYY"), parseDate("%d/%d/%d", "MM/DD/YYYY"))`, oldNow().Month(), oldNow().Day(), oldNow().Year()),
 			expected: 22,
+		},
+		{
+			query:    fmt.Sprintf(`return age(parseDate("01/01/2000", "MM/DD/YYYY"), parseDate("%d/%d/%d", "MM/DD/YYYY"))`, tm.Month(), tm.Day(), tm.Year()),
+			expected: 24,
+		},
+		{
+			query:    `return age(parseDate("01/01/2000", "MM/DD/YYYY"))`,
+			expected: 24,
 		},
 		{
 			query:    `return age(parseDate("01/01/1900", "MM/DD/YYYY"), parseDate("01/01/2022", "MM/DD/YYYY"))`,
@@ -49,7 +57,7 @@ func TestAge(t *testing.T) {
 		},
 		{
 			query:    `return age(parseDate("01/01/1678", "MM/DD/YYYY"))`,
-			expected: 344,
+			expected: 346,
 		},
 		{
 			query:    `return age(parseDate("01/01/1922", "MM/DD/YYYY"), parseDate("01/01/2022", "MM/DD/YYYY"))`,

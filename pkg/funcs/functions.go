@@ -23,7 +23,7 @@ func init() {
 	})
 }
 
-var GetNow func() time.Time
+var GetNow = time.Now
 
 func ageFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) {
 	if args[0].Get() == nil {
