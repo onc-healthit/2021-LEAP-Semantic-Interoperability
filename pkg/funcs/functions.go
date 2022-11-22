@@ -23,7 +23,7 @@ func init() {
 	})
 }
 
-var GetNow = time.Now()
+var GetNow func() time.Time
 
 func ageFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) {
 	if args[0].Get() == nil {
@@ -36,7 +36,7 @@ func ageFunc(ctx *oc.EvalContext, args []oc.Value) (oc.Value, error) {
 	} else if dateTime, ok := args[0].Get().(neo4j.LocalDateTime); ok {
 		goDate = dateTime.Time()
 	}
-	tm := GetNow
+	tm := GetNow()
 	// check for second argument type, if null default to time.Now()
 	if len(args) > 1 && args[1].Get() != nil {
 		if date, ok := args[1].Get().(neo4j.Date); ok {
