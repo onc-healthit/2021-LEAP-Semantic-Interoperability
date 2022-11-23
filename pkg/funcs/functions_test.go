@@ -94,13 +94,17 @@ func TestValuesetLookup(t *testing.T) {
 		expected map[string]string
 	}{
 		{
+			query:    `return lookupValueset({tableId: "tableId"})`,
+			expected: map[string]string{"test1": "t1", "test2": "t2", "test3": "t3"},
+		},
+		{
 			query:    `return lookupValueset({tableId: "tableId", param1: "x1", param2: "x2"})`,
-			expected: map[string]string{"tableId": "tableId", "param1": "x1", "param2": "x2"},
+			expected: map[string]string{"test1": "t1", "test2": "t2", "test3": "t3"},
 		},
 	}
 	ctx := opencypher.NewEvalContext(lpg.NewGraph())
 	ValuesetLookupFunc = func(ctx *ls.Context, vsreq ls.ValuesetLookupRequest) (ls.ValuesetLookupResponse, error) {
-		return ls.ValuesetLookupResponse{KeyValues: vsreq.KeyValues}, nil
+		return ls.ValuesetLookupResponse{KeyValues: map[string]string{"test1": "t1", "test2": "t2", "test3": "t3"}}, nil
 	}
 	for _, tt := range vsTests {
 		v, err := opencypher.ParseAndEvaluate(tt.query, ctx)
