@@ -1,6 +1,13 @@
 package pkg
 
-import "github.com/cloudprivacylabs/lsa/layers/cmd/cmdutil"
+import (
+	"io/ioutil"
+
+	"gopkg.in/yaml.v2"
+)
+
+const hostName = "localhost"
+const serverPort = 8011
 
 type Config struct {
 	Valuesets []Valueset `yaml:"valuesets"`
@@ -12,22 +19,24 @@ type Valueset struct {
 }
 
 type Query struct {
-	Query   string   `yaml:"query"`
-	Columns []string `yaml:"columns"`
+	Query string `yaml:"query"`
 }
 
-func parseYAML() (map[string][]map[string][]map[string][]string, error) {
+func parseYAML() ([]string, error) {
 	var cfg Config
-	if err := cmdutil.ReadJSONOrYAML("cfg/queries.yaml", &cfg); err != nil {
+	data, err := ioutil.ReadFile("testdata/cfg/queries.yaml")
+	if err != nil {
+		return nil, err
+	}
+	if err := yaml.Unmarshal(data, &cfg); err != nil {
 		return nil, err
 	}
 	queries := make([]string, 0)
-	columns := make([]string, 0)
-	vs_list := cfg.valuesets
+	vs_list := cfg.Valuesets
 	for _, doc := range vs_list {
-		for _, qry := range doc.queries {
-			queries = append(queries, qry.qry)
-			columns = append(columns, qry.columns...)
+		for _, qry := range doc.Queries {
+			queries = append(queries, qry.Query)
 		}
 	}
+	return queries, nil
 }
