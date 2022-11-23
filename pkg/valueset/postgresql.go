@@ -2,6 +2,7 @@ package pkg
 
 import (
 	"io/ioutil"
+	"net/url"
 
 	"gopkg.in/yaml.v2"
 )
@@ -39,4 +40,16 @@ func parseYAML() ([]string, error) {
 		}
 	}
 	return queries, nil
+}
+
+func process(addr string) (result map[string]string, err error) {
+	urlQuery, err := url.Parse(addr)
+	if err != nil {
+		return nil, err
+	}
+	urlParams := make(map[string]interface{})
+	for k, v := range urlQuery.Query() {
+		urlParams[k] = v
+	}
+	return result, nil
 }
