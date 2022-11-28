@@ -9,10 +9,11 @@ go 1.19
 require (
 	github.com/cloudprivacylabs/lpg v1.0.11
 	github.com/cloudprivacylabs/lsa v1.0.0-beta-18
-	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221108182714-0b86f77b8d3e
+	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221117171535-05fcb88a3afa
 	github.com/cloudprivacylabs/opencypher v1.0.0-beta-9
 	github.com/drone/envsubst v1.0.3
 	github.com/joho/godotenv v1.4.0
+	github.com/neo4j/neo4j-go-driver v1.8.3
 	github.com/neo4j/neo4j-go-driver/v4 v4.3.3
 	github.com/spf13/cobra v1.5.0
 )
@@ -28,6 +29,7 @@ require (
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/neo4j/neo4j-go-driver v1.8.3 // indirect
+	github.com/morikuni/aec v0.0.0-20170113033406-39771216ff4c // indirect
 	github.com/nleeper/goment v1.4.4 // indirect
 	github.com/piprate/json-gold v0.4.0 // indirect
 	github.com/pquerna/cachecontrol v0.0.0-20180517163645-1555304b9b35 // indirect
