@@ -1,20 +1,15 @@
 module github.com/cloudprivacylabs/leap
 
-go 1.18
-
-replace github.com/cloudprivacylabs/lsa => ../lsa
-
-replace github.com/cloudprivacylabs/lsa-neo4j => ../lsa-neo4j
-
-replace github.com/cloudprivacylabs/lpg => ../lpg
+go 1.19
 
 require (
 	github.com/cloudprivacylabs/lpg v1.0.10
 	github.com/cloudprivacylabs/lsa v1.0.0-beta-18
-	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221108182714-0b86f77b8d3e
+	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221117171535-05fcb88a3afa
 	github.com/cloudprivacylabs/opencypher v1.0.0-beta-9
 	github.com/drone/envsubst v1.0.3
 	github.com/joho/godotenv v1.4.0
+	github.com/neo4j/neo4j-go-driver v1.8.3
 	github.com/neo4j/neo4j-go-driver/v4 v4.3.3
 	github.com/spf13/cobra v1.5.0
 )
@@ -47,7 +42,6 @@ require (
 	github.com/moby/term v0.0.0-20210619224110-3f7ff695adc6 // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect
 	github.com/morikuni/aec v0.0.0-20170113033406-39771216ff4c // indirect
-	github.com/neo4j/neo4j-go-driver v1.8.3 // indirect
 	github.com/nleeper/goment v1.4.4 // indirect
 	github.com/onsi/gomega v1.19.0 // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect
