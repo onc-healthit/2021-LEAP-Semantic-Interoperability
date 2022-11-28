@@ -14,7 +14,8 @@
         "attributes": {
             "https://dartnet.info/graphModel/Procedure/id": {
                 "@type": "Value",
-                "ingestAs": "property"
+                "ingestAs": "property",
+                "attributeName": "id"
             },
             "https://dartnet.info/graphModel/Procedure/source": {
                 "@type": ["Object","Code"],
@@ -49,6 +50,7 @@
             "https://dartnet.info/graphModel/Procedure/date": {
                 "@type": "Value",
                 "valueType": "ls:date",
+                "attributeName": "date",
                 "ingestAs": "property"
             },
             "https://dartnet.info/graphModel/Procedure/type": {

@@ -14,7 +14,8 @@
         "attributes": {
             "https://dartnet.info/graphModel/Measurement/id": {
                 "@type": "Value",
-                "ingestAs": "property"
+                "ingestAs": "property",
+                "attributeName": "id"
             },
             "https://dartnet.info/graphModel/Measurement/source": {
                 "@type": ["Object","Code"],
@@ -65,19 +66,23 @@
             },
             "https://dartnet.info/graphModel/Measurement/value": {
                 "@type": "Value",
-                "ingestAs": "property"
+                "ingestAs": "property",
+                "attributeName": "value"
             },
             "https://dartnet.info/graphModel/Measurement/unit": {
                 "@type": "Value",
-                "ingestAs": "property"
+                "ingestAs": "property",
+                "attributeName": "unit"
             },
             "https://dartnet.info/graphModel/Measurement/rangeLow": {
                 "@type": "Value",
-                "ingestAs": "property"
+                "ingestAs": "property",
+                "attributeName": "rangeLow"
             },
             "https://dartnet.info/graphModel/Measurement/rangeHigh": {
                 "@type": "Value",
-                "ingestAs": "property"
+                "ingestAs": "property",
+                "attributeName": "rangeHigh"                
             },
             "https://dartnet.info/graphModel/Measurement/measure": {
                 "@type": "Value",

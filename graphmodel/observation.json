@@ -19,7 +19,8 @@
             "https://dartnet.info/graphModel/Observation/date": {
                 "@type": "Value",
                 "valueType": "ls:date",
-                "ingestAs": "property"
+                "ingestAs": "property",
+                "attributeName": "date"
             },
             "https://dartnet.info/graphModel/Observation/type": {
                 "@type": "Value",
@@ -108,6 +109,11 @@
                     "https://dartnet.info/graphModel/Observation/measuredValue/source/text": {
                         "@type": "Value",
                         "attributeName": "text",
+                        "ingestAs": "property"
+                    },
+                    "https://dartnet.info/graphModel/Observation/measuredValue/source/unit": {
+                        "@type": "Value",
+                        "attributeName": "unit",
                         "ingestAs": "property"
                     }
                 }
