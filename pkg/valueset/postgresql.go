@@ -20,36 +20,39 @@ type Valueset struct {
 }
 
 type Query struct {
-	Query string `yaml:"query"`
+	Query   string   `yaml:"query"`
+	Columns []string `yaml:"columns"`
 }
 
-func parseYAML() ([]string, error) {
+func parseYAML() ([]string, []string, error) {
 	var cfg Config
-	data, err := ioutil.ReadFile("testdata/cfg/queries.yaml")
+	data, err := ioutil.ReadFile("../testdata/cfg/queries.yaml")
 	if err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 	if err := yaml.Unmarshal(data, &cfg); err != nil {
-		return nil, err
+		return nil, nil, err
 	}
 	queries := make([]string, 0)
+	columns := make([]string, 0)
 	vs_list := cfg.Valuesets
 	for _, doc := range vs_list {
 		for _, qry := range doc.Queries {
 			queries = append(queries, qry.Query)
+			columns = append(columns, qry.Columns...)
 		}
 	}
-	return queries, nil
+	return queries, columns, nil
 }
 
-func process(addr string) (result map[string]string, err error) {
+func process(addr string) (map[string]string, error) {
 	urlQuery, err := url.Parse(addr)
 	if err != nil {
 		return nil, err
 	}
-	urlParams := make(map[string]interface{})
+	urlParams := make(map[string]string)
 	for k, v := range urlQuery.Query() {
-		urlParams[k] = v
+		urlParams[k] = v[0]
 	}
-	return result, nil
+	return urlParams, nil
 }
