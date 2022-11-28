@@ -1,0 +1,38 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@id": "https://dartnet.info/graphModel/Observation/ovl",
+    "@type": "Overlay",
+    "valueType": "https://dartnet.info/graphModel/Observation",
+    "layer": {
+        "@type": "Object",
+        "@id": "https://dartnet.info/graphModel/Observation",
+        "attributes": {
+            "https://dartnet.info/graphModel/Observation/omop": {
+                "@type": "Array",
+                "vsValuesets": ["omop"],
+                "vsRequestValues": [
+                    "https://dartnet.info/graphModel/Observation/source/code",
+                    "https://dartnet.info/graphModel/Observation/source/normalizedSystem"
+                ],
+                "vsRequestKeys": [ "code", "vocabulary_id" ],
+                "vsResultKeys": [ "concept_id","concept_name"],
+                "vsResultValues": [
+                    "https://ohdsi.org/omop/concept/id",
+                    "https://ohdsi.org/omop/concept/name"
+                ],
+                "vsResultContext": "https://dartnet.info/graphModel/Observation/omop/items"
+            },
+            "https://dartnet.info/graphModel/Observation/source": {
+                "@type": ["Object"],
+                "attributes": {
+                    "https://dartnet.info/graphModel/Observation/source/normalizedSystem": {
+                        "@type": "Value",
+                        "vsValuesets": "codeSystemNames",
+                        "vsRequestValues": [ "https://dartnet.info/graphModel/Observation/source/system"],
+                        "vsResultValues": ["https://dartnet.info/graphModel/Observation/source/normalizedSystem"]
+                    }
+                }
+            }
+        }
+    }
+}

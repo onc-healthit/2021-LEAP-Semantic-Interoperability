@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"reflect"
 	"testing"
+	"time"
 
 	"github.com/cloudprivacylabs/lpg"
 	"github.com/cloudprivacylabs/lsa/pkg/ls"
@@ -19,26 +20,56 @@ func TestAge(t *testing.T) {
 	rGetter := func(v opencypher.Value) interface{} {
 		return v.Get().(opencypher.ResultSet).Rows[0]["1"].Get()
 	}
+	oldNow := GetNow
+	defer func() {
+		GetNow = oldNow
+	}()
+	GetNow = func() time.Time { return time.Date(2023, time.January, 1, 0, 0, 0, 0, time.UTC) }
+	tm := GetNow()
 	ageTests := []ageTest{
 		{
-			query:    `return age(parseDate("01/01/2000", "MM/DD/YYYY"))`,
+			query:    fmt.Sprintf(`return age(parseDate("01/01/2000", "MM/DD/YYYY"), parseDate("%d/%d/%d", "MM/DD/YYYY"))`, oldNow().Month(), oldNow().Day(), oldNow().Year()),
 			expected: 22,
 		},
 		{
+			query:    fmt.Sprintf(`return age(parseDate("01/01/2000", "MM/DD/YYYY"), parseDate("%d/%d/%d", "MM/DD/YYYY"))`, tm.Month(), tm.Day(), tm.Year()),
+			expected: 24,
+		},
+		{
+			query:    `return age(parseDate("01/01/2000", "MM/DD/YYYY"))`,
+			expected: 24,
+		},
+		{
 			query:    `return age(parseDate("01/01/1900", "MM/DD/YYYY"), parseDate("01/01/2022", "MM/DD/YYYY"))`,
+			expected: 123,
+		},
+		{
+			query:    `return age(parseDate("01/01/1900", "MM/DD/YYYY"), parseDate("01/02/2022", "MM/DD/YYYY"))`,
 			expected: 122,
 		},
 		{
 			query:    `return age(parseDate("01/01/1678", "MM/DD/YYYY"), parseDate("01/01/2000", "MM/DD/YYYY"))`,
+			expected: 323,
+		},
+		{
+			query:    `return age(parseDate("01/01/1678", "MM/DD/YYYY"), parseDate("01/31/2000", "MM/DD/YYYY"))`,
 			expected: 322,
 		},
 		{
 			query:    `return age(parseDate("01/01/1678", "MM/DD/YYYY"))`,
-			expected: 344,
+			expected: 346,
 		},
 		{
 			query:    `return age(parseDate("01/01/1922", "MM/DD/YYYY"), parseDate("01/01/2022", "MM/DD/YYYY"))`,
-			expected: 100,
+			expected: 101,
+		},
+		{
+			query:    `return age(parseDate("03/03/2001", "MM/DD/YYYY"), parseDate("03/03/2010", "MM/DD/YYYY"))`,
+			expected: 10,
+		},
+		{
+			query:    `return age(parseDate("03/03/2001", "MM/DD/YYYY"), parseDate("03/02/2010", "MM/DD/YYYY"))`,
+			expected: 9,
 		},
 	}
 	ctx := opencypher.NewEvalContext(lpg.NewGraph())
@@ -63,17 +94,17 @@ func TestValuesetLookup(t *testing.T) {
 		expected map[string]string
 	}{
 		{
+			query:    `return lookupValueset({tableId: "tableId"})`,
+			expected: map[string]string{"test1": "t1", "test2": "t2", "test3": "t3"},
+		},
+		{
 			query:    `return lookupValueset({tableId: "tableId", param1: "x1", param2: "x2"})`,
-			expected: map[string]string{"tableId": "tableId", "param1": "x1", "param2": "x2"},
+			expected: map[string]string{"test1": "t1", "test2": "t2", "test3": "t3"},
 		},
 	}
 	ctx := opencypher.NewEvalContext(lpg.NewGraph())
 	ValuesetLookupFunc = func(ctx *ls.Context, vsreq ls.ValuesetLookupRequest) (ls.ValuesetLookupResponse, error) {
-		return ls.ValuesetLookupResponse{KeyValues: vsreq.KeyValues}, nil
-	}
-	v, err := opencypher.ParseAndEvaluate(`return lookupValueset({tableId: "someTableId", param1: "x1", param2: "x2"})`, ctx)
-	if err != nil {
-		t.Error(err)
+		return ls.ValuesetLookupResponse{KeyValues: map[string]string{"test1": "t1", "test2": "t2", "test3": "t3"}}, nil
 	}
 	for _, tt := range vsTests {
 		v, err := opencypher.ParseAndEvaluate(tt.query, ctx)
@@ -88,5 +119,4 @@ func TestValuesetLookup(t *testing.T) {
 			t.Errorf("Got valueset: %v, expected valueset: %v", rGetter(v), tt.expected)
 		}
 	}
-	fmt.Println(v)
 }

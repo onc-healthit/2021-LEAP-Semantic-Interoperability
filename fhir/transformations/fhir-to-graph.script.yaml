@@ -57,7 +57,7 @@ reshapeNodes:
 
   "https://dartnet.info/graphModel/Observation/source":
     evaluate: >-
-      match (observation)-[]->
+      match (observation)-[*]->
            (v {`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Observation/code/coding/*"})
            return v as observationCode
     valueExpr:
@@ -71,7 +71,7 @@ reshapeNodes:
       - return observationCode.code
   "https://dartnet.info/graphModel/Observation/source/text":
     valueExpr:
-      - return observationCode.text
+      - return observationCode.display
       
   "https://dartnet.info/graphModel/Person/id":
     source: "https://hl7.org/fhir/Patient/id"
@@ -83,7 +83,7 @@ reshapeNodes:
 
   "https://dartnet.info/graphModel/Observation/date":
     source: "https://hl7.org/fhir/Observation/effectiveDateTime"
-  "https://dartnet.info/graphModel/Observation/measuredValue/source/value":
+  "https://dartnet.info/graphModel/Observation/measuredValue/source/text":
     source: "https://hl7.org/fhir/Observation/valueQuantity/value"
   "https://dartnet.info/graphModel/Observation/measuredValue/source/unit":
     source: "https://hl7.org/fhir/Observation/valueQuantity/unit"

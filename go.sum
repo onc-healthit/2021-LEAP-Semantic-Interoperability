@@ -111,8 +111,8 @@ github.com/cilium/ebpf v0.2.0/go.mod h1:To2CFviqOWL/M0gIMsvSMlqe7em/l1ALkX1PyjrX
 github.com/cilium/ebpf v0.4.0/go.mod h1:4tRaxcgiL706VnOzHOdBlY8IEAIdxINsQBcU4xJJXRs=
 github.com/cilium/ebpf v0.6.2/go.mod h1:4tRaxcgiL706VnOzHOdBlY8IEAIdxINsQBcU4xJJXRs=
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
-github.com/cloudprivacylabs/lpg v1.0.10 h1:QF849RJGz4RyFvrLEutjXVNwaefnnLMtImMVeq3qlO0=
-github.com/cloudprivacylabs/lpg v1.0.10/go.mod h1:3bLpI1OIk3h/ZVfGhq3sdULexmVbd7qANVhVSYbvCe8=
+github.com/cloudprivacylabs/lpg v1.0.11 h1:GPiMwoOLgJEuQ71P+CAeL77uL4ooEGX/xFL5F6NS0s0=
+github.com/cloudprivacylabs/lpg v1.0.11/go.mod h1:3bLpI1OIk3h/ZVfGhq3sdULexmVbd7qANVhVSYbvCe8=
 github.com/cloudprivacylabs/lsa v1.0.0-beta-18 h1:kj5KtS1SMg1ZcXdLt9YhSEwXT+RgRnu5GCfRdVGDTbU=
 github.com/cloudprivacylabs/lsa v1.0.0-beta-18/go.mod h1:BsrApuFrleLwwx5wr2cT7FbkIbfckemQDta1GOCErqg=
 github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221117171535-05fcb88a3afa h1:9dcWLpHDrIoa2a9MmsG3p3Rk+qUyMUCLKYiGoKQbjcU=
