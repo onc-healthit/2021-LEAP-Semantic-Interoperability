@@ -21,7 +21,7 @@
 - operation: reshape
   params:
     bundle:
-      - ../graphmodel/graphmodel.bundle.yaml
+      - graphmodel.bundle.yaml
     type: https://dartnet.info/graphModel/Person
     scriptFile: transformations/fhir-to-graph.script.yaml
 
