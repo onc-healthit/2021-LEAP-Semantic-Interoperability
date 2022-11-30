@@ -39,4 +39,13 @@
       - omop
     
 - operation: writeGraph
+# - operation: neo4j/merge
+#   params:
+#     db: ${db}
+#     batchSize: 100
+#     user: ${user}
+#     pwd: ${pwd}
+#     uri: ${uri}
+#     cfg: lsaneo.config.yaml
+#     cacheBy: https://dartnet.info/graphModel/Person
   

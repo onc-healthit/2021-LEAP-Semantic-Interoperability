@@ -4,3 +4,6 @@ variants:
   https://dartnet.info/graphModel/Observation:
     overlays:
       - schema: observation.ovl.json
+  https://dartnet.info/graphModel/Procedure:
+    overlays:
+      - schema: procedure.ovl.json

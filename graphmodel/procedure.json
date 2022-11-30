@@ -42,7 +42,7 @@
             "https://dartnet.info/graphModel/Procedure/omop": {
                 "@type": "Array",
                 "arrayElements": {
-                    "@id": "https://dartnet.info/graphmodel/Procedure/omop/items",
+                    "@id": "https://dartnet.info/graphModel/Procedure/omop/items",
                     "@type": ["Reference","Code","ProcedureCode"],
                     "ref": "https://ohdsi.org/omop/concept"
                 }
