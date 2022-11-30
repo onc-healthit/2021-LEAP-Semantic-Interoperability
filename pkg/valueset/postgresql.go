@@ -1,17 +1,24 @@
-package pkg
+package valueset
 
 import (
-	"io/ioutil"
+	"database/sql"
 	"net/url"
-
-	"gopkg.in/yaml.v2"
 )
 
-const hostName = "localhost"
-const serverPort = 8011
-
 type Config struct {
-	Valuesets []Valueset `yaml:"valuesets"`
+	Databases []struct {
+		Database `json:"database" yaml:"database"`
+	} `json:"databases" yaml:"databases"`
+}
+
+type Database struct {
+	Driver       *sql.DB
+	Adapter      string     `json:"adapter" yaml:"adapter"`
+	DatabaseName string     `json:"db" yaml:"db"`
+	User         string     `json:"user" yaml:"user"`
+	Pwd          string     `json:"pwd" yaml:"pwd"`
+	URI          string     `json:"uri" yaml:"uri"`
+	Valuesets    []Valueset `json:"valuesets" yaml:"valuesets"`
 }
 
 type Valueset struct {
@@ -20,32 +27,35 @@ type Valueset struct {
 }
 
 type Query struct {
-	Query   string   `yaml:"query"`
-	Columns []string `yaml:"columns"`
+	Query string `yaml:"query"`
 }
 
-func parseYAML() ([]string, []string, error) {
-	var cfg Config
-	data, err := ioutil.ReadFile("../testdata/cfg/queries.yaml")
+func (cfg Config) Close() {
+	for _, db := range cfg.Databases {
+		db.Database.Driver.Close()
+	}
+}
+
+func (cfg Config) GetConnection(vs Valueset, datab *Database) error {
+	db, err := openDB(cfg)
 	if err != nil {
-		return nil, nil, err
+		return err
 	}
-	if err := yaml.Unmarshal(data, &cfg); err != nil {
-		return nil, nil, err
-	}
-	queries := make([]string, 0)
-	columns := make([]string, 0)
-	vs_list := cfg.Valuesets
-	for _, doc := range vs_list {
-		for _, qry := range doc.Queries {
-			queries = append(queries, qry.Query)
-			columns = append(columns, qry.Columns...)
-		}
-	}
-	return queries, columns, nil
+	datab.Driver = db
+	return nil
 }
 
-func process(addr string) (map[string]string, error) {
+// openDB returns a connection pool
+func openDB(cfg Config) (*sql.DB, error) {
+	db, err := sql.Open(cfg.Databases[0].Adapter, cfg.Databases[0].URI)
+	// db.SetMaxOpenConns(1)
+	if err != nil {
+		return nil, err
+	}
+	return db, nil
+}
+
+func Process(addr string) (map[string]string, error) {
 	urlQuery, err := url.Parse(addr)
 	if err != nil {
 		return nil, err

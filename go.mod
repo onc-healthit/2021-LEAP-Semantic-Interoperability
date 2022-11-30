@@ -2,9 +2,9 @@ module github.com/cloudprivacylabs/leap
 
 go 1.19
 
-//replace github.com/cloudprivacylabs/lsa => ../lsa
+replace github.com/cloudprivacylabs/lsa => /Users/jasoncruz/lsa
 
-//replace github.com/cloudprivacylabs/lsa-neo4j => ../lsa-neo4j
+replace github.com/cloudprivacylabs/lsa-neo4j => /Users/jasoncruz/lsa-neo4j
 
 require (
 	github.com/cloudprivacylabs/lpg v1.0.11
@@ -58,6 +58,7 @@ require (
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
 	github.com/jackc/pgx/v5 v5.1.1
+	github.com/julienschmidt/httprouter v1.3.0
 	github.com/magiconair/properties v1.8.5 // indirect
 	github.com/mitchellh/go-homedir v1.1.0 // indirect
 	github.com/mohae/deepcopy v0.0.0-20170929034955-c48cc78d4826 // indirect

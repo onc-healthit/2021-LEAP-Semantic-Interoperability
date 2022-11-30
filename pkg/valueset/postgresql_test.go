@@ -1,4 +1,4 @@
-package pkg
+package valueset
 
 import (
 	"fmt"
@@ -6,13 +6,14 @@ import (
 )
 
 func TestPsql(t *testing.T) {
-	queries, columns, err := parseYAML()
+	cfg, err := parseYAML("../testdata/cfg/queries.yaml")
 	if err != nil {
 		fmt.Println(err)
 	}
-	qP, err := process("http://example.com/?concept_id=45756798&concept_name=Microbiology")
+	_, err = process("http://example.com/?concept_id=45756798&concept_name=Microbiology")
 	if err != nil {
 		fmt.Println(err)
 	}
-	fmt.Println(getResults(queries, columns, qP))
+	// fmt.Println(getResults(queries, columns, qP))
+	fmt.Println(cfg)
 }
