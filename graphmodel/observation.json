@@ -14,13 +14,13 @@
         "attributes": {
             "https://dartnet.info/graphModel/Observation/id": {
                 "@type": "Value",
-                "ingestAs": "property"
+                "ingestAs": "property",
+                "attributeName": "id"
             },
             "https://dartnet.info/graphModel/Observation/date": {
                 "@type": "Value",
-                "valueType": "ls:date",
-                "ingestAs": "property",
-                "attributeName": "date"
+                "attributeName": "date",
+                "valueType": "ls:date"
             },
             "https://dartnet.info/graphModel/Observation/type": {
                 "@type": "Value",

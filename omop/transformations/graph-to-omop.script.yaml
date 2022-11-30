@@ -5,7 +5,72 @@ reshapeNodes:
 
     mapContext: >-
       return Person
-  
+
+  "https://ohdsi.org/omop/PERSON/person_id":
+    valueExpr: return Person.`https://dartnet.info/graphModel/Person/id`
+  "https://ohdsi.org/omop/PERSON/gender_concept_id":
+  "https://ohdsi.org/omop/PERSON/year_of_birth":
+    source: https://dartnet.info/graphModel/Person/birthDate 
+  "https://ohdsi.org/omop/PERSON/month_of_birth":
+    source: https://dartnet.info/graphModel/Person/birthDate 
+  "https://ohdsi.org/omop/PERSON/day_of_birth":
+    source: https://dartnet.info/graphModel/Person/birthDate 
+  "https://ohdsi.org/omop/PERSON/birth_datetime":
+    source: https://dartnet.info/graphModel/Person/birthDate 
+  "https://ohdsi.org/omop/PERSON/death_datetime":
+    source: https://dartnet.info/graphModel/Person/deathDate 
+  "https://ohdsi.org/omop/PERSON/race_concept_id":
+  "https://ohdsi.org/omop/PERSON/ethnicity_concept_id":
+  "https://ohdsi.org/omop/PERSON/location_id":
+    source: https://dartnet.info/graphModel/Person/locationId 
+  "https://ohdsi.org/omop/PERSON/gender_source_value":
+    source: https://dartnet.info/graphModel/Person/gender/source/text
+  "https://ohdsi.org/omop/PERSON/race_source_value":
+    source: https://dartnet.info/graphModel/Person/race/source/text
+  "https://ohdsi.org/omop/PERSON/ethnicity_source_value":
+    source: https://dartnet.info/graphModel/Person/ethnicity/source/text
+    
+
+      
+      
+  "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE":
+    valueExpr: >-
+      match (n:`https://dartnet.info/graphModel/Procedure`) return n as Procedure
+    mapContext: >-
+      return Procedure
+
+  "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE/person_id":
+    valueExpr: >-
+      match (n:`https://dartnet.info/graphModel/Person`) return n.`https://lschema.org/entityId`
+
+  "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE/procedure_occurrence_id":
+    valueExpr: return Procedure.id
+    
+  "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE/procedure_concept_id":
+    valueExpr: match (Procedure)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel/Procedure/omop/items"}) return n.id
+    
+  "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE/procedure_date":
+    source: https://dartnet.info/graphModel/Procedure/date
+  "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE/procedure_datetime":
+    source: https://dartnet.info/graphModel/Procedure/date
+  "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE/procedure_type_concept_id":
+  "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE/modifier_concept_id":
+  "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE/quantity":
+    valueExpr: return Procedure.quantity
+  "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE/provider_id":
+  "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE/visit_occurrence_id":
+  "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE/visit_detail_id":
+  "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE/procedure_source_value":
+    valueExpr: match (Procedure)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel/Procedure/source"}) return n.text
+  "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE/procedure_source_concept_id":
+  "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE/modifier_source_value":
+    valueExpr: return Procedure.modifier
+
+      
+
+
+
+      
   "https://ohdsi.org/omop/CONDITION_OCCURRENCE":
     valueExpr: >-
       match (n:`https://dartnet.info/graphModel/Condition`) return n as Condition
@@ -17,6 +82,10 @@ reshapeNodes:
     valueExpr: >-
       match (n:`https://dartnet.info/graphModel/Person`) return n.`https://lschema.org/entityId`
 
+
+
+
+      
   "https://ohdsi.org/omop/MEASUREMENT":
     valueExpr: >-
       match (n:`https://dartnet.info/graphModel/Measurement`) return n as Measurement
@@ -28,6 +97,8 @@ reshapeNodes:
     valueExpr: >-
       match (n:`https://dartnet.info/graphModel/Person`) return n.`https://lschema.org/entityId`
 
+
+      
   "https://ohdsi.org/omop/OBSERVATION":
     valueExpr: >-
       match (n:`https://dartnet.info/graphModel/Observation`) return n as Observation
@@ -40,94 +111,65 @@ reshapeNodes:
       match (n:`https://dartnet.info/graphModel/Person`) return n.`https://lschema.org/entityId`
       
       
-map:
-  - target: https://ohdsi.org/omop/PERSON/person_id
-    source: https://dartnet.info/graphModel/Person/id
-  - target: https://ohdsi.org/omop/PERSON/gender_concept_id
-    source: https://dartnet.info/graphModel/Person/gender/normalizedValue 
-  - target: https://ohdsi.org/omop/PERSON/year_of_birth
-    source: https://dartnet.info/graphModel/Person/birthDate 
-  - target: https://ohdsi.org/omop/PERSON/month_of_birth
-    source: https://dartnet.info/graphModel/Person/birthDate 
-  - target: https://ohdsi.org/omop/PERSON/day_of_birth
-    source: https://dartnet.info/graphModel/Person/birthDate 
-  - target: https://ohdsi.org/omop/PERSON/birth_datetime
-    source: https://dartnet.info/graphModel/Person/birthDate 
-  - target: https://ohdsi.org/omop/PERSON/death_datetime
-    source: https://dartnet.info/graphModel/Person/deathDate 
-  - target: https://ohdsi.org/omop/PERSON/race_concept_id
-    source: https://dartnet.info/graphModel/Person/race/normalizedValue
-  - target: https://ohdsi.org/omop/PERSON/ethnicity_concept_id
-    source: https://dartnet.info/graphModel/Person/ethnicity/normalizedValue
-  - target: https://ohdsi.org/omop/PERSON/location_id
-    source: https://dartnet.info/graphModel/Person/locationId 
-  - target: https://ohdsi.org/omop/PERSON/gender_source_value
-    source: https://dartnet.info/graphModel/Person/gender/sourceValue
-  - target: https://ohdsi.org/omop/PERSON/race_source_value
-    source: https://dartnet.info/graphModel/Person/race/sourceValue
-  - target: https://ohdsi.org/omop/PERSON/ethnicity_source_value
-    source: https://dartnet.info/graphModel/Person/ethnicity/sourceValue
-  - target: https://ohdsi.org/omop/PERSON/ethnicity_source_concept_id
 
-  - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_concept_id
-    source: https://dartnet.info/graphModel/Condition/normalizedCode
-  - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_start_date
-    source: https://dartnet.info/graphModel/Condition/start
-  - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_start_datetime
-    source: https://dartnet.info/graphModel/Condition/start
-  - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_end_date
-    source: https://dartnet.info/graphModel/Condition/end
-  - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_end_datetime
-    source: https://dartnet.info/graphModel/Condition/end
-  - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_type_concept_id
-    source: https://dartnet.info/graphModel/Condition/type
-  - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_source_value
-    source: https://dartnet.info/graphModel/Condition/code
-  - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_status_source_value
-    source: https://dartnet.info/graphModel/Condition/status
+  "https://ohdsi.org/omop/OBSERVATION/observation_id":
+    valueExpr: return Observation.id
+  "https://ohdsi.org/omop/OBSERVATION/observation_concept_id":
+    valueExpr: match (Observation)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel/Observation/omop/items"}) return n.id
+  "https://ohdsi.org/omop/OBSERVATION/observation_date":
+    source: https://dartnet.info/graphModel/Observation/date
+  "https://ohdsi.org/omop/OBSERVATION/observation_datetime":
+    source: https://dartnet.info/graphModel/Observation/date
+  "https://ohdsi.org/omop/OBSERVATION/value_as_number":
+    source: https://dartnet.info/graphModel/Observation/measuredValue/source/text
+  "https://ohdsi.org/omop/OBSERVATION/value_as_string":
+    source: https://dartnet.info/graphModel/Observation/measuredValue/source/text
+  "https://ohdsi.org/omop/OBSERVATION/value_as_concept_id":
+    valueExpr: match (Observation)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel.Observation/codedValue/omop/items"}) return n.id
+  "https://ohdsi.org/omop/OBSERVATION/qualifier_concept_id":
+  "https://ohdsi.org/omop/OBSERVATION/unit_concept_id":
+  "https://ohdsi.org/omop/OBSERVATION/observation_source_value":
+    valueExpr: match (Observation)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel/Observation/source"}) return n.text
+  "https://ohdsi.org/omop/OBSERVATION/observation_source_concept_id":
+  "https://ohdsi.org/omop/OBSERVATION/qualifier_source_value":
+    valueExpr: return Observation.type
 
-  - target: https://ohdsi.org/omop/MEASUREMENT/measurement_concept_id
-    source: https://dartnet.info/graphModel/Measurement/normalizedCode
-  - target: https://ohdsi.org/omop/MEASUREMENT/measurement_date
-    source: https://dartnet.info/graphModel/Measurement/date    
-  - target: https://ohdsi.org/omop/MEASUREMENT/measurement_datetime
-    source: https://dartnet.info/graphModel/Measurement/date
-  - target: https://ohdsi.org/omop/MEASUREMENT/measurement_time
-    source: https://dartnet.info/graphModel/Measurement/date
-  - target: https://ohdsi.org/omop/MEASUREMENT/value_as_number
-    source: https://dartnet.info/graphModel/Measurement/value
-  - target: https://ohdsi.org/omop/MEASUREMENT/range_low
-    source: https://dartnet.info/graphModel/Measurement/rangeLow
-  - target: https://ohdsi.org/omop/MEASUREMENT/range_high
-    source: https://dartnet.info/graphModel/Measurement/rangeHigh
-  - target: https://ohdsi.org/omop/MEASUREMENT/measurement_source_value
-    source: https://dartnet.info/graphModel/Measurement/value
-  - target: https://ohdsi.org/omop/MEASUREMENT/unit_source_value
-    source: https://dartnet.info/graphModel/Measurement/value
-  - target: https://ohdsi.org/omop/MEASUREMENT/value_source_value
-    source: https://dartnet.info/graphModel/Measurement/value
+      
+  # - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_concept_id
+  #   source: https://dartnet.info/graphModel/Condition/normalizedCode
+  # - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_start_date
+  #   source: https://dartnet.info/graphModel/Condition/start
+  # - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_start_datetime
+  #   source: https://dartnet.info/graphModel/Condition/start
+  # - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_end_date
+  #   source: https://dartnet.info/graphModel/Condition/end
+  # - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_end_datetime
+  #   source: https://dartnet.info/graphModel/Condition/end
+  # - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_type_concept_id
+  #   source: https://dartnet.info/graphModel/Condition/type
+  # - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_source_value
+  #   source: https://dartnet.info/graphModel/Condition/code
+  # - target: https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_status_source_value
+  #   source: https://dartnet.info/graphModel/Condition/status
+
+  # - target: https://ohdsi.org/omop/MEASUREMENT/measurement_concept_id
+  #   source: https://dartnet.info/graphModel/Measurement/normalizedCode
+  # - target: https://ohdsi.org/omop/MEASUREMENT/measurement_date
+  #   source: https://dartnet.info/graphModel/Measurement/date    
+  # - target: https://ohdsi.org/omop/MEASUREMENT/measurement_datetime
+  #   source: https://dartnet.info/graphModel/Measurement/date
+  # - target: https://ohdsi.org/omop/MEASUREMENT/measurement_time
+  #   source: https://dartnet.info/graphModel/Measurement/date
+  # - target: https://ohdsi.org/omop/MEASUREMENT/value_as_number
+  #   source: https://dartnet.info/graphModel/Measurement/value
+  # - target: https://ohdsi.org/omop/MEASUREMENT/range_low
+  #   source: https://dartnet.info/graphModel/Measurement/rangeLow
+  # - target: https://ohdsi.org/omop/MEASUREMENT/range_high
+  #   source: https://dartnet.info/graphModel/Measurement/rangeHigh
+  # - target: https://ohdsi.org/omop/MEASUREMENT/measurement_source_value
+  #   source: https://dartnet.info/graphModel/Measurement/value
+  # - target: https://ohdsi.org/omop/MEASUREMENT/unit_source_value
+  #   source: https://dartnet.info/graphModel/Measurement/value
+  # - target: https://ohdsi.org/omop/MEASUREMENT/value_source_value
+  #   source: https://dartnet.info/graphModel/Measurement/value
  
-  - target: https://ohdsi.org/omop/OBSERVATION/observation_id
-    source: https://dartnet.info/graphModel/Observation/id
-  - target: https://ohdsi.org/omop/OBSERVATION/observation_concept_id
-    source: https://dartnet.info/graphModel/Observation/omop/code
-  - target: https://ohdsi.org/omop/OBSERVATION/observation_date
-    source: https://dartnet.info/graphModel/Observation/date
-  - target: https://ohdsi.org/omop/OBSERVATION/observation_datetime
-    source: https://dartnet.info/graphModel/Observation/date
-  - target: https://ohdsi.org/omop/OBSERVATION/value_as_number
-    source: https://dartnet.info/graphModel/Observation/measuredValue/source/value
-  - target: https://ohdsi.org/omop/OBSERVATION/value_as_string
-    source: https://dartnet.info/graphModel/Observation/measuredValue/source/value
-  - target: https://ohdsi.org/omop/OBSERVATION/value_as_concept_id
-    source: https://dartnet.info/graphModel/Observation/codedValue/omop/code
-  - target: https://ohdsi.org/omop/OBSERVATION/qualifier_concept_id
-    source: https://dartnet.info/graphModel/Observation/qualifier
-  - target: https://ohdsi.org/omop/OBSERVATION/unit_concept_id
-    source: https://dartnet.info/graphModel/Observation/measuredValue/source/unit
-  - target: https://ohdsi.org/omop/OBSERVATION/observation_source_value
-    source: https://dartnet.info/graphModel/Observation/source/text
-  - target: https://ohdsi.org/omop/OBSERVATION/observation_source_concept_id
-    source: https://dartnet.info/graphModel/Observation/source/code
-  - target: https://ohdsi.org/omop/OBSERVATION/qualifier_source_value
-    source: https://dartnet.info/graphModel/Observation/type
