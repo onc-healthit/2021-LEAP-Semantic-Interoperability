@@ -6,6 +6,7 @@ import (
 	"fmt"
 
 	"github.com/cloudprivacylabs/leap/pkg/valueset"
+	"github.com/cloudprivacylabs/leap/pkg/valueset/utils"
 	"github.com/jackc/pgx/v5"
 	"github.com/mitchellh/mapstructure"
 )
@@ -22,12 +23,8 @@ func (pgx *PostgesqlDataStore) ValueSetLookup(tableId string, queryParams map[st
 	return pgx.getResults(context.Background(), queryParams, tableId)
 }
 
-func (pgx PostgesqlDataStore) GetTableIds() []string {
-	tableIds := make([]string, 0)
-	for _, vs := range pgx.Valuesets {
-		tableIds = append(tableIds, vs.TableId)
-	}
-	return tableIds
+func (pgx *PostgesqlDataStore) GetTableIds() map[string]struct{} {
+	return pgx.tableIds
 }
 
 func (pgx *PostgesqlDataStore) Close() error {
@@ -39,25 +36,22 @@ func NewPostgresqlDataStore(value interface{}, env map[string]string) (valueset.
 	if err := mapstructure.Decode(value, psqlDs); err != nil {
 		return psqlDs, err
 	}
-	for k, v := range env {
-		switch k {
-		case "driver":
-			psqlDs.Adapter = v
-		case "uri":
-			psqlDs.URI = v
-		}
+	psqlDs.tableIds = make(map[string]struct{})
+	for _, vs := range psqlDs.Valuesets {
+		psqlDs.tableIds[vs.TableId] = struct{}{}
 	}
+	psqlDs.URI = utils.ExpandVariables("${uri}", env)
 	return psqlDs, nil
 }
 
 type Database struct {
 	DB           *sql.DB
-	Adapter      string     `json:"adapter" yaml:"adapter"`
 	DatabaseName string     `json:"db" yaml:"db"`
 	User         string     `json:"user" yaml:"user"`
 	Pwd          string     `json:"pwd" yaml:"pwd"`
 	URI          string     `json:"uri" yaml:"uri"`
 	Valuesets    []Valueset `json:"valuesets" yaml:"valuesets"`
+	tableIds     map[string]struct{}
 }
 
 type Valueset struct {
@@ -84,7 +78,7 @@ func (db *Database) setConnection() error {
 
 // openDB returns a connection pool
 func openDB(db *Database) (*sql.DB, error) {
-	conn, err := sql.Open(db.Adapter, db.URI)
+	conn, err := sql.Open("pgx", db.URI)
 	// conn.SetMaxOpenConns(db.maxOpenConns)
 	if err != nil {
 		return nil, err
@@ -131,7 +125,10 @@ func (db *Database) getResults(ctx context.Context, queryParams map[string]strin
 						return nil, err
 					}
 					if rows.Next() {
-						return nil, valueset.ErrMultipleRows(tableID)
+						return nil, valueset.ErrMultipleValues(valueset.ErrMultipleValues{
+							TableId: tableID,
+							Query:   query.Query,
+						})
 					}
 					// dereference values
 					// m := make(map[string]interface{})

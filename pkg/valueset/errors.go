@@ -2,8 +2,11 @@ package valueset
 
 import "fmt"
 
-type ErrMultipleRows string
+type ErrMultipleValues struct {
+	Query   string
+	TableId string
+}
 
-func (e ErrMultipleRows) Error() string {
-	return fmt.Sprintf("more than 1 row returned: %s", string(e))
+func (e ErrMultipleValues) Error() string {
+	return fmt.Sprintf("Multiple values returned for lookup: %s, query: %s", string(e.TableId), e.Query)
 }

@@ -10,7 +10,7 @@ type Config struct {
 
 type ValuesetDB interface {
 	ValueSetLookup(string, map[string]string) (map[string]string, error)
-	GetTableIds() []string
+	GetTableIds() map[string]struct{}
 	Close() error
 }
 
@@ -24,13 +24,11 @@ type unmarshalConfig struct {
 	Databases map[string]interface{} `json:"databases" yaml:"databases"`
 }
 
-func (uc *unmarshalConfig) UnmarshalConfig(filename string, env map[string]string) (Config, error) {
+func UnmarshalConfig(yamlMap map[string][]interface{}, env map[string]string) (Config, error) {
 	vsDbs := make([]ValuesetDB, 0)
-	for _, rec := range uc.Databases {
-		m := cmdutil.YAMLToMap(rec)
-		x := m.([]interface{})
-		for ix := range x {
-			for _, vals := range x[ix].(map[string]interface{}) {
+	for _, rec := range yamlMap {
+		for _, mp := range rec {
+			for _, vals := range mp.(map[string]interface{}) {
 				for key := range vals.(map[string]interface{}) {
 					if fn, ok := valuesetFactory[key]; ok {
 						vsdb, err := fn(vals, env)
@@ -52,5 +50,10 @@ func LoadConfig(filename string, env map[string]string) (Config, error) {
 	if err := cmdutil.ReadJSONOrYAML(filename, &uc.Databases); err != nil {
 		return Config{}, err
 	}
-	return uc.UnmarshalConfig(filename, env)
+	ymlMap := make(map[string][]interface{}, 0)
+	for key, rec := range uc.Databases {
+		m := cmdutil.YAMLToMap(rec)
+		ymlMap[key] = m.([]interface{})
+	}
+	return UnmarshalConfig(ymlMap, env)
 }
