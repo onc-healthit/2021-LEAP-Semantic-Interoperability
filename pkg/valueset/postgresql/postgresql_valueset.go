@@ -41,6 +41,8 @@ func NewPostgresqlDataStore(value interface{}, env map[string]string) (valueset.
 		psqlDs.tableIds[vs.TableId] = struct{}{}
 	}
 	psqlDs.URI = utils.ExpandVariables("${uri}", env)
+	psqlDs.User = utils.ExpandVariables("${user}", env)
+	psqlDs.Pwd = utils.ExpandVariables("${pwd}", env)
 	return psqlDs, nil
 }
 
