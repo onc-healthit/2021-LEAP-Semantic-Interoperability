@@ -9,10 +9,10 @@ require (
 	github.com/cloudprivacylabs/opencypher v1.0.0-beta-9
 	github.com/drone/envsubst v1.0.3
 	github.com/joho/godotenv v1.4.0
+	github.com/mitchellh/mapstructure v1.5.0
 	github.com/neo4j/neo4j-go-driver v1.8.3
 	github.com/neo4j/neo4j-go-driver/v4 v4.3.3
 	github.com/spf13/cobra v1.5.0
-	gopkg.in/yaml.v2 v2.4.0
 )
 
 require (
@@ -44,6 +44,7 @@ require (
 	github.com/rogpeppe/go-internal v1.6.1 // indirect
 	github.com/sirupsen/logrus v1.8.1 // indirect
 	github.com/testcontainers/testcontainers-go v0.13.0 // indirect
+	gopkg.in/yaml.v2 v2.4.0 // indirect
 )
 
 require (

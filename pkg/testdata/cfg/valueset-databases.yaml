@@ -1,6 +1,6 @@
 databases:
   - database:
-      adapter: pgx
+      pgx:
       params:
         user: ${user}
         pwd: ${password}
