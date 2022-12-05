@@ -1,12 +1,12 @@
-package postgresql
+package pgx
 
 import (
 	"context"
 	"database/sql"
 	"fmt"
 
-	"github.com/cloudprivacylabs/leap/pkg/valueset"
-	"github.com/cloudprivacylabs/leap/pkg/valueset/utils"
+	"github.com/cloudprivacylabs/leap/pkg/utils"
+	"github.com/cloudprivacylabs/lsa/layers/cmd/valueset"
 	"github.com/jackc/pgx/v5"
 	"github.com/mitchellh/mapstructure"
 )
@@ -19,7 +19,7 @@ type PostgesqlDataStore struct {
 	Database `mapstructure:",squash"`
 }
 
-func (pgx *PostgesqlDataStore) ValueSetLookup(tableId string, queryParams map[string]string) (map[string]string, error) {
+func (pgx *PostgesqlDataStore) ValueSetLookup(ctx context.Context, tableId string, queryParams map[string]string) (map[string]string, error) {
 	return pgx.getResults(context.Background(), queryParams, tableId)
 }
 
@@ -41,7 +41,7 @@ func NewPostgresqlDataStore(value interface{}, env map[string]string) (valueset.
 		psqlDs.tableIds[vs.TableId] = struct{}{}
 	}
 	psqlDs.URI = utils.ExpandVariables("${uri}", env)
-	psqlDs.User = utils.ExpandVariables("${user}", env)
+	psqlDs.User = utils.ExpandVariables("${pgx_user}", env)
 	psqlDs.Pwd = utils.ExpandVariables("${pwd}", env)
 	return psqlDs, nil
 }
@@ -129,7 +129,7 @@ func (db *Database) getResults(ctx context.Context, queryParams map[string]strin
 					if rows.Next() {
 						return nil, valueset.ErrMultipleValues(valueset.ErrMultipleValues{
 							TableId: tableID,
-							Query:   query.Query,
+							Query:   map[string]string{"query": query.Query},
 						})
 					}
 					// dereference values
