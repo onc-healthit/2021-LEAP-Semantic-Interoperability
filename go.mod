@@ -4,7 +4,7 @@ go 1.19
 
 require (
 	github.com/cloudprivacylabs/lpg v1.0.11
-	github.com/cloudprivacylabs/lsa v1.0.0-beta-18
+	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20221129192139-d24fdb1b2b9f
 	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221117171535-05fcb88a3afa
 	github.com/cloudprivacylabs/opencypher v1.0.0-beta-9
 	github.com/drone/envsubst v1.0.3
