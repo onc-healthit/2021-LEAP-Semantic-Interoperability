@@ -4,6 +4,7 @@ import (
 	"context"
 	"database/sql"
 	"fmt"
+	"sync"
 
 	"github.com/cloudprivacylabs/leap/pkg/utils"
 	"github.com/cloudprivacylabs/lsa/layers/cmd/valueset"
@@ -65,27 +66,21 @@ type Query struct {
 	Query string `yaml:"query"`
 }
 
-// setConnection sets the database connection at most once
-func (db *Database) setConnection() error {
-	conn, err := openDB(db)
-	if err != nil {
-		return err
-	}
+// getConnection sets the database connection at most once and returns the DB connection pool
+func (db *Database) getConnection() *sql.DB {
 	// set the db connection only once
-	if db.DB == nil {
+	setOnce := new(sync.Once)
+	setOnce.Do(func() {
+		conn, err := sql.Open("pgx", db.URI)
+		if err != nil {
+			panic(fmt.Sprintf("cannot open database with adapter pgx, URI %s", db.URI))
+		}
 		db.DB = conn
+	})
+	if db.DB == nil {
+		panic("missing database connection")
 	}
-	return nil
-}
-
-// openDB returns a connection pool
-func openDB(db *Database) (*sql.DB, error) {
-	conn, err := sql.Open("pgx", db.URI)
-	// conn.SetMaxOpenConns(db.maxOpenConns)
-	if err != nil {
-		return nil, err
-	}
-	return conn, nil
+	return db.DB
 }
 
 // close closes the database connection pool
@@ -94,13 +89,11 @@ func (db *Database) close() error {
 }
 
 func (db *Database) getResults(ctx context.Context, queryParams map[string]string, tableID string) (map[string]string, error) {
+	db.DB = db.getConnection()
 	ret := make(map[string]string)
 	for _, vs := range db.Valuesets {
 		if vs.TableId != tableID {
 			continue
-		}
-		if err := db.setConnection(); err != nil {
-			return nil, err
 		}
 		for _, query := range vs.Queries {
 			for key, qPval := range queryParams {
