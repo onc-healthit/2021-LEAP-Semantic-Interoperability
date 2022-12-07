@@ -10,12 +10,9 @@ databases:
         - tableId: gender
           queries:
             - query: "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_code=@concept_code;"
-              columns: 
-                    - concept_id
-                    - concept_name
-            - query: "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_name=@concept_code;"
+            - query: "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_name=@concept_name;"
         - tableId: snomed
           queries:
-            - query: "select concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,concept_code from concepts where vocabulary_id='SNOMED' and concept_code=@code and valid_end_date='20991231';"
+            - query: "select concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,concept_code from concepts where vocabulary_id='SNOMED' and concept_code=@(code) and valid_end_date='20991231';"
               
   

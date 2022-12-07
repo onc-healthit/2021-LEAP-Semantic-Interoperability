@@ -9,6 +9,7 @@ import (
 	"github.com/cloudprivacylabs/leap/pkg/utils"
 	"github.com/cloudprivacylabs/lsa/layers/cmd/valueset"
 	"github.com/jackc/pgx/v5"
+	_ "github.com/jackc/pgx/v5/stdlib"
 	"github.com/mitchellh/mapstructure"
 )
 
@@ -41,7 +42,8 @@ func NewPostgresqlDataStore(value interface{}, env map[string]string) (valueset.
 	for _, vs := range psqlDs.Valuesets {
 		psqlDs.tableIds[vs.TableId] = struct{}{}
 	}
-	psqlDs.URI = utils.ExpandVariables("${uri}", env)
+	// psqlDs.URI = utils.ExpandVariables("${uri}", env)
+	psqlDs.URI = "postgres://postgres@0.0.0.0:5433"
 	psqlDs.User = utils.ExpandVariables("${pgx_user}", env)
 	psqlDs.Pwd = utils.ExpandVariables("${pwd}", env)
 	return psqlDs, nil
@@ -88,6 +90,14 @@ func (db *Database) close() error {
 	return db.DB.Close()
 }
 
+// // Returns s quoted as a string literal, in single-quotes. Any
+// // single-quotes are escaped with \', and \ are escaped with \\
+// func quoteStringLiteral(s string) string {
+// 	s = strings.ReplaceAll(s, `(`, `'`)
+// 	s = strings.ReplaceAll(s, `)`, `''`)
+// 	return s
+// }
+
 func (db *Database) getResults(ctx context.Context, queryParams map[string]string, tableID string) (map[string]string, error) {
 	db.DB = db.getConnection()
 	ret := make(map[string]string)
@@ -95,20 +105,23 @@ func (db *Database) getResults(ctx context.Context, queryParams map[string]strin
 		if vs.TableId != tableID {
 			continue
 		}
+		var ix int
+	NextQuery:
 		for _, query := range vs.Queries {
 			for key, qPval := range queryParams {
+				fmt.Println(ix)
+				ix++
 				rows, err := db.DB.Query(query.Query, pgx.NamedArgs{key: qPval})
 				if err != nil {
 					return nil, err
 				}
-				if !rows.Next() {
-					continue
-				}
+				// if !rows.Next() {
+				// 	continue
+				// }
 				cols, err := rows.Columns()
 				if err != nil {
 					return nil, err
 				}
-
 				for rows.Next() {
 					columns := make([]interface{}, len(cols))
 					columnPointers := make([]interface{}, len(cols))
@@ -135,6 +148,8 @@ func (db *Database) getResults(ctx context.Context, queryParams map[string]strin
 					// ret = append(ret, m)
 					// Outputs: map[columnName:value columnName2:value2 columnName3:value3 ...]
 					fmt.Println(ret)
+					delete(queryParams, key)
+					continue NextQuery
 				}
 			}
 
