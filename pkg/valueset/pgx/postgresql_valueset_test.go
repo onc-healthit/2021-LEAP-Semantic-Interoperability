@@ -2,6 +2,8 @@ package pgx
 
 import (
 	"context"
+	"database/sql"
+
 	"testing"
 
 	"github.com/DATA-DOG/go-sqlmock"
@@ -41,7 +43,7 @@ func TestGetResults(t *testing.T) {
 				TableId: "gender",
 				Queries: []Query{
 					{
-						Query: "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_code=@concept_code;",
+						Query: "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_code=$1;",
 					},
 					{
 						Query: "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_name=@concept_code;",
@@ -50,6 +52,7 @@ func TestGetResults(t *testing.T) {
 			},
 		},
 	}
+	database.once.Do(func() {})
 	defer initAndCloseDB(t, database)(t)
 	if err != nil {
 		t.Fatalf("an error '%s' was not expected when opening a stub database connection", err)
@@ -73,11 +76,22 @@ func TestGetResults(t *testing.T) {
 	// mockedRow2 := sqlmock.NewRows([]string{"concept_id", "concept_name"})
 
 	// mock.ExpectBegin()
+	q1 := "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_code=$1;"
+	q2 := "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_name=@concept_name;"
+
+	argMap := map[string][]interface{}{
+		q1: []interface{}{"OMOP4821938"},
+		q2: []interface{}{"Pathology - Molecular Genetic"},
+	}
+
+	runQuery = func(db *sql.DB, query string, args ...interface{}) (*sql.Rows, error) {
+		return db.Query(query, argMap[query]...)
+	}
 	mock.ExpectQuery(
-		"select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_code=@concept_code;",
+		q1,
 	).WithArgs("OMOP4821938")
 	mock.ExpectQuery(
-		"select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_name=@concept_name;",
+		q2,
 	).WithArgs("Pathology - Molecular Genetic")
 	// mock.ExpectCommit()
 

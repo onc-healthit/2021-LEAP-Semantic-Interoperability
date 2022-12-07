@@ -57,6 +57,7 @@ type Database struct {
 	URI          string     `json:"uri" yaml:"uri"`
 	Valuesets    []Valueset `json:"valuesets" yaml:"valuesets"`
 	tableIds     map[string]struct{}
+	once         sync.Once
 }
 
 type Valueset struct {
@@ -70,9 +71,7 @@ type Query struct {
 
 // getConnection sets the database connection at most once and returns the DB connection pool
 func (db *Database) getConnection() *sql.DB {
-	// set the db connection only once
-	setOnce := new(sync.Once)
-	setOnce.Do(func() {
+	db.once.Do(func() {
 		conn, err := sql.Open("pgx", db.URI)
 		if err != nil {
 			panic(fmt.Sprintf("cannot open database with adapter pgx, URI %s", db.URI))
@@ -89,6 +88,8 @@ func (db *Database) getConnection() *sql.DB {
 func (db *Database) close() error {
 	return db.DB.Close()
 }
+
+var runQuery = func(db *sql.DB, q string, args ...interface{}) (*sql.Rows, error) { return db.Query(q, args...) }
 
 // // Returns s quoted as a string literal, in single-quotes. Any
 // // single-quotes are escaped with \', and \ are escaped with \\
@@ -111,7 +112,7 @@ func (db *Database) getResults(ctx context.Context, queryParams map[string]strin
 			for key, qPval := range queryParams {
 				fmt.Println(ix)
 				ix++
-				rows, err := db.DB.Query(query.Query, pgx.NamedArgs{key: qPval})
+				rows, err := runQuery(db.DB, query.Query, pgx.NamedArgs{key: qPval})
 				if err != nil {
 					return nil, err
 				}
