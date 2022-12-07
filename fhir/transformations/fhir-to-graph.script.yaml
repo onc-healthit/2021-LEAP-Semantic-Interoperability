@@ -67,9 +67,10 @@ reshapeNodes:
 
   "https://dartnet.info/graphModel/Observation/source":
     evaluate: >-
-      match (observation)-[*]->
+      match (observation)-[]->
+           ({`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Observation/code"})-[*]->
            (v {`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Observation/code/coding/*"})
-           return v as observationCode
+           return v as observationCode 
     valueExpr:
       - return observationCode
 

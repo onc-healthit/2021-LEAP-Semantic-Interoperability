@@ -15,19 +15,19 @@
   params:
     bundle:
       - schemas/graphmodel-prapare.bundle.yaml
-    type: https://dartnet.info/graphModel/Observation
+    type: https://dartnet.info/graphModel/Person
     scriptFile: transformations/prapare-to-obs.script.yaml
 
-#- operation: writeGraph
+- operation: writeGraph
 
-- operation: neo4j/merge
-  params:
-    db: ${db}
-    batchSize: 100
-    user: ${user}
-    pwd: ${pwd}
-    uri: ${uri}
-    cfg: lsaneo.config.yaml
+# - operation: neo4j/merge
+#   params:
+#     db: ${db}
+#     batchSize: 100
+#     user: ${user}
+#     pwd: ${pwd}
+#     uri: ${uri}
+#     cfg: lsaneo.config.yaml
 
   
   
