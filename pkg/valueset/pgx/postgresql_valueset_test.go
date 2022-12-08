@@ -112,13 +112,13 @@ func TestEnvLoad(t *testing.T) {
 		if !ok {
 			t.Errorf("type assertion mismatch")
 		}
-		if psql.Pwd != "somePwd" {
+		if psql.Params.Pwd != "somePwd" {
 			t.Errorf("wrong field value")
 		}
-		if psql.URI != "SOME_URI" {
+		if psql.Params.URI != "SOME_URI" {
 			t.Errorf("wrong field value")
 		}
-		if psql.User != "someUser" {
+		if psql.Params.User != "someUser" {
 			t.Errorf("wrong field value")
 		}
 	}

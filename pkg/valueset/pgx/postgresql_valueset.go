@@ -49,21 +49,26 @@ func NewPostgresqlDataStore(value interface{}, env map[string]string) (valueset.
 	// for k := range env {
 	// 	x := utils.ExpandVariables(k, env)
 	// }
-	psqlDs.URI = utils.ExpandVariables(psqlDs.URI, env)
-	psqlDs.User = utils.ExpandVariables(psqlDs.User, env)
-	psqlDs.Pwd = utils.ExpandVariables(psqlDs.Pwd, env)
+	psqlDs.Params.URI = utils.ExpandVariables(psqlDs.Params.URI, env)
+	psqlDs.Params.User = utils.ExpandVariables(psqlDs.Params.User, env)
+	psqlDs.Params.Pwd = utils.ExpandVariables(psqlDs.Params.Pwd, env)
 	return psqlDs, nil
 }
 
 type Database struct {
-	DB           *sql.DB
-	DatabaseName string     `json:"db" yaml:"db"`
-	User         string     `json:"user" yaml:"user"`
-	Pwd          string     `json:"pwd" yaml:"pwd"`
-	URI          string     `json:"uri" yaml:"uri"`
-	Valuesets    []Valueset `json:"valuesets" yaml:"valuesets"`
-	tableIds     map[string]struct{}
-	once         sync.Once
+	DB     *sql.DB
+	Params Params `json:"params" yaml:"params"`
+
+	Valuesets []Valueset `json:"valuesets" yaml:"valuesets"`
+	tableIds  map[string]struct{}
+	once      sync.Once
+}
+
+type Params struct {
+	DatabaseName string `json:"db" yaml:"db"`
+	User         string `json:"user" yaml:"user"`
+	Pwd          string `json:"pwd" yaml:"pwd"`
+	URI          string `json:"uri" yaml:"uri"`
 }
 
 type Valueset struct {
@@ -78,9 +83,9 @@ type Query struct {
 // getConnection sets the database connection at most once and returns the DB connection pool
 func (db *Database) getConnection() *sql.DB {
 	db.once.Do(func() {
-		conn, err := sql.Open("pgx", db.URI)
+		conn, err := sql.Open("pgx", db.Params.URI)
 		if err != nil {
-			panic(fmt.Sprintf("cannot open database with adapter pgx, URI %s", db.URI))
+			panic(fmt.Sprintf("cannot open database with adapter pgx, URI %s", db.Params.URI))
 		}
 		db.DB = conn
 	})
