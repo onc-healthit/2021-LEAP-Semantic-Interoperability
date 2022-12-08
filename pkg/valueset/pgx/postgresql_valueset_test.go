@@ -15,26 +15,13 @@ type getResultsCases struct {
 }
 
 func initAndCloseDB(t *testing.T, db *Database) func(t *testing.T) {
-	t.Log("initializing db")
-	db.URI = "postgres://postgres@0.0.0.0:5433"
-	db.getConnection()
+	db.once.Do(func() {})
 	return func(t *testing.T) {
 		db.close()
 	}
 }
 
 func TestGetResults(t *testing.T) {
-	// if err := godotenv.Load(); err != nil {
-	// 	t.Error(err)
-	// }
-	// env := map[string]string{
-	// 	"${uri}": os.Getenv("uri"),
-	// }
-	// cfg, err := valueset.LoadConfig("../../testdata/cfg/valueset-databases.yaml", env)
-	// if err != nil {
-	// 	t.Error(err)
-	// }
-
 	db, mock, err := sqlmock.New()
 	database := &Database{
 		DB: db,
@@ -43,7 +30,7 @@ func TestGetResults(t *testing.T) {
 				TableId: "gender",
 				Queries: []Query{
 					{
-						Query: "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_code=$1;",
+						Query: "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_code=@concept_code;",
 					},
 					{
 						Query: "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_name=@concept_code;",
@@ -52,7 +39,6 @@ func TestGetResults(t *testing.T) {
 			},
 		},
 	}
-	database.once.Do(func() {})
 	defer initAndCloseDB(t, database)(t)
 	if err != nil {
 		t.Fatalf("an error '%s' was not expected when opening a stub database connection", err)
@@ -67,41 +53,29 @@ func TestGetResults(t *testing.T) {
 			},
 			tableId: "gender",
 		},
-		{
-			params:  map[string]string{"concept_code": "OMOP4821942"},
-			tableId: "gender",
-		},
+		// {
+		// 	params:  map[string]string{"concept_code": "OMOP4821942"},
+		// 	tableId: "gender",
+		// },
 	}
-	// mockedRow := sqlmock.NewRows([]string{"concept_id", "concept_name"})
-	// mockedRow2 := sqlmock.NewRows([]string{"concept_id", "concept_name"})
+	mockedRow := sqlmock.NewRows([]string{"concept_id", "concept_name"}).AddRow("45756805", "Pediatric Cardiology")
+	// mockedRow2 := sqlmock.NewRows([]string{"concept_id", "concept_name"}).AddRow("45756801", "Pathology - Molecular Genetic")
 
-	// mock.ExpectBegin()
-	q1 := "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_code=$1;"
-	q2 := "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_name=@concept_name;"
+	q1 := "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_code=@concept_code;"
+	q2 := "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_name=@concept_code;"
 
-	argMap := map[string][]interface{}{
-		q1: []interface{}{"OMOP4821938"},
-		q2: []interface{}{"Pathology - Molecular Genetic"},
+	argMap := map[string]string{
+		q1: "OMOP4821938",
+		q2: "Pathology - Molecular Genetic",
 	}
 
 	runQuery = func(db *sql.DB, query string, args ...interface{}) (*sql.Rows, error) {
-		return db.Query(query, argMap[query]...)
+		return db.Query(query, argMap[query])
 	}
-	mock.ExpectQuery(
-		q1,
-	).WithArgs("OMOP4821938")
-	mock.ExpectQuery(
-		q2,
-	).WithArgs("Pathology - Molecular Genetic")
-	// mock.ExpectCommit()
+	mock.ExpectQuery(q1).WithArgs("OMOP4821938").WillReturnRows(mockedRow)
+	// mock.ExpectQuery(q2).WithArgs("Pathology - Molecular Genetic").WillReturnRows(mockedRow2)
 
 	// execute func
-	// for ix, d := range cfg.ValuesetDBs {
-	// 	_, err := d.ValueSetLookup(context.Background(), cases[ix].tableId, cases[ix].params)
-	// 	if err != nil {
-	// 		t.Error(err)
-	// 	}
-	// }
 	for _, tt := range cases {
 		_, err := database.getResults(context.Background(), tt.params, tt.tableId)
 		if err != nil {

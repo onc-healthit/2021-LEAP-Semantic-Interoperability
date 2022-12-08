@@ -91,14 +91,6 @@ func (db *Database) close() error {
 
 var runQuery = func(db *sql.DB, q string, args ...interface{}) (*sql.Rows, error) { return db.Query(q, args...) }
 
-// // Returns s quoted as a string literal, in single-quotes. Any
-// // single-quotes are escaped with \', and \ are escaped with \\
-// func quoteStringLiteral(s string) string {
-// 	s = strings.ReplaceAll(s, `(`, `'`)
-// 	s = strings.ReplaceAll(s, `)`, `''`)
-// 	return s
-// }
-
 func (db *Database) getResults(ctx context.Context, queryParams map[string]string, tableID string) (map[string]string, error) {
 	db.DB = db.getConnection()
 	ret := make(map[string]string)
@@ -116,9 +108,6 @@ func (db *Database) getResults(ctx context.Context, queryParams map[string]strin
 				if err != nil {
 					return nil, err
 				}
-				// if !rows.Next() {
-				// 	continue
-				// }
 				cols, err := rows.Columns()
 				if err != nil {
 					return nil, err
@@ -140,17 +129,15 @@ func (db *Database) getResults(ctx context.Context, queryParams map[string]strin
 						})
 					}
 					// dereference values
-					// m := make(map[string]interface{})
 					for i, colName := range cols {
 						val := columnPointers[i].(*interface{})
 						v := *val
 						ret[colName] = v.(string)
 					}
-					// ret = append(ret, m)
 					// Outputs: map[columnName:value columnName2:value2 columnName3:value3 ...]
 					fmt.Println(ret)
 					delete(queryParams, key)
-					continue NextQuery
+					break NextQuery
 				}
 			}
 
