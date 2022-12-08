@@ -98,9 +98,9 @@ func TestGetResults(t *testing.T) {
 
 func TestEnvLoad(t *testing.T) {
 	env := map[string]string{
-		"${uri}":      "SOME_URI",
-		"${pgx_user}": "someUser",
-		"${password}": "somePwd",
+		"uri":      "SOME_URI",
+		"pgx_user": "someUser",
+		"password": "somePwd",
 	}
 	cfg, err := valueset.LoadConfig("../../testdata/cfg/valueset-databases.yaml", env)
 	if err != nil {
