@@ -3,15 +3,18 @@ package pgx
 import (
 	"context"
 	"database/sql"
+	"reflect"
 
 	"testing"
 
 	"github.com/DATA-DOG/go-sqlmock"
+	"github.com/cloudprivacylabs/lsa/layers/cmd/valueset"
 )
 
 type getResultsCases struct {
-	params  map[string]string
-	tableId string
+	params   map[string]string
+	tableId  string
+	expected map[string]string
 }
 
 func initAndCloseDB(t *testing.T, db *Database) func(t *testing.T) {
@@ -23,6 +26,8 @@ func initAndCloseDB(t *testing.T, db *Database) func(t *testing.T) {
 
 func TestGetResults(t *testing.T) {
 	db, mock, err := sqlmock.New()
+	q1 := "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_code=@concept_code;"
+	q2 := "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_name=@concept_code;"
 	database := &Database{
 		DB: db,
 		Valuesets: []Valueset{
@@ -30,10 +35,10 @@ func TestGetResults(t *testing.T) {
 				TableId: "gender",
 				Queries: []Query{
 					{
-						Query: "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_code=@concept_code;",
+						Query: q1,
 					},
 					{
-						Query: "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_name=@concept_code;",
+						Query: q2,
 					},
 				},
 			},
@@ -52,6 +57,10 @@ func TestGetResults(t *testing.T) {
 				"concept_name": "Pathology - Molecular Genetic",
 			},
 			tableId: "gender",
+			expected: map[string]string{
+				"concept_id":   "45756805",
+				"concept_name": "Pediatric Cardiology",
+			},
 		},
 		// {
 		// 	params:  map[string]string{"concept_code": "OMOP4821942"},
@@ -60,9 +69,6 @@ func TestGetResults(t *testing.T) {
 	}
 	mockedRow := sqlmock.NewRows([]string{"concept_id", "concept_name"}).AddRow("45756805", "Pediatric Cardiology")
 	// mockedRow2 := sqlmock.NewRows([]string{"concept_id", "concept_name"}).AddRow("45756801", "Pathology - Molecular Genetic")
-
-	q1 := "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_code=@concept_code;"
-	q2 := "select concept_id,concept_name from concepts where vocabulary_id='ABMS' and concept_name=@concept_code;"
 
 	argMap := map[string]string{
 		q1: "OMOP4821938",
@@ -77,13 +83,43 @@ func TestGetResults(t *testing.T) {
 
 	// execute func
 	for _, tt := range cases {
-		_, err := database.getResults(context.Background(), tt.params, tt.tableId)
+		res, err := database.getResults(context.Background(), tt.params, tt.tableId)
 		if err != nil {
 			t.Error(err)
 		}
-		// results = append(results, res)
+		if !reflect.DeepEqual(res, tt.expected) {
+			t.Errorf("mismatched returned row; got %v, expected: %v", res, tt.expected)
+		}
 	}
 	if err := mock.ExpectationsWereMet(); err != nil {
 		t.Errorf("there were unfulfilled expectations: %s", err)
+	}
+}
+
+func TestEnvLoad(t *testing.T) {
+	env := map[string]string{
+		"${uri}":      "SOME_URI",
+		"${pgx_user}": "someUser",
+		"${password}": "somePwd",
+	}
+	cfg, err := valueset.LoadConfig("../../testdata/cfg/valueset-databases.yaml", env)
+	if err != nil {
+		t.Error(err)
+	}
+
+	for _, c := range cfg.ValuesetDBs {
+		psql, ok := c.(*PostgesqlDataStore)
+		if !ok {
+			t.Errorf("type assertion mismatch")
+		}
+		if psql.Pwd != "somePwd" {
+			t.Errorf("wrong field value")
+		}
+		if psql.URI != "SOME_URI" {
+			t.Errorf("wrong field value")
+		}
+		if psql.User != "someUser" {
+			t.Errorf("wrong field value")
+		}
 	}
 }

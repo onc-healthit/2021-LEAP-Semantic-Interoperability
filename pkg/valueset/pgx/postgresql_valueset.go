@@ -42,10 +42,16 @@ func NewPostgresqlDataStore(value interface{}, env map[string]string) (valueset.
 	for _, vs := range psqlDs.Valuesets {
 		psqlDs.tableIds[vs.TableId] = struct{}{}
 	}
-	// psqlDs.URI = utils.ExpandVariables("${uri}", env)
-	psqlDs.URI = "postgres://postgres@0.0.0.0:5433"
-	psqlDs.User = utils.ExpandVariables("${pgx_user}", env)
-	psqlDs.Pwd = utils.ExpandVariables("${pwd}", env)
+	// fields := reflect.VisibleFields(reflect.TypeOf(psqlDs.Database))
+	// for _, field := range fields {
+	// }
+	// // psqlDs.URI = utils.ExpandVariables("${uri}", env)
+	// for k := range env {
+	// 	x := utils.ExpandVariables(k, env)
+	// }
+	psqlDs.URI = utils.ExpandVariables(psqlDs.URI, env)
+	psqlDs.User = utils.ExpandVariables(psqlDs.User, env)
+	psqlDs.Pwd = utils.ExpandVariables(psqlDs.Pwd, env)
 	return psqlDs, nil
 }
 
