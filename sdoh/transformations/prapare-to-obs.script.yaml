@@ -1,22 +1,37 @@
 reshapeNodes:
+  "https://dartnet.info/graphModel/Person":
+    valueExpr: match (n:Prapare) return n as Person
+    
   "https://dartnet.info/graphModel/Observation":
-    valueExpr: >-
-      match (n:Prapare) return n as Item
-      
+    valueExpr: return Person as Item
     mapContext: >-
       return Item
 
+
+  "https://dartnet.info/graphModel/Person/id":
+    source: "https://dartnet.info/prapare/patientNumber"
     
   "https://dartnet.info/graphModel/Observation/person":
     source: "https://dartnet.info/prapare/patientNumber"
   "https://dartnet.info/graphModel/Observation/date":
     source: "https://dartnet.info/prapare/date"
-  "https://dartnet.info/graphModel/Observation/observation/normalizedCode":
-    source: "https://dartnet.info/prapare/questionConceptId"
-  "https://dartnet.info/graphModel/Observation/observation/code":
-    source: "https://dartnet.info/prapare/questionCode"
-  "https://dartnet.info/graphModel/Observation/value/normalizedCode":
-    source: "https://dartnet.info/prapare/answerConceptId"
-  "https://dartnet.info/graphModel/Observation/value/value":
-    source: "https://dartnet.info/prapare/answer"
+
+  "https://dartnet.info/graphModel/Observation/omop/items https://ohdsi.org/omop/concept/id":
+    valueExpr:
+      - match (n:Prapare)-[]->(c {`https://lschema.org/schemaNodeId`:"https://dartnet.info/prapare/questionConceptId"}) return c.`https://lschema.org/value`
+
+  "https://dartnet.info/graphModel/Observation/codedValue/omop/items https://ohdsi.org/omop/concept/id":
+    valueExpr:
+      - match (n:Prapare)-[]->(c {`https://lschema.org/schemaNodeId`:"https://dartnet.info/prapare/answerConceptId"}) return c.`https://lschema.org/value`
+
+    
+    
+  # "https://dartnet.info/graphModel/Observation/observation/normalizedCode":
+  #   source: "https://dartnet.info/prapare/questionConceptId"
+  # "https://dartnet.info/graphModel/Observation/observation/code":
+  #   source: "https://dartnet.info/prapare/questionCode"
+  # "https://dartnet.info/graphModel/Observation/value/normalizedCode":
+  #   source: "https://dartnet.info/prapare/answerConceptId"
+  # "https://dartnet.info/graphModel/Observation/value/value":
+  #   source: "https://dartnet.info/prapare/answer"
     

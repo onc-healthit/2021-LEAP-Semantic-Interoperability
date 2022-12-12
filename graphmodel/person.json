@@ -24,13 +24,11 @@
             },
             "gm:Person/birthDate": {
                 "@type": "Value",
-                "valueType": "ls:date",
-                "ingestAs": "property"
+                "valueType": "ls:date"
             },
             "gm:Person/deathDate": {
                 "@type": "Value",
-                "valueType": "ls:date",
-                "ingestAs": "property"
+                "valueType": "ls:date"
             },
             "gm:Person/gender/source": {
                 "@type": ["Object","Code"],

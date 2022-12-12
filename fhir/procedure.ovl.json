@@ -1,0 +1,38 @@
+{
+    "@context": "https://lschema.org/ls.json",
+    "@id": "https://dartnet.info/graphModel/Procedure/ovl",
+    "@type": "Overlay",
+    "valueType": "https://dartnet.info/graphModel/Procedure",
+    "layer": {
+        "@type": "Object",
+        "@id": "https://dartnet.info/graphModel/Procedure",
+        "attributes": {
+            "https://dartnet.info/graphModel/Procedure/omop": {
+                "@type": "Array",
+                "vsValuesets": "omop",
+                "vsRequestValues": [
+                    "https://dartnet.info/graphModel/Procedure/source/code",
+                    "https://dartnet.info/graphModel/Procedure/source/normalizedSystem"
+                ],
+                "vsRequestKeys": [ "code","vocabulary_id" ],
+                "vsResultKeys": [ "concept_id","concept_name"],
+                "vsResultValues": [
+                    "https://ohdsi.org/omop/concept/id",
+                    "https://ohdsi.org/omop/concept/name"
+                ],
+                "vsResultContext": "https://dartnet.info/graphModel/Procedure/omop/items"
+            },
+            "https://dartnet.info/graphModel/Procedure/source": {
+                "@type": ["Object"],
+                "attributes": {
+                    "https://dartnet.info/graphModel/Procedure/source/normalizedSystem": {
+                        "@type": "Value",
+                        "vsValuesets": "codeSystemNames",
+                        "vsRequestValues": [ "https://dartnet.info/graphModel/Procedure/source/system"],
+                        "vsResultValues": ["https://dartnet.info/graphModel/Procedure/source/normalizedSystem"]
+                    }
+                }
+            }
+        }
+    }
+}

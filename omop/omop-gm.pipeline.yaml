@@ -14,7 +14,7 @@
           params:
             file: person_omop.csv
             columns:
-              - name:  "person_id"
+              - name: "person_id"
               - name: "gender_concept_id"
               - name: "year_of_birth"
               - name: "month_of_birth"
@@ -68,3 +68,31 @@
               - name: "observation_event_id"
               - name: "obs_event_field_concept_id"
               - name: "value_as_datetime"
+
+
+      procedure:
+        - operation: reshape
+          params:
+            bundle:
+              - v6/schemas/omop.bundle.yaml
+            type: https://ohdsi.org/omop/PROCEDURE_OCCURRENCE
+            scriptFile: transformations/graph-to-omop.script.yaml
+        - operation: export/csv
+          params:
+            file: procedure_omop.csv
+            columns:
+              - name: "procedure_occurrence_id"
+              - name: "person_id"
+              - name: "procedure_concept_id"
+              - name: "procedure_date"
+              - name: "procedure_datetime"
+              - name: "procedure_type_concept_id"
+              - name: "modifier_concept_id"
+              - name: "quantity"
+              - name: "provider_id"
+              - name: "visit_occurrence_id"
+              - name: "visit_detail_id"
+              - name: "procedure_source_value"
+              - name: "procedure_source_concept_id"
+              - name: "modifier_source_value"
+                

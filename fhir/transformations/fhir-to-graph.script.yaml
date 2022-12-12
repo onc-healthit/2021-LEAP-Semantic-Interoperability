@@ -27,6 +27,13 @@ reshapeNodes:
       - return raceCode.system
       
 
+  "https://dartnet.info/graphModel/Person/id":
+    source: "https://hl7.org/fhir/Patient/id"
+  "https://dartnet.info/graphModel/Person/birthDate":
+    source: "https://hl7.org/fhir/Patient/birthDate"
+  "https://dartnet.info/graphModel/Person/gender/source/text":
+    source: "https://hl7.org/fhir/Patient/gender"
+      
 #
 #  Observations
 #
@@ -41,6 +48,9 @@ reshapeNodes:
       match (n:`https://hl7.org/fhir/Observation`) return n as observation
     mapContext: return observation
 
+  "https://dartnet.info/graphModel/Observation/id":
+    source: https://hl7.org/fhir/Observation/id
+    
   "https://dartnet.info/graphModel/Observation/type":
     evaluate:
       - >-
@@ -57,9 +67,10 @@ reshapeNodes:
 
   "https://dartnet.info/graphModel/Observation/source":
     evaluate: >-
-      match (observation)-[*]->
+      match (observation)-[]->
+           ({`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Observation/code"})-[*]->
            (v {`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Observation/code/coding/*"})
-           return v as observationCode
+           return v as observationCode 
     valueExpr:
       - return observationCode
 
@@ -72,13 +83,12 @@ reshapeNodes:
   "https://dartnet.info/graphModel/Observation/source/text":
     valueExpr:
       - return observationCode.display
+
+
+  "https://dartnet.info/graphModel/Observation/person":
+    valueExpr:
+      - match (patient)-[]->(id {`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Patient/id"}) return id
       
-  "https://dartnet.info/graphModel/Person/id":
-    source: "https://hl7.org/fhir/Patient/id"
-  "https://dartnet.info/graphModel/Person/birthDate":
-    source: "https://hl7.org/fhir/Patient/birthDate"
-  "https://dartnet.info/graphModel/Person/gender/source/text":
-    source: "https://hl7.org/fhir/Patient/gender"
 
 
   "https://dartnet.info/graphModel/Observation/date":
@@ -89,3 +99,41 @@ reshapeNodes:
     source: "https://hl7.org/fhir/Observation/valueQuantity/unit"
   "https://dartnet.info/graphModel/Observation/measuredValue/source/system":
     source: "https://hl7.org/fhir/Observation/valueQuantity/system"
+
+
+# Procedures
+
+
+  "https://dartnet.info/graphModel/Person/procedures/element":
+    valueExpr: >-
+      match (n:`https://hl7.org/fhir/Procedure`) return n as procedure
+    mapContext: return procedure
+
+  "https://dartnet.info/graphModel/Procedure/id":
+    source: https://hl7.org/fhir/Procedure/id
+
+  "https://dartnet.info/graphModel/Procedure/source":
+    evaluate: >-
+      match (procedure)-[*]->
+           (v {`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Procedure/code/coding/*"})
+           return v as procedureCode
+    valueExpr:
+      - return procedureCode
+
+  "https://dartnet.info/graphModel/Procedure/source/system":
+    valueExpr:
+      - return procedureCode.system
+  "https://dartnet.info/graphModel/Procedure/source/code":
+    valueExpr:
+      - return procedureCode.code
+  "https://dartnet.info/graphModel/Procedure/source/text":
+    valueExpr:
+      - return procedureCode.display
+      
+  "https://dartnet.info/graphModel/Procedure/date":
+    valueExpr:
+      - match (procedure)-[]->({`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Procedure/performedPeriod"})-[]->(d {`https://lschema.org/attributeName`:"start"}) return d
+
+  "https://dartnet.info/graphModel/Procedure/person":
+    valueExpr:
+      - match (patient)-[]->(id {`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Patient/id"}) return id

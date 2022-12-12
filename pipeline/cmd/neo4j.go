@@ -226,6 +226,9 @@ func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 		if err := s.createNodesEdges(pctx.Context, tx, dbGraph, delta); err != nil {
 			return err
 		}
+		if err := neo.LinkMergedEntities(pctx.Context, tx, s.cfg, delta, dbGraph.NodeIds); err != nil {
+			return err
+		}
 		if err := tx.Commit(); err != nil {
 			pctx.ErrorLogger(pctx, err)
 			return err

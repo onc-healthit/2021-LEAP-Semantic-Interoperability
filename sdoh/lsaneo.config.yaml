@@ -3,12 +3,15 @@ termMappings:
   https://lschema.org/Value: Value
   https://lschema.org/Object: Object
   https://lschema.org/Array: Array
-  https://lschema.org/attributeIndex: attributeIndex
+  https://lschema.org/attributeIndex: 
   https://lschema.org/attributeName: attributeName
   https://lschema.org/has: has
   https://lschema.org/value: value
   https://lschema.org/schemaNodeId: schemaNodeId
   https://lschema.org/xml/ns: 
+  https://lschema.org/hash:
   https://lschema.org/entityId: entityId
-  https://lschema.org/entityIdFields:
+  https://lschema.org/entityIdFields: entityIdFields
+  https://lschema.org/Reference/ref: ref
+  https://lschema.org/entitySchema: entitySchema
     

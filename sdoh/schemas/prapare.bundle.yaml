@@ -1,0 +1,5 @@
+variants:
+  Prapare:
+    schema: prapare.schema.json
+    
+      
