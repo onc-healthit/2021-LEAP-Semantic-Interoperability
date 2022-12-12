@@ -27,9 +27,7 @@ import (
 	"github.com/spf13/cobra"
 
 	"github.com/cloudprivacylabs/leap/pkg/input"
-	"github.com/cloudprivacylabs/leap/pkg/valueset/pgx"
 	pipeline "github.com/cloudprivacylabs/lsa/layers/cmd/pipeline"
-	vs "github.com/cloudprivacylabs/lsa/layers/cmd/valueset"
 	"github.com/cloudprivacylabs/lsa/pkg/ls"
 )
 
@@ -121,8 +119,6 @@ func init() {
 	rootCmd.PersistentFlags().Bool("log.info", false, "Enable logging at info level")
 	rootCmd.PersistentFlags().Bool("log.error", false, "Enable logging at error level")
 	rootCmd.Flags().String("runlog", "", "Prints error to file, if not provided then defaults to stderr")
-
-	vs.RegisterDB("pgx", pgx.NewPostgresqlDataStore)
 }
 
 func getContext(cmd *cobra.Command) *ls.Context {
