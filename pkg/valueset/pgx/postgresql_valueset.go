@@ -22,7 +22,7 @@ type PostgesqlDataStore struct {
 }
 
 func (pgx *PostgesqlDataStore) ValueSetLookup(ctx context.Context, tableId string, queryParams map[string]string) (map[string]string, error) {
-	return pgx.getResults(context.Background(), queryParams, tableId)
+	return pgx.getResults(ctx, queryParams, tableId)
 }
 
 func (pgx *PostgesqlDataStore) GetTableIds() map[string]struct{} {
@@ -35,9 +35,22 @@ func (pgx *PostgesqlDataStore) Close() error {
 
 func NewPostgresqlDataStore(value interface{}, env map[string]string) (valueset.ValuesetDB, error) {
 	psqlDs := &PostgesqlDataStore{}
-	if err := mapstructure.Decode(value, psqlDs); err != nil {
+	config := &mapstructure.DecoderConfig{
+		WeaklyTypedInput: true,
+		Result:           &psqlDs,
+	}
+	decoder, err := mapstructure.NewDecoder(config)
+	if err != nil {
+		panic(err)
+	}
+	if err := decoder.Decode(value); err != nil {
 		return psqlDs, err
 	}
+	// for _, v := range value.(map[string]interface{}) {
+	// 	if err := mapstructure.Decode(v, &psqlDs); err != nil {
+	// 		return psqlDs, err
+	// 	}
+	// }
 	psqlDs.tableIds = make(map[string]struct{})
 	for _, vs := range psqlDs.Valuesets {
 		psqlDs.tableIds[vs.TableId] = struct{}{}
@@ -102,12 +115,9 @@ func (db *Database) getResults(ctx context.Context, queryParams map[string]strin
 		if vs.TableId != tableID {
 			continue
 		}
-		var ix int
 	NextQuery:
 		for _, query := range vs.Queries {
 			for key, qPval := range queryParams {
-				fmt.Println(ix)
-				ix++
 				rows, err := runQuery(db.DB, query.Query, pgx.NamedArgs{key: qPval})
 				if err != nil {
 					return nil, err
