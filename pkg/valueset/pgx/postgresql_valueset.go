@@ -46,11 +46,6 @@ func NewPostgresqlDataStore(value interface{}, env map[string]string) (valueset.
 	if err := decoder.Decode(value); err != nil {
 		return psqlDs, err
 	}
-	// for _, v := range value.(map[string]interface{}) {
-	// 	if err := mapstructure.Decode(v, &psqlDs); err != nil {
-	// 		return psqlDs, err
-	// 	}
-	// }
 	psqlDs.tableIds = make(map[string]struct{})
 	for _, vs := range psqlDs.Valuesets {
 		psqlDs.tableIds[vs.TableId] = struct{}{}
@@ -74,7 +69,7 @@ type Params struct {
 	DatabaseName string `json:"db" yaml:"db"`
 	User         string `json:"user" yaml:"user"`
 	Pwd          string `json:"pwd" yaml:"pwd"`
-	URI          string `json:"uri" yaml:"uri"`
+	URI          string `json:"pgxuri" yaml:"pgxuri"`
 }
 
 type Valueset struct {

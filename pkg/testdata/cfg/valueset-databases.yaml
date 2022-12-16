@@ -4,7 +4,7 @@ databases:
       params:
         user: ${pgx_user}
         pwd: ${password}
-        uri: ${uri}
+        uri: ${pgxuri}
         db: ${db}
       valuesets:
         - tableId: gender

@@ -78,8 +78,11 @@ var (
 			if err != nil {
 				return err
 			}
-			// returns *pipeline.PipelineContext
-			pctx := pipeline.NewContext(ctx, pl, nil, func() (pipeline.PipelineEntryInfo, io.ReadCloser, error) {
+			env, err := godotenv.Read(".env")
+			if err != nil {
+				return err
+			}
+			pctx := pipeline.NewContext(ctx, env, pl, nil, func() (pipeline.PipelineEntryInfo, io.ReadCloser, error) {
 				select {
 				case entry, ok := <-inputs:
 					if ok {

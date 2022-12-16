@@ -87,8 +87,8 @@ github.com/bits-and-blooms/bitset v1.2.0/go.mod h1:gIdJ4wp64HaoK2YrL1Q5/N7Y16edY
 github.com/blang/semver v3.1.0+incompatible/go.mod h1:kRBLl5iJ+tD4TcOOxsy/0fnwebNt5EWlYSAyrTnjyyk=
 github.com/blang/semver v3.5.1+incompatible/go.mod h1:kRBLl5iJ+tD4TcOOxsy/0fnwebNt5EWlYSAyrTnjyyk=
 github.com/bmizerany/assert v0.0.0-20160611221934-b7ed37b82869/go.mod h1:Ekp36dRnpXw/yCqJaO+ZrUyxD+3VXMFFr56k5XYrpB4=
-github.com/bserdar/jsonom v0.0.0-20211005020717-9af6d87a0e9f h1:y+xtjRMDgmI9SH+i1wApjcHZISeYBGEjExGWSiGfUJ8=
-github.com/bserdar/jsonom v0.0.0-20211005020717-9af6d87a0e9f/go.mod h1:TQmmc1021Sypc6dta8Ssw+m9ZP2L7dIz5tH+YHknUD0=
+github.com/bserdar/jsonom v1.0.0 h1:RLXkaDH/csJ+yL5ZL78EiobYxtvm6Utd34oYfcKJzQk=
+github.com/bserdar/jsonom v1.0.0/go.mod h1:TQmmc1021Sypc6dta8Ssw+m9ZP2L7dIz5tH+YHknUD0=
 github.com/bserdar/jsonstream v0.0.0-20190428032403-9f1769267072 h1:mecQC3iZjP+DX9V2CRCgODUD8xflZ5ao9qTvwBGt2Vw=
 github.com/bserdar/jsonstream v0.0.0-20190428032403-9f1769267072/go.mod h1:MDfUY2WcQQXxYiWX88EUV+j+rQDUTsj/alO6SP9Vkio=
 github.com/bshuster-repo/logrus-logstash-hook v0.4.1/go.mod h1:zsTqEiSzDgAa/8GZR7E1qaXrhYNDKBYy5/dWPTIflbk=
@@ -115,10 +115,8 @@ github.com/cilium/ebpf v0.6.2/go.mod h1:4tRaxcgiL706VnOzHOdBlY8IEAIdxINsQBcU4xJJ
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/cloudprivacylabs/lpg v1.0.11 h1:GPiMwoOLgJEuQ71P+CAeL77uL4ooEGX/xFL5F6NS0s0=
 github.com/cloudprivacylabs/lpg v1.0.11/go.mod h1:3bLpI1OIk3h/ZVfGhq3sdULexmVbd7qANVhVSYbvCe8=
-github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20221206185114-5689a865cca6 h1:mHwkps8MiwW3S3m+BVKNf5/YP5WRx+KBgPuKxmpUjO0=
-github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20221206185114-5689a865cca6/go.mod h1:lnC3E2Hj/HVLqXxzkyW2xirpidQ/UD3uKWucZ2NF5LY=
-github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221117171535-05fcb88a3afa h1:9dcWLpHDrIoa2a9MmsG3p3Rk+qUyMUCLKYiGoKQbjcU=
-github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221117171535-05fcb88a3afa/go.mod h1:USlJawfaNEUYHvz/KDDC3j7ewZVV18lRVaBn3U7d9wY=
+github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221212220114-116be0ddffac h1:gFkbAa0yXmtwPm/iSWNUrgzf/VymzZyFxbHbFf905A8=
+github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221212220114-116be0ddffac/go.mod h1:/XgN0R8Nw72+AAeN1ZuPT90sIwLVXUf3WO50Po1nMaU=
 github.com/cloudprivacylabs/opencypher v1.0.0-beta-9 h1:ziarbKpRQiZ58dE8GyyYPrkVC+ABo7sADTotPILpBV4=
 github.com/cloudprivacylabs/opencypher v1.0.0-beta-9/go.mod h1:3Ttn9wqZrtJxAFhmT16PUrS3O3cbJwWrI5cr08kh8nw=
 github.com/cncf/udpa/go v0.0.0-20191209042840-269d4d468f6f/go.mod h1:M8M6+tZqaGXZJjfX53e64911xZQV5JYwmTeXPW+k8Sc=
@@ -404,6 +402,8 @@ github.com/hashicorp/go-multierror v0.0.0-20161216184304-ed905158d874/go.mod h1:
 github.com/hashicorp/go-multierror v1.0.0/go.mod h1:dHtQlpGsu+cZNNAkkCN/P3hoUDHhCYQXV3UM06sGGrk=
 github.com/hashicorp/golang-lru v0.5.0/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
 github.com/hashicorp/golang-lru v0.5.1/go.mod h1:/m3WP610KZHVQ1SGc6re/UDhFvYD7pJ4Ao+sR/qLZy8=
+github.com/hashicorp/golang-lru/v2 v2.0.1 h1:5pv5N1lT1fjLg2VQ5KWc7kmucp2x/kvFOnxuVTqZ6x4=
+github.com/hashicorp/golang-lru/v2 v2.0.1/go.mod h1:QeFd9opnmA6QUJc5vARoKUSoFhyfM2/ZepoAG6RGpeM=
 github.com/hashicorp/hcl v1.0.0/go.mod h1:E5yfLk+7swimpb2L/Alb/PJmXilQ/rhwaUYs4T20WEQ=
 github.com/hpcloud/tail v1.0.0/go.mod h1:ab1qPbhIpdTxEkNHXyeSf5vhxWSCs/tWer42PpOxQnU=
 github.com/ianlancetaylor/demangle v0.0.0-20181102032728-5e5cf60278f6/go.mod h1:aSSvb/t6k1mPoxDqO4vJh6VOCGPwU4O0C2/Eqndh1Sc=

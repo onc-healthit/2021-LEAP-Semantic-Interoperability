@@ -2,11 +2,13 @@ module github.com/cloudprivacylabs/leap
 
 go 1.19
 
+replace github.com/cloudprivacylabs/lsa => /Users/jasoncruz/lsa
+
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0
 	github.com/cloudprivacylabs/lpg v1.0.11
-	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20221206185114-5689a865cca6
-	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221117171535-05fcb88a3afa
+	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20221214195558-63859e553a1f
+	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221212220114-116be0ddffac
 	github.com/cloudprivacylabs/opencypher v1.0.0-beta-9
 	github.com/drone/envsubst v1.0.3
 	github.com/joho/godotenv v1.4.0
@@ -31,6 +33,7 @@ require (
 	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/uuid v1.3.0 // indirect
+	github.com/hashicorp/golang-lru/v2 v2.0.1 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20200714003250-2b9c44734f2b // indirect
 	github.com/kr/text v0.2.0 // indirect
@@ -51,7 +54,7 @@ require (
 require (
 	github.com/antlr/antlr4/runtime/Go/antlr v0.0.0-20210803070921-b358b509191a // indirect
 	github.com/araddon/dateparse v0.0.0-20210429162001-6b43995a97de // indirect
-	github.com/bserdar/jsonom v0.0.0-20211005020717-9af6d87a0e9f // indirect
+	github.com/bserdar/jsonom v1.0.0 // indirect
 	github.com/bserdar/jsonstream v0.0.0-20190428032403-9f1769267072 // indirect
 	github.com/emirpasic/gods v1.18.1 // indirect
 	github.com/inconshreveable/mousetrap v1.0.0 // indirect
