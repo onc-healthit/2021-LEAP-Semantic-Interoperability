@@ -28,14 +28,14 @@
 - operation: valueset
   params:
     valuesetFiles:
-      - valuesets.json
+      - valuesets.yaml
     tables:
       - codeSystemNames
 
 - operation: valueset
   params:
     valuesetFiles:
-      - valuesets.json
+      - valuesets.yaml
     tables:
       - omop
     
