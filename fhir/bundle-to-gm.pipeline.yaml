@@ -46,7 +46,7 @@
     batchSize: 100
     user: ${user}
     pwd: ${pwd}
-    uri: ${uri}
+    neo4juri: ${neo4juri}
     cfg: lsaneo.config.yaml
     cacheBy: https://dartnet.info/graphModel/Person
   
