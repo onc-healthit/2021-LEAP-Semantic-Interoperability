@@ -7,9 +7,9 @@ replace github.com/cloudprivacylabs/lsa => /Users/jasoncruz/lsa
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0
 	github.com/cloudprivacylabs/lpg v1.0.11
-	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20221214195558-63859e553a1f
-	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221212220114-116be0ddffac
-	github.com/cloudprivacylabs/opencypher v1.0.0-beta-9
+	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20221216162621-97153e6195e6
+	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221216163004-ec244625dcc1
+	github.com/cloudprivacylabs/opencypher v1.0.0-beta-11
 	github.com/drone/envsubst v1.0.3
 	github.com/joho/godotenv v1.4.0
 	github.com/mitchellh/mapstructure v1.5.0

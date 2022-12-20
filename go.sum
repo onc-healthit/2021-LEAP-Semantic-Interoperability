@@ -115,10 +115,10 @@ github.com/cilium/ebpf v0.6.2/go.mod h1:4tRaxcgiL706VnOzHOdBlY8IEAIdxINsQBcU4xJJ
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/cloudprivacylabs/lpg v1.0.11 h1:GPiMwoOLgJEuQ71P+CAeL77uL4ooEGX/xFL5F6NS0s0=
 github.com/cloudprivacylabs/lpg v1.0.11/go.mod h1:3bLpI1OIk3h/ZVfGhq3sdULexmVbd7qANVhVSYbvCe8=
-github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221212220114-116be0ddffac h1:gFkbAa0yXmtwPm/iSWNUrgzf/VymzZyFxbHbFf905A8=
-github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221212220114-116be0ddffac/go.mod h1:/XgN0R8Nw72+AAeN1ZuPT90sIwLVXUf3WO50Po1nMaU=
-github.com/cloudprivacylabs/opencypher v1.0.0-beta-9 h1:ziarbKpRQiZ58dE8GyyYPrkVC+ABo7sADTotPILpBV4=
-github.com/cloudprivacylabs/opencypher v1.0.0-beta-9/go.mod h1:3Ttn9wqZrtJxAFhmT16PUrS3O3cbJwWrI5cr08kh8nw=
+github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221216163004-ec244625dcc1 h1:vYiRhSPhu/THOB9bc3dVSlJ18R6xsKcoMnibVYGWA3M=
+github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221216163004-ec244625dcc1/go.mod h1:eWdjXl2pK4IL8n3+NXHeEeisZ43kq9amQkVTL6KBsSk=
+github.com/cloudprivacylabs/opencypher v1.0.0-beta-11 h1:sw85aFJyJodAxni412Rg9zIG8IlX365A1LXLsln1LGY=
+github.com/cloudprivacylabs/opencypher v1.0.0-beta-11/go.mod h1:6e/k1/LKMvY2On9ZXxsPvYMQ2o0AEABo92B/BuO8bMM=
 github.com/cncf/udpa/go v0.0.0-20191209042840-269d4d468f6f/go.mod h1:M8M6+tZqaGXZJjfX53e64911xZQV5JYwmTeXPW+k8Sc=
 github.com/cockroachdb/datadriven v0.0.0-20190809214429-80d97fb3cbaa/go.mod h1:zn76sxSg3SzpJ0PPJaLDCu+Bu0Lg3sKTORVIj19EIF8=
 github.com/containerd/aufs v0.0.0-20200908144142-dab0cbea06f4/go.mod h1:nukgQABAEopAHvB6j7cnP5zJ+/3aVcE7hCYqvIwAHyE=
