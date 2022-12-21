@@ -2,6 +2,8 @@ module github.com/cloudprivacylabs/leap
 
 go 1.19
 
+#;replace github.com/cloudprivacylabs/lsa => ../lsa
+
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0
 	github.com/cloudprivacylabs/lpg v1.0.11

@@ -37,7 +37,8 @@ func NewPostgresqlDataStore(value interface{}, env map[string]string) (valueset.
 	psqlDs := &PostgesqlDataStore{}
 	config := &mapstructure.DecoderConfig{
 		WeaklyTypedInput: true,
-		Result:           &psqlDs,
+		Result:           &psqlDs.Database,
+		TagName:          "json",
 	}
 	decoder, err := mapstructure.NewDecoder(config)
 	if err != nil {
@@ -56,8 +57,6 @@ func NewPostgresqlDataStore(value interface{}, env map[string]string) (valueset.
 		psqlDs.tableIds[vs.TableId] = struct{}{}
 	}
 	psqlDs.Params.URI = utils.ExpandVariables(psqlDs.Params.URI, env)
-	psqlDs.Params.User = utils.ExpandVariables(psqlDs.Params.User, env)
-	psqlDs.Params.Pwd = utils.ExpandVariables(psqlDs.Params.Pwd, env)
 	return psqlDs, nil
 }
 
@@ -71,10 +70,7 @@ type Database struct {
 }
 
 type Params struct {
-	DatabaseName string `json:"db" yaml:"db"`
-	User         string `json:"user" yaml:"user"`
-	Pwd          string `json:"pwd" yaml:"pwd"`
-	URI          string `json:"uri" yaml:"uri"`
+	URI string `json:"uri" yaml:"uri"`
 }
 
 type Valueset struct {
@@ -149,7 +145,6 @@ func (db *Database) getResults(ctx context.Context, queryParams map[string]strin
 						ret[colName] = v.(string)
 					}
 					// Outputs: map[columnName:value columnName2:value2 columnName3:value3 ...]
-					fmt.Println(ret)
 					delete(queryParams, key)
 					break NextQuery
 				}
