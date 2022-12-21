@@ -23,7 +23,7 @@ type Neo4jStep struct {
 	BatchSize int    `json:"batchSize" yaml:"batchSize"`
 	User      string `json:"user" yaml:"user"`
 	Pwd       string `json:"pwd" yaml:"pwd"`
-	URI       string `json:"neo4juri" yaml:"neo4juri"`
+	URI       string `json:"uri" yaml:"uri"`
 }
 
 func (step Neo4jStep) getSession() *neo.Session {

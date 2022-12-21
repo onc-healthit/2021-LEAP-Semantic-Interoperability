@@ -103,7 +103,6 @@ reshapeNodes:
 
 # Procedures
 
-
   "https://dartnet.info/graphModel/Person/procedures/element":
     valueExpr: >-
       match (n:`https://hl7.org/fhir/Procedure`) return n as procedure
@@ -137,3 +136,62 @@ reshapeNodes:
   "https://dartnet.info/graphModel/Procedure/person":
     valueExpr:
       - match (patient)-[]->(id {`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Patient/id"}) return id
+
+#  Condition
+
+  "https://dartnet.info/graphModel/Person/conditions/element":
+    valueExpr: >-
+      match (n:`https://hl7.org/fhir/Condition`) return n as condition
+    mapContext: return condition
+
+  "https://dartnet.info/graphModel/Condition/id":
+    source: https://hl7.org/fhir/Condition/id
+
+  "https://dartnet.info/graphModel/Condition/type":
+    evaluate:
+      - >-
+        match (condition)-[*]->(c {system:"http://terminology.hl7.org/CodeSystem/condition-category"})
+               return c as conditionTypeCode
+    valueExpr:
+      - return conditionTypeCode.code  
+
+  "https://dartnet.info/graphModel/Condition/source":
+    evaluate: >-
+      match (condition)-[*]->
+           (v {`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Condition/code/coding/*"})
+           return v as conditionCode
+    valueExpr:
+      - return conditionCode  
+
+  "https://dartnet.info/graphModel/Condition/source/system":
+    valueExpr:
+      - return conditionCode.system
+  "https://dartnet.info/graphModel/Condition/source/code":
+    valueExpr:
+      - return conditionCode.code
+  "https://dartnet.info/graphModel/Condition/source/text":
+    valueExpr:
+      - return conditionCode.display
+
+  "https://dartnet.info/graphModel/Condition/start":
+    valueExpr:
+      - match (condition)-[]->({`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Condition/onsetPeriod"})-[]->(d {`https://lschema.org/attributeName`:"start"}) return d
+
+  "https://dartnet.info/graphModel/Condition/end":
+    valueExpr:
+      - match (condition)-[]->({`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Condition/onsetPeriod"})-[]->(d {`https://lschema.org/attributeName`:"end"}) return d
+
+  "https://dartnet.info/graphModel/Condition/person":
+    valueExpr:
+      - match (patient)-[]->(id {`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Patient/id"}) return id
+
+# Drug Exposure
+# For each observation in the bundle, we create graph model Drug Exposure object.
+# The drug exposure category is stored in the Drug Exposure type. A drug exposure may contain
+# a drugType value, which is captured in Drug Exposure/drugType/source. Drug Exposure may include
+# codes defining the drug exposure, and these are collected under Drug Exposure/source
+
+  "https://dartnet.info/graphModel/Person/drugExposure/element":
+    valueExpr: >-
+      match (n:`https://hl7.org/fhir/DrugExposure`) return n as drugExposure
+    mapContext: return drugExposure

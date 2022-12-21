@@ -2,12 +2,10 @@ module github.com/cloudprivacylabs/leap
 
 go 1.19
 
-replace github.com/cloudprivacylabs/lsa => /Users/jasoncruz/lsa
-
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0
 	github.com/cloudprivacylabs/lpg v1.0.11
-	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20221216162621-97153e6195e6
+	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20221219200151-8160df514048
 	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221216163004-ec244625dcc1
 	github.com/cloudprivacylabs/opencypher v1.0.0-beta-11
 	github.com/drone/envsubst v1.0.3

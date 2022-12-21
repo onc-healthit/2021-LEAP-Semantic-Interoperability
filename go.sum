@@ -115,6 +115,10 @@ github.com/cilium/ebpf v0.6.2/go.mod h1:4tRaxcgiL706VnOzHOdBlY8IEAIdxINsQBcU4xJJ
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/cloudprivacylabs/lpg v1.0.11 h1:GPiMwoOLgJEuQ71P+CAeL77uL4ooEGX/xFL5F6NS0s0=
 github.com/cloudprivacylabs/lpg v1.0.11/go.mod h1:3bLpI1OIk3h/ZVfGhq3sdULexmVbd7qANVhVSYbvCe8=
+github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20221216162621-97153e6195e6 h1:1ToYONYmz0O9JBTzRR7+o3csQzgeju5vdjuLTmf6wH0=
+github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20221216162621-97153e6195e6/go.mod h1:OJjP46dRXNoLgUPobh6+AtyCsENN7PcktsEOqUhx+XY=
+github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20221219200151-8160df514048 h1:qTrafIaiNa147+Ii3ZhEHPPN/29ZxDoZdnONL/o4oUM=
+github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20221219200151-8160df514048/go.mod h1:8rs5xlZYAa6xMzkX0E/YvI2LYDOjnaiqj89WP9huBJo=
 github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221216163004-ec244625dcc1 h1:vYiRhSPhu/THOB9bc3dVSlJ18R6xsKcoMnibVYGWA3M=
 github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221216163004-ec244625dcc1/go.mod h1:eWdjXl2pK4IL8n3+NXHeEeisZ43kq9amQkVTL6KBsSk=
 github.com/cloudprivacylabs/opencypher v1.0.0-beta-11 h1:sw85aFJyJodAxni412Rg9zIG8IlX365A1LXLsln1LGY=

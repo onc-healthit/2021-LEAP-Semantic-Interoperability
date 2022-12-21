@@ -69,7 +69,7 @@ type Params struct {
 	DatabaseName string `json:"db" yaml:"db"`
 	User         string `json:"user" yaml:"user"`
 	Pwd          string `json:"pwd" yaml:"pwd"`
-	URI          string `json:"pgxuri" yaml:"pgxuri"`
+	URI          string `json:"uri" yaml:"uri"`
 }
 
 type Valueset struct {

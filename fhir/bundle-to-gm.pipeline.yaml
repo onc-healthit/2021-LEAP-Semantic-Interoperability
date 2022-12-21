@@ -42,11 +42,11 @@
 #- operation: writeGraph
 - operation: neo4j/merge
   params:
-    db: ${db}
+    db: ${neo4j_db}
     batchSize: 100
-    user: ${user}
-    pwd: ${pwd}
-    neo4juri: ${neo4juri}
+    user: ${neo4j_user}
+    pwd: ${neo4j_pwd}
+    uri: ${neo4j_uri}
     cfg: lsaneo.config.yaml
     cacheBy: https://dartnet.info/graphModel/Person
   

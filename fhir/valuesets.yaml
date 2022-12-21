@@ -3,9 +3,9 @@ databases:
       pgx:
       params:
         user: ${pgx_user}
-        pwd: ${password}
-        uri: ${pgxuri}
-        db: ${db}
+        pwd: ${pgx_password}
+        uri: ${pgx_uri}
+        db: ${pgx_db}
       valuesets:
         - tableId: omop
           queries:
