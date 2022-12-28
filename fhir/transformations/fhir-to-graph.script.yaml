@@ -192,6 +192,128 @@ reshapeNodes:
 # codes defining the drug exposure, and these are collected under Drug Exposure/source
 
   "https://dartnet.info/graphModel/Person/drugExposure/element":
-    valueExpr: >-
-      match (n:`https://hl7.org/fhir/DrugExposure`) return n as drugExposure
+    valueExpr:
+    - >-
+      match (n:`https://hl7.org/fhir/Immunization`) return n as drugExposure
+    # - >- 
+    #   match (n:`https://hl7.org/fhir/MedicationAdministration`) return n as drugExposure, "MedicationAdm" as DrugExposureType
     mapContext: return drugExposure
+
+  "https://dartnet.info/graphModel/DrugExposure/id":
+    valueExpr: match (drugExposure)-[]->(n {`https://lschema.org/attributeName`:"id"}) return n
+
+  "https://dartnet.info/graphModel/DrugExposure/source":
+    evaluate: >-
+      match (drugExposure)-[*]->
+           (v {`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/DrugExposure/code/coding/*"})
+           return v as drugExposureCode
+    valueExpr:
+      - return drugExposureCode
+
+  "https://dartnet.info/graphModel/DrugExposure/source/system":
+    valueExpr:
+      - return drugExposureCode.system
+  "https://dartnet.info/graphModel/DrugExposure/source/code":
+    valueExpr:
+      - return drugExposureCode.code
+  "https://dartnet.info/graphModel/DrugExposure/source/text":
+    valueExpr:
+      - return drugExposureCode.display
+
+  "https://dartnet.info/graphModel/DrugExposure/person":
+    valueExpr:
+      - match (patient)-[]->(id {`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Patient/id"}) return id 
+
+# Payer Plan
+
+  # "https://dartnet.info/graphModel/Person/PayerPlan/element":
+  #   valueExpr:
+  #   - >-
+  #     match (n:`https://hl7.org/fhir/PaymentNotice`) return n as payerPlan, "PaymentNotice" as PayerPlanType
+  #   - >- 
+  #     match (n:`https://hl7.org/fhir/PaymentReconciliation`) return n as payerPlan, "PaymentReconciliation" as PayerPlanType
+  #   mapContext: return payerPlan
+
+  # "https://dartnet.info/graphModel/PayerPlan/id":
+  #   valueExpr: match (payerPlan)-[]->(n {`https://lschema.org/attributeName`:"id"}) return n
+  
+  # "https://dartnet.info/graphModel/PayerPlan/source":
+  #   evaluate: >-
+  #     match (payerPlan) return 
+  #     case PayerPlanType
+  #       when "PaymentNotice" then 
+  #         match (payerPlan)-[*]->({`https://lschema.org/attributeName`:"coding"})->(v) as payerPlanSorce
+  #       when "PaymentReconciliation" then
+  #         match (payerPlan)-[*]->({`https://lschema.org/attributeName`:"coding"})->(v) as payerPlanSorce
+  #     end
+  #   valueExpr:
+  #     - return payerPlanSource
+
+  # "https://dartnet.info/graphModel/PayerPlan/source/system":
+  #   valueExpr:
+  #   - return payerPlan.system
+  # "https://dartnet.info/graphModel/PayerPlan/source/code":
+  #   valueExpr:
+  #     - return payerPlan.code
+  # "https://dartnet.info/graphModel/PayerPlan/source/text":
+  #   valueExpr:
+  #     - return payerPlan.display
+
+  # "https://dartnet.info/graphModel/PaymentNotice/source":
+  #   evaluate: >-
+  #     match (procedure)-[*]->
+  #          (v {`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/PaymentNotice/code/coding/*"})
+  #          return v as payerPlan
+  #   valueExpr:
+  #     - return payerPlan
+
+  # "https://dartnet.info/graphModel/PaymentNotice/source/system":
+  # valueExpr:
+  #   - return payerPlan.system
+  # "https://dartnet.info/graphModel/PaymentNotice/source/code":
+  #   valueExpr:
+  #     - return payerPlan.code
+  # "https://dartnet.info/graphModel/PaymentNotice/source/text":
+  #   valueExpr:
+  #     - return payerPlan.display
+
+  # "https://dartnet.info/graphModel/PaymentReconciliation/start":
+  #   source: "https://hl7.org/fhir/PaymentReconciliation/created"
+  # "https://dartnet.info/graphModel/PaymentReconciliation/end":
+  #   source: "https://hl7.org/fhir/PaymentReconciliation/paymentDate"
+  # "https://dartnet.info/graphModel/PaymentReconciliation/payer/source/text":
+  #   source: "https://hl7.org/fhir/PaymentReconciliation/detail/value"
+  # "https://dartnet.info/graphModel/PaymentReconciliation/payer/source/unit":
+  #   source: "https://hl7.org/fhir/PaymentReconciliation/detail/unit"
+  # "https://dartnet.info/graphModel/PaymentReconciliation/payer/source/system":
+  #   source: "https://hl7.org/fhir/PaymentReconciliation/detail/system"
+
+
+# Visit
+
+  "https://dartnet.info/graphModel/Visit/visit/element":
+    evaluate: 
+    - >-
+      match (n:`https://hl7.org/fhir/Appointment`) return n as visit
+    valueExpr:
+      return visit
+    mapContext: return visit
+
+  # "https://dartnet.info/graphModel/Appointment/id":
+  #   source: https://hl7.org/fhir/Appointment/id
+
+  "https://dartnet.info/graphModel/Visit/type":
+    evaluate:
+      - >-
+        match (visit)-[*]->(c {system:"http://terminology.hl7.org/CodeSystem/appointment-category"})
+               return c as visitTypeCode
+    valueExpr:
+      - return visitTypeCode.code
+
+  # "https://dartnet.info/graphModel/Appointment/start":
+  #   valueExpr:
+  #     - match (condition)-[]->({`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Appointment/start"})-[]->(d {`https://lschema.org/attributeName`:"start"}) return d
+
+  # "https://dartnet.info/graphModel/Appointment/end":
+  #   valueExpr:
+  #     - match (condition)-[]->({`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/Appointment/end"})-[]->(d {`https://lschema.org/attributeName`:"end"}) return d

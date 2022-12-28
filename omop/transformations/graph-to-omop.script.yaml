@@ -74,11 +74,40 @@ reshapeNodes:
   "https://ohdsi.org/omop/CONDITION_OCCURRENCE":
     valueExpr: >-
       match (n:`https://dartnet.info/graphModel/Condition`) return n as Condition
-
     mapContext: >-
       return Condition
 
   "https://ohdsi.org/omop/CONDITION_OCCURRENCE/person_id":
+    valueExpr: >-
+      match (n:`https://dartnet.info/graphModel/Person`) return n.`https://lschema.org/entityId`
+
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE":
+    valueExpr: >-
+      match (n:`https://dartnet.info/graphModel/VISIT`) return n as Visit
+    mapContext: >-
+      return Visit
+
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE/person_id":
+    valueExpr: >-
+      match (n:`https://dartnet.info/graphModel/Person`) return n.`https://lschema.org/entityId`
+
+  "https://ohdsi.org/omop/PAYER_PLAN_PERIOD":
+    valueExpr: >-
+      match (n:`https://dartnet.info/graphModel/PayerPlan`) return n as PayerPlan
+    mapContext: >-
+      return PayerPlan
+
+  "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/person_id":
+    valueExpr: >-
+      match (n:`https://dartnet.info/graphModel/Person`) return n.`https://lschema.org/entityId`
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE":
+    valueExpr: >-
+      match (n:`https://dartnet.info/graphModel/DrugExposure`) return n as DrugExposure
+    mapContext: >-
+      return DrugExposure
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/person_id":
     valueExpr: >-
       match (n:`https://dartnet.info/graphModel/Person`) return n.`https://lschema.org/entityId`
 
