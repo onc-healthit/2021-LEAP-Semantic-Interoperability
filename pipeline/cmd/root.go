@@ -33,6 +33,7 @@ import (
 
 var logger = ls.NewDefaultLogger()
 var stdLogger = &log.Logger{}
+var environment map[string]string
 
 var (
 	rootCmd = &cobra.Command{
@@ -41,6 +42,10 @@ var (
 		Args:  cobra.MinimumNArgs(1),
 		PersistentPreRun: func(cmd *cobra.Command, _ []string) {
 			_ = godotenv.Load(".env")
+			environment, _ = godotenv.Read(".env")
+			if environment == nil {
+				environment = map[string]string{}
+			}
 			if f, _ := cmd.Flags().GetString("cpuprofile"); len(f) > 0 {
 				file, err := os.Create(f)
 				if err != nil {
@@ -78,8 +83,8 @@ var (
 			if err != nil {
 				return err
 			}
-			env, _ := godotenv.Read(".env")
-			pctx := pipeline.NewContext(ctx, env, pl, nil, func() (pipeline.PipelineEntryInfo, io.ReadCloser, error) {
+			// returns *pipeline.PipelineContext
+			pctx := pipeline.NewContext(ctx, environment, pl, nil, func() (pipeline.PipelineEntryInfo, io.ReadCloser, error) {
 				select {
 				case entry, ok := <-inputs:
 					if ok {
