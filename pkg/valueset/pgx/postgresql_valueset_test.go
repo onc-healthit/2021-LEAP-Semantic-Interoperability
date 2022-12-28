@@ -110,13 +110,7 @@ func TestEnvLoad(t *testing.T) {
 	for _, c := range cfg.ValuesetDBs {
 		switch typ := c.(type) {
 		case *PostgesqlDataStore:
-			if typ.Params.Pwd != "somePwd" {
-				t.Errorf("wrong field value")
-			}
 			if typ.Params.URI != "SOME_URI" {
-				t.Errorf("wrong field value")
-			}
-			if typ.Params.User != "someUser" {
 				t.Errorf("wrong field value")
 			}
 		}
