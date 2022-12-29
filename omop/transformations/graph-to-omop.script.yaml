@@ -66,39 +66,210 @@ reshapeNodes:
   "https://ohdsi.org/omop/PROCEDURE_OCCURRENCE/modifier_source_value":
     valueExpr: return Procedure.modifier
 
-      
-
-
-
-      
+  ################### 
+    
   "https://ohdsi.org/omop/CONDITION_OCCURRENCE":
     valueExpr: >-
       match (n:`https://dartnet.info/graphModel/Condition`) return n as Condition
-
     mapContext: >-
       return Condition
+
+  "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_occurrence_id":
+    valueExpr: return Condition.id
+
+  "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_concept_id":
+    valueExpr: match (Condition)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel/Condition/omop/items"}) return n.id
 
   "https://ohdsi.org/omop/CONDITION_OCCURRENCE/person_id":
     valueExpr: >-
       match (n:`https://dartnet.info/graphModel/Person`) return n.`https://lschema.org/entityId`
 
+  "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_start_date":
+    source: https://dartnet.info/graphModel/Condition/start
 
+  "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_end_date":
+    source: https://dartnet.info/graphModel/Condition/end
 
+  "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_start_datetime":
+    source: https://dartnet.info/graphModel/Condition/start
 
+  "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_end_datetime":
+    source: https://dartnet.info/graphModel/Condition/end
+
+  "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_source_concept_id":
+
+  "https://ohdsi.org/omop/CONDITION_OCCURRENCE/condition_source_value":
+    valueExpr: match (Condition)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel/Condition/source"}) return n.text
+  
+#####################
+
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE":
+    valueExpr: >-
+      match (n:`https://dartnet.info/graphModel/VISIT`) return n as Visit
+    mapContext: >-
+      return Visit
+
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE/visit_occurrence_id":
+    valueExpr: return Visit.id
+
+  # "https://ohdsi.org/omop/VISIT_OCCURRENCE/visit_concept_id":
+  #   valueExpr: match (Visit)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel/Visit/omop/items"}) return n.id
+
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE/person_id":
+    valueExpr: >-
+      match (n:`https://dartnet.info/graphModel/Person`) return n.`https://lschema.org/entityId`
+  
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE/visit_start_date":
+    source: https://dartnet.info/graphModel/Visit/start
+
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE/visit_start_datetime":
+    source: https://dartnet.info/graphModel/Visit/start
+
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE/visit_end_date":
+    source: https://dartnet.info/graphModel/Visit/end
+
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE/visit_end_datetime":
+    source: https://dartnet.info/graphModel/Visit/end
+
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE/provider_id":
+    source: https://dartnet.info/graphModel/Visit/provider
+
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE/care_site_id":
+    source: https://dartnet.info/graphModel/Visit/careSite
+
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE/admitted_from_concept_id":
+    source: https://dartnet.info/graphModel/Visit/admittedFrom
+
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE/discharge_to_concept_id":
+    source: https://dartnet.info/graphModel/Visit/dischargeTo
+
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE/visit_source_value":
+    valueExpr: match (Visit)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel/Visit/visit"}) return n
+
+  ##################
+
+  "https://ohdsi.org/omop/PAYER_PLAN_PERIOD":
+    valueExpr: >-
+      match (n:`https://dartnet.info/graphModel/PayerPlan`) return n as PayerPlan
+    mapContext: >-
+      return PayerPlan
+
+  "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/payer_plan_period_id":
+    valueExpr: return PayerPlan.id
+
+  "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/person_id":
+    valueExpr: >-
+      match (n:`https://dartnet.info/graphModel/Person`) return n.`https://lschema.org/entityId`
+
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE/payer_plan_period_start_date":
+    source: https://dartnet.info/graphModel/PayerPlan/start
+
+  "https://ohdsi.org/omop/VISIT_OCCURRENCE/payer_plan_period_end_date":
+    source: https://dartnet.info/graphModel/PayerPlan/end
+
+  "https://ohdsi.org/omop/PAYER_PLAN_PERIOD/visit_source_value":
+    valueExpr: match (PayerPlan)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel/PayerPlan/source"}) return n.text
       
+
+  ####################
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE":
+    valueExpr: >-
+      match (n:`https://dartnet.info/graphModel/DrugExposure`) return n as DrugExposure
+    mapContext: >-
+      return DrugExposure
+  
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_exposure_id":
+    valueExpr: return DrugExposure.id
+    
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/person_id":
+    valueExpr: >-
+      match (n:`https://dartnet.info/graphModel/Person`) return n.`https://lschema.org/entityId`
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_concept_id":
+    valueExpr: match (DrugExposure)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel/DrugExposure/omop/items"}) return n.id
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_exposure_start_date":
+    source: https://dartnet.info/graphModel/DrugExposure/start
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_exposure_start_datetime":
+    source: https://dartnet.info/graphModel/DrugExposure/start
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_exposure_end_date":
+    source: https://dartnet.info/graphModel/DrugExposure/end
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_exposure_end_datetime":
+    source: https://dartnet.info/graphModel/DrugExposure/end
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/stop_reason":
+    source: https://dartnet.info/graphModel/DrugExposure/stop_reason
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/refills":
+    source: https://dartnet.info/graphModel/DrugExposure/refills
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/quantity":
+    source: https://dartnet.info/graphModel/DrugExposure/quantity
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/days_supply":
+    source: https://dartnet.info/graphModel/DrugExposure/daysSupply
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/sig":
+    source: https://dartnet.info/graphModel/DrugExposure/sig
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/route_concept_id":
+    valueExpr: match (DrugExposure)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel/DrugExposure/route/omop/items"}) return n.id
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/route_source_value":
+    valueExpr: match (DrugExposure)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel/DrugExposure/route/source"}) return n.text
+
+  "https://ohdsi.org/omop/DRUG_EXPOSURE/drug_source_value":
+    valueExpr: match (DrugExposure)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel/DrugExposure/drug/source"}) return n.text
+      
+  ##################
+
   "https://ohdsi.org/omop/MEASUREMENT":
     valueExpr: >-
       match (n:`https://dartnet.info/graphModel/Measurement`) return n as Measurement
-
     mapContext: >-
       return Measurement
+
+  "https://ohdsi.org/omop/MEASUREMENT/measurement_id":
+    valueExpr: return Measurement.id
 
   "https://ohdsi.org/omop/Measurement/person_id":
     valueExpr: >-
       match (n:`https://dartnet.info/graphModel/Person`) return n.`https://lschema.org/entityId`
 
+  "https://ohdsi.org/omop/MEASUREMENT/measurement_concept_id":
+    valueExpr: match (Measurement)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel/Measurement/omop/items"}) return n.id
+
+  "https://ohdsi.org/omop/MEASUREMENT/measurement_date":
+    source: https://dartnet.info/graphModel/Measurement/date
+
+  "https://ohdsi.org/omop/MEASUREMENT/measurement_datetime":
+    source: https://dartnet.info/graphModel/Measurement/date
+
+  "https://ohdsi.org/omop/MEASUREMENT/operator_concept_id":
+    source: https://dartnet.info/graphModel/Measurement/operator
+
+  "https://ohdsi.org/omop/MEASUREMENT/value_as_concept_id":
+    source: https://dartnet.info/graphModel/Measurement/value
+
+  "https://ohdsi.org/omop/MEASUREMENT/unit_concept_id":
+    source: https://dartnet.info/graphModel/Measurement/unit
+
+  "https://ohdsi.org/omop/MEASUREMENT/range_low":
+    source: https://dartnet.info/graphModel/Measurement/rangeLow
+
+  "https://ohdsi.org/omop/MEASUREMENT/range_high":
+    source: https://dartnet.info/graphModel/Measurement/rangeHigh
+
+  "https://ohdsi.org/omop/MEASUREMENT/measurement_source_value":
+    valueExpr: match (Measurement)-[*]->(n {`https://lschema.org/schemaNodeId`:"https://dartnet.info/graphModel/Measurement/source"}) return n.text
 
       
+  ##################
+
   "https://ohdsi.org/omop/OBSERVATION":
     valueExpr: >-
       match (n:`https://dartnet.info/graphModel/Observation`) return n as Observation

@@ -1,0 +1,64 @@
+databases:
+  - database:
+      pgx:
+      params:
+        user: ${pgx_user}
+        pwd: ${pgx_password}
+        uri: ${pgx_uri}
+        db: ${pgx_db}
+      valuesets:
+        - tableId: omop
+          queries:
+            - query: "select concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,concept_code from concepts where vocabulary_id=@vocabulary_id and concept_code=@code and valid_end_date='20991231';"
+valuesets:
+  - id: codeSystemNames
+    description: Code system urn to name mappings
+    values:
+      - values:
+          - 2.16.840.1.113883.6.96
+          - http://snomed.info/sct
+          - urn:oid:2.16.840.1.113883.6.96
+        result: SNOMED
+      - values:
+          - 2.16.840.1.113883.6.1
+          - http://loinc.org
+          - urn:oid:2.16.840.1.113883.6.1
+        result: LOINC
+      - values:
+          - 2.16.840.1.113883.12.292
+          - http://hl7.org/fhir/sid/cvx
+          - urn:oid:2.16.840.1.113883.12.292
+        result: CVX
+  - id: https://ohdsi.org/omop/gender
+    description: Administrative gender code to omop concept id translations
+    values:
+      - values:
+          - F
+        result: "8532"
+      - values:
+          - M
+        result: "8507"
+      - result: "0"
+  - id: https://ohdsi.org/omop/race
+    values:
+      - values:
+          - 1002-5
+        result: "4184966"
+        description: Native
+      - values:
+          - 2028-9
+        result: "8515"
+        description: Asian
+      - values:
+          - 2054-5
+        result: "38003598"
+        description: Black
+      - values:
+          - 2076-8
+        result: "45506205"
+        description: Other
+      - values:
+          - 2106-3
+        result: "3212942"
+        description: White
+      - result: "0"

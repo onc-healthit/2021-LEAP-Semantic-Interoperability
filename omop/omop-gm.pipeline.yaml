@@ -96,3 +96,160 @@
               - name: "procedure_source_concept_id"
               - name: "modifier_source_value"
                 
+
+      measurement:
+        - operation: reshape
+          params:
+            bundle:
+              - v6/schemas/omop.bundle.yaml
+            type: https://ohdsi.org/omop/MEASUREMENT
+            scriptFile: transformations/graph-to-omop.script.yaml
+        - operation: export/csv
+          params:
+            file: measurement_omop.csv
+            columns:
+              - name: "measurement_id"
+              - name: "person_id"
+              - name: "measurement_concept_id"
+              - name: "measurement_date"
+              - name: "measurement_datetime"
+              - name: "measurement_time"
+              - name: "measurement_type_concept_id"
+              - name: "operator_concept_id"
+              - name: "value_as_number"
+              - name: "value_as_concept_id"
+              - name: "unit_concept_id"
+              - name: "range_low"
+              - name: "range_high"
+              - name: "provider_id"
+              - name: "visit_occurrence_id"
+              - name: "visit_detail_id"
+              - name: "measurement_source_value"
+              - name: "measurement_source_concept_id"
+              - name: "unit_source_value"
+              - name: "value_source_value"
+
+      drugExposure:
+        - operation: reshape
+          params:
+            bundle:
+              - v6/schemas/omop.bundle.yaml
+            type: https://ohdsi.org/omop/DRUG_EXPOSURE
+            scriptFile: transformations/graph-to-omop.script.yaml
+        - operation: export/csv
+          params:
+            file: drug_exposure_omop.csv
+            columns:
+              - name: "drug_exposure_id"
+              - name: "person_id"
+              - name: "drug_concept_id"
+              - name: "drug_exposure_start_date"
+              - name: "drug_exposure_start_datetime"
+              - name: "drug_exposure_end_date"
+              - name: "drug_exposure_end_datetime"
+              - name: "verbatim_end_date"
+              - name: "drug_type_concept_id"
+              - name: "stop_reason"
+              - name: "refills"
+              - name: "quantity"
+              - name: "days_supply"
+              - name: "sig"
+              - name: "route_concept_id"
+              - name: "lot_number"
+              - name: "provider_id"
+              - name: "visit_occurrence_id"
+              - name: "visit_detail_id"
+              - name: "drug_source_value"
+              - name: "drug_source_concept_id"
+              - name: "route_source_value"
+              - name: "dose_unit_source_value"
+      
+      visit:
+        - operation: reshape
+          params:
+            bundle:
+              - v6/schemas/omop.bundle.yaml
+            type: https://ohdsi.org/omop/VISIT_OCCURRENCE
+            scriptFile: transformations/graph-to-omop.script.yaml
+        - operation: export/csv
+          params:
+            file: visit_omop.csv
+            columns:
+              - name: "visit_occurrence_id"
+              - name: "person_id"
+              - name: "visit_concept_id"
+              - name: "visit_start_date"
+              - name: "visit_start_datetime"
+              - name: "visit_end_date"
+              - name: "visit_end_datetime"
+              - name: "visit_type_concept_id"
+              - name: "provider_id"
+              - name: "care_site_id"
+              - name: "visit_source_value"
+              - name: "visit_source_concept_id"
+              - name: "admitted_from_concept_id"
+              - name: "admitted_from_source_value"
+              - name: "discharge_to_concept_id"
+              - name: "discharge_to_source_value"
+              - name: "preceding_visit_occurrence_id"
+
+      condition:
+        - operation: reshape
+          params:
+            bundle:
+              - v6/schemas/omop.bundle.yaml
+            type: https://ohdsi.org/omop/CONDITION_OCCURRENCE
+            scriptFile: transformations/graph-to-omop.script.yaml
+        - operation: export/csv
+          params:
+            file: condition_omop.csv
+            columns:
+              - name: "condition_occurrence_id"
+              - name: "person_id"
+              - name: "condition_concept_id"
+              - name: "condition_start_date"
+              - name: "condition_start_datetime"
+              - name: "condition_end_date"
+              - name: "condition_end_datetime"
+              - name: "condition_type_concept_id"
+              - name: "condition_status_concept_id"
+              - name: "stop_reason"
+              - name: "provider_id"
+              - name: "visit_occurrence_id"
+              - name: "visit_detail_id"
+              - name: "condition_source_value"
+              - name: "condition_source_concept_id"
+              - name: "condition_status_source_value"
+
+      payer_plan:
+        - operation: reshape
+          params:
+            bundle:
+              - v6/schemas/omop.bundle.yaml
+            type: https://ohdsi.org/omop/PAYER_PLAN_PERIOD
+            scriptFile: transformations/graph-to-omop.script.yaml
+        - operation: export/csv
+          params:
+            file: payer_plan_omop.csv
+            columns:
+              - name: "payer_plan_period_id"
+              - name: "person_id"
+              - name: "contract_person_id"
+              - name: "payer_plan_period_start_date"
+              - name: "payer_plan_period_end_date"
+              - name: "payer_concept_id"
+              - name: "payer_source_value"
+              - name: "payer_source_concept_id"
+              - name: "plan_concept_id"
+              - name: "plan_source_value"
+              - name: "plan_source_concept_id"
+              - name: "contract_concept_id"
+              - name: "contract_source_value"
+              - name: "contract_source_concept_id"
+              - name: "sponsor_concept_id"
+              - name: "sponsor_source_value"
+              - name: "sponsor_source_concept_id"
+              - name: "family_source_value"
+              - name: "stop_reason_concept_id"
+              - name: "stop_reason_source_value"
+              - name: "stop_reason_source_concept_id"

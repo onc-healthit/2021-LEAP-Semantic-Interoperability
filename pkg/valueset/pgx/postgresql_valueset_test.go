@@ -98,9 +98,7 @@ func TestGetResults(t *testing.T) {
 
 func TestEnvLoad(t *testing.T) {
 	env := map[string]string{
-		"uri":      "SOME_URI",
-		"pgx_user": "someUser",
-		"password": "somePwd",
+		"pgxuri": "SOME_URI",
 	}
 	cfg, err := valueset.LoadConfig("../../testdata/cfg/valueset-databases.yaml", env)
 	if err != nil {
@@ -110,13 +108,7 @@ func TestEnvLoad(t *testing.T) {
 	for _, c := range cfg.ValuesetDBs {
 		switch typ := c.(type) {
 		case *PostgesqlDataStore:
-			if typ.Params.Pwd != "somePwd" {
-				t.Errorf("wrong field value")
-			}
 			if typ.Params.URI != "SOME_URI" {
-				t.Errorf("wrong field value")
-			}
-			if typ.Params.User != "someUser" {
 				t.Errorf("wrong field value")
 			}
 		}

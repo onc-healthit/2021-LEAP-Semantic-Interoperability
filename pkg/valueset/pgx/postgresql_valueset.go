@@ -47,11 +47,6 @@ func NewPostgresqlDataStore(value interface{}, env map[string]string) (valueset.
 	if err := decoder.Decode(value); err != nil {
 		return psqlDs, err
 	}
-	// for _, v := range value.(map[string]interface{}) {
-	// 	if err := mapstructure.Decode(v, &psqlDs); err != nil {
-	// 		return psqlDs, err
-	// 	}
-	// }
 	psqlDs.tableIds = make(map[string]struct{})
 	for _, vs := range psqlDs.Valuesets {
 		psqlDs.tableIds[vs.TableId] = struct{}{}
