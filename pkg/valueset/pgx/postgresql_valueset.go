@@ -85,6 +85,10 @@ func (db *Database) getConnection() *sql.DB {
 			panic(fmt.Sprintf("cannot open database with adapter pgx, URI %s", db.Params.URI))
 		}
 		db.DB = conn
+		_, err = conn.Query("select 1")
+		if err != nil {
+			panic(err)
+		}
 	})
 	if db.DB == nil {
 		panic("missing database connection")
@@ -106,7 +110,6 @@ func (db *Database) getResults(ctx context.Context, queryParams map[string]strin
 		if vs.TableId != tableID {
 			continue
 		}
-	NextQuery:
 		for _, query := range vs.Queries {
 			for key, qPval := range queryParams {
 				rows, err := runQuery(db.DB, query.Query, pgx.NamedArgs{key: qPval})
@@ -140,11 +143,9 @@ func (db *Database) getResults(ctx context.Context, queryParams map[string]strin
 						ret[colName] = v.(string)
 					}
 					// Outputs: map[columnName:value columnName2:value2 columnName3:value3 ...]
-					delete(queryParams, key)
-					break NextQuery
+					return ret, nil
 				}
 			}
-
 		}
 	}
 	return ret, nil
