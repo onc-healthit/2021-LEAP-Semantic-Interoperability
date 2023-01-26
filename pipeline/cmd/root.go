@@ -98,9 +98,12 @@ var (
 				}
 				return nil, nil, nil
 			})
-			pctx.EntryLogger = func(ctx *pipeline.PipelineContext, data map[string]interface{}) {
+			pctx.EntryLogger = func(ctx *pipeline.PipelineContext, data map[string]any) {
 				d, _ := json.Marshal(data)
 				fmt.Fprintln(os.Stderr, string(d))
+			}
+			pctx.InfoLogger = func(ctx *pipeline.PipelineContext, data map[string]any) {
+				fmt.Fprintln(os.Stderr, data)
 			}
 			err = pipeline.Run(pctx)
 			if err != nil {

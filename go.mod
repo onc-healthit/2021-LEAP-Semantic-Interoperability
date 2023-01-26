@@ -2,17 +2,23 @@ module github.com/cloudprivacylabs/leap
 
 go 1.19
 
+replace github.com/cloudprivacylabs/lsa-neo4j => ../lsa-neo4j
+
+replace github.com/cloudprivacylabs/opencypher => ../opencypher
+
+replace github.com/cloudprivacylabs/lsa => ../lsa
+
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0
 	github.com/cloudprivacylabs/lpg v1.0.11
-	github.com/cloudprivacylabs/lsa v1.0.0-beta9.0.20221219200151-8160df514048
+	github.com/cloudprivacylabs/lsa v1.0.0-beta20
 	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221216163004-ec244625dcc1
-	github.com/cloudprivacylabs/opencypher v1.0.0-beta-11
+	github.com/cloudprivacylabs/opencypher v1.0.0-beta-13
 	github.com/drone/envsubst v1.0.3
 	github.com/joho/godotenv v1.4.0
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/neo4j/neo4j-go-driver v1.8.3
-	github.com/neo4j/neo4j-go-driver/v4 v4.3.3
+	github.com/neo4j/neo4j-go-driver/v5 v5.4.0
 	github.com/spf13/cobra v1.5.0
 )
 
@@ -20,6 +26,7 @@ require (
 	github.com/Azure/go-ansiterm v0.0.0-20210617225240-d185dfc1b5a1 // indirect
 	github.com/Microsoft/go-winio v0.4.17 // indirect
 	github.com/Microsoft/hcsshim v0.8.23 // indirect
+	github.com/bserdar/slicemap v0.0.0-20230110022437-d67753b63828 // indirect
 	github.com/cenkalti/backoff/v4 v4.1.2 // indirect
 	github.com/containerd/cgroups v1.0.1 // indirect
 	github.com/containerd/containerd v1.5.9 // indirect
@@ -27,6 +34,7 @@ require (
 	github.com/docker/docker v20.10.11+incompatible // indirect
 	github.com/docker/go-connections v0.4.0 // indirect
 	github.com/docker/go-units v0.4.0 // indirect
+	github.com/fatih/structs v1.1.0 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
@@ -38,6 +46,7 @@ require (
 	github.com/moby/sys/mount v0.2.0 // indirect
 	github.com/moby/sys/mountinfo v0.5.0 // indirect
 	github.com/moby/term v0.0.0-20210619224110-3f7ff695adc6 // indirect
+	github.com/nxadm/tail v1.4.8 // indirect
 	github.com/onsi/gomega v1.19.0 // indirect
 	github.com/opencontainers/go-digest v1.0.0 // indirect
 	github.com/opencontainers/image-spec v1.0.2 // indirect

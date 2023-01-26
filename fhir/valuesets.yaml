@@ -1,15 +1,12 @@
 databases:
   - database:
       pgx:
-      params:
-        user: ${pgx_user}
-        pwd: ${pgx_password}
-        uri: ${pgx_uri}
-        db: ${pgx_db}
-      valuesets:
-        - tableId: omop
-          queries:
-            - query: "select concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,concept_code from concepts where vocabulary_id=@vocabulary_id and concept_code=@code and valid_end_date='20991231';"
+        params:
+          uri: ${pguri}
+        valuesets:
+          - tableId: omop
+            queries:
+              - query: "select concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,concept_code from concepts where vocabulary_id=@vocabulary_id and concept_code=@code and valid_end_date='20991231';"
 valuesets:
   - id: codeSystemNames
     description: Code system urn to name mappings
