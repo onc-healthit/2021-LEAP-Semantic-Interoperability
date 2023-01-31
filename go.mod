@@ -2,17 +2,11 @@ module github.com/cloudprivacylabs/leap
 
 go 1.19
 
-replace github.com/cloudprivacylabs/lsa-neo4j => ../lsa-neo4j
-
-replace github.com/cloudprivacylabs/opencypher => ../opencypher
-
-replace github.com/cloudprivacylabs/lsa => ../lsa
-
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0
 	github.com/cloudprivacylabs/lpg v1.0.11
 	github.com/cloudprivacylabs/lsa v1.0.0-beta20
-	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20221216163004-ec244625dcc1
+	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20230131184355-0720043e4e6e
 	github.com/cloudprivacylabs/opencypher v1.0.0-beta-13
 	github.com/drone/envsubst v1.0.3
 	github.com/joho/godotenv v1.4.0
