@@ -4,7 +4,6 @@ import (
 	"context"
 	"fmt"
 	"sync"
-	"time"
 
 	"github.com/cloudprivacylabs/lpg"
 	neo "github.com/cloudprivacylabs/lsa-neo4j"
@@ -215,17 +214,13 @@ func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 
 		if dbGraph == nil {
 			var err error
-			start := time.Now()
 			dbGraph, err = s.session.LoadDBGraph(pctx.Context, tx, graph, s.cfg, &cache)
-			fmt.Printf("Load graph: %v, %d nodes\n", time.Since(start), dbGraph.G.NumNodes())
 			if err != nil {
 				return nil, nil, err
 			}
 		}
 		pctx.Context.GetLogger().Debug(map[string]interface{}{"Loaded db graph with nodes": dbGraph.G.GetNodes().MaxSize()})
-		start := time.Now()
 		delta, err := neo.Merge(graph, dbGraph, s.cfg)
-		fmt.Printf("Merge: %v\n", time.Since(start))
 		if err != nil {
 			return nil, nil, err
 		}
@@ -262,13 +257,11 @@ func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 		pctx.ErrorLogger(pctx, err)
 		return err
 	}
-	start := time.Now()
 	if err := doTx(transaction, delta, dbGraph, true); err != nil {
 		transaction.Rollback(pctx.Context)
 		pctx.ErrorLogger(pctx, err)
 		return err
 	}
-	fmt.Printf("tx: %v\n", time.Since(start))
 	return pctx.Next()
 }
 
