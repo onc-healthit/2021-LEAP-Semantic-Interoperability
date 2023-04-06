@@ -2,13 +2,15 @@ module github.com/cloudprivacylabs/leap
 
 go 1.19
 
+
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0
-	github.com/cloudprivacylabs/lpg v1.0.11
-	github.com/cloudprivacylabs/lsa v1.0.0-beta20
+	github.com/cloudprivacylabs/lpg/v2 v2.0.0
+	github.com/cloudprivacylabs/lsa v1.0.0-beta22.0.20230404220951-1736e96f8374
 	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20230131184355-0720043e4e6e
-	github.com/cloudprivacylabs/opencypher v1.0.0-beta-13
+	github.com/cloudprivacylabs/opencypher v1.0.0-beta-15
 	github.com/drone/envsubst v1.0.3
+	github.com/hashicorp/go-metrics v0.4.2-0.20221220172610-8cabd9eab1be
 	github.com/joho/godotenv v1.4.0
 	github.com/mitchellh/mapstructure v1.5.0
 	github.com/neo4j/neo4j-go-driver v1.8.3
@@ -33,6 +35,8 @@ require (
 	github.com/golang/groupcache v0.0.0-20200121045136-8c9f03a8e57e // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/google/uuid v1.3.0 // indirect
+	github.com/hashicorp/go-immutable-radix v1.0.0 // indirect
+	github.com/hashicorp/golang-lru v0.5.1 // indirect
 	github.com/hashicorp/golang-lru/v2 v2.0.1 // indirect
 	github.com/jackc/pgpassfile v1.0.0 // indirect
 	github.com/jackc/pgservicefile v0.0.0-20200714003250-2b9c44734f2b // indirect

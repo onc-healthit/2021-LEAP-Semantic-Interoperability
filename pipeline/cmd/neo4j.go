@@ -3,12 +3,19 @@ package cmd
 import (
 	"context"
 	"fmt"
+	"os"
+	"path/filepath"
+	"strings"
 	"sync"
+	"time"
 
-	"github.com/cloudprivacylabs/lpg"
+	"github.com/hashicorp/go-metrics"
+
+	"github.com/cloudprivacylabs/lpg/v2"
 	neo "github.com/cloudprivacylabs/lsa-neo4j"
 	"github.com/cloudprivacylabs/lsa/layers/cmd/cmdutil"
 	"github.com/cloudprivacylabs/lsa/layers/cmd/pipeline"
+	"github.com/cloudprivacylabs/lsa/pkg/csv"
 	"github.com/cloudprivacylabs/lsa/pkg/ls"
 	"github.com/cloudprivacylabs/opencypher"
 	"github.com/drone/envsubst"
@@ -107,11 +114,10 @@ func (step Neo4jStep) getConfig() neo.Config {
 
 type MergeGraphStep struct {
 	session       *neo.Session
+	CacheByID     string `json:"cacheBy" yaml:"cacheBy"`
 	cfg           neo.Config
-	cachedDBGraph map[string]*neo.DBGraph
 	Neo4jStep     `yaml:",inline"`
-	// CacheByID keeps the ID that uniquely identifies a graph
-	CacheByID string `json:"cacheBy" yaml:"cacheBy"`
+	cachedDBGraph map[string]*neo.DBGraph
 
 	mu sync.Mutex
 }
@@ -148,12 +154,15 @@ func (s *MergeGraphStep) createNodesEdges(ctx *ls.Context, tx neo4j.ExplicitTran
 	})
 	nodes := make([]*lpg.Node, 0, len(createNodeDeltas))
 	for _, x := range createNodeDeltas {
-		nodes = append(nodes, x.(neo.CreateNodeDelta).DBNode)
+		node := x.(neo.CreateNodeDelta).DBNode
+		nodes = append(nodes, node)
 	}
 	if len(nodes) > 0 {
-		if err := neo.CreateNodesUnwind(ctx, nodes, dbGraph.NodeIds, s.cfg)(tx); err != nil {
+		start := time.Now()
+		if err := neo.CreateNodesUnwind(ctx, nodes, dbGraph, s.cfg)(tx); err != nil {
 			return err
 		}
+		metrics.MeasureSince([]string{"neo4j.createNodes"}, start)
 	}
 
 	createEdgeDeltas := neo.SelectDelta(delta, func(d neo.Delta) bool {
@@ -165,11 +174,12 @@ func (s *MergeGraphStep) createNodesEdges(ctx *ls.Context, tx neo4j.ExplicitTran
 		edges = append(edges, c.(neo.CreateEdgeDelta).DBEdge)
 	}
 	if len(edges) > 0 {
-		if err := neo.CreateEdgesUnwind(ctx, session, edges, dbGraph.NodeIds, s.cfg)(tx); err != nil {
+		start := time.Now()
+		if err := neo.CreateEdgesUnwind(ctx, session, edges, dbGraph, s.cfg)(tx); err != nil {
 			return err
 		}
+		metrics.MeasureSince([]string{"neo4j.createEdges"}, start)
 	}
-
 	updateDeltas := neo.SelectDelta(delta, func(d neo.Delta) bool {
 		if _, ok := d.(neo.CreateNodeDelta); ok {
 			return false
@@ -180,12 +190,13 @@ func (s *MergeGraphStep) createNodesEdges(ctx *ls.Context, tx neo4j.ExplicitTran
 		return true
 	})
 
+	start := time.Now()
 	for _, c := range updateDeltas {
 		if err := c.Run(ctx, tx, session, dbGraph.NodeIds, dbGraph.EdgeIds, s.cfg); err != nil {
 			return err
 		}
 	}
-
+	metrics.MeasureSince([]string{"neo4j.update"}, start)
 	return nil
 }
 
@@ -197,21 +208,21 @@ func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 	}
 
 	cache := neo.Neo4jCache{}
+	var idToCache string
 
 	merge := func(tx neo4j.ExplicitTransaction, graph *lpg.Graph, useCache bool) (*neo.DBGraph, []neo.Delta, error) {
 		var dbGraph *neo.DBGraph
 		if useCache {
-			idc := s.getIDToCache(graph)
-			if len(idc) > 0 {
+			idToCache = s.getIDToCache(graph)
+			if len(idToCache) > 0 {
 				var ok bool
-				dbGraph, ok = s.cachedDBGraph[idc]
+				dbGraph, ok = s.cachedDBGraph[idToCache]
 				// Remember only one graph
 				if !ok {
 					s.cachedDBGraph = make(map[string]*neo.DBGraph)
 				}
 			}
 		}
-
 		if dbGraph == nil {
 			var err error
 			dbGraph, err = s.session.LoadDBGraph(pctx.Context, tx, graph, s.cfg, &cache)
@@ -235,16 +246,13 @@ func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 		if err := neo.LinkMergedEntities(pctx.Context, tx, s.cfg, delta, dbGraph.NodeIds); err != nil {
 			return err
 		}
+		start := time.Now()
 		if err := tx.Commit(pctx.Context); err != nil {
 			pctx.ErrorLogger(pctx, err)
 			return err
 		}
-		if useCache {
-			idc := s.getIDToCache(dbGraph.G)
-			if len(idc) > 0 {
-				s.cachedDBGraph = map[string]*neo.DBGraph{idc: dbGraph}
-			}
-		}
+		metrics.MeasureSince([]string{"neo4j.merge.Commit"}, start)
+
 		return nil
 	}
 	transaction, err := s.session.BeginTransaction(pctx.Context)
@@ -252,16 +260,27 @@ func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 		pctx.ErrorLogger(pctx, err)
 		return err
 	}
-	dbGraph, delta, err := merge(transaction, pctx.Graph, true)
+
+	compactGraph, err := neo.Compact(pctx.Graph)
+	if err != nil {
+		return err
+	}
+
+	dbGraph, delta, err := merge(transaction, compactGraph, false) // Caching is broken
 	if err != nil {
 		pctx.ErrorLogger(pctx, err)
 		return err
 	}
 	if err := doTx(transaction, delta, dbGraph, true); err != nil {
+		s.cachedDBGraph = make(map[string]*neo.DBGraph)
 		transaction.Rollback(pctx.Context)
 		pctx.ErrorLogger(pctx, err)
 		return err
 	}
+	if len(idToCache) > 0 {
+		s.cachedDBGraph[idToCache] = dbGraph
+	}
+
 	return pctx.Next()
 }
 
@@ -333,8 +352,91 @@ func (s *LoadGraphStep) Run(pctx *pipeline.PipelineContext) error {
 	return nil
 }
 
+type RunStatementStep struct {
+	Neo4jStep  `yaml:",inline"`
+	InputData  string   `json:"inputData" yaml:"inputData"`
+	Sheet      string   `json:"sheet" yaml:"sheet"`
+	HeaderRow  int      `json:"headerRow" yaml:"headerRow"`
+	Separator  string   `json:"separator" yaml:"separator"`
+	Statements []string `json:"statements" yaml:"statements"`
+
+	session *neo.Session
+}
+
+func (s *RunStatementStep) Name() string { return "neo4j/run" }
+
+func (s *RunStatementStep) runStatements(ctx context.Context, env map[string]string) error {
+	transaction, err := s.session.BeginTransaction(ctx)
+	if err != nil {
+		return err
+	}
+	for _, stmt := range s.Statements {
+		stmt := os.Expand(stmt, func(k string) string {
+			return env[k]
+		})
+		fmt.Println(stmt)
+		if _, err := transaction.Run(ctx, stmt, map[string]any{}); err != nil {
+			transaction.Rollback(ctx)
+			return fmt.Errorf("Statement: %s, data: %v, error: %w", stmt, env, err)
+		}
+	}
+	return transaction.Commit(ctx)
+}
+
+func (s *RunStatementStep) Run(pctx *pipeline.PipelineContext) error {
+	if s.session == nil {
+		s.session = s.getSession()
+	}
+	// If there is input data, open it
+	var stream <-chan csv.Row
+	if len(s.InputData) > 0 {
+		input, err := os.Open(s.InputData)
+		if err != nil {
+			return err
+		}
+		defer input.Close()
+
+		if strings.ToLower(filepath.Ext(s.InputData)) == ".csv" {
+			stream, err = csv.StreamCSVRows(input, s.Separator, s.HeaderRow)
+			if err != nil {
+				return err
+			}
+		} else {
+			stream, err = csv.StreamExcelSheetRows(input, s.Sheet, s.HeaderRow)
+			if err != nil {
+				return err
+			}
+		}
+	}
+
+	if stream != nil {
+		for row := range stream {
+			if row.Err != nil {
+				return row.Err
+			}
+			env := make(map[string]string)
+			n := len(row.Headers)
+			if len(row.Row) < n {
+				n = len(row.Row)
+			}
+			for i := 0; i < n; i++ {
+				env[row.Headers[i]] = row.Row[i]
+			}
+			if err := s.runStatements(pctx.Context, env); err != nil {
+				return err
+			}
+		}
+	} else {
+		if err := s.runStatements(pctx.Context, map[string]string{}); err != nil {
+			return err
+		}
+	}
+	return nil
+}
+
 func init() {
 	//	pipeline.RegisterPipelineStep("neo4j/save", func() pipeline.Step { return &SaveGraphStep{} })
 	pipeline.RegisterPipelineStep("neo4j/merge", func() pipeline.Step { return &MergeGraphStep{} })
 	pipeline.RegisterPipelineStep("neo4j/load", func() pipeline.Step { return &LoadGraphStep{} })
+	pipeline.RegisterPipelineStep("neo4j/run", func() pipeline.Step { return &RunStatementStep{} })
 }

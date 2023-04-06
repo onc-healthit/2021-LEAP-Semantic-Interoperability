@@ -18,35 +18,35 @@
 # This step will convert the FHIR graph into the graph model using the
 # fhir-to-graph overlay
 
-- operation: reshape
-  params:
-    bundle:
-      - graphmodel.bundle.yaml
-    type: https://dartnet.info/graphModel/Person
-    scriptFile: transformations/fhir-to-graph.script.yaml
+# - operation: reshape
+#   params:
+#     bundle:
+#       - graphmodel.bundle.yaml
+#     type: https://dartnet.info/graphModel/Person
+#     scriptFile: transformations/fhir-to-graph.script.yaml
 
-- operation: valueset
-  params:
-    valuesetFiles:
-      - valuesets.yaml
-    tables:
-      - codeSystemNames
+# - operation: valueset
+#   params:
+#     valuesetFiles:
+#       - valuesets.yaml
+#     tables:
+#       - codeSystemNames
 
-- operation: valueset
-  params:
-    valuesetFiles:
-      - valuesets.yaml
-    tables:
-      - omop
+# - operation: valueset
+#   params:
+#     valuesetFiles:
+#       - valuesets.yaml
+#     tables:
+#       - omop
     
-#- operation: writeGraph
-- operation: neo4j/merge
-  params:
-    db: ${neo4j_db}
-    batchSize: 100
-    user: ${user}
-    pwd: ${pwd}
-    uri: ${uri}
-    cfg: lsaneo.config.yaml
-    cacheBy: https://dartnet.info/graphModel/Person
+- operation: writeGraph
+# - operation: neo4j/merge
+#   params:
+#     db: ${neo4j_db}
+#     batchSize: 100
+#     user: ${user}
+#     pwd: ${pwd}
+#     uri: ${uri}
+#     cfg: lsaneo.config.yaml
+#     cacheBy: https://dartnet.info/graphModel/Person
   

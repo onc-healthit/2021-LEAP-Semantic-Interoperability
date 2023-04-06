@@ -23,6 +23,8 @@ import (
 	"runtime/pprof"
 	"time"
 
+	"github.com/hashicorp/go-metrics"
+
 	"github.com/joho/godotenv"
 	"github.com/spf13/cobra"
 
@@ -105,6 +107,8 @@ var (
 			pctx.InfoLogger = func(ctx *pipeline.PipelineContext, data map[string]any) {
 				fmt.Fprintln(os.Stderr, data)
 			}
+			inm := metrics.NewInmemSink(time.Second, time.Hour)
+			metrics.NewGlobal(&metrics.Config{}, inm)
 			err = pipeline.Run(pctx)
 			if err != nil {
 				pctx.ErrorLogger(pctx, err)

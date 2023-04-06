@@ -15,6 +15,7 @@ package main
 
 import (
 	"github.com/cloudprivacylabs/leap/pipeline/cmd"
+	_ "github.com/cloudprivacylabs/leap/pkg/funcs"
 	_ "github.com/cloudprivacylabs/leap/pkg/valueset/pgx"
 	_ "github.com/cloudprivacylabs/lsa/layers/cmd"
 	_ "github.com/cloudprivacylabs/lsa/layers/cmd/valueset"

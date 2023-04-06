@@ -140,7 +140,9 @@ func (db *Database) getResults(ctx context.Context, queryParams map[string]strin
 					for i, colName := range cols {
 						val := columnPointers[i].(*interface{})
 						v := *val
-						ret[colName] = v.(string)
+						if v != nil {
+							ret[colName] = fmt.Sprint(v)
+						}
 					}
 					// Outputs: map[columnName:value columnName2:value2 columnName3:value3 ...]
 					return ret, nil
