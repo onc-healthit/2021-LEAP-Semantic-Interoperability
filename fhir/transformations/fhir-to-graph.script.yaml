@@ -191,7 +191,7 @@ reshapeNodes:
 # a drugType value, which is captured in Drug Exposure/drugType/source. Drug Exposure may include
 # codes defining the drug exposure, and these are collected under Drug Exposure/source
 
-  "https://dartnet.info/graphModel/Person/drugExposure/element":
+  "https://dartnet.info/graphModel/Person/drugExposures/element":
     valueExpr:
     - >-
       match (n:`https://hl7.org/fhir/Immunization`) return n as drugExposure
@@ -202,7 +202,7 @@ reshapeNodes:
   "https://dartnet.info/graphModel/DrugExposure/id":
     valueExpr: match (drugExposure)-[]->(n {`https://lschema.org/attributeName`:"id"}) return n
 
-  "https://dartnet.info/graphModel/DrugExposure/source":
+  "https://dartnet.info/graphModel/DrugExposure/drug/source":
     evaluate: >-
       match (drugExposure)-[*]->
            (v {`https://lschema.org/schemaNodeId`:"https://hl7.org/fhir/DrugExposure/code/coding/*"})
@@ -210,13 +210,13 @@ reshapeNodes:
     valueExpr:
       - return drugExposureCode
 
-  "https://dartnet.info/graphModel/DrugExposure/source/system":
+  "https://dartnet.info/graphModel/DrugExposure/drug/source/system":
     valueExpr:
       - return drugExposureCode.system
-  "https://dartnet.info/graphModel/DrugExposure/source/code":
+  "https://dartnet.info/graphModel/DrugExposure/drug/source/code":
     valueExpr:
       - return drugExposureCode.code
-  "https://dartnet.info/graphModel/DrugExposure/source/text":
+  "https://dartnet.info/graphModel/DrugExposure/drug/source/text":
     valueExpr:
       - return drugExposureCode.display
 
@@ -291,7 +291,7 @@ reshapeNodes:
 
 # Visit
 
-  "https://dartnet.info/graphModel/Visit/visit/element":
+  "https://dartnet.info/graphModel/Person/visits/element":
     evaluate: 
     - >-
       match (n:`https://hl7.org/fhir/Appointment`) return n as visit
