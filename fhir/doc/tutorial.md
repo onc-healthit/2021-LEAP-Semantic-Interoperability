@@ -1,9 +1,6 @@
 # Leading Edge Acceleration Projects (LEAP)
 ## _Guide To Using [Layered Schemas Architecture (LSA)](https://github.com/cloudprivacylabs.com/lsa)_
 https://github.com/cloudprivacylabs.com/lsa
-#### From the [Layered Schemas Architecture](https://layeredschemas.org/) Site:
-#
-> Layered Schema Architecture (LSA) enables semantic interoperability between heterogeneous systems. LSA uses a schema base (such as FHIR schemas for health data) to define data structures, and overlays to add semantics, contextual metadata, and processing directives. A schema variant is the composition of the schema base and use-case specific overlays. Different schema variants can be used to ingest data from or export data to disparate systems. Each variant encodes source specific metadata and rules to ingest data into a knowledge graph, or target specific metadata and rules to translate the knowledge graph into another format.
 
 ## Goal:
 By the end of this tutorial, you will have an understanding of what Layered Schemas Architecture (LSA) is and how to use its technology given an _OMOP_ concept. For our example, we will be using the [__OMOP__](https://www.ohdsi.org/data-standardization/) concepts dataset - you can find all Omop concepts here: https://athena.ohdsi.org/search-terms/start
@@ -11,7 +8,7 @@ By the end of this tutorial, you will have an understanding of what Layered Sche
 ## Prerequisites:
 ### If you do not have the following databases installed below, follow the direct page's instructions to set them up.
 - [`PostgreSQL`](https://www.postgresql.org/)
--- can be replaced by your favorite table based relational database - MySQL, MariaDB, Microsoft SQL Server, Oracle Database, etc.
+-- This tutorial uses PostgreSQL, but can be extended to use any other database
 - [`Neo4j`](https://neo4j.com/)
 - [`Layered Schema Architecture`](https://github.com/cloudprivacylabs.com/lsa)
     - install or build binary
@@ -41,16 +38,16 @@ In this picture, the details list for the drug Promedrol are composed of the row
 In PostgreSQL, we must create a table with columns that match the rows of our concepts.
 ```
 CREATE TABLE concepts (
-    concept_id VARCHAR(255),
+    concept_id VARCHAR(55) UNIQUE,
     concept_name VARCHAR(255),    
-    domain_id VARCHAR(255),
+    domain_id VARCHAR(55),
     vocabulary_id VARCHAR(255),
     concept_class_id VARCHAR(255),
-    standard_concept VARCHAR(255),
-    concept_code VARCHAR(255),
+    standard_concept VARCHAR(55),
+    concept_code VARCHAR(55),
     valid_start_date VARCHAR(255),
     valid_end_date VARCHAR(255),
-    invalid_reason VARCHAR(255)
+    invalid_reason VARCHAR(100)
 )
 ```
 
