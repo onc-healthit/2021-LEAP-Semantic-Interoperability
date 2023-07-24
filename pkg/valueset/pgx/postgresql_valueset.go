@@ -101,7 +101,9 @@ func (db *Database) close() error {
 	return db.DB.Close()
 }
 
-var runQuery = func(db *sql.DB, q string, args ...interface{}) (*sql.Rows, error) { return db.Query(q, args...) }
+var runQuery = func(db *sql.DB, q string, args ...any) (*sql.Rows, error) {
+	return db.Query(q, args...)
+}
 
 func (db *Database) getResults(ctx context.Context, queryParams map[string]string, tableID string) (map[string]string, error) {
 	db.DB = db.getConnection()
@@ -111,42 +113,44 @@ func (db *Database) getResults(ctx context.Context, queryParams map[string]strin
 			continue
 		}
 		for _, query := range vs.Queries {
-			for key, qPval := range queryParams {
-				rows, err := runQuery(db.DB, query.Query, pgx.NamedArgs{key: qPval})
-				if err != nil {
+			queryArgs := pgx.NamedArgs{}
+			for key, qPVal := range queryParams {
+				queryArgs[key] = qPVal
+			}
+			rows, err := runQuery(db.DB, query.Query, queryArgs)
+			if err != nil {
+				return nil, err
+			}
+			cols, err := rows.Columns()
+			if err != nil {
+				return nil, err
+			}
+			for rows.Next() {
+				columns := make([]interface{}, len(cols))
+				columnPointers := make([]interface{}, len(cols))
+				for i := range columns {
+					columnPointers[i] = &columns[i]
+				}
+				// Scan the result into the column pointers...
+				if err := rows.Scan(columnPointers...); err != nil {
 					return nil, err
 				}
-				cols, err := rows.Columns()
-				if err != nil {
-					return nil, err
+				if rows.Next() {
+					return nil, valueset.ErrMultipleValues(valueset.ErrMultipleValues{
+						TableId: tableID,
+						Query:   map[string]string{"query": query.Query},
+					})
 				}
-				for rows.Next() {
-					columns := make([]interface{}, len(cols))
-					columnPointers := make([]interface{}, len(cols))
-					for i := range columns {
-						columnPointers[i] = &columns[i]
+				// dereference values
+				for i, colName := range cols {
+					val := columnPointers[i].(*interface{})
+					v := *val
+					if v != nil {
+						ret[colName] = fmt.Sprint(v)
 					}
-					// Scan the result into the column pointers...
-					if err := rows.Scan(columnPointers...); err != nil {
-						return nil, err
-					}
-					if rows.Next() {
-						return nil, valueset.ErrMultipleValues(valueset.ErrMultipleValues{
-							TableId: tableID,
-							Query:   map[string]string{"query": query.Query},
-						})
-					}
-					// dereference values
-					for i, colName := range cols {
-						val := columnPointers[i].(*interface{})
-						v := *val
-						if v != nil {
-							ret[colName] = fmt.Sprint(v)
-						}
-					}
-					// Outputs: map[columnName:value columnName2:value2 columnName3:value3 ...]
-					return ret, nil
 				}
+				// Outputs: map[columnName:value columnName2:value2 columnName3:value3 ...]
+				return ret, nil
 			}
 		}
 	}

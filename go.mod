@@ -4,9 +4,9 @@ go 1.19
 
 require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0
-	github.com/cloudprivacylabs/lpg/v2 v2.0.0
-	github.com/cloudprivacylabs/lsa v1.0.0-beta22.0.20230404220951-1736e96f8374
-	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20230406163955-1e05fed539bf
+	github.com/cloudprivacylabs/lpg/v2 v2.0.1
+	github.com/cloudprivacylabs/lsa v1.0.0
+	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20230718202204-07d62a4ac06c
 	github.com/cloudprivacylabs/opencypher v1.0.0-beta-15
 	github.com/drone/envsubst v1.0.3
 	github.com/hashicorp/go-metrics v0.4.2-0.20221220172610-8cabd9eab1be
@@ -71,17 +71,17 @@ require (
 	github.com/piprate/json-gold v0.4.0 // indirect
 	github.com/pquerna/cachecontrol v0.0.0-20180517163645-1555304b9b35 // indirect
 	github.com/richardlehane/mscfb v1.0.4 // indirect
-	github.com/richardlehane/msoleps v1.0.1 // indirect
+	github.com/richardlehane/msoleps v1.0.3 // indirect
 	github.com/spf13/pflag v1.0.5 // indirect
 	github.com/tkuchiki/go-timezone v0.2.0 // indirect
-	github.com/xuri/efp v0.0.0-20220407160117-ad0f7a785be8 // indirect
-	github.com/xuri/excelize/v2 v2.6.0 // indirect
+	github.com/xuri/efp v0.0.0-20220603152613-6918739fd470 // indirect
+	github.com/xuri/excelize/v2 v2.7.1 // indirect
 	github.com/xuri/nfp v0.0.0-20220409054826-5e722a1d9e22 // indirect
 	go.opencensus.io v0.22.3 // indirect
-	golang.org/x/crypto v0.0.0-20220919173607-35f4265a4bc0 // indirect
-	golang.org/x/net v0.0.0-20220407224826-aac1ed45d8e3 // indirect
-	golang.org/x/sys v0.0.0-20220722155257-8c9f86f7a55f // indirect
-	golang.org/x/text v0.3.8 // indirect
+	golang.org/x/crypto v0.8.0 // indirect
+	golang.org/x/net v0.9.0 // indirect
+	golang.org/x/sys v0.7.0 // indirect
+	golang.org/x/text v0.9.0 // indirect
 	google.golang.org/genproto v0.0.0-20201110150050-8816d57aaa9a // indirect
 	google.golang.org/grpc v1.33.2 // indirect
 	google.golang.org/protobuf v1.27.1 // indirect

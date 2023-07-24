@@ -108,6 +108,7 @@ var (
 				fmt.Fprintln(os.Stderr, data)
 			}
 			inm := metrics.NewInmemSink(time.Second, time.Hour)
+			metrics.DefaultInmemSignal(inm)
 			metrics.NewGlobal(&metrics.Config{}, inm)
 			err = pipeline.Run(pctx)
 			if err != nil {

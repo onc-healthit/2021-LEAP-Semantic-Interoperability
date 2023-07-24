@@ -119,10 +119,25 @@ type MergeGraphStep struct {
 	Neo4jStep     `yaml:",inline"`
 	cachedDBGraph map[string]*neo.DBGraph
 
+	tx        neo4j.ExplicitTransaction
+	txCounter int
+
 	mu sync.Mutex
 }
 
 func (MergeGraphStep) Name() string { return "neo4j/merge" }
+
+func (s *MergeGraphStep) Flush(ctx *pipeline.PipelineContext) error {
+	if s.tx != nil {
+		s.txCounter = 0
+		err := s.tx.Commit(ctx.Context)
+		s.tx = nil
+		if err != nil {
+			return err
+		}
+	}
+	return nil
+}
 
 func (s *MergeGraphStep) getIDToCache(g *lpg.Graph) string {
 	if len(s.CacheByID) == 0 {
@@ -200,6 +215,33 @@ func (s *MergeGraphStep) createNodesEdges(ctx *ls.Context, tx neo4j.ExplicitTran
 	return nil
 }
 
+func (s *MergeGraphStep) getTx(pctx *pipeline.PipelineContext) (neo4j.ExplicitTransaction, error) {
+	var err error
+	if s.tx == nil {
+		s.tx, err = s.session.BeginTransaction(pctx.Context)
+		s.txCounter = 0
+		return s.tx, err
+	}
+	if s.txCounter > s.BatchSize {
+		s.txCounter = 0
+		err = s.tx.Commit(pctx.Context)
+		if err != nil {
+			return nil, err
+		}
+		s.tx, err = s.session.BeginTransaction(pctx.Context)
+		return s.tx, err
+	}
+	return s.tx, nil
+}
+
+func (s *MergeGraphStep) rollback(pctx *pipeline.PipelineContext) {
+	if s.tx != nil {
+		s.tx.Rollback(pctx.Context)
+		s.tx = nil
+		s.txCounter = 0
+	}
+}
+
 func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 	if s.session == nil {
 		s.session = s.getSession()
@@ -230,6 +272,7 @@ func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 				return nil, nil, err
 			}
 		}
+
 		pctx.Context.GetLogger().Debug(map[string]interface{}{"Loaded db graph with nodes": dbGraph.G.GetNodes().MaxSize()})
 		delta, err := neo.Merge(graph, dbGraph, s.cfg)
 		if err != nil {
@@ -246,16 +289,12 @@ func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 		if err := neo.LinkMergedEntities(pctx.Context, tx, s.cfg, delta, dbGraph.NodeIds); err != nil {
 			return err
 		}
-		start := time.Now()
-		if err := tx.Commit(pctx.Context); err != nil {
-			pctx.ErrorLogger(pctx, err)
-			return err
-		}
-		metrics.MeasureSince([]string{"neo4j.merge.Commit"}, start)
+		s.txCounter += len(delta)
 
 		return nil
 	}
-	transaction, err := s.session.BeginTransaction(pctx.Context)
+
+	transaction, err := s.getTx(pctx)
 	if err != nil {
 		pctx.ErrorLogger(pctx, err)
 		return err
@@ -263,17 +302,19 @@ func (s *MergeGraphStep) Run(pctx *pipeline.PipelineContext) error {
 
 	compactGraph, err := neo.Compact(pctx.Graph)
 	if err != nil {
+		s.rollback(pctx)
 		return err
 	}
 
 	dbGraph, delta, err := merge(transaction, compactGraph, false) // Caching is broken
 	if err != nil {
+		s.rollback(pctx)
 		pctx.ErrorLogger(pctx, err)
 		return err
 	}
 	if err := doTx(transaction, delta, dbGraph, true); err != nil {
 		s.cachedDBGraph = make(map[string]*neo.DBGraph)
-		transaction.Rollback(pctx.Context)
+		s.rollback(pctx)
 		pctx.ErrorLogger(pctx, err)
 		return err
 	}
@@ -294,6 +335,10 @@ type LoadGraphStep struct {
 }
 
 func (LoadGraphStep) Name() string { return "neo4j/load" }
+
+func (s *LoadGraphStep) Flush(pctx *pipeline.PipelineContext) error {
+	return pctx.FlushNext()
+}
 
 func (s *LoadGraphStep) Run(pctx *pipeline.PipelineContext) error {
 	if s.session == nil {
@@ -365,6 +410,8 @@ type RunStatementStep struct {
 
 func (s *RunStatementStep) Name() string { return "neo4j/run" }
 
+func (RunStatementStep) Flush(*pipeline.PipelineContext) error { return nil }
+
 func (s *RunStatementStep) runStatements(ctx context.Context, env map[string]string) error {
 	transaction, err := s.session.BeginTransaction(ctx)
 	if err != nil {
@@ -374,7 +421,6 @@ func (s *RunStatementStep) runStatements(ctx context.Context, env map[string]str
 		stmt := os.Expand(stmt, func(k string) string {
 			return env[k]
 		})
-		fmt.Println(stmt)
 		if _, err := transaction.Run(ctx, stmt, map[string]any{}); err != nil {
 			transaction.Rollback(ctx)
 			return fmt.Errorf("Statement: %s, data: %v, error: %w", stmt, env, err)
@@ -436,7 +482,13 @@ func (s *RunStatementStep) Run(pctx *pipeline.PipelineContext) error {
 
 func init() {
 	//	pipeline.RegisterPipelineStep("neo4j/save", func() pipeline.Step { return &SaveGraphStep{} })
-	pipeline.RegisterPipelineStep("neo4j/merge", func() pipeline.Step { return &MergeGraphStep{} })
+	pipeline.RegisterPipelineStep("neo4j/merge", func() pipeline.Step {
+		return &MergeGraphStep{
+			Neo4jStep: Neo4jStep{
+				BatchSize: 5000,
+			},
+		}
+	})
 	pipeline.RegisterPipelineStep("neo4j/load", func() pipeline.Step { return &LoadGraphStep{} })
 	pipeline.RegisterPipelineStep("neo4j/run", func() pipeline.Step { return &RunStatementStep{} })
 }

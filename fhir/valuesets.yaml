@@ -6,7 +6,7 @@ databases:
         valuesets:
           - tableId: omop
             queries:
-              - query: "select concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,concept_code from concepts where vocabulary_id=@vocabulary_id and concept_code=@code and valid_end_date='20991231';"
+              - query: "select concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,concept_code from vocabulary.concept where vocabulary_id=@vocabulary_id and concept_code=@code and valid_end_date='20991231';"
 valuesets:
   - id: codeSystemNames
     description: Code system urn to name mappings
