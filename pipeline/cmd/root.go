@@ -28,7 +28,7 @@ import (
 	"github.com/joho/godotenv"
 	"github.com/spf13/cobra"
 
-	"github.com/cloudprivacylabs/leap/pkg/input"
+	"cloudprivacylabs/leap/pkg/input"
 	pipeline "github.com/cloudprivacylabs/lsa/layers/cmd/pipeline"
 	"github.com/cloudprivacylabs/lsa/pkg/ls"
 )

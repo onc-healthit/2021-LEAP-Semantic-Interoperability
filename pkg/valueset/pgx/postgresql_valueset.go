@@ -6,7 +6,7 @@ import (
 	"fmt"
 	"sync"
 
-	"github.com/cloudprivacylabs/leap/pkg/utils"
+	"cloudprivacylabs/leap/pkg/utils"
 	"github.com/cloudprivacylabs/lsa/layers/cmd/valueset"
 	"github.com/jackc/pgx/v5"
 	_ "github.com/jackc/pgx/v5/stdlib"

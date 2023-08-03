@@ -1,4 +1,4 @@
-module github.com/cloudprivacylabs/leap
+module cloudprivacylabs/leap
 
 go 1.19
 

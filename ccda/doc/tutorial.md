@@ -37,7 +37,8 @@ In this picture, the details list for the drug Promedrol are composed of the row
 
 In PostgreSQL, we must create a table with columns that match the rows of our concepts.
 ```
-CREATE TABLE concepts (
+CREATE SCHEMA vocabulary;
+CREATE TABLE vocabulary.concept (
     concept_id VARCHAR(55) UNIQUE,
     concept_name VARCHAR(255),    
     domain_id VARCHAR(55),
@@ -53,7 +54,7 @@ CREATE TABLE concepts (
 
 To import your concepts CSV file into the `concepts` table, you use the `COPY` statement as follows:
 ```
-COPY persons(first_name, last_name, dob, email)
+COPY vocabulary.concept(concept_id,concept_name,domain_id,vocabulary_id,concept_class_id,standard_concept,concept_code,valid_start_date,valid_end_date,invalid_readon)
 FROM 'relative/path/concepts.csv'
 DELIMITER ','
 CSV HEADER;

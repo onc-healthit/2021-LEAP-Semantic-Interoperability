@@ -39,14 +39,14 @@
     tables:
       - omop
     
-- operation: writeGraph
-# - operation: neo4j/merge
-#   params:
-#     db: ${neo4j_db}
-#     batchSize: 100
-#     user: ${user}
-#     pwd: ${pwd}
-#     uri: ${uri}
-#     cfg: lsaneo.config.yaml
-#     cacheBy: https://dartnet.info/graphModel/Person
+#- operation: writeGraph
+- operation: neo4j/merge
+  params:
+    db: ${neo4j_db}
+    batchSize: 100
+    user: ${user}
+    pwd: ${pwd}
+    uri: ${uri}
+    cfg: lsaneo.config.yaml
+    cacheBy: https://dartnet.info/graphModel/Person
   

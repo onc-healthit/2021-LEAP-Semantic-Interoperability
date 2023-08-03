@@ -30,8 +30,6 @@
             
             "https://dartnet.info/graphModel/Observation/source": {
                 "@type": ["Object","Code"],
-                "xnamespace":"https://dartnet.info/graphModel/Observation",
-                "xinclude": "https://dartnet.info/graphModel/sourceValue",
                 "attributes": {
                     "https://dartnet.info/graphModel/Observation/source/code": {
                         "@type": "Value",
