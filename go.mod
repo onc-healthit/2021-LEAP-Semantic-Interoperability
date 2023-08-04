@@ -6,7 +6,7 @@ require (
 	github.com/DATA-DOG/go-sqlmock v1.5.0
 	github.com/cloudprivacylabs/lpg/v2 v2.0.1
 	github.com/cloudprivacylabs/lsa v1.0.0
-	github.com/cloudprivacylabs/lsa-neo4j v0.0.0-20230718202204-07d62a4ac06c
+	github.com/cloudprivacylabs/lsa-neo4j v1.0.0
 	github.com/cloudprivacylabs/opencypher v1.0.0-beta-15
 	github.com/drone/envsubst v1.0.3
 	github.com/hashicorp/go-metrics v0.4.2-0.20221220172610-8cabd9eab1be
