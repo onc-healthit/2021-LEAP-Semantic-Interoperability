@@ -1,5 +1,5 @@
 {
-    "@context": "https://lschema.org/ls.json",
+    "@context": "https://lschema.org/v1/ls.json",
     "@type": "Overlay",
     "@id":"https://hl7.org/ccda/v3/Procedure/Act/ovl",
     "valueType": "Act",

@@ -1,6 +1,6 @@
 {
     "@context":  [
-        "https://lschema.org/ls.json",
+        "https://lschema.org/v1/ls.json",
         {
             "di": "https://dartnet.info/",
             "gm": "di:graphModel/"

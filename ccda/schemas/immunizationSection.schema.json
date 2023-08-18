@@ -1,5 +1,5 @@
 {
-    "@context": "https://lschema.org/ls.json",
+    "@context": "https://lschema.org/v1/ls.json",
     "@type": "Schema",
     "@id":"https://hl7.org/ccda/v3/ImmunizationSection/schema",
     "valueType": "ImmunizationSection",
